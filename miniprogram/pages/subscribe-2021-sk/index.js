@@ -16,7 +16,7 @@ Page({
 
   // register 注册
   register: function (e) {
-    getApp().methods.register(e, this.data.Suffix, "58804c5dd99cd58e5c3644b541270ae6", "[ 公告订阅 ] 2021省考", phone => {
+    getApp().methods.register(e, this.data.suffix, "58804c5dd99cd58e5c3644b541270ae6", "[ 公告订阅 ] 2021省考", phone => {
       this.setData({ phone })
       wx.showModal({ title: '提示', content: '注册成功，请您点击“订阅”按钮完成订阅～', showCancel: false, confirmText: "我知道啦" })
     })
