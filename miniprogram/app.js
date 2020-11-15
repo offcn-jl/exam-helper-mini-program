@@ -227,13 +227,13 @@ App({
       })
     },
     /**
-     * 订阅考试公告
+     * 订阅单项考试的考试公告
      * @param {*} suffix 个人后缀
      * @param {*} phone 手机号码
      * @param {*} subscribe 要订阅的考试项目
      * @param {*} tmplIds 订阅消息模板 ID
      */
-    subscribeExam(suffix, phone, subscribe, tmplIds) {
+    subscribeSingleExam(suffix, phone, subscribe, tmplIds = ["xw2ibPJOY1MUEDWW9mqZT-zP2ZnnLV4GJL2jFnBVXCw"]) {
       // 获取用户配置
       wx.getSetting({
         withSubscriptions: true,

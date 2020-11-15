@@ -24,7 +24,7 @@ Page({
 
   // subscribe 订阅
   subscribe() {
-    getApp().methods.subscribeExam(this.data.suffix, this.data.phone, "吉林公务员", ["xw2ibPJOY1MUEDWW9mqZT-zP2ZnnLV4GJL2jFnBVXCw"])
+    getApp().methods.subscribeSingleExam(this.data.suffix, this.data.phone, "吉林公务员")
   },
 
   /**
