@@ -6,9 +6,8 @@
 }
 
 .form {
-  height: 23vh;
   background: #d84440;
-  padding: 3vh 0;
+  padding: 3vh 0 15vh 0;
   box-shadow: 0 1px 5px #d84440;
 }
 

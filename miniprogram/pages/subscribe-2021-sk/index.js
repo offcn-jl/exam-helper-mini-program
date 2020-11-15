@@ -38,7 +38,10 @@ Page({
       })
     }
     
-    getApp().methods.login(phone => this.setData({ phone })) // 登陆
+    // 判断是否是单页模式
+    if (wx.getLaunchOptionsSync().scene !== 1154) {
+      getApp().methods.login(phone => this.setData({ phone })) // 登陆
+    }
   },
 
   /**

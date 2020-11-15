@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    singlePageMode: false, // 单页模式
     suffix: "", // 个人后缀
     background: "http://iph.href.lu/750x1700?text=加载中", // 背景图片
     buttonColor: "", // 按钮颜色
@@ -77,6 +78,13 @@ Page({
         getApp().methods.handleError({ err: err, title: "出错啦", content: '获取配置失败', reLaunch: true })
       }
     })
+
+    // 判断是否是单页模式
+    if (wx.getLaunchOptionsSync().scene === 1154) {
+      this.setData({
+        singlePageMode: true
+      })
+    }
   },
 
   /**

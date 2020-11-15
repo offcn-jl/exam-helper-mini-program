@@ -272,39 +272,41 @@ Page({
       })
     }
 
-    getApp().methods.login(phone => this.setData({ phone })) // 登陆
-
-    // 弹出 Loading
-    wx.showLoading({ title: '加载中...', mask: true })
-    // 判断是否存在订阅记录
-    wx.cloud.database().collection('subscribeExam').get().then(collectionGetRes => {
-      if (collectionGetRes.errMsg == 'collection.get:ok') {
-        wx.hideLoading() // 隐藏 loading
-        // 查询成功
-        if (collectionGetRes.data.length !== 0) {
-          // 存在预约记录
-          if (collectionGetRes.data[0].subscribe.length !== 0) {
-            let subscribedExams = []
-            this.data.exams.forEach(exam => {
-              for (let i = 0; i < collectionGetRes.data[0].subscribe.length; i++) {
-                if (exam === collectionGetRes.data[0].subscribe[i]) {
-                  subscribedExams.push(true)
-                  return
+    // 判断是否是单页模式
+    if (wx.getLaunchOptionsSync().scene !== 1154) {
+      getApp().methods.login(phone => this.setData({ phone })) // 登陆
+      // 弹出 Loading
+      wx.showLoading({ title: '加载中...', mask: true })
+      // 判断是否存在订阅记录
+      wx.cloud.database().collection('subscribeExam').get().then(collectionGetRes => {
+        if (collectionGetRes.errMsg == 'collection.get:ok') {
+          wx.hideLoading() // 隐藏 loading
+          // 查询成功
+          if (collectionGetRes.data.length !== 0) {
+            // 存在预约记录
+            if (collectionGetRes.data[0].subscribe.length !== 0) {
+              let subscribedExams = []
+              this.data.exams.forEach(exam => {
+                for (let i = 0; i < collectionGetRes.data[0].subscribe.length; i++) {
+                  if (exam === collectionGetRes.data[0].subscribe[i]) {
+                    subscribedExams.push(true)
+                    return
+                  }
                 }
-              }
-              subscribedExams.push(false)
-            })
-            this.setData({ subscribedExams, openID: collectionGetRes.data[0]._openid })
+                subscribedExams.push(false)
+              })
+              this.setData({ subscribedExams, openID: collectionGetRes.data[0]._openid })
+            }
           }
+        } else {
+          wx.hideLoading() // 隐藏 loading
+          getApp().methods.handleError({ err: collectionGetRes, title: "出错啦", content: collectionGetRes.errMsg })
         }
-      } else {
+      }).catch(err => {
         wx.hideLoading() // 隐藏 loading
-        getApp().methods.handleError({ err: collectionGetRes, title: "出错啦", content: collectionGetRes.errMsg })
-      }
-    }).catch(err => {
-      wx.hideLoading() // 隐藏 loading
-      getApp().methods.handleError({ err: err, title: "出错啦", content: "查询订阅记录失败" })
-    })
+        getApp().methods.handleError({ err: err, title: "出错啦", content: "查询订阅记录失败" })
+      })
+    }
   },
 
   /**
