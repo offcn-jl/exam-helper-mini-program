@@ -34,13 +34,13 @@ Component({
     let that = this
     wx.getSystemInfo({
       success(res) {
-        let totalTopHeight = 68
+        let totalTopHeight = 70
         if (res.model.indexOf('iPhone X') !== -1) {
           totalTopHeight = 98
         } else if (res.model.indexOf('iPhone 11') !== -1) {
           totalTopHeight = 98
         } else if (res.model.indexOf('iPhone') !== -1) {
-          totalTopHeight = 68
+          totalTopHeight = 70
         }
         that.setData({
           statusBarHeight: res.statusBarHeight,
