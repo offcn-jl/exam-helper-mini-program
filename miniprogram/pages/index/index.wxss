@@ -1,0 +1,50 @@
+/* pages/index/index.wxss */
+
+.header {
+  width: 100vw;
+  display: block;
+}
+
+.form {
+  background: #FFF;
+  padding-bottom: 1.5vh;
+  box-shadow: 0 1px 5px #fff;
+}
+
+.form-title {
+  padding-left: 3vw;
+  font-size: 150%;
+}
+
+.form-checkbox-group {
+  width: 90vw;
+  margin: 0 auto;
+  font-size: 145%;
+}
+
+.form-checkbox-group label {
+  display: inline-block;
+  margin: .5vh 0 .5vh 3vw;
+}
+
+.tips {
+  color: gray;
+  width: 95vw;
+  text-indent: 2rem;
+  margin: 3vh 0 0 2.5vw;
+}
+
+.register-tips {
+  color: gray;
+  text-align: center;
+}
+
+.subscribe {
+  width: 90vw !important;
+  margin-top: 2vh;
+}
+
+.unsubscribe {
+  width: 90vw !important;
+  margin: 2vh auto 0;
+}

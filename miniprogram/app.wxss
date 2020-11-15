@@ -1,0 +1,12 @@
+/**app.wxss**/
+page {
+  position: relative;
+  background: gray;
+}
+
+.suffix {
+  margin: 1vh auto;
+  color: aliceblue;
+  text-align: center;
+  font-size: 120%;
+}

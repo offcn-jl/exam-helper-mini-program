@@ -1,0 +1,15 @@
+<!--pages/index/index.wxml-->
+<navigation id='navigation' title="2021省考公告订阅" hideIcon="{{true}}"></navigation>
+
+<image class="header" mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/subscribe/2021/sk/header.1114.jpg"></image>
+
+<view class="form">
+	<view class="tips">您订阅的考试公告发布后，中公考试助手将免费通过微信“服务通知”功能为您推送公告提醒。</view>
+  <button wx:if="{{!phone}}" type="primary" class="subscribe" open-type="getPhoneNumber" bindgetphonenumber="register">注 册</button>
+	<view wx:if="{{!phone}}" class="register-tips">请您先注册后再进行订阅操作</view>
+	<button disabled="{{!phone}}" type="primary" class="subscribe" bindtap="subscribe">订 阅</button>
+</view>
+
+<view class="suffix">{{suffix}}</view>
+
+<navigator url="/pages/index/index?scene={{suffix}}" class="unsubscribe" hover-class="unsubscribe-hover">不想继续订阅公告推送？点击退订！</navigator>
