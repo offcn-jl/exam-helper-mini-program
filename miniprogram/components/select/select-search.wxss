@@ -1,0 +1,48 @@
+@import "select.wxss";
+
+.my_scroll {
+  padding-top: 120rpx;
+}
+
+.search_wrap {
+  height: 80rpx;
+  width: 660rpx;
+  border: 1px solid #e2e3e5;
+  border-radius: 40rpx;
+  position: absolute;
+  left: 50%;
+  margin-left: -330rpx;
+  top: 80rpx;
+  background: #fff;
+  line-height: 80rpx;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.search_wrap .icon-search {
+  font-size: 30rpx;
+  display: inline-block;
+  padding: 0 20rpx 0 30rpx;
+}
+
+.search_wrap input {
+  display: inline-block;
+  width: 500rpx;
+  line-height: 80rpx;
+  border: none;
+  outline: none;
+  color: #333;
+  height: 80rpx;
+  font-size: 32rpx;
+}
+
+.bounceInUp {
+  -webkit-animation-name: bounceInUp;
+  animation-name: bounceInUp;
+}
+
+.select_item.active {
+  color: #d32002;
+}
