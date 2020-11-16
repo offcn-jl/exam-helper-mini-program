@@ -233,7 +233,7 @@ App({
      * @param {*} subscribe 要订阅的考试项目
      * @param {*} tmplIds 订阅消息模板 ID
      */
-    subscribeSingleExam(suffix, phone, subscribe, tmplIds = ["xw2ibPJOY1MUEDWW9mqZT-zP2ZnnLV4GJL2jFnBVXCw"]) {
+    subscribeSingleExam(suffix, phone, subscribe, tmplIds = ["xw2ibPJOY1MUEDWW9mqZT-zP2ZnnLV4GJL2jFnBVXCw"], callback) {
       // 获取用户配置
       wx.getSetting({
         withSubscriptions: true,
@@ -351,6 +351,9 @@ App({
                 }).then(collectionAddRes => {
                   if (collectionAddRes.errMsg == 'collection.add:ok') {
                     wx.showToast({ title: '订阅成功', icon: 'success' })
+                    if ( typeof callback === "function" ) {
+                      callback()
+                    }
                   } else {
                     wx.hideLoading() // 隐藏 loading
                     getApp().methods.handleError({ err: collectionAddRes, title: "出错啦", content: collectionAddRes.errMsg })
@@ -364,6 +367,9 @@ App({
                 if (collectionGetRes.data[0].suffix === suffix && collectionGetRes.data[0].phone === phone && collectionGetRes.data[0].subscribe.sort().toString() === new Array(subscribe).sort().toString() && collectionGetRes.data[0].tmplIds.sort().toString() === tmplIds.sort().toString()) {
                   // 预约记录一致, 无需更新
                   wx.showToast({ title: '订阅成功', icon: 'success' })
+                  if ( typeof callback === "function" ) {
+                    callback()
+                  }
                 } else {
                   // 预约记录不一致
                   // 判断预约记录中是否有目标记录
@@ -386,6 +392,9 @@ App({
                   }).then(collectionUpdateRes => {
                     if (collectionUpdateRes.errMsg == 'collection.update:ok') {
                       wx.showToast({ title: '订阅成功', icon: 'success' })
+                      if ( typeof callback === "function" ) {
+                        callback()
+                      }
                     } else {
                       wx.hideLoading() // 隐藏 loading
                       getApp().methods.handleError({ err: collectionUpdateRes, title: "出错啦", content: collectionUpdateRes.errMsg })
