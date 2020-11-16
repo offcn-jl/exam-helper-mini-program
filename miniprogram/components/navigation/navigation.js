@@ -4,56 +4,51 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    // 是否显示
-    hide: Boolean,
     // 小程序页面的标题
-    title: String,
+    title: { type: String, value: '中公考试助手' },
     // 是否展示返回和主页按钮
     hideIcon: Boolean,
     // 标题颜色
-    wordColor: {
-      type: String,
-      value: '#000'
-    },
+    wordColor: { type: String, value: '#000' },
     // 背景颜色
-    bgColor: {
-      type: String,
-      value: '#fff'
-    },
+    bgColor: { type: String, value: '#fff' },
   },
 
   /**
    * 组件的初始数据
    */
   data: {
+    hide: false,
     statusBarHeight: 0,
     titleBarHeight: 0,
   },
-
-  ready() {
-    let that = this
-    wx.getSystemInfo({
-      success(res) {
-        let totalTopHeight = 70
-        if (res.model.indexOf('iPhone X') !== -1) {
-          totalTopHeight = 98
-        } else if (res.model.indexOf('iPhone 11') !== -1) {
-          totalTopHeight = 98
-        } else if (res.model.indexOf('iPhone') !== -1) {
-          totalTopHeight = 70
+  
+  lifetimes: {
+    ready() {
+      let that = this
+      wx.getSystemInfo({
+        success(res) {
+          let totalTopHeight = 70
+          if (res.model.indexOf('iPhone X') !== -1) {
+            totalTopHeight = 98
+          } else if (res.model.indexOf('iPhone 11') !== -1) {
+            totalTopHeight = 98
+          } else if (res.model.indexOf('iPhone') !== -1) {
+            totalTopHeight = 70
+          }
+          that.setData({
+            statusBarHeight: res.statusBarHeight,
+            titleBarHeight: totalTopHeight - res.statusBarHeight
+          });
+        },
+        failure() {
+          that.setData({
+            statusBarHeight: 0,
+            titleBarHeight: 0
+          });
         }
-        that.setData({
-          statusBarHeight: res.statusBarHeight,
-          titleBarHeight: totalTopHeight - res.statusBarHeight
-        });
-      },
-      failure() {
-        that.setData({
-          statusBarHeight: 0,
-          titleBarHeight: 0
-        });
-      }
-    })
+      })
+    },
   },
 
 
@@ -62,7 +57,7 @@ Component({
    */
   methods: {
     headerBack() {
-      if(getCurrentPages().length>1){
+      if (getCurrentPages().length > 1) {
         wx.navigateBack({
           delta: 1,
           fail(e) {
@@ -71,7 +66,7 @@ Component({
             })
           }
         })
-      }else{
+      } else {
         wx.reLaunch({
           url: '/pages/index/index'
         })

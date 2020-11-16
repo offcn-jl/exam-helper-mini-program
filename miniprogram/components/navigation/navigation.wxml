@@ -1,5 +1,5 @@
 <!--components/navigation.wxml-->
-<view wx:if="{{hide}}" style="height:{{titleBarHeight}}px;padding-top:{{statusBarHeight}}px;">
+<view wx:if="{{hide}}">
 	<view class="header" style="height:{{titleBarHeight}}px;padding-top:{{statusBarHeight}}px;background:{{bgColor}};">
 		<view wx:if="{{!hideIcon}}" class="title-bar" style="border:1px solid {{wordColor}}">
 			<view class="back" bindtap="headerBack">
@@ -10,6 +10,6 @@
 				<text class="iconfont icon-home  icon_title" style="color:{{wordColor}}"></text>
 			</view>
 		</view>
-		<view wx:if="{{title}}" class="header-title" style="color:{{wordColor}}">{{title}}</view>
+		<view class="header-title" style="color:{{wordColor}}">{{title}}</view>
 	</view>
 </view>
