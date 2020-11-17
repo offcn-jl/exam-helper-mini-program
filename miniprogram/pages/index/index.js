@@ -295,7 +295,7 @@ Page({
                 }
                 subscribedExams.push(false)
               })
-              this.setData({ subscribedExams, openID: collectionGetRes.data[0]._openid })
+              this.setData({ subscribedExams, checkedExams: collectionGetRes.data[0].subscribe, openID: collectionGetRes.data[0]._openid })
             }
           }
         } else {
