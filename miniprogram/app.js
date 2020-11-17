@@ -233,7 +233,7 @@ App({
      * @param {*} subscribe 要订阅的考试项目
      * @param {*} tmplIds 订阅消息模板 ID
      */
-    subscribeSingleExam(suffix, phone, subscribe, tmplIds = ["xw2ibPJOY1MUEDWW9mqZT-zP2ZnnLV4GJL2jFnBVXCw"], callback) {
+    subscribeSingleExam(suffix, phone, subscribe, tmplIds = ["r6jJofVAClt9WWoh9XL42bf5z2t7FVUX6DNZvmKuSNY"], callback) {
       // 获取用户配置
       wx.getSetting({
         withSubscriptions: true,

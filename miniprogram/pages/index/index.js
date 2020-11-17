@@ -1,7 +1,7 @@
 // pages/index/index.js
 
 // tmplIds 订阅消息模板 ID 列表
-const tmplIds = ["xw2ibPJOY1MUEDWW9mqZT-zP2ZnnLV4GJL2jFnBVXCw"]
+const tmplIds = ["r6jJofVAClt9WWoh9XL42bf5z2t7FVUX6DNZvmKuSNY"]
 
 Page({
   /**

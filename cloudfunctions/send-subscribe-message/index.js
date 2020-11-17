@@ -36,7 +36,7 @@ exports.main = async () => {
           try {
             if (订阅记录.suffix) { 小程序页面路径 += "*" + 订阅记录.suffix }
             const result = await 云开发.openapi.subscribeMessage.send({
-              templateId: "xw2ibPJOY1MUEDWW9mqZT-zP2ZnnLV4GJL2jFnBVXCw",
+              templateId: "r6jJofVAClt9WWoh9XL42bf5z2t7FVUX6DNZvmKuSNY",
               touser: 订阅记录._openid,
               page: 小程序页面路径,
               data: { thing1: { value: 考试名称 }, thing2: { value: 招聘人数 }, time3: { value: 报名时间 }, time4: { value: 考试时间 }, thing5: { value: 备注 } }
