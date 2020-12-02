@@ -1,7 +1,9 @@
 {
   "pages": [
     "pages/index/index",
-    
+
+    "pages/position-2020-jr/index",
+    "pages/position-2020-jr/result/index",
     "pages/position-2020-tgjs/index",
     "pages/position-2020-tgjs/result/index",
     "pages/subscribe-2021-sk/index",
