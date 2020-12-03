@@ -44,7 +44,7 @@ Page({
 
   // 登陆
   buttonStart: function (e) {
-    getApp().methods.register(e, this.data.suffix, "", "", phone => {
+    getApp().methods.register(e, this.data.suffix, this.data.CRMEFSID, this.data.CRMRemark, phone => {
       this.setData({ phone })
       wx.showModal({ title: '提示', content: '注册成功，请您点击“点击查询”按钮进行查询～', showCancel: false, confirmText: "我知道啦" })
     })
