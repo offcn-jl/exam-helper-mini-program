@@ -8,6 +8,9 @@ Page({
    * 页面的初始数据
    */
   data: {
+    CRMEFSID: "", // CRM 活动表单 ID
+    CRMRemark: "", // CRM 注释
+
     suffix: "", // 后缀
     exams: [
       "国家公务员",
@@ -274,7 +277,7 @@ Page({
 
     // 判断是否是单页模式
     if (wx.getLaunchOptionsSync().scene !== 1154) {
-      getApp().methods.login(phone => this.setData({ phone })) // 登陆
+      getApp().methods.login(this.data.CRMEFSID, this.data.suffix, this.data.CRMRemark, phone => this.setData({ phone })) // 登陆
       // 弹出 Loading
       wx.showLoading({ title: '加载中...', mask: true })
       // 判断是否存在订阅记录

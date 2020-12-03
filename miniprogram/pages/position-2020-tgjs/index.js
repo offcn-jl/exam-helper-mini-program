@@ -1,9 +1,10 @@
-// todo 修改搜索选择插件，修改为搜索名称可以选择、数据列表可以选择的类型
-
 // pages/search/search.js
 
 Page({
   data: {
+    CRMEFSID: "fbbe14b6de58098447a1253a696c1044", // CRM 活动表单 ID
+    CRMRemark: "活动编码:HD202011150569,活动表单ID:62475", // CRM 注释
+
     yearList: ["不限", "2020年", "2019年", "2018年", "2017年", "2016年"],
     addressList: ["不限", "长春", "吉林", "通化", "延吉", "白山", "白城", "四平", "辽源", "松原"],
     levelList: ["不限", "小学", "初中"],
@@ -43,7 +44,7 @@ Page({
 
   // 登陆
   buttonStart: function (e) {
-    getApp().methods.register(e, this.data.suffix, "fbbe14b6de58098447a1253a696c1044", "活动编码:HD202011150569,活动表单ID:62475", phone => {
+    getApp().methods.register(e, this.data.suffix, "", "", phone => {
       this.setData({ phone })
       wx.showModal({ title: '提示', content: '注册成功，请您点击“点击查询”按钮进行查询～', showCancel: false, confirmText: "我知道啦" })
     })
@@ -96,7 +97,7 @@ Page({
 
     // 判断是否是单页模式 toto 这里要结合登陆使用
     if (wx.getLaunchOptionsSync().scene !== 1154) {
-      getApp().methods.login(phone => this.setData({ phone })) // 登陆
+      getApp().methods.login(this.data.CRMEFSID, this.data.suffix, this.data.CRMRemark, phone => this.setData({ phone })) // 登陆
     }
   },
 

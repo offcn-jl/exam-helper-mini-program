@@ -201,18 +201,43 @@ App({
      * 登陆成功后会执行回调
      * @param {*} callback 
      */
-    login(callback) {
+    login(CRMEFSID, suffix, remark, callback) {
       // 查询注册状态
       // 弹出 Loading
       wx.showLoading({ title: '登陆中...', mask: true })
       // 查询注册时间为近30天的数据，仅查询手机号码
-      wx.cloud.database().collection('user').field({ phone: true }).where({ createdTime: wx.cloud.database().command.gte(new Date((new Date()).getTime() - 30 * 24 * 60 * 60 * 1000)) }).get({
+      wx.cloud.database().collection('user').field({ phone: true, CRMEFSID: true }).where({ createdTime: wx.cloud.database().command.gte(new Date((new Date()).getTime() - 30 * 24 * 60 * 60 * 1000)) }).get({
         success: res => {
           // 判断是否查询成功
           if (res.errMsg === "collection.get:ok") {
             // 判断是否存在数据
             if (res.data.length > 0) {
-              callback(res.data[0].phone)
+              // 存在数据
+              // 判断是否推送过数据
+              if (CRMEFSID !== "" && res.data[0].CRMEFSID !== CRMEFSID) {
+                // 与注册日志中的记录不符，视为未推送, 进行推送操作
+                wx.request({
+                  url: 'https://scf.tencent.jilinoffcn.com/release/sso/v2/crm/push', //仅为示例，并非真实的接口地址
+                  method: "POST",
+                  data: { CRMSID: CRMEFSID, Suffix: suffix, Phone: res.data[0].phone, Remark: remark },
+                  success(pushRes) {
+                    if (pushRes.data.Code !== 0) {
+                      // 推送失败
+                      // 将返回的报错输出到错误提示
+                      getApp().methods.handleError({ err: pushRes, title: "出错啦", content: '[ ' + pushRes.data.Code + '] ' + pushRes.data.Error })
+                    } else {
+                      // 推送成功
+                      // 调用回调函数, 返回已经注册用户的手机号码
+                      callback(res.data[0].phone)
+                    }
+                  },
+                  fail: err => getApp().methods.handleError({ err, title: "出错啦", content: '推送登陆状态失败' })
+                })
+              } else {
+                // 与注册日志中的记录一致，可以认为已经推送过数据，跳过推送操作
+                // 调用回调函数, 返回已经注册用户的手机号码
+                callback(res.data[0].phone)
+              }
             }
             wx.hideLoading() // 隐藏 loading
           } else {
@@ -351,7 +376,7 @@ App({
                 }).then(collectionAddRes => {
                   if (collectionAddRes.errMsg == 'collection.add:ok') {
                     wx.showToast({ title: '订阅成功', icon: 'success' })
-                    if ( typeof callback === "function" ) {
+                    if (typeof callback === "function") {
                       callback()
                     }
                   } else {
@@ -367,7 +392,7 @@ App({
                 if (collectionGetRes.data[0].suffix === suffix && collectionGetRes.data[0].phone === phone && collectionGetRes.data[0].subscribe.sort().toString() === new Array(subscribe).sort().toString() && collectionGetRes.data[0].tmplIds.sort().toString() === tmplIds.sort().toString()) {
                   // 预约记录一致, 无需更新
                   wx.showToast({ title: '订阅成功', icon: 'success' })
-                  if ( typeof callback === "function" ) {
+                  if (typeof callback === "function") {
                     callback()
                   }
                 } else {
@@ -392,7 +417,7 @@ App({
                   }).then(collectionUpdateRes => {
                     if (collectionUpdateRes.errMsg == 'collection.update:ok') {
                       wx.showToast({ title: '订阅成功', icon: 'success' })
-                      if ( typeof callback === "function" ) {
+                      if (typeof callback === "function") {
                         callback()
                       }
                     } else {

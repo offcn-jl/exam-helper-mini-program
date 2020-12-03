@@ -1,8 +1,10 @@
-// todo 修改搜索选择插件，修改为搜索名称可以选择、数据列表可以选择的类型
 // pages/position-2020-jr/index
 
 Page({
   data: {
+    CRMEFSID: "38b49aa0ffb2f343e3b88232e25e0420", // CRM 活动表单 ID
+    CRMRemark: "活动编码:HD202012010883,活动表单ID:64729", // CRM 注释
+
     schoolList: ["不限", "985院校", "211院校", "双一流院校", "重点院校", "一般院校", "专科院校"],//院校级别
     schoolList2: ["不限", "985", "211", "双一流", "重点院校", "一般院校", "专科院校"],//院校级别（搜索）
     educationList: ["不限", "本科", "研究生", "专科"],//学历
@@ -54,7 +56,7 @@ Page({
 
   // 注册（录入crm数据）
   buttonStart: function (e) {
-    getApp().methods.register(e, this.data.suffix, "38b49aa0ffb2f343e3b88232e25e0420", "活动编码:HD202012010883,活动表单ID:64729", phone => {
+    getApp().methods.register(e, this.data.suffix, "", "", phone => {
       this.setData({ phone })
       wx.showModal({ title: '提示', content: '注册成功，请您点击“点击查询”按钮进行查询～', showCancel: false, confirmText: "我知道啦" })
     })
@@ -109,7 +111,7 @@ Page({
     }
     // 判断是否是单页模式 toto 这里要结合登陆使用
     if (wx.getLaunchOptionsSync().scene !== 1154) {
-      getApp().methods.login(phone => this.setData({ phone })) // 登陆
+      getApp().methods.login(this.data.CRMEFSID, this.data.suffix, this.data.CRMRemark, phone => this.setData({ phone })) // 登陆
     }
   },
 
