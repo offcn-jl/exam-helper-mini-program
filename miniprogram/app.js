@@ -441,5 +441,210 @@ App({
         }
       }
     },
+    /**
+     * 订阅所有考试的考试公告
+     * @param {*} suffix 个人后缀
+     * @param {*} phone 手机号码
+     * @param {*} tmplIds 订阅消息模板 ID
+     */
+    subscribeAllExam(suffix, phone, tmplIds = ["Ff-Mi9uy4hb9YxYiYgAwOSlGEXgqTkkoIi5sUsOtaao"], callback) {
+      // 获取用户配置
+      wx.getSetting({
+        withSubscriptions: true,
+        success(res) {
+          // 判断订阅消息总开关
+          if (!res.subscriptionsSetting.mainSwitch) {
+            // 订阅消息总开关是关闭的
+            // 提示用户是否打开设置后打开开关
+            openSubscribeMainSwitchTips(res)
+          } else {
+            // 订阅消息的总开关是开启的
+            // 判断有没有勾选不再询问
+            if (!res.subscriptionsSetting.itemSettings) {
+              // 没有勾选不再询问
+              // 弹出授权窗口
+              wx.requestSubscribeMessage({
+                tmplIds,
+                complete: e => {
+                  if (e.errMsg !== "requestSubscribeMessage:ok") {
+                    // 发生错误
+                    getApp().methods.handleError({
+                      err: e,
+                      title: "出错啦",
+                      content: e.errMsg
+                    })
+                  } else {
+                    handelSubscribeSettingItems(e)
+                  }
+                }
+              })
+            } else {
+              // 勾选了不再询问
+              // 判断配置的消息列表中是否有被拒绝的
+              // 存在被拒绝的则弹出提示
+              // 不存在被拒绝的则保存订阅记录
+              handelSubscribeSettingItems(res.subscriptionsSetting)
+            }
+          }
+        }
+      })
+
+      // openSubscribeMainSwitchTips 提醒用户打开订阅消息开关
+      let openSubscribeMainSwitchTips = e => {
+        if (!e.subscriptionsSetting.mainSwitch) {
+          // 订阅消息总开关是关闭的
+          // 提示用户是否打开设置后打开开关
+          wx.showModal({
+            title: '提示',
+            content: '您关闭了发送订阅消息功能，是否前往开启？',
+            success(res) {
+              if (res.confirm) {
+                wx.openSetting({
+                  withSubscriptions: true,
+                  success: res => openSubscribeMainSwitchTips(res)
+                })
+              }
+            }
+          })
+        } else {
+          wx.showModal({
+            title: '提示',
+            content: '您成功开启了订阅消息功能，请再次点击订阅按钮完成订阅～',
+            showCancel: false,
+            confirmText: "我知道啦"
+          })
+        }
+      }
+
+      // handelSubscribeSettingItems 检查订阅消息配置列表
+      let handelSubscribeSettingItems = items => {
+        let reject = false
+        for (let i = 0; i < tmplIds.length; i++) {
+          if (items[tmplIds[i]] !== "accept") {
+            reject = true
+            break
+          }
+        }
+        if (reject) {
+          wx.showModal({
+            title: '订阅失败',
+            content: '获取订阅消息授权失败，可能是您设置了"拒绝并不再询问"？',
+            confirmText: "修改设置",
+            success(res) {
+              if (res.confirm) {
+                wx.openSetting({
+                  withSubscriptions: true,
+                  success: res => {
+                    console.log(res)
+                    if (typeof res.subscriptionsSetting.itemSettings !== "undefined") {
+                      // 有不再提示的记录，再次进行检查
+                      handelSubscribeSettingItems(res.subscriptionsSetting.itemSettings)
+                    } else {
+                      // 没有不再提示的记录
+                      // 提醒用户打开订阅消息开关
+                      openSubscribeMainSwitchTips(res)
+                    }
+                  }
+                })
+              }
+            }
+          })
+        } else {
+          // 订阅消息
+          wx.requestSubscribeMessage({ tmplIds })
+          // 保存订阅记录
+          wx.showLoading({ title: '订阅中...', mask: true }) // 弹出 Loading
+          // 判断是否存在订阅记录
+          wx.cloud.database().collection('subscribeExam').get().then(collectionGetRes => {
+            if (collectionGetRes.errMsg == 'collection.get:ok') {
+              // 查询成功
+              if (collectionGetRes.data.length === 0) {
+                // 没有预约记录, 新建预约记录
+                wx.cloud.database().collection('subscribeExam').add({
+                  data: { suffix, phone, subscribe: [
+                    "国家公务员",
+                    "吉林公务员",
+                    "事业单位",
+                    "医疗招聘",
+                    "教师招聘",
+                    "特岗教师",
+                    "教师资格",
+                    "银行考试",
+                    "三支一扶",
+                    "公选遴选",
+                    "社会工作",
+                    "会计取证",
+                    "军队文职",
+                    "军人考试",
+                    "医学考试",
+                    "农信社",
+                    "选调生",
+                    "招警",
+                    "国企"
+                  ], tmplIds, createdTime: new Date(), updatedTime: new Date() }
+                }).then(collectionAddRes => {
+                  if (collectionAddRes.errMsg == 'collection.add:ok') {
+                    wx.showToast({ title: '订阅成功', icon: 'success' })
+                    if (typeof callback === "function") {
+                      callback()
+                    }
+                  } else {
+                    wx.hideLoading() // 隐藏 loading
+                    getApp().methods.handleError({ err: collectionAddRes, title: "出错啦", content: collectionAddRes.errMsg })
+                  }
+                }).catch(err => {
+                  wx.hideLoading() // 隐藏 loading
+                  getApp().methods.handleError({ err: err, title: "出错啦", content: "保存订阅记录失败" })
+                })
+              } else {
+                // 存在预约记录, 直接更新预约记录
+                wx.cloud.database().collection('subscribeExam').where({ _id: collectionGetRes.data[0]._id }).update({
+                  data: { suffix, phone, subscribe: [
+                  "国家公务员",
+                  "吉林公务员",
+                  "事业单位",
+                  "医疗招聘",
+                  "教师招聘",
+                  "特岗教师",
+                  "教师资格",
+                  "银行考试",
+                  "三支一扶",
+                  "公选遴选",
+                  "社会工作",
+                  "会计取证",
+                  "军队文职",
+                  "军人考试",
+                  "医学考试",
+                  "农信社",
+                  "选调生",
+                  "招警",
+                  "国企"
+                ], tmplIds, updatedTime: new Date() }
+                }).then(collectionUpdateRes => {
+                  if (collectionUpdateRes.errMsg == 'collection.update:ok') {
+                    wx.showToast({ title: '订阅成功', icon: 'success' })
+                    if (typeof callback === "function") {
+                      callback()
+                    }
+                  } else {
+                    wx.hideLoading() // 隐藏 loading
+                    getApp().methods.handleError({ err: collectionUpdateRes, title: "出错啦", content: collectionUpdateRes.errMsg })
+                  }
+                }).catch(err => {
+                  wx.hideLoading() // 隐藏 loading
+                  getApp().methods.handleError({ err: err, title: "出错啦", content: "更新订阅记录失败" })
+                })
+              }
+            } else {
+              wx.hideLoading() // 隐藏 loading
+              getApp().methods.handleError({ err: collectionGetRes, title: "出错啦", content: collectionGetRes.errMsg })
+            }
+          }).catch(err => {
+            wx.hideLoading() // 隐藏 loading
+            getApp().methods.handleError({ err: err, title: "出错啦", content: "查询订阅记录失败" })
+          })
+        }
+      }
+    },
   }
 })

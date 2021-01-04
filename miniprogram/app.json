@@ -2,6 +2,7 @@
   "pages": [
     "pages/index/index",
 
+    "pages/event-2021-01-04/index",
     "pages/position-2020-jr/index",
     "pages/position-2020-jr/result/index",
     "pages/position-2020-tgjs/index",
