@@ -1,0 +1,261 @@
+/* pages/header/index.wxss */
+@import "./icon.wxss";
+
+.background {
+  width: 100vw;
+}
+
+.welcome-page {
+  position: absolute;
+  top: 0;
+}
+
+.welcome-page .title {
+  width: 70vw;
+  position: relative;
+  top: 17vh;
+  left: 15vw;
+}
+
+.welcome-page .button {
+  width: 60vw;
+  position: relative;
+  top: 18vh;
+  left: 20vw;
+}
+
+.main-page .select {
+  box-shadow: 0rpx 0rpx 40rpx #ececec;
+  background: rgba(255, 255, 255, 0.6);
+  position: absolute;
+  top: 15vh;
+  left: 10vw;
+  width: 80vw;
+  height: auto;
+  border-radius: 30rpx;
+}
+
+.main-page .select .canvas {
+  overflow: hidden;
+  width: 76vw;
+  height: 78vw;
+  margin: 2vw;
+}
+
+.main-page .select .add-header {
+  width: 40vw;
+  display: block;
+  margin: 10vh auto;
+}
+
+.user-hundle {
+  width: 80%;
+  margin: 3vh auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-hundle .hundle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #eaeaea;
+  width: 215rpx;
+  height: 80rpx;
+  border-radius: 84rpx;
+  background: #fff264;
+  color: #830201;
+}
+
+.user-hundle .hundle.success {
+  background: #ff4e4d;
+  color: #fff;
+}
+
+.tab-bar {
+  width: 100vw;
+  position: fixed;
+  bottom: 0;
+  height: 140rpx;
+  background: #fff;
+  white-space: nowrap;
+}
+
+.tab-bar .item {
+  display: inline-block;
+  padding: 20rpx 0;
+  width: 160rpx;
+  height: 100rpx;
+}
+
+.tab-bar .item image {
+  display: block;
+  width: 80rpx;
+  margin: 13.5rpx auto;
+}
+
+.tab-bar .item.selected {
+  background: #eaf3fc;
+}
+
+.tab-bar-top{
+  position: fixed;
+  bottom: 138rpx;
+  height: 180rpx;
+  width: 100vw;
+  text-align: center;
+}
+
+.tab-bar-top .container {
+  padding: 0 66rpx;
+  height: 180rpx;
+  display: flex;
+  align-items: center;
+}
+
+.tab-bar-top .item {
+  display: flex;
+  width: 100rpx;
+  height: 100rpx;
+  margin-right: 60rpx;
+  flex-shrink: 0;
+  background:#fff;
+  border-radius:15rpx;
+  overflow: hidden;
+  position: relative;
+}
+
+.tab-bar-top .item .cover {
+  width:100rpx;
+  height:100rpx;
+  background:rgba(0,0,0,0.2);
+  text-align:center;
+  line-height:100rpx;
+  font-size:30rpx;
+  color:#fff;
+  position: absolute;
+  left:0;
+  bottom:0;
+  display:none;
+}
+
+.tab-bar-top .item.lock .cover{
+  display: block;
+}
+
+.selector-container {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  bottom: 0;
+  z-index: 99;
+  background: rgba(0, 0, 0, 0.7);
+  transform: translateX(-100%);
+  transition: all 0s ease 0.3s;
+}
+
+.selector-container.show {
+  transition: all 0s ease 0s;
+  transform: translateX(0);
+}
+
+.selector {
+  width: 100vw;
+  position: absolute;
+  bottom: 0;
+  background:#f7f7f7;
+  border-radius:30rpx 30rpx 0 0;
+  transition: all 0.3s ease 0s;
+  transform: translateY(100%);
+  overflow: hidden;
+}
+
+.selector-container.show .selector {
+  transform: translateY(0);
+}
+
+.selector-container .selector view {
+  background: rgba(255, 255, 255, 0.95);
+  font-size: 32rpx;
+  text-align: center;
+  height: 118rpx;
+  line-height: 118rpx;
+  border-bottom: 2rpx solid #f7f7f7;
+}
+
+.selector-container .selector view:last-child {
+  border: 0;
+  height: 138rpx;
+  line-height: 138rpx;
+  margin-top: 25rpx;
+}
+
+.selector-container .selector button {
+  width:100%;
+  font-size: 32rpx;
+  border: 0;
+  height: 118rpx;
+  line-height: 118rpx;
+  font-weight: normal;
+  padding:0;
+  margin:0;
+  background:none;
+}
+
+.unlock {
+  width: 90vw;
+  background: #fff;
+  border-radius: 20rpx;
+  position: fixed;
+  left: 5vw;
+  top: 30vh;
+  padding: 40rpx 0;
+  z-index: 999;
+}
+
+.unlock .close {
+  width: 50rpx;
+  height: 50rpx;
+  position: absolute;
+  right: 10rpx;
+  top: 10rpx;
+}
+
+.unlock .button {
+  width: 90vw;
+  border: none;
+  background: none;
+  padding: 0;
+  margin-top: 2vh;
+}
+
+.unlock .image {
+  width: 90vw;
+}
+
+.unlock .tips {
+  line-height:40rpx;
+  text-align: center;
+  font-size:26rpx;
+  padding:40rpx 0 10rpx;
+  color:#ccc;
+}
+
+.poster .image {
+  height: 60vh;
+  border-radius: 25rpx;
+  display: block;
+  margin: 15vh auto 3vh;
+}
+
+.poster .save {
+  width: 500rpx;
+  padding: 0;
+  line-height: 80rpx;
+  background: #ce2222;
+  color: #fff;
+  font-size: 36rpx;
+  border-radius: 40rpx;
+  margin: 0 auto;
+  font-weight: normal;
+}

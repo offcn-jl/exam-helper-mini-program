@@ -1,0 +1,10 @@
+<!--pages/image-cuter/index.wxml-->
+<import src="/utils/we-cropper/we-cropper.wxml" />
+
+<view class="cropper-wrapper">
+  <template is="we-cropper" data="{{...cropperOpt}}" />
+  <view class="cropper-buttons">
+    <view class="upload" bindtap="reset">重选</view>
+    <view class="getCropperImage" bindtap="cut">裁剪</view>
+  </view>
+</view>

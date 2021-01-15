@@ -1,0 +1,85 @@
+<!--pages/header/index.wxml-->
+
+<!-- 背景图 -->
+<image src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/header/background-202101140937.jpg"
+  mode="widthFix" class="background"></image>
+
+<!-- 欢迎页 ( 引导订阅考试公告 ) -->
+<view class="welcome-page" wx:if="{{welcomePage}}">
+  <image class="title" mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/header/welcome-page-title-202101140943.png"></image>
+  <image class="button" mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/header/welcome-page-button-202101140943.png" bindtap="welcomePageButton"></image>
+</view>
+
+<!-- 操作页面 -->
+<view class="main-page" wx:else>
+  <!-- 选择操作 -->
+  <view class="select">
+    <canvas disable-scroll="{{true}}" class="canvas" canvas-id="decorate" bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd" wx:if="{{headerImage}}"></canvas>
+    <image wx:else class="add-header" mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/header/main-page-upload-202101141153.png" bindtap="add"></image>
+    <view class="user-hundle">
+      <view class="hundle" bindtap="delete">
+        取消选择
+      </view>
+      <view class="hundle success" bindtap="save">
+        生成头像
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部操作栏 -->
+  <scroll-view class="tab-bar-top" scroll-x="{{true}}">
+    <view wx:for="{{imageList}}" wx:for-item="item" wx:key="index" hidden="{{tabBarIndex != index}}">
+      <view class="container">
+        <block wx:for="{{item.image}}" wx:for-item="image" wx:key="index">
+          <view class="item {{(isLock && image.lock)?'lock':''}}">
+            <image src="{{image.path}}" mode='widthFix' data-item="{{image}}" bindtap="addImage"></image>
+            <view class="cover" bindtap="unlock">
+              <text class="iconfont icon-lock"></text>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </scroll-view>
+  <scroll-view class="tab-bar" scroll-x="{{true}}">
+    <view wx:for="{{imageList}}" wx:for-item="item" wx:key="index" data-idx="{{index}}" bindtap="changeTabBarIndex"
+      class="item {{tabBarIndex==index?'selected':''}}">
+      <image src="{{item.icon}}" mode='widthFix'></image>
+    </view>
+  </scroll-view>
+
+  <!-- 选择器 -->
+  <view class="selector-container {{openSelector?'show':''}}">
+    <view class="selector">
+      <view>
+        <button hover-class="none" class="btn" open-type="getUserInfo" bindgetuserinfo="useUserAvatar">使用微信头像</button>
+      </view>
+      <view bindtap="chooseImage">使用相册图片</view>
+      <view class="cancel" bindtap="cancel">取消</view>
+    </view>
+  </view>
+
+  <!-- 解锁图片弹窗 -->
+  <cover-view class="selector-container {{openUnlock?'show':''}}"></cover-view>
+  <cover-view class="unlock" wx:if="{{openUnlock}}">
+    <cover-image src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/header/unlock-close.png" class="close" bindtap="unlockClose"></cover-image>
+    <button class="button" open-type="share" bindtap="unlockSuccess">
+       <cover-image class="image" mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/header/unlock.jpg"></cover-image>
+    </button>
+    <cover-view class="tips">您需要分享一位好友，方可获得所有未解锁的道具</cover-view>  
+  </cover-view>
+
+</view>
+
+<!-- 海报 画板 -->
+<canvas style="width:750px;height:1500px;position:fixed;top:9999px" canvas-id="posterCanvas" />
+<!-- <canvas style="width:750px;height:1500px;position:fixed;top:1px" canvas-id="posterCanvas" /> -->
+
+<!-- 海报 弹窗 -->
+<view class="poster selector-container {{posterPath?'show':''}}">
+  <image class='image' mode="heightFix" src="{{posterPath}}"></image>
+  <button class='save' bindtap='savePoster'>保存海报分享朋友</button>
+</view>
+
+<!-- 后缀 -->
+<view class="suffix">{{suffix}}</view>
