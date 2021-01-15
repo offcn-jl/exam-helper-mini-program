@@ -54,7 +54,7 @@ Page({
       })
     }
 
-    // 判断是否是单页模式 toto 这里要结合登陆使用
+    // 判断是否是单页模式
     if (wx.getLaunchOptionsSync().scene !== 1154) {
       getApp().methods.login(this.data.CRMEFSID, this.data.suffix, this.data.CRMRemark, phone => this.setData({ phone })) // 登陆
     }
