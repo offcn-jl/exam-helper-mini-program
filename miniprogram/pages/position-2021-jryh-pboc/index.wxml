@@ -1,0 +1,19 @@
+<image mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/position/2021/jryh/header-20210118.jpg" class="banner_bk"></image>
+
+<view class="container">
+	<view class="select_wrap">
+		<view class='offer_item'>
+				<select options='{{yearList}}' icon="icon-rili" text="年份" type="year" bind:m_select_touch="m_select_touch"></select>
+		</view>
+		<view class='offer_item'>
+				<select options='{{provinceList}}' icon="icon-dizhi" text="省份" type="province" bind:m_select_touch="m_select_touch"></select>
+		</view>
+		<view class='offer_item'>
+			<button wx:if="{{!phone}}" class="search_btn" open-type="getPhoneNumber" bindgetphonenumber="buttonStart">注册后进行查询</button>
+			<button wx:else class="search_btn" bindtap="tipsToSubscribeMessage">点击查询</button>
+		</view>
+	</view>
+</view>
+
+<!-- 后缀 -->
+<view class="suffix">{{suffix}}</view>

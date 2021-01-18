@@ -1,0 +1,48 @@
+<navigation id='navigation' title="查询结果" hide-icon="{{true}}"></navigation>
+
+<image mode="widthFix"
+	src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/position/2020/jr/header.result.1112.jpg"
+	class="banner_bk"></image>
+
+<view class="title">查询结果</view>
+
+<view class="my_tip">
+	<text>非精准匹配，尽量覆盖您可能可报的职位\n如对能否报名有疑虑，请务必致电咨询招考单位！</text>
+</view>
+
+<view class="result_num">
+	<!-- fixme -->
+	<text class="result_nux">共 {{zcounts}} 条结果</text>
+	<!-- fixme -->
+	<navigator url="../index?scene={{suffix}}">
+		<button class="change_btn">修改条件</button>
+	</navigator>
+</view>
+
+<view class="resultWrap">
+	<block wx:for="{{result}}" wx:key="index">
+		<view class="result_item" bindtap="more" data-index="{{index}}">
+			<text class="result_code">{{item.item01}}</text>
+			<text class="result_name">{{item.item11}}</text>
+			<text class="result_detail" wx:if="{{item.item10}}">{{item.item10}}</text>
+			<view class="item_group">
+				<!-- 可收放数据代码 -->
+				<view class="item-group-wrap {{showId == index ? 'active' : ''}}">
+					<view class="item_line"><label>会 计：</label><text>{{item.item03?item.item03:'-'}}</text></view>
+					<view class="item_line"><label>法 律：</label><text>{{item.item04?item.item04:'-'}}</text></view>
+					<view class="item_line"><label>统 计：</label><text>{{item.item06?item.item06:'-'}}</text></view>
+					<view class="item_line"><label>管 理：</label><text>{{item.item07?item.item07:'-'}}</text></view>
+					<view class="item_line"><label>英 语：</label><text>{{item.item08?item.item08:'-'}}</text></view>
+					<view class="item_line"><label>计 算 机：</label><text>{{item.item05?item.item05:'-'}}</text></view>
+					<view class="item_line"><label>经济金融：</label><text>{{item.item02?item.item02:'-'}}</text></view>
+					<view class="item_line"><label>其他专业：</label><text>{{item.item09?item.item09:'-'}}</text></view>
+				</view>
+				<!-- 上下显示箭头 -->
+				<view class="jiantou">
+					<image src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/position/2020/jr/jiantou.png" class='{{showId==index? "" : "active"}}'></image>
+				</view>
+			</view>
+			<button class="add_btn">{{item.item12}}</button>
+		</view>
+	</block>
+</view>

@@ -2,6 +2,8 @@
   "pages": [
     "pages/index/index",
 
+    "pages/position-2021-jryh-pboc/index",
+    "pages/position-2021-jryh-pboc/result/index",
     "pages/header/index",
     "pages/event-2021-01-04/index",
     "pages/position-2020-jr/index",
