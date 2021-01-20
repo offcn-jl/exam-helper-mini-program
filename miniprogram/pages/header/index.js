@@ -12,7 +12,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    suffix: 'cBlzJ8', // 个人后缀
+    suffix: '', // 个人后缀
     isSinglePage: false, // 单页模式 ( 在微信朋友圈中打开 ) 标志
     welcomePage: true, // 欢迎页
     tabBarIndex: 0, // TabBar 中选中的元素下标
@@ -23,470 +23,531 @@ Page({
     headerWidth: 0, // 头像宽度, 根据容器大小计算
     isLock: true, // 锁定素材
     openUnlock: false, // 打开解锁弹窗
+    imageBase: 'https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images', // 图片保存路径
     // 图片列表
     imageList: [
       {
-        icon: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/mask/0.png",
+        icon: "/new-year-5/0.png",
         image: [
           {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/mask/0.png",
+            path: "/new-year-5/0.png",
           },
           {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/mask/1.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/mask/2.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/mask/3.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/mask/4.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/mask/5.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/mask/6.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/mask/7.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/mask/8.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/mask/9.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/mask/10.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/mask/11.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/mask/12.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/mask/13.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/mask/14.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/mask/15.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/mask/16.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/mask/17.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/mask/18.png",
-          },
-        ],
-      },
-      {
-        icon: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/public/0.png",
-        image: [
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/public/0.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/public/1.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/public/2.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/public/3.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/public/4.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/public/5.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/public/6.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/public/7.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/public/8.png",
-          },
-        ],
-      },
-      {
-        icon: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/china/0.png",
-        image: [
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/china/0.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/china/1.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/china/2.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/china/3.png",
-          },
-        ],
-      },
-      {
-        icon: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/jilin/0.png",
-        image: [
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/jilin/0.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/jilin/1.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/jilin/2.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/jilin/3.png",
-          },
-        ],
-      },
-      {
-        icon: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/changchun/0.png",
-        image: [
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/changchun/0.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/changchun/1.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/changchun/2.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/changchun/3.png",
-          },
-        ],
-      },
-      {
-        icon: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/heilongjiang/0.png",
-        image: [
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/heilongjiang/0.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/heilongjiang/1.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/heilongjiang/2.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/heilongjiang/3.png",
-          },
-        ],
-      },
-      {
-        icon: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/liaoning/0.png",
-        image: [
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/liaoning/0.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/liaoning/1.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/liaoning/2.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/liaoning/3.png",
-          },
-        ],
-      },
-      {
-        icon: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/hebei/0.png",
-        image: [
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/hebei/0.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/hebei/1.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/hebei/2.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/hebei/3.png",
-          },
-        ],
-      },
-      {
-        icon: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/face/0.png",
-        image: [
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/face/0.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/face/1.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/face/2.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/face/3.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/face/4.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/face/5.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/face/6.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/face/7.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/face/8.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/face/9.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/face/10.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/face/11.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/face/12.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/face/13.png",
-          },
-        ],
-      },
-      {
-        icon: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/hat/0.png",
-        image: [
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/hat/0.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/hat/1.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/hat/2.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/hat/3.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/hat/4.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/hat/5.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/hat/6.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/hat/7.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/hat/8.png",
-          },
-        ],
-      },
-      {
-        icon: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/christmas/0.png",
-        image: [
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/christmas/0.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/christmas/1.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/christmas/2.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/christmas/3.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/christmas/4.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/christmas/5.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/christmas/6.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/christmas/7.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/christmas/8.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/christmas/9.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/christmas/10.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/christmas/11.png",
-          },
-        ],
-      },
-      {
-        icon: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/new-year-1/0.png",
-        image: [
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/new-year-1/0.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/new-year-1/1.png",
+            path: "/new-year-5/1.png",
             lock: true,
           },
           {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/new-year-1/2.png",
+            path: "/new-year-5/2.png",
+            lock: true,
+          },
+          {
+            path: "/new-year-5/3.png",
+            lock: true,
+          },
+          {
+            path: "/new-year-5/4.png",
+            lock: true,
+          },
+          {
+            path: "/new-year-5/5.png",
+            lock: true,
+          },
+          {
+            path: "/new-year-5/6.png",
+            lock: true,
+          },
+          {
+            path: "/new-year-5/7.png",
+            lock: true,
+          },
+          {
+            path: "/new-year-5/8.png",
+            lock: true,
+          },
+          {
+            path: "/new-year-5/9.png",
+            lock: true,
+          },
+          {
+            path: "/new-year-5/10.png",
+            lock: true,
+          },
+          {
+            path: "/new-year-5/11.png",
+            lock: true,
+          },
+          {
+            path: "/new-year-5/12.png",
+            lock: true,
+          },
+          {
+            path: "/new-year-5/13.png",
+            lock: true,
+          },
+          {
+            path: "/new-year-5/14.png",
+            lock: true,
+          },
+          {
+            path: "/new-year-5/15.png",
+            lock: true,
+          },
+          {
+            path: "/new-year-5/16.png",
+            lock: true,
+          },
+          {
+            path: "/new-year-5/17.png",
+            lock: true,
+          },
+          {
+            path: "/new-year-5/18.png",
+            lock: true,
+          },
+          {
+            path: "/new-year-5/19.png",
+            lock: true,
+          },
+          {
+            path: "/new-year-5/20.png",
             lock: true,
           },
         ],
       },
       {
-        icon: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/new-year-2/0.png",
+        icon: "/new-year-6/0.png",
         image: [
           {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/new-year-2/0.png",
+            path: "/new-year-6/0.png",
           },
           {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/new-year-2/1.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/new-year-2/2.png",
+            path: "/new-year-6/1.png",
             lock: true,
           },
           {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/new-year-2/3.png",
+            path: "/new-year-6/2.png",
             lock: true,
           },
           {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/new-year-2/4.png",
+            path: "/new-year-6/3.png",
             lock: true,
           },
           {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/new-year-2/5.png",
+            path: "/new-year-6/4.png",
             lock: true,
           },
           {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/new-year-2/6.png",
+            path: "/new-year-6/5.png",
             lock: true,
           },
           {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/new-year-2/7.png",
+            path: "/new-year-6/6.png",
             lock: true,
           },
           {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/new-year-2/8.png",
+            path: "/new-year-6/7.png",
             lock: true,
           },
           {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/new-year-2/9.png",
+            path: "/new-year-6/8.png",
             lock: true,
           },
           {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/new-year-2/10.png",
+            path: "/new-year-6/9.png",
             lock: true,
           },
           {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/new-year-2/11.png",
+            path: "/new-year-6/10.png",
+            lock: true,
+          },
+          {
+            path: "/new-year-6/11.png",
+            lock: true,
+          },
+          {
+            path: "/new-year-6/12.png",
+            lock: true,
+          },
+          {
+            path: "/new-year-6/13.png",
+            lock: true,
+          },
+          {
+            path: "/new-year-6/14.png",
+            lock: true,
+          },
+          {
+            path: "/new-year-6/15.png",
+            lock: true,
+          },
+          {
+            path: "/new-year-6/16.png",
+            lock: true,
+          },
+          {
+            path: "/new-year-6/17.png",
+            lock: true,
+          },
+          {
+            path: "/new-year-6/18.png",
             lock: true,
           },
         ],
       },
       {
-        icon: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/new-year-3/0.png",
+        icon: "/new-year-1/0.png",
         image: [
           {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/new-year-3/0.png",
+            path: "/new-year-1/0.png",
           },
           {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/new-year-3/1.png",
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/new-year-3/2.png",
+            path: "/new-year-1/1.png",
             lock: true,
           },
           {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/new-year-3/3.png",
-            lock: true,
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/new-year-3/4.png",
-            lock: true,
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/new-year-3/5.png",
-            lock: true,
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/new-year-3/6.png",
-            lock: true,
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/new-year-3/7.png",
-            lock: true,
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/new-year-3/8.png",
-            lock: true,
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/new-year-3/9.png",
-            lock: true,
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/new-year-3/10.png",
-            lock: true,
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/new-year-3/11.png",
-            lock: true,
-          },
-          {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/new-year-3/12.png",
+            path: "/new-year-1/2.png",
             lock: true,
           },
         ],
       },
       {
-        icon: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/new-year-4/0.png",
+        icon: "/new-year-2/0.png",
         image: [
           {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/new-year-4/0.png",
+            path: "/new-year-2/0.png",
           },
           {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/new-year-4/1.png",
+            path: "/new-year-2/1.png",
           },
           {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/new-year-4/2.png",
+            path: "/new-year-2/2.png",
             lock: true,
           },
           {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/new-year-4/3.png",
+            path: "/new-year-2/3.png",
             lock: true,
           },
           {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/new-year-4/4.png",
+            path: "/new-year-2/4.png",
             lock: true,
           },
           {
-            path: "https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/images/new-year-4/5.png",
+            path: "/new-year-2/5.png",
             lock: true,
+          },
+          {
+            path: "/new-year-2/6.png",
+            lock: true,
+          },
+          {
+            path: "/new-year-2/7.png",
+            lock: true,
+          },
+          {
+            path: "/new-year-2/8.png",
+            lock: true,
+          },
+          {
+            path: "/new-year-2/9.png",
+            lock: true,
+          },
+          {
+            path: "/new-year-2/10.png",
+            lock: true,
+          },
+          {
+            path: "/new-year-2/11.png",
+            lock: true,
+          },
+        ],
+      },
+      {
+        icon: "/new-year-3/0.png",
+        image: [
+          {
+            path: "/new-year-3/0.png",
+          },
+          {
+            path: "/new-year-3/1.png",
+          },
+          {
+            path: "/new-year-3/2.png",
+            lock: true,
+          },
+          {
+            path: "/new-year-3/3.png",
+            lock: true,
+          },
+          {
+            path: "/new-year-3/4.png",
+            lock: true,
+          },
+          {
+            path: "/new-year-3/5.png",
+            lock: true,
+          },
+          {
+            path: "/new-year-3/6.png",
+            lock: true,
+          },
+          {
+            path: "/new-year-3/7.png",
+            lock: true,
+          },
+          {
+            path: "/new-year-3/8.png",
+            lock: true,
+          },
+          {
+            path: "/new-year-3/9.png",
+            lock: true,
+          },
+          {
+            path: "/new-year-3/10.png",
+            lock: true,
+          },
+          {
+            path: "/new-year-3/11.png",
+            lock: true,
+          },
+          {
+            path: "/new-year-3/12.png",
+            lock: true,
+          },
+        ],
+      },
+      {
+        icon: "/new-year-4/0.png",
+        image: [
+          {
+            path: "/new-year-4/0.png",
+          },
+          {
+            path: "/new-year-4/1.png",
+          },
+          {
+            path: "/new-year-4/2.png",
+            lock: true,
+          },
+          {
+            path: "/new-year-4/3.png",
+            lock: true,
+          },
+          {
+            path: "/new-year-4/4.png",
+            lock: true,
+          },
+          {
+            path: "/new-year-4/5.png",
+            lock: true,
+          },
+        ],
+      },
+      {
+        icon: "/mask/0.png",
+        image: [
+          {
+            path: "/mask/0.png",
+          },
+          {
+            path: "/mask/1.png",
+          },
+          {
+            path: "/mask/2.png",
+          },
+          {
+            path: "/mask/3.png",
+          },
+          {
+            path: "/mask/4.png",
+          },
+          {
+            path: "/mask/5.png",
+          },
+          {
+            path: "/mask/6.png",
+          },
+          {
+            path: "/mask/7.png",
+          },
+          {
+            path: "/mask/8.png",
+          },
+          {
+            path: "/mask/9.png",
+          },
+          {
+            path: "/mask/10.png",
+          },
+          {
+            path: "/mask/11.png",
+          },
+          {
+            path: "/mask/12.png",
+          },
+          {
+            path: "/mask/13.png",
+          },
+          {
+            path: "/mask/14.png",
+          },
+          {
+            path: "/mask/15.png",
+          },
+          {
+            path: "/mask/16.png",
+          },
+          {
+            path: "/mask/17.png",
+          },
+          {
+            path: "/mask/18.png",
+          },
+        ],
+      },
+      {
+        icon: "/public/2.png",
+        image: [
+          {
+            path: "/public/2.png",
+          },
+          {
+            path: "/public/3.png",
+          },
+          {
+            path: "/public/4.png",
+          },
+          {
+            path: "/public/5.png",
+          },
+          {
+            path: "/public/6.png",
+          },
+          {
+            path: "/public/7.png",
+          },
+          {
+            path: "/public/8.png",
+          },
+        ],
+      },
+      {
+        icon: "/face/0.png",
+        image: [
+          {
+            path: "/face/0.png",
+          },
+          {
+            path: "/face/1.png",
+          },
+          {
+            path: "/face/2.png",
+          },
+          {
+            path: "/face/3.png",
+          },
+          {
+            path: "/face/4.png",
+          },
+          {
+            path: "/face/5.png",
+          },
+          {
+            path: "/face/6.png",
+          },
+          {
+            path: "/face/7.png",
+          },
+          {
+            path: "/face/8.png",
+          },
+          {
+            path: "/face/9.png",
+          },
+          {
+            path: "/face/10.png",
+          },
+          {
+            path: "/face/11.png",
+          },
+          {
+            path: "/face/12.png",
+          },
+          {
+            path: "/face/13.png",
+          },
+        ],
+      },
+      {
+        icon: "/hat/0.png",
+        image: [
+          {
+            path: "/hat/0.png",
+          },
+          {
+            path: "/hat/1.png",
+          },
+          {
+            path: "/hat/2.png",
+          },
+          {
+            path: "/hat/3.png",
+          },
+          {
+            path: "/hat/4.png",
+          },
+          {
+            path: "/hat/5.png",
+          },
+          {
+            path: "/hat/6.png",
+          },
+          {
+            path: "/hat/7.png",
+          },
+          {
+            path: "/hat/8.png",
+          },
+        ],
+      },
+      {
+        icon: "/christmas/0.png",
+        image: [
+          {
+            path: "/christmas/0.png",
+          },
+          {
+            path: "/christmas/1.png",
+          },
+          {
+            path: "/christmas/2.png",
+          },
+          {
+            path: "/christmas/3.png",
+          },
+          {
+            path: "/christmas/4.png",
+          },
+          {
+            path: "/christmas/5.png",
+          },
+          {
+            path: "/christmas/6.png",
+          },
+          {
+            path: "/christmas/7.png",
+          },
+          {
+            path: "/christmas/8.png",
+          },
+          {
+            path: "/christmas/9.png",
+          },
+          {
+            path: "/christmas/10.png",
+          },
+          {
+            path: "/christmas/11.png",
           },
         ],
       },
@@ -542,7 +603,7 @@ Page({
     wx.showLoading({ title: '下载中...', mask: true })
     const width = this.data.width;
     wx.downloadFile({
-      url: e.currentTarget.dataset.item.path,
+      url: this.data.imageBase + e.currentTarget.dataset.item.path,
       success: function (res) {
         wx.hideLoading()
         if (res.statusCode === 200) {
@@ -811,7 +872,7 @@ Page({
     const posterCanvasContext = wx.createCanvasContext('posterCanvas');
     // 下载海报背景图
     wx.downloadFile({
-      url: 'https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/poster-202101151547.jpg',
+      url: 'https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/poster-202101200917.jpg',
       success: function (res) {
         if (res.statusCode === 200) {
           // 绘制海报背景图
@@ -830,11 +891,11 @@ Page({
                 success: function (res) {
                   if (res.statusCode === 200) {
                     // 绘制二维码
-                    posterCanvasContext.drawImage(res.tempFilePath, 69, 655, 200, 200);
+                    posterCanvasContext.drawImage(res.tempFilePath, 50, 545, 215, 215);
                     // 绘制头像
-                    posterCanvasContext.arc(85, 85, 55, 0, 2 * Math.PI);
+                    posterCanvasContext.arc(95, 95, 65, 0, 2 * Math.PI);
                     posterCanvasContext.clip();
-                    posterCanvasContext.drawImage(_this.data.headerSrc, 30, 30, 110, 110); 
+                    posterCanvasContext.drawImage(_this.data.headerSrc, 30, 30, 130, 130); 
                     // 结束绘制
                     posterCanvasContext.draw();
 
@@ -990,8 +1051,8 @@ Page({
    */
   onShareAppMessage: function () {
     return {
-      title: '去给头像戴口罩',
-      imageUrl: 'http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/header/share-202101141032.jpg'
+      title: '头像 DIY',
+      imageUrl: 'http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/header/share-202101200841.jpg'
     }
   },
 
@@ -1000,7 +1061,7 @@ Page({
    */
   onShareTimeline: function () {
     return {
-      title: '去给头像戴口罩'
+      title: '头像 DIY'
     }
   }
 })

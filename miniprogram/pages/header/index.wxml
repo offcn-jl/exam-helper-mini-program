@@ -1,13 +1,13 @@
 <!--pages/header/index.wxml-->
 
 <!-- 背景图 -->
-<image src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/header/background-202101140937.jpg"
+<image src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/header/background-202101200841.jpg"
   mode="widthFix" class="background"></image>
 
 <!-- 欢迎页 ( 引导订阅考试公告 ) -->
 <view class="welcome-page" wx:if="{{welcomePage}}">
-  <image class="title" mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/header/welcome-page-title-202101140943.png"></image>
-  <image class="button" mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/header/welcome-page-button-202101140943.png" bindtap="welcomePageButton"></image>
+  <image class="title" mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/header/welcome-page-title-202101200833.png"></image>
+  <image class="button" mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/header/welcome-page-button-202101200842.png" bindtap="welcomePageButton"></image>
 </view>
 
 <!-- 操作页面 -->
@@ -32,7 +32,7 @@
       <view class="container">
         <block wx:for="{{item.image}}" wx:for-item="image" wx:key="index">
           <view class="item {{(isLock && image.lock)?'lock':''}}">
-            <image src="{{image.path}}" mode='widthFix' data-item="{{image}}" bindtap="addImage"></image>
+            <image src="{{imageBase+image.path}}" mode='widthFix' data-item="{{image}}" bindtap="addImage"></image>
             <view class="cover" bindtap="unlock">
               <text class="iconfont icon-lock"></text>
             </view>
@@ -44,7 +44,7 @@
   <scroll-view class="tab-bar" scroll-x="{{true}}">
     <view wx:for="{{imageList}}" wx:for-item="item" wx:key="index" data-idx="{{index}}" bindtap="changeTabBarIndex"
       class="item {{tabBarIndex==index?'selected':''}}">
-      <image src="{{item.icon}}" mode='widthFix'></image>
+      <image src="{{imageBase+item.icon}}" mode='widthFix'></image>
     </view>
   </scroll-view>
 

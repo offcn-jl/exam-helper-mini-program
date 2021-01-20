@@ -11,16 +11,16 @@
 }
 
 .welcome-page .title {
-  width: 70vw;
+  width: 85vw;
   position: relative;
-  top: 17vh;
-  left: 15vw;
+  top: 28vh;
+  left: 7.5vw;
 }
 
 .welcome-page .button {
   width: 60vw;
   position: relative;
-  top: 18vh;
+  top: 29vh;
   left: 20vw;
 }
 
