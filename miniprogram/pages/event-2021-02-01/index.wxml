@@ -1,0 +1,30 @@
+<!--pages/event-2021-02-01/index.wxml-->
+<image class="banner" mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/event/2021/02/01/index-202102011612.jpg">
+</image>
+
+<view>
+	<!-- 工具栏 背景图 -->
+	<image class="tools-background" mode="widthFix"
+		src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/event/2021/02/01/bg-202102011457.jpg"></image>
+	<!-- 工具栏 -->
+	<view class="tools">
+		<!-- 未登陆 -->
+		<block wx:if="{{!phone}}">
+			<button class="tool" wx:for="{{[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14]}}" wx:key="index" open-type="getPhoneNumber"
+				bindgetphonenumber="login" data-index="{{item}}">
+				<image mode="widthFix"
+					src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/event/2021/02/01/cover-202102011554/{{item}}.png"></image>
+			</button>
+		</block>
+		<!-- 已登陆 -->
+		<block wx:else>
+			<view class="tool" wx:for="{{[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14]}}" wx:key="index" bindtap="view" data-index="{{item}}">
+				<image mode="widthFix"
+					src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/event/2021/02/01/cover-202102011554/{{item}}.png"></image>
+			</view>
+		</block>
+	</view>
+</view>
+
+<!-- 后缀 -->
+<text class="suffix">{{suffix}}</text>

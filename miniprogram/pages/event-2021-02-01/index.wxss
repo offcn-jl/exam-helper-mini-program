@@ -1,0 +1,60 @@
+/* pages/event-2021-02-01/index.wxss */
+.banner {
+  width: 100vw;
+  display: block;
+}
+
+.tools {
+  margin: 0 auto;
+  margin-top: -2100rpx;
+}
+
+.tools-background {
+  width: 100vw;
+}
+
+.tools .tool {
+  display: inline-block;
+  margin-top: 0.2vh;
+  margin-left: 10rpx;
+  /* 移除按钮默认样式 */
+  background: none;
+  padding-left: 10rpx;
+  width: 30vw;
+}
+
+.tools .tool:nth-child(n+4){
+  margin-top: 110rpx;
+}
+
+.tools .tool:nth-child(n+7){
+  margin-top: 70rpx;
+}
+
+.tools .tool:nth-child(n+10){
+  margin-top: 110rpx;
+}
+
+.tools .tool:nth-child(n+13){
+  margin-top: 70rpx;
+}
+
+.tools .tool::after {
+  /* 移除按钮默认样式 */
+  border: none;
+}
+
+.tools .tool:active {
+  opacity: 0.4;
+}
+
+.tools .tool image {
+  width: 30vw;
+}
+
+.suffix {
+  opacity: 0.9;
+  margin-left: 43vw;
+  font-size: 14px;
+  color: #000;
+}
