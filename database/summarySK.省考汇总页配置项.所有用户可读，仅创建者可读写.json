@@ -1,0 +1,118 @@
+{
+  "version": 5,
+  "banner": {
+    "bottom": {
+      "type": "self",
+      "url": "/pages/subscribe-2021-sk/index",
+      "image": "http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/sk/2021/summary/banner-bottom.png"
+    },
+    "main": {
+      "type": "self",
+      "url": "/pages/subscribe-2021-sk/index",
+      "image": "http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/sk/2021/summary/banner-main.png"
+    },
+    "small": [
+      {
+        "type": "self",
+        "url": "/pages/subscribe-2021-sk/index",
+        "image": "http://jl.offcn.com/zg/ty/images/exam-helper/event/2020/1023/icon-1026/0.jpg"
+      },
+      {
+        "type": "miniProgram",
+        "appid": "wxc431ae4dffa2a8a3",
+        "path": "/page/course/details?id=192163&scode={{suffix}}",
+        "image": "http://jl.offcn.com/zg/ty/images/exam-helper/event/2020/1023/icon-1026/1.jpg"
+      },
+      {
+        "type": "miniProgram",
+        "appid": "wxc431ae4dffa2a8a3",
+        "path": "/page/course/details?id=192163&scode={{suffix}}",
+        "image": "http://jl.offcn.com/zg/ty/images/exam-helper/event/2020/1023/icon-1026/2.jpg"
+      },
+      {
+        "type": "miniProgram",
+        "appid": "wxc431ae4dffa2a8a3",
+        "path": "/page/course/details?id=192163&scode={{suffix}}",
+        "image": "http://jl.offcn.com/zg/ty/images/exam-helper/event/2020/1023/icon-1026/3.jpg"
+      },
+      {
+        "type": "miniProgram",
+        "appid": "wxc431ae4dffa2a8a3",
+        "path": "/page/course/details?id=192163&scode={{suffix}}",
+        "image": "http://jl.offcn.com/zg/ty/images/exam-helper/event/2020/1023/icon-1026/4.jpg"
+      },
+      {
+        "type": "miniProgram",
+        "appid": "wxc431ae4dffa2a8a3",
+        "path": "/page/course/details?id=192163&scode={{suffix}}",
+        "image": "http://jl.offcn.com/zg/ty/images/exam-helper/event/2020/1023/icon-1026/5.jpg"
+      }
+    ]
+  },
+  "tools": [
+    {
+      "type": "self",
+      "url": "/pages/subscribe-2021-sk/index",
+      "title": "公告预约",
+      "icon": "http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/sk/2021/summary/icons/subscribe.png"
+    },
+    {
+      "type": "miniProgram",
+      "appid": "wx63ad0fa9a5b1e3fb",
+      "path": "/pages/province_search/province_search?data={\"zwcode\":\"jl\",\"zwyear\":\"2021\",\"area\":\"jl\",\"scode\":\"$suffix\"}",
+      "title": "历年职位",
+      "icon": "http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/sk/2021/summary/icons/posions.png"
+    },
+    {
+      "type": "miniProgram",
+      "appid": "wx63ad0fa9a5b1e3fb",
+      "path": "/pages/province_search/province_search?data={\"zwcode\":\"jl\",\"zwyear\":\"2021\",\"area\":\"jl\",\"scode\":\"$suffix\"}",
+      "title": "进面分数",
+      "icon": "http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/sk/2021/summary/icons/scores.png"
+    },
+    {
+      "type": "miniProgram",
+      "appid": "wxca86930ec3e80717",
+      "path": "/page/course/details?id=229855&scode=$suffix",
+      "title": "历年试题",
+      "icon": "http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/sk/2021/summary/icons/19.png"
+    },
+    {
+      "type": "self",
+      "url": "/pages/subscribe-2021-sk/index",
+      "title": "资料领取 todo",
+      "icon": "http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/sk/2021/summary/icons/datas.png"
+    },
+    {
+      "type": "miniProgram",
+      "appid": "wxca86930ec3e80717",
+      "path": "/page/course/details?id=238100&scode=$suffix",
+      "title": "1 9 课堂",
+      "icon": "http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/sk/2021/summary/icons/19.png"
+    },
+    {
+      "type": "self",
+      "url": "/pages/ntalk/index",
+      "title": "报考咨询",
+      "icon": "http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/sk/2021/summary/icons/help.png"
+    },
+    {
+      "type": "self",
+      "url": "/pages/ntalk/index",
+      "title": "笔试课程",
+      "icon": "http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/sk/2021/summary/icons/class-info.png"
+    }
+  ],
+  "lives": [
+    {
+      "classID": 192163,
+      "time": { "$date": "2020-10-14T11:00:00Z" },
+      "title": "2021国考公告及新大纲解读峰会"
+    },
+    {
+      "classID": 192163,
+      "time": { "$date": "2020-10-14T11:00:00Z" },
+      "title": "2021国考公告及新大纲解读峰会"
+    }
+  ]
+}
