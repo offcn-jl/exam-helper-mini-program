@@ -1,0 +1,2 @@
+<!--pages/ntalk/index.wxml-->
+<web-view wx:if="{{settingid}}" src="https://bj-10353.ntalker.com/downt/t2d/chat.php?siteid=kf_10353&settingid={{settingid}}&ref=xcx"></web-view>
