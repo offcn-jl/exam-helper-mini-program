@@ -2,6 +2,7 @@
   "pages": [
     "pages/index/index",
 
+    "pages/subscribe-2021-sydw/index",
     "pages/event-2021-02-01/index",
     "pages/sk-2021/index",
     "pages/position-2021-jryh-pboc/index",
