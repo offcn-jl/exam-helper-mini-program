@@ -17,6 +17,8 @@ Page({
     suffix: "", // 后缀
     phone: "", // 用户手机号码, 注册函数执行完成后设置, 已经注册的用户在初次打开页面时也会设置
     tipsToSubscribeMessaged: false, // 是否提示过进行消息订阅
+
+    qrCodePath: "https://download.cos.jilinoffcn.com/public/qr-code/gh_f20080360b5c.jpg", // 二维码地址
   },
   
   // 在页面发生滚动时，计算是否需要切换标题栏样式
@@ -83,7 +85,7 @@ Page({
   saveQrCode: function () {
     wx.showLoading({ title: '保存中...' })
     wx.downloadFile({
-      url: 'https://download.cos.jilinoffcn.com/public/qr-code/gh_f20080360b5c.jpg',
+      url: this.data.qrCodePath,
       success: function (res) {
         if (res.statusCode === 200) {
           wx.hideLoading()
@@ -122,6 +124,35 @@ Page({
       this.setData({
         suffix: options.scene
       })
+      switch (options.scene) {
+        case "lX5VoC": // 长春
+          this.setData({qrCodePath: "https://download.cos.jilinoffcn.com/public/qr-code/gh_add46704ba47.jpg"})
+          break;
+        case "dkIirz": // 吉林
+          this.setData({qrCodePath: "https://download.cos.jilinoffcn.com/public/qr-code/gh_7e4d23d6cb71.jpg"})
+          break;
+        case "cuAqQy": // 松原
+          this.setData({qrCodePath: "https://download.cos.jilinoffcn.com/public/qr-code/gh_b8e86c971062.jpg"})
+          break;
+        case "h17IWN": // 四平
+          this.setData({qrCodePath: "https://download.cos.jilinoffcn.com/public/qr-code/gh_d7dbf24608dd.jpg"})
+          break;
+        case "htGlHB": // 延边
+          this.setData({qrCodePath: "https://download.cos.jilinoffcn.com/public/qr-code/gh_32164b3c126f.jpg"})
+          break;
+        case "hvEtbX": // 白城
+          this.setData({qrCodePath: "https://download.cos.jilinoffcn.com/public/qr-code/gh_eddfcd2f2e0e.jpg"})
+          break;
+        case "gX25cd": // 辽源
+          this.setData({qrCodePath: "https://download.cos.jilinoffcn.com/public/qr-code/gh_18c518f90852.jpg"})
+          break;
+        case "gWw8tb": // 白山
+          this.setData({qrCodePath: "https://download.cos.jilinoffcn.com/public/qr-code/gh_590d65e03823.jpg"})
+          break;
+        case "ht54zE": // 通化
+          this.setData({qrCodePath: "https://download.cos.jilinoffcn.com/public/qr-code/gh_10981ab4bd0f.jpg"})
+          break;
+      }
     }
     
     // 判断是否是单页模式

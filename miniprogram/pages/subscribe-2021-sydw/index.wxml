@@ -23,7 +23,7 @@
 			<image class="ad" mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/subscribe/2021/sydw/ad-1-202102050854.jpg"></image>
 		</navigator>
 		<view class="tips" style="text-align:center;text-indent: 0;">点击图片进入19课堂领取</view>
-		<image class="ad" mode="widthFix" style="width: 50%" bindtap="saveQrCode" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/subscribe/2021/sydw/ad-2-202102050854.png"></image>
+		<image class="ad" mode="widthFix" style="width: 50%" bindtap="saveQrCode" src="{{qrCodePath}}"></image>
 		<view class="tips">点击二维码保存到手机或截屏后，扫描识别二维码随时关注最新招聘动态</view>
 	</view>
 </view>
