@@ -4,15 +4,18 @@
 
 <image class="title" mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/sk/2021/summary/title-202102011439.png"></image>
 
+<view class="left-time">距离<b style="color: yellow;font-size:110%;">笔试仅剩</b> {{leftTime}} 天</view>
+
 <!-- 主 Banner -->
 <!-- 本小程序内跳转 -->
 <navigator wx:if="{{config.banner.main.type === 'self'}}" url="{{suffix ? config.banner.main.url + '?scene=' + suffix : config.banner.main.url}}">
   <image class="banner-main" mode="widthFix" src="{{config.banner.main.image}}"></image>
 </navigator>
 <!-- 打开其他小程序 -->
-<navigator wx:if="{{config.banner.main.type === 'miniProgram'}}" target="miniProgram" open-type="navigate" app-id="{{config.banner.main.appid}}" path="{{config.banner.main.path}}">
+<navigator wx:elif="{{config.banner.main.type === 'miniProgram'}}" target="miniProgram" open-type="navigate" app-id="{{config.banner.main.appid}}" path="{{config.banner.main.path}}">
   <image class="banner-main" mode="widthFix" src="{{config.banner.main.image}}"></image>
 </navigator>
+<view wx:else style="height: 100rpx;"></view>
 
 <!-- 工具 -->
 <view class="tools">
@@ -30,10 +33,25 @@
   </block>
 </view>
 
+<!-- 资料专区 -->
+<view class="lives" wx:if="{{config.lives && config.lives.length > 0}}">
+  <view class="lives-title">
+    <image mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/sk/2021/summary/icon-202002071115.png"></image>
+    <navigator url="/pages/event-2021-02-01/index" style="display: inline;float: right;margin-top: 20rpx;color:gray">更多 >></navigator>
+	</view>
+	<view class="content">
+    <scroll-view scroll-x="true" style="white-space: nowrap;">
+      <navigator url="/pages/event-2021-02-01/index" style="display:inline;" wx:for="{{[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14]}}" wx:key="index" >
+        <image mode="widthFix" style="width: 20vw; margin: 1vh 2vw 0 0;" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/event/2021/02/01/cover-202102011554/{{item}}.png"></image>
+      </navigator>
+    </scroll-view>
+	</view>
+</view>
+
 <!-- 直播专区 -->
 <view class="lives" wx:if="{{config.lives && config.lives.length > 0}}">
   <view class="lives-title">
-		<image src="https://sahd.offcn.com/gkxcx/zbktitle.png"></image>
+		<image mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/sk/2021/summary/icon-202002071112.png"></image>
 	</view>
 	<view class="content">
 		<navigator class="item" target="miniProgram" open-type="navigate" app-id="wxca86930ec3e80717" path="page/course/details?id={{item.classID}}&scode={{suffix}}" wx:for="{{config.lives}}" wx:key="index">

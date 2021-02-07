@@ -1,10 +1,15 @@
 // pages/sk-2021/index.js
+
+const leftTime = (new Date(2021, 3-1, 27, 0, 0, 0)) - (new Date());
+const leftDay = parseInt(leftTime / 1000 / 60 / 60 / 24 , 10);
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    leftTime: parseInt(leftTime / 1000 / 60 / 60 / 24 , 10) < 1 ? 0 : parseInt(leftTime / 1000 / 60 / 60 / 24 , 10),
     config: {},
 
     suffix: ""
