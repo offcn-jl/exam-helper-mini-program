@@ -1,10 +1,8 @@
 <!--pages/sk-2021/index.wxml-->
 
-<image class="header-background" mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/sk/2021/summary/header-background-202001271145.jpg"></image>
+<image class="header-background" mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/sk/2021/summary/header-background-202102081411.jpg"></image>
 
-<image class="title" mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/sk/2021/summary/title-202102011439.png"></image>
-
-<view class="left-time">距离<b style="color: yellow;font-size:110%;">笔试仅剩</b> {{leftTime}} 天</view>
+<view class="left-time">{{leftTime}}</view>
 
 <!-- 主 Banner -->
 <!-- 本小程序内跳转 -->

@@ -124,7 +124,7 @@ Page({
    */
   onShareAppMessage: function () {
     return {
-      title: '省考管家',
+      title: '2021吉考管家',
       imageUrl: 'http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/sk/2021/summary/share-202102011700.jpg'
     }
   },
@@ -134,7 +134,7 @@ Page({
    */
   onShareTimeline: function () {
     return {
-      title: '省考管家'
+      title: '2021吉考管家'
     }
   }
 })

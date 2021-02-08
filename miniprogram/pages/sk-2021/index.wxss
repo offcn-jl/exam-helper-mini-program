@@ -9,16 +9,14 @@ page {
   width: 100vw;
 }
 
-.title {
-  width: 90vw;
-  display: block;
-  margin: 0 auto;
-  padding-top: 5.5vh;
-}
-
 .left-time {
   font-size: 48rpx;
-  color: white;
+  color: #ffe400;
+  padding-top: 473rpx;
+  padding-left: 445rpx;
+  font-weight: bold;
+  letter-spacing: 5rpx;
+  width: 80rpx;
   text-align: center;
 }
 
