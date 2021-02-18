@@ -1,0 +1,11 @@
+<!--pages/event-2021-02-18/index.wxml-->
+<image class="background" mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/event/2021/02/18/index-202102181139.jpg"></image>
+
+<!-- 获取手机号 -->
+<button wx:if="{{!phone}}" open-type="getPhoneNumber" bindgetphonenumber="login">登陆后进行咨询</button>
+
+<!-- 订阅考试推送 -->
+<button wx:else open-type="contact">开始咨询</button>
+
+<!-- 个人后缀 -->
+<view class="suffix">{{suffix}}</view>

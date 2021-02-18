@@ -1,0 +1,12 @@
+/* pages/event-2021-02-18/index.wxss */
+page {
+  background-color: #1e28ac;
+}
+
+.background {
+  width: 100vw;
+}
+
+button {
+  margin-top: -150rpx;
+}
