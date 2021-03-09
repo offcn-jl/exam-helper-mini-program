@@ -84,10 +84,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    options.scene = "suffix#1" // fixme 测试
-
     // 判断参数是否完整
-    if (options.scene.split("#").length !== 2) {
+    if (typeof options.scene === 'undefined' || options.scene.split("#").length !== 2) {
       getApp().methods.handleError({ err: options, title: "出错啦", content: "参数不正确", reLaunch: true })
     }
     // 保存参数
