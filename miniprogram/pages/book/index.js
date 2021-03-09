@@ -18,12 +18,12 @@ Page({
       wx.showToast({ title: '配置有误', icon: "none" })
       return
     }
-    if (!this.data.phone) {
-      wx.showToast({ title: '请您先点击上方按钮注册', icon: "none" })
+    if (!this.data.phone && this.data.configs.CRMEventFormSID.length === 32 ) {
+      wx.showToast({ title: '请您先点击上方按钮进行注册', icon: "none" })
       return
     }
-    if (!this.data.tipsToSubscribeMessaged) {
-      wx.showToast({ title: '请您先点击上方按钮登陆', icon: "none" })
+    if (!this.data.tipsToSubscribeMessaged && this.data.configs.Subscribe.length > 0) {
+      wx.showToast({ title: '请您先点击上方按钮进行登陆', icon: "none" })
       return
     }
     wx.showLoading({ title: '下载中...', mask: true })
@@ -129,7 +129,7 @@ Page({
           this.setData({ configs: res.data.Data }) // 保存配置
           wx.setNavigationBarTitle({ title: res.data.Data.Name })// 修改标题
           // 判断是否是单页模式
-          if (wx.getLaunchOptionsSync().scene !== 1154) {
+          if (wx.getLaunchOptionsSync().scene !== 1154 && res.data.Data.CRMEventFormSID.length === 32) {
             getApp().methods.login(this.data.configs.CRMEventFormSID, this.data.suffix, "活动编码: " + this.data.configs.CRMEventID + ", 活动表单 ID: " + this.data.configs.CRMEventFormID, phone => this.setData({ phone })) // 登陆
           }
         }
