@@ -85,18 +85,17 @@ Page({
    */
   onLoad: function (options) {
     // 判断参数是否完整
-    if (typeof options.scene === 'undefined' || options.scene.split("#").length !== 2) {
+    if (typeof options.scene === 'undefined' || options.scene.split("*").length !== 2) {
       getApp().methods.handleError({ err: options, title: "出错啦", content: "参数不正确", reLaunch: true })
     }
     // 保存参数
-    this.setData({ suffix: options.scene.split("#")[0], bookID: options.scene.split("#")[1] })
+    this.setData({ suffix: options.scene.split("*")[0], bookID: options.scene.split("*")[1] })
 
     // 获取配置
     wx.showLoading({ title: '加载中...', mask: true })
     wx.request({
-      url: (getApp().globalData.configs.apis.gaea.replace(".gaea.", ".chaos.")) + '/events/internal-tools/book-pro/info/' + options.scene.split("#")[1],
+      url: (getApp().globalData.configs.apis.gaea.replace(".gaea.", ".chaos.")) + '/events/internal-tools/book-pro/info/' + options.scene.split("*")[1],
       complete: res => {
-        console.log(res)
         wx.hideLoading() // 隐藏 loading
         if (res.statusCode !== 200) {
           getApp().methods.handleError({ err: res, title: "出错啦", content: "获取配置失败, 响应状态码: " + res.statusCode, reLaunch: true })
