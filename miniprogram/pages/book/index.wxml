@@ -1,0 +1,21 @@
+<!-- 封面背景图 -->
+<image class="cover-image" mode="widthFix" src="{{configs.Cover ? configs.Cover : configs.CoverConfig.defaultImg}}"></image>
+
+<!-- 封面文字 -->
+<text class="cover-text" wx:if="{{configs.CoverConfig.textShow}}" style="color: {{configs.CoverConfig.textColor?configs.CoverConfig.textColor:'black'}}; font-size: {{configs.CoverConfig.textSize?configs.CoverConfig.textSize:'24'}}px; text-align: {{configs.CoverConfig.textAlign?configs.CoverConfig.textAlign:'center'}}; left: {{configs.CoverConfig.textX?configs.CoverConfig.textX:0}}px; top: {{configs.CoverConfig.textY?configs.CoverConfig.textY:0}}px; height: {{configs.CoverConfig.textH?configs.CoverConfig.textH:0}}px; width: {{configs.CoverConfig.textW?configs.CoverConfig.textW:0}}px;">{{configs.CoverConfig.text}}</text>
+
+<!-- 按钮 -->
+<!-- 获取手机号 -->
+<button class="cover-button" wx:if="{{configs.CRMEventFormSID && !phone}}" open-type="getPhoneNumber" bindgetphonenumber="login">点击注册</button>
+<!-- 订阅考试推送 -->
+<button class="cover-button" wx:elif="{{configs.CRMEventFormSID && !tipsToSubscribeMessaged}}" bindtap="subscribe">点击登陆</button>
+
+<!-- 资料列表 -->
+<view class="doc-title" wx:if="{{configs.Docs}}">登陆后即可在线阅读以下资料</view>
+<view class="doc" wx:for="{{configs.Docs}}" wx:key="index" bindtap="view" data-link="{{item.Link}}">
+  <image class="doc-image" mode="widthFix" src="{{item.Cover}}"></image>  
+  <view class="doc-name">{{item.Name}}</view> 
+</view>
+
+<!-- 个人后缀 -->
+<view class="suffix">{{suffix}}</view>

@@ -1,0 +1,47 @@
+/* pages/book/index.wxss */
+.cover-image {
+  width: 100vw;
+}
+
+.cover-text {
+  position: absolute;
+}
+
+.cover-button {
+  position: absolute;
+  top: 1300rpx;
+  left: 25vw;
+  width: 50vw !important;
+  background: black;
+  color: white;
+}
+
+.cover-button.button-hover {
+  background: gray;
+  color: black;
+}
+
+.doc-title {
+  color: white;
+  text-align: center;
+  margin: 1vh 0;
+}
+
+.doc {
+  margin: 1.5vh 0 0 2.5vw;
+  display: inline-block;
+}
+
+.doc-image {
+  width: 30vw;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+.doc-name {
+  color: white;
+  width: 30vw;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
