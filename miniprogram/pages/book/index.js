@@ -54,7 +54,11 @@ Page({
   login: function (e) {
     getApp().methods.register(e, this.data.suffix, this.data.configs.CRMEventFormSID, "活动编码: " + this.data.configs.CRMEventID + ", 活动表单 ID: " + this.data.configs.CRMEventFormID, phone => {
       this.setData({ phone })
-      wx.showModal({ title: '提示', content: '注册成功，请您点击“点击登陆”按钮进行登陆～', showCancel: false, confirmText: "我知道啦" })
+      if ( this.data.configs.Subscribe.length > 0 ) {
+        wx.showModal({ title: '提示', content: '注册成功，请您点击“点击登陆”按钮进行登陆～', showCancel: false, confirmText: "我知道啦" })
+      } else {
+        wx.pageScrollTo({ selector: '.doc-title', duration: 1000 })
+      }
     })
   },
 
@@ -71,10 +75,12 @@ Page({
           getApp().methods.subscribeExam(_this.data.suffix, _this.data.phone, _this.data.configs.Subscribe, undefined, () => {
             // 提示
             wx.showModal({ title: '提示', content: '登陆成功，请您点击下方资料进行阅读～', showCancel: false, confirmText: "我知道啦" })
+            wx.pageScrollTo({ selector: '.doc-title', duration: 1000 })
           })
         } else if (res.cancel) {
           // 提示
           wx.showModal({ title: '提示', content: '登陆成功，请您点击下方资料进行阅读～', showCancel: false, confirmText: "我知道啦" })
+          wx.pageScrollTo({ selector: '.doc-title', duration: 1000 })
         }
       }
     })
@@ -127,7 +133,10 @@ Page({
           wx.setNavigationBarTitle({ title: res.data.Data.Name })// 修改标题
           // 判断是否是单页模式
           if (wx.getLaunchOptionsSync().scene !== 1154 && res.data.Data.CRMEventFormSID.length === 32) {
-            getApp().methods.login(this.data.configs.CRMEventFormSID, this.data.suffix, "活动编码: " + this.data.configs.CRMEventID + ", 活动表单 ID: " + this.data.configs.CRMEventFormID, phone => this.setData({ phone })) // 登陆
+            getApp().methods.login(this.data.configs.CRMEventFormSID, this.data.suffix, "活动编码: " + this.data.configs.CRMEventID + ", 活动表单 ID: " + this.data.configs.CRMEventFormID, phone => {this.setData({ phone }); wx.pageScrollTo({ selector: '.doc-title', duration: 1000 });}) // 登陆
+          }
+          if ( res.data.Data.CRMEventFormSID.length !== 32 && res.data.Data.Subscribe.length === 0 ) {
+            setTimeout(()=> {wx.pageScrollTo({ selector: '.doc-title', duration: 1000 })}, 1000)
           }
         }
       }
