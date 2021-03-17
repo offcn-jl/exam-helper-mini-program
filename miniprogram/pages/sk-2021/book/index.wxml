@@ -1,0 +1,9 @@
+<!--pages/sk-2021/book/index.wxml-->
+<button class="cover-button" wx:if="{{!phone}}" open-type="getPhoneNumber" bindgetphonenumber="login">
+  <image class="cover-image" mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/sk/2021/book/index-202103171719.jpg"></image>
+</button>
+
+<image class="cover-image" wx:else mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/sk/2021/book/index-202103171719.jpg" bindtap="view"></image>
+
+<!-- 后缀 -->
+<view class="suffix">{{suffix}}</view>

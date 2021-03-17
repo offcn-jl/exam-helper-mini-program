@@ -2,6 +2,8 @@
   "pages": [
     "pages/index/index",
 
+    "pages/sk-2021/book/index",
+    "pages/sk-2021/scene/index",
     "pages/event-2021-03-04/index",
     "pages/subscribe-2021-sydw-yl/index",
     "pages/event-2021-02-18/index",

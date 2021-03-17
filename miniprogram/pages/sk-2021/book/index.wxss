@@ -1,0 +1,6 @@
+/* pages/sk-2021/book/index.wxss */
+@import "../scene/index.wxss";
+
+page {
+  background: #f9dfc6;
+}
