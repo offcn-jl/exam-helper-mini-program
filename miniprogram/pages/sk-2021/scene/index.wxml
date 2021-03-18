@@ -13,13 +13,13 @@
     <image class="image-100" mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/sk/2021/scene/202103130940/04.jpg"></image>
   </navigator>
   <image class="image-100" mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/sk/2021/scene/202103130940/05.jpg"></image>
-  <navigator target="miniProgram" open-type="navigate" app-id="wxca86930ec3e80717" path="page/course/details?id=229855&scode=cBlzJ8">
+  <navigator target="miniProgram" open-type="navigate" app-id="wxca86930ec3e80717" path="page/course/details?id=269517&scode=cBlzJ8">
     <image class="image-33" mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/sk/2021/scene/202103130940/06.jpg"></image>
   </navigator>
-  <navigator target="miniProgram" open-type="navigate" app-id="wxca86930ec3e80717" path="page/course/details?id=246130&scode=cBlzJ8">
+  <navigator target="miniProgram" open-type="navigate" app-id="wxca86930ec3e80717" path="page/course/details?id=272237&scode=cBlzJ8">
     <image class="image-33" mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/sk/2021/scene/202103130940/07.jpg"></image>
   </navigator>
-  <navigator target="miniProgram" open-type="navigate" app-id="wxca86930ec3e80717" path="page/course/details?id=246130&scode=cBlzJ8">
+  <navigator url="/pages/ntalk/index">
     <image class="image-33" mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/sk/2021/scene/202103130940/08.jpg"></image>
   </navigator>
   <image class="image-100" mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/sk/2021/scene/202103130940/09.jpg"></image>
