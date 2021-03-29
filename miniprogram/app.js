@@ -254,11 +254,10 @@ App({
     /**
      * 订阅单项考试的考试公告
      * @param {*} suffix 个人后缀
-     * @param {*} phone 手机号码
      * @param {*} subscribe 要订阅的考试项目
      * @param {*} tmplIds 订阅消息模板 ID
      */
-    subscribeSingleExam(suffix, phone, subscribe, tmplIds = ["Ff-Mi9uy4hb9YxYiYgAwOSlGEXgqTkkoIi5sUsOtaao"], callback) {
+    subscribeSingleExam(suffix, subscribe, tmplIds = ["Ff-Mi9uy4hb9YxYiYgAwOSlGEXgqTkkoIi5sUsOtaao"], callback) {
       // 获取用户配置
       wx.getSetting({
         withSubscriptions: true,
@@ -372,7 +371,7 @@ App({
               if (collectionGetRes.data.length === 0) {
                 // 没有预约记录, 新建预约记录
                 wx.cloud.database().collection('subscribeExam').add({
-                  data: { suffix, phone, subscribe: new Array(subscribe), tmplIds, createdTime: new Date(), updatedTime: new Date() }
+                  data: { suffix, subscribe: new Array(subscribe), tmplIds, createdTime: new Date(), updatedTime: new Date() }
                 }).then(collectionAddRes => {
                   if (collectionAddRes.errMsg == 'collection.add:ok') {
                     wx.showToast({ title: '订阅成功', icon: 'success' })
@@ -389,7 +388,7 @@ App({
                 })
               } else {
                 // 存在预约记录, 判断是否需要更新预约记录
-                if (collectionGetRes.data[0].suffix === suffix && collectionGetRes.data[0].phone === phone && collectionGetRes.data[0].subscribe.sort().toString() === new Array(subscribe).sort().toString() && collectionGetRes.data[0].tmplIds.sort().toString() === tmplIds.sort().toString()) {
+                if (collectionGetRes.data[0].suffix === suffix && collectionGetRes.data[0].subscribe.sort().toString() === new Array(subscribe).sort().toString() && collectionGetRes.data[0].tmplIds.sort().toString() === tmplIds.sort().toString()) {
                   // 预约记录一致, 无需更新
                   wx.showToast({ title: '订阅成功', icon: 'success' })
                   if (typeof callback === "function") {
@@ -413,7 +412,7 @@ App({
                     collectionGetRes.data[0].subscribe.push(subscribe)
                   }
                   wx.cloud.database().collection('subscribeExam').where({ _id: collectionGetRes.data[0]._id }).update({
-                    data: { suffix, phone, subscribe: collectionGetRes.data[0].subscribe, tmplIds, updatedTime: new Date() }
+                    data: { suffix, subscribe: collectionGetRes.data[0].subscribe, tmplIds, updatedTime: new Date() }
                   }).then(collectionUpdateRes => {
                     if (collectionUpdateRes.errMsg == 'collection.update:ok') {
                       wx.showToast({ title: '订阅成功', icon: 'success' })
@@ -444,10 +443,9 @@ App({
     /**
      * 订阅所有考试的考试公告
      * @param {*} suffix 个人后缀
-     * @param {*} phone 手机号码
      * @param {*} tmplIds 订阅消息模板 ID
      */
-    subscribeAllExam(suffix, phone, tmplIds = ["Ff-Mi9uy4hb9YxYiYgAwOSlGEXgqTkkoIi5sUsOtaao"], callback) {
+    subscribeAllExam(suffix, tmplIds = ["Ff-Mi9uy4hb9YxYiYgAwOSlGEXgqTkkoIi5sUsOtaao"], callback) {
       // 获取用户配置
       wx.getSetting({
         withSubscriptions: true,
@@ -561,7 +559,7 @@ App({
               if (collectionGetRes.data.length === 0) {
                 // 没有预约记录, 新建预约记录
                 wx.cloud.database().collection('subscribeExam').add({
-                  data: { suffix, phone, subscribe: [
+                  data: { suffix, subscribe: [
                     "国家公务员",
                     "吉林公务员",
                     "事业单位",
@@ -599,7 +597,7 @@ App({
               } else {
                 // 存在预约记录, 直接更新预约记录
                 wx.cloud.database().collection('subscribeExam').where({ _id: collectionGetRes.data[0]._id }).update({
-                  data: { suffix, phone, subscribe: [
+                  data: { suffix, subscribe: [
                   "国家公务员",
                   "吉林公务员",
                   "事业单位",
@@ -649,11 +647,10 @@ App({
     /**
      * 订阅考试公告
      * @param {*} suffix 个人后缀
-     * @param {*} phone 手机号码
      * @param {*} subscribe 要订阅的考试项目
      * @param {*} tmplIds 订阅消息模板 ID
      */
-    subscribeExam(suffix, phone, subscribe, tmplIds = ["Ff-Mi9uy4hb9YxYiYgAwOSlGEXgqTkkoIi5sUsOtaao"], callback) {
+    subscribeExam(suffix, subscribe, tmplIds = ["Ff-Mi9uy4hb9YxYiYgAwOSlGEXgqTkkoIi5sUsOtaao"], callback) {
       // 获取用户配置
       wx.getSetting({
         withSubscriptions: true,
@@ -767,7 +764,7 @@ App({
               if (collectionGetRes.data.length === 0) {
                 // 没有预约记录, 新建预约记录
                 wx.cloud.database().collection('subscribeExam').add({
-                  data: { suffix, phone, subscribe, tmplIds, createdTime: new Date(), updatedTime: new Date() }
+                  data: { suffix, subscribe, tmplIds, createdTime: new Date(), updatedTime: new Date() }
                 }).then(collectionAddRes => {
                   if (collectionAddRes.errMsg == 'collection.add:ok') {
                     wx.showToast({ title: '订阅成功', icon: 'success' })
@@ -784,7 +781,7 @@ App({
                 })
               } else {
                 // 存在预约记录, 判断是否需要更新预约记录
-                if (collectionGetRes.data[0].suffix === suffix && collectionGetRes.data[0].phone === phone && collectionGetRes.data[0].subscribe.sort().toString() === new Array(subscribe).sort().toString() && collectionGetRes.data[0].tmplIds.sort().toString() === tmplIds.sort().toString()) {
+                if (collectionGetRes.data[0].suffix === suffix && collectionGetRes.data[0].subscribe.sort().toString() === new Array(subscribe).sort().toString() && collectionGetRes.data[0].tmplIds.sort().toString() === tmplIds.sort().toString()) {
                   // 预约记录一致, 无需更新
                   wx.showToast({ title: '订阅成功', icon: 'success' })
                   if (typeof callback === "function") {
@@ -810,7 +807,7 @@ App({
                     collectionGetRes.data[0].subscribe.push(subscribe)
                   }
                   wx.cloud.database().collection('subscribeExam').where({ _id: collectionGetRes.data[0]._id }).update({
-                    data: { suffix, phone, subscribe: collectionGetRes.data[0].subscribe, tmplIds, updatedTime: new Date() }
+                    data: { suffix, subscribe: collectionGetRes.data[0].subscribe, tmplIds, updatedTime: new Date() }
                   }).then(collectionUpdateRes => {
                     if (collectionUpdateRes.errMsg == 'collection.update:ok') {
                       wx.showToast({ title: '订阅成功', icon: 'success' })
