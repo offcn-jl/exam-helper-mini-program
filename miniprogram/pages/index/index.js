@@ -8,10 +8,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    CRMEFSID: "", // CRM 活动表单 ID
-    CRMRemark: "", // CRM 注释
-
-    suffix: "", // 后缀
     exams: [
       "国家公务员",
       "吉林公务员",
@@ -35,8 +31,8 @@ Page({
     ], // 考试项目
     subscribedExams: [], // 已经预约的考试项目
     checkedExams: [], // 已经选中的考试项目
-    phone: "", // 用户手机号码, 注册函数执行完成后设置, 已经注册的用户在初次打开页面时也会设置
     openID: "", // 用户 openID , 预约函数执行完成后哦设置, 已经预约的用户在完成预约后也会设置
+    suffix: "", // 推广后缀
   },
 
   // 监听 选择感兴趣的考试
@@ -51,17 +47,9 @@ Page({
     this.selectComponent('#navigation').swtichNavigation(e)
   },
 
-  // register 注册
-  register: function (e) {
-    getApp().methods.registerWithoutPush(e, this.data.suffix, "考试公告订阅", phone => {
-      this.setData({ phone })
-      wx.showModal({ title: '提示', content: '注册成功，请您点击“订阅”按钮完成订阅～', showCancel: false, confirmText: "我知道啦" })
-    })
-  },
-
   // subscribe 订阅
   subscribe() {
-    let _this = this, suffix = this.data.suffix, phone = this.data.phone, subscribe = this.data.checkedExams/*, tmplIds = tmplIds*/
+    let _this = this, suffix = this.data.suffix, subscribe = this.data.checkedExams
 
     // 获取用户配置
     wx.getSetting({
@@ -172,12 +160,11 @@ Page({
         // 判断是否存在订阅记录
         wx.cloud.database().collection('subscribeExam').get().then(collectionGetRes => {
           if (collectionGetRes.errMsg == 'collection.get:ok') {
-            console.log(collectionGetRes)
             // 查询成功
             if (collectionGetRes.data.length === 0) {
               // 没有预约记录, 新建预约记录
               wx.cloud.database().collection('subscribeExam').add({
-                data: { suffix, phone, subscribe, tmplIds, createdTime: new Date(), updatedTime: new Date() }
+                data: { suffix, subscribe, tmplIds, createdTime: new Date(), updatedTime: new Date() }
               }).then(collectionAddRes => {
                 if (collectionAddRes.errMsg == 'collection.add:ok') {
                   let subscribedExams = []
@@ -202,12 +189,12 @@ Page({
               })
             } else {
               // 存在预约记录, 判断是否需要更新预约记录
-              if (collectionGetRes.data[0].suffix === suffix && collectionGetRes.data[0].phone === phone && collectionGetRes.data[0].subscribe.sort().toString() === subscribe.sort().toString() && collectionGetRes.data[0].tmplIds.sort().toString() === tmplIds.sort().toString()) {
+              if (collectionGetRes.data[0].suffix === suffix && collectionGetRes.data[0].subscribe.sort().toString() === subscribe.sort().toString() && collectionGetRes.data[0].tmplIds.sort().toString() === tmplIds.sort().toString()) {
                 // 预约记录一致, 无需更新
                 wx.showToast({ title: '成功', icon: 'success' })
               } else {
                 wx.cloud.database().collection('subscribeExam').where({ _id: collectionGetRes.data[0]._id }).update({
-                  data: { suffix, phone, subscribe, tmplIds, updatedTime: new Date() }
+                  data: { suffix, subscribe, tmplIds, updatedTime: new Date() }
                 }).then(collectionUpdateRes => {
                   if (collectionUpdateRes.errMsg == 'collection.update:ok') {
                     _this.setData({ openID: collectionGetRes.data[0]._openid })
@@ -244,7 +231,7 @@ Page({
         if (res.confirm) {
           wx.showLoading({ title: '退订中...', mask: true }) // 弹出 Loading
           wx.cloud.database().collection('subscribeExam').where({ _openid: _this.data.openID }).update({
-            data: { suffix: _this.data.suffix, phone: _this.data.phone, subscribe: [], tmplIds: [], updatedTime: new Date() }
+            data: { suffix: _this.data.suffix, subscribe: [], tmplIds: [], updatedTime: new Date() }
           }).then(collectionUpdateRes => {
             if (collectionUpdateRes.errMsg == 'collection.update:ok') {
               // 退订成功
@@ -277,7 +264,6 @@ Page({
 
     // 判断是否是单页模式
     if (wx.getLaunchOptionsSync().scene !== 1154) {
-      getApp().methods.login(this.data.CRMEFSID, this.data.suffix, this.data.CRMRemark, phone => this.setData({ phone })) // 登陆
       // 弹出 Loading
       wx.showLoading({ title: '加载中...', mask: true })
       // 判断是否存在订阅记录

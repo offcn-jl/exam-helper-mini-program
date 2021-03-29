@@ -15,11 +15,8 @@
 
 	<view class="tips">您订阅的考试公告发布后，中公考试助手将免费通过微信“服务通知”功能为您推送公告提醒。</view>
 
-  <button wx:if="{{!phone}}" type="primary" class="subscribe" open-type="getPhoneNumber" bindgetphonenumber="register">注 册</button>
-	<view wx:if="{{!phone}}" class="register-tips">请您先注册后再进行订阅操作</view>
-	<button disabled="{{!phone}}" type="primary" class="subscribe" bindtap="subscribe">{{!openID ? '订 阅':'更 新 订 阅'}}</button>
+	<button type="primary" class="subscribe" bindtap="subscribe">{{!openID ? '订 阅':'更 新 订 阅'}}</button>
   <button wx:if="{{subscribedExams.length > 1}}" type="warn" class="unsubscribe" bindtap="unsubscribe">退订全部</button>
 </view>
-
 
 <view class="suffix">{{suffix}}</view>
