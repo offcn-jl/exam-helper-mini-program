@@ -31,7 +31,7 @@ Page({
       confirmText: "免费订阅",
       success(res) {
         if (res.confirm) {
-          getApp().methods.subscribeAllExam(_this.data.suffix, _this.data.phone, undefined, () => {
+          getApp().methods.subscribeAllExam(_this.data.suffix, undefined, () => {
             // 提示
             wx.showModal({ title: '提示', content: '登陆成功，请您点击“立即定制”按钮进行定制～', showCancel: false, confirmText: "我知道啦" })
           })

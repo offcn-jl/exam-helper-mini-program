@@ -61,7 +61,7 @@ Page({
         confirmText: "免费订阅",
         success(res) {
           if (res.confirm) {
-            getApp().methods.subscribeSingleExam(_this.data.suffix, _this.data.phone, "特岗教师", undefined, () => {
+            getApp().methods.subscribeSingleExam(_this.data.suffix, "特岗教师", undefined, () => {
               _this.seach_result() // 订阅成功后执行查询
             })
           } else if (res.cancel) {

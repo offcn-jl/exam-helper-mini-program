@@ -34,7 +34,7 @@ Page({
 
   // subscribe 订阅
   subscribe() {
-    getApp().methods.subscribeSingleExam(this.data.suffix, this.data.phone, "吉林公务员", undefined, ()=>{
+    getApp().methods.subscribeSingleExam(this.data.suffix, "吉林公务员", undefined, ()=>{
       this.setData({tipsToSubscribeMessaged: true});
     })
   },

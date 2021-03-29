@@ -571,7 +571,7 @@ Page({
       confirmText: "免费订阅",
       success(res) {
         if (res.confirm) {
-          getApp().methods.subscribeAllExam(_this.data.suffix, _this.data.phone, undefined, () => {
+          getApp().methods.subscribeAllExam(_this.data.suffix, undefined, () => {
             // 跳转页面
             _this.setData({welcomePage: false})
           })

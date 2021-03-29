@@ -51,7 +51,7 @@ Page({
       confirmText: "免费订阅",
       success(res) {
         if (res.confirm) {
-          getApp().methods.subscribeExam(_this.data.suffix, _this.data.phone, _this.data.configs.Subscribe, undefined, () => {
+          getApp().methods.subscribeExam(_this.data.suffix, _this.data.configs.Subscribe, undefined, () => {
             // 提示
             wx.showModal({ title: '提示', content: '登陆成功，请您点击下方资料进行阅读～', showCancel: false, confirmText: "我知道啦" })
             wx.pageScrollTo({ selector: '.doc-title', duration: 1000 })

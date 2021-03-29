@@ -59,7 +59,7 @@ Page({
 
   // subscribe 订阅
   subscribe() {
-    getApp().methods.subscribeSingleExam(this.data.suffix, this.data.phone, "医疗招聘", undefined, ()=>{
+    getApp().methods.subscribeSingleExam(this.data.suffix, "医疗招聘", undefined, ()=>{
       this.setData({tipsToSubscribeMessaged: true});
     })
   },
