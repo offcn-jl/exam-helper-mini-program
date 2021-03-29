@@ -22,6 +22,7 @@
     "pages/subscribe-2021-sk/index",
     
     "pages/book/index",
+    "pages/book/web-view/index",
     "pages/web-view/index",
     "pages/ntalk/index",
     "pages/image-cuter/index",

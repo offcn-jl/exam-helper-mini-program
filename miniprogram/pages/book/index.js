@@ -26,28 +26,7 @@ Page({
       wx.showToast({ title: '请您先点击上方按钮进行登陆', icon: "none" })
       return
     }
-    wx.showLoading({ title: '下载中...', mask: true })
-    wx.downloadFile({
-      url: e.currentTarget.dataset.link,
-      success: res => {
-        const filePath = res.tempFilePath
-        wx.openDocument({
-          filePath: filePath,
-          success: function (res) {
-            console.log('打开文档成功')
-          }
-        })
-        wx.hideLoading() // 隐藏 loading
-      },
-      fail: res => {
-        getApp().methods.handleError({
-          err: res,
-          title: "出错啦",
-          content: "打开失败, 请您稍后再试"
-        })
-        wx.hideLoading() // 隐藏 loading
-      }
-    })
+    wx.navigateTo({ url: 'web-view/index?downloadable='+this.data.configs.Downloadable+'&link='+e.currentTarget.dataset.link })
   },
 
   // 登陆
