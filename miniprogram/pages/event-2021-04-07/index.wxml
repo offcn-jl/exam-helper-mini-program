@@ -1,0 +1,29 @@
+<!--pages/event-2021-04-07/index.wxml-->
+
+<!-- 欢迎页 -->
+<button class="button" wx:if="{{!phone}}" open-type="getPhoneNumber" bindgetphonenumber="buttonStart">
+  <image class="button-image" mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/event/2021/04/07/index.jpg"></image>
+</button>
+<text class="suffix" wx:if="{{!phone}}">{{suffix}}</text>
+
+<!-- 内容页 -->
+<view class="content" wx:else>
+	<!-- 第一页 -->
+	<image lazy-load="true" mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/event/2021/04/07/00.jpg"></image>
+	<!-- 第二页 -->
+	<image lazy-load="true" mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/event/2021/04/07/01.jpg"></image>
+	<!-- 第三页 -->
+	<image lazy-load="true" mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/event/2021/04/07/02.jpg"></image>
+	<!-- 第四页 -->
+	<image lazy-load="true" mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/event/2021/04/07/03.jpg"></image>
+</view>
+
+<!-- 广告 -->
+<view wx:if="{{ADClass!=='' && ADPictureURL!==''}}">
+	<!-- 占位元素 -->
+	<view style="height:12vh;"></view>
+	<!-- 广告跳转 -->
+	<navigator class="ad" target="miniProgram" open-type="navigate" app-id="wxca86930ec3e80717" path="page/course/details?id={{ADClass}}&scode={{Suffix}}">
+		<image src="{{ADPictureURL}}"></image>
+	</navigator>	
+</view>
