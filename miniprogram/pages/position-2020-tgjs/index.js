@@ -2,8 +2,8 @@
 
 Page({
   data: {
-    CRMEFSID: "fbbe14b6de58098447a1253a696c1044", // CRM 活动表单 ID
-    CRMRemark: "活动编码:HD202011150569,活动表单ID:62475", // CRM 注释
+    CRMEFSID: "fe244d19fef84bb6edc0e46fc39627dc", // CRM 活动表单 ID
+    CRMRemark: "活动编码:HD202104121816,活动表单ID:81568", // CRM 注释
 
     yearList: ["不限", "2020年", "2019年", "2018年", "2017年", "2016年"],
     addressList: ["不限", "长春", "吉林", "通化", "延吉", "白山", "白城", "四平", "辽源", "松原"],
