@@ -2,6 +2,7 @@ const app = getApp()
 
 Page({
   data: {
+    imageUrl:"http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/position/2021/2022yhqz/share-0415.jpg",// 分享时显示的图片
     suffix: "", // 后缀
     showId: 0, // 当前显示的元素的 ID
     query: { // 查询条件
@@ -109,7 +110,7 @@ Page({
     return {
       title: '2022银行秋招职位查询系统',
       path: "/pages/position-2022yhqz/index?scene=" + this.data.suffix,
-      imageUrl: 'http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/position/2021/2022yhqz/share-0415.jpg'
+      imageUrl: this.data.imageUrl
     }
   },
 })
