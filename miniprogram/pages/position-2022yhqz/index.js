@@ -25,7 +25,7 @@ Page({
 
     suffix: "", // 后缀
     phone: "", // 用户手机号码
-    tipsToSubscribeMessaged: true, // 是否提示过进行消息订阅
+    tipsToSubscribeMessaged: false, // 是否提示过进行消息订阅
 
     // 底部滑动可切换样式
     currentTab:0, //预设当前项的值

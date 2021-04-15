@@ -109,7 +109,7 @@ Page({
     return {
       title: '2022银行秋招职位查询系统',
       path: "/pages/position-2022yhqz/index?scene=" + this.data.suffix,
-      imageUrl: 'http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/position/2020/jr/share.1116.jpg'
+      imageUrl: 'http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/position/2021/2022yhqz/share-0415.jpg'
     }
   },
 })

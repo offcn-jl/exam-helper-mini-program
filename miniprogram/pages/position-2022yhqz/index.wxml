@@ -37,9 +37,9 @@
 					<view class="item-ans con">
 						<view class="list">
 							<view class="tit">
-								<image bindtap='Become' bindtap="swichNav" data-current="0" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/position/2021/2022yhqz/iconjt1.png" alt=""></image>
+								<image bindtap="swichNav" data-current="0" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/position/2021/2022yhqz/iconjt1.png" alt=""></image>
 								<view>国有六大行</view>
-								<image bindtap='Become' bindtap="swichNav" data-current="1" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/position/2021/2022yhqz/iconjt2.png" alt=""></image>
+								<image bindtap="swichNav" data-current="1" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/position/2021/2022yhqz/iconjt2.png" alt=""></image>
 							</view>
 							<view class="details">
 								<view class="bank">（中国银行、农业银行、工商银行、交通银行、建设银行、邮政储蓄银行）</view>
@@ -66,9 +66,9 @@
 					<view class="item-ans con">
 						<view class="list">
 							<view class="tit">
-								<image bindtap='Become' bindtap="swichNav" data-current="0" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/position/2021/2022yhqz/iconjt1.png" alt=""></image>
+								<image bindtap="swichNav" data-current="0" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/position/2021/2022yhqz/iconjt1.png" alt=""></image>
 								<view>政策性银行</view>
-								<image bindtap='Become' bindtap="swichNav" data-current="2" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/position/2021/2022yhqz/iconjt2.png" alt=""></image>
+								<image bindtap="swichNav" data-current="2" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/position/2021/2022yhqz/iconjt2.png" alt=""></image>
 							</view>
 							<view class="details">
 								<view class="bank">（国家开发银行、中国进出口银行、中国农业发展银行）</view>
@@ -95,9 +95,9 @@
 					<view class="item-ans con">
 						<view class="list">
 							<view class="tit">
-								<image bindtap='Become' bindtap="swichNav" data-current="1" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/position/2021/2022yhqz/iconjt1.png" alt=""></image>
+								<image bindtap="swichNav" data-current="1" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/position/2021/2022yhqz/iconjt1.png" alt=""></image>
 								<view>股份制银行</view>
-								<image bindtap='Become' bindtap="swichNav" data-current="2" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/position/2021/2022yhqz/iconjt2.png" alt=""></image>
+								<image bindtap="swichNav" data-current="2" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/position/2021/2022yhqz/iconjt2.png" alt=""></image>
 							</view>
 							<view class="details">
 								<text class="bank">招商银行、浦发银行、中信银行
