@@ -5,7 +5,7 @@
 </button>
 
 <!-- 跳转按钮 -->
-<navigator wx:else target="miniProgram" open-type="navigate" app-id="wxca86930ec3e80717" path="page/course/details?id=279948&scode={{suffix}}">
+<navigator wx:else target="miniProgram" open-type="navigate" app-id="wxca86930ec3e80717" path="page/course/details?id=282114&scode={{suffix}}">
   <image class="navigator-image" mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/event/2021/04/12/index.jpg"></image>
 </navigator>
 
