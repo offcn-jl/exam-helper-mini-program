@@ -1,0 +1,130 @@
+<image mode="widthFix" src="{{banner_bk}}" class="banner_bk"></image>
+
+<view class="container">
+	<view class="select_wrap">
+		<view class='offer_item'>
+				<select options='{{yearList}}' icon="icon-rili" text="年份" type="year" bind:m_select_touch="m_select_touch"></select>
+		</view>
+		<view class='offer_item'>
+				<select options='{{bankList}}' icon="icon-home" text="银行" type="bank" bind:m_select_touch="m_select_touch"></select>
+		</view>
+		<view class='offer_item'>
+				<select options='{{cityList}}' icon="icon-dizhi" text="城市" type="city" bind:m_select_touch="m_select_touch"></select>
+		</view>
+		<view class='offer_item'>
+				<select options='{{majorList}}' icon="icon-icon1" text="专业" type="major" bind:m_select_touch="m_select_touch"></select>
+		</view>
+		<view class='offer_item'>
+				<select options='{{educationList}}' icon="icon-xueli1" text="学历" type="education" bind:m_select_touch="m_select_touch"></select>
+		</view>
+		<view class='offer_item'>
+				<select options='{{schoolList}}' icon="icon-xueli" text="院校级别" type="school" bind:m_select_touch="m_select_touch"></select>
+		</view>
+		<view class='offer_item'>
+				<select options='{{levelList}}' icon="icon-zhengzhi-tianchong" text="外语等级" type="level" bind:m_select_touch="m_select_touch"></select>
+		</view>
+		<view class='offer_item btn'>
+			<button wx:if="{{!phone}}" class="search_btn" open-type="getPhoneNumber" bindgetphonenumber="buttonStart">注册后进行查询</button>
+			<button wx:else class="search_btn" bindtap="tipsToSubscribeMessage">点击查询</button>
+		</view>
+	</view>
+	<view class="select_wrap bottom">
+		<view class="title">[<view>各大银行秋招考试概况</view>]</view>
+		<swiper class="tab-content" current="{{currentTab}}" duration="300" bindchange="switchTab">
+			<!-- 国有六大行 -->
+			<swiper-item>
+				<scroll-view scroll-y="true" class="scoll-h" >
+					<view class="item-ans con">
+						<view class="list">
+							<view class="tit">
+								<image bindtap="swichNav" data-current="0" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/position/2021/2022yhqz/iconjt1.png" alt=""></image>
+								<view>国有六大行</view>
+								<image bindtap="swichNav" data-current="1" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/position/2021/2022yhqz/iconjt2.png" alt=""></image>
+							</view>
+							<view class="details">
+								<view class="bank">（中国银行、农业银行、工商银行、交通银行、建设银行、邮政储蓄银行）</view>
+								<view class="situation">
+									<view class="p1">招聘时间</view>
+									<view class="p2">9月-12月，其中网申时间集中在9-10月，笔试时间集中在10月底-11月初</view>
+								</view>
+								<view class="situation">
+									<view class="p1">招聘条件</view>
+									<view class="p2">科技岗、省行总行岗位一般对英语有明确要求，综合服务类岗位基本没有英语要求</view>
+								</view>
+								<view class="situation">
+									<view class="p1">考情一览</view>
+									<view class="p2">建设银行、中国银行、农业银行的笔试难度较高；面试以半结构化面试和无领导小组讨论为高频考察形式</view>
+								</view>
+							</view>
+						</view>
+					</view>
+				</scroll-view>
+			</swiper-item>
+			<!-- 政策性银行 -->
+			<swiper-item>
+				<scroll-view scroll-y="true" class="scoll-h" >
+					<view class="item-ans con">
+						<view class="list">
+							<view class="tit">
+								<image bindtap="swichNav" data-current="0" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/position/2021/2022yhqz/iconjt1.png" alt=""></image>
+								<view>政策性银行</view>
+								<image bindtap="swichNav" data-current="2" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/position/2021/2022yhqz/iconjt2.png" alt=""></image>
+							</view>
+							<view class="details">
+								<view class="bank">（国家开发银行、中国进出口银行、中国农业发展银行）</view>
+								<view class="situation">
+									<view class="p1">招聘时间</view>
+									<view class="p2">9月-12月，其中网申时间为9月中下旬-11月，笔试时间为11月-12月初</view>
+								</view>
+								<view class="situation">
+									<view class="p1">招聘条件</view>
+									<view class="p2">一线城市的政策性银行对英语有明确要求，大多数普通省会及城市对英语没有要求，基本不限制专业</view>
+								</view>
+								<view class="situation">
+									<view class="p1">考情一览</view>
+									<view class="p2">面试包括无领导小组讨论、结构化、半结构化三种形式，每年都有变动</view>
+								</view>
+							</view>
+						</view>
+					</view>
+				</scroll-view>
+			</swiper-item>
+			<!-- 股份制银行 -->
+			<swiper-item>
+				<scroll-view scroll-y="true" class="scoll-h" >
+					<view class="item-ans con">
+						<view class="list">
+							<view class="tit">
+								<image bindtap="swichNav" data-current="1" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/position/2021/2022yhqz/iconjt1.png" alt=""></image>
+								<view>股份制银行</view>
+								<image bindtap="swichNav" data-current="2" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/position/2021/2022yhqz/iconjt2.png" alt=""></image>
+							</view>
+							<view class="details">
+								<text class="bank">招商银行、浦发银行、中信银行
+									华夏银行、民生银行、广发银行
+									平安银行、恒丰银行、浙商银行
+									光大银行、兴业银行、渤海银行
+								</text>
+								<view class="situation">
+									<view class="p1">招聘时间</view>
+									<view class="p2">8月-12月，其中网申时间集中在8-9月，笔试时间集中在10月</view>
+								</view>
+								<view class="situation">
+									<view class="p1">招聘条件</view>
+									<view class="p2">少数股份制银行有英语四级的要求，基本对专业没有限制，部分普通地市可能没有部分股份制银行的网点设置</view>
+								</view>
+								<view class="situation">
+									<view class="p1">考情一览</view>
+									<view class="p2">股份制银行的笔试难度适中，整体比五大行要简单面试是半结构化面试和无领导小组讨论，第一轮采用无领导的较多</view>
+								</view>
+							</view>
+						</view>
+					</view>
+				</scroll-view>
+			</swiper-item>
+    </swiper>
+	</view>
+</view>
+
+<!-- 后缀 -->
+<view class="suffix">{{suffix}}</view>
