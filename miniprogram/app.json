@@ -2,6 +2,7 @@
   "pages": [
     "pages/index/index",
 
+    "pages/subscribe-2021-tgjs/index",
     "pages/position-2022yhqz/index",
     "pages/position-2022yhqz/result/index",
     "pages/event-2021-04-12/index",
