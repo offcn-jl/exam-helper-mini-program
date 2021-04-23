@@ -46,6 +46,9 @@
 
 <!-- 小 banner -->
 <view class="banners" wx:if="{{config.banner.small.length > 0}}">
+  <navigator class="banner" url="/pages/book/index?scene={{suffix}}*76">
+		<image mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/summary/2021/tgjs/banner-small-4.jpg"></image>
+  </navigator>
   <block wx:for="{{config.banner.small}}" wx:key="index">
     <!-- 本小程序内跳转 -->
     <navigator wx:if="{{item.type === 'self'}}" class="banner" url="{{suffix ? item.url + '?scene=' + suffix : item.url}}">

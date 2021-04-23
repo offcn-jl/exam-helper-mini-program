@@ -30,12 +30,6 @@
         "appid": "wxc431ae4dffa2a8a3",
         "path": "/page/course/details?id=192163&scode={{suffix}}",
         "image": "http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/summary/2021/tgjs/banner-small-3.jpg"
-      },
-      {
-        "type": "miniProgram",
-        "appid": "wxc431ae4dffa2a8a3",
-        "path": "/page/course/details?id=192163&scode={{suffix}}",
-        "image": "http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/summary/2021/tgjs/banner-small-4.jpg"
       }
     ]
   },
