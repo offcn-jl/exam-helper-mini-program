@@ -2,6 +2,12 @@
   "pages": [
     "pages/index/index",
 
+    "pages/position-2021-zydz-tgjs/index",
+    "pages/position-2021-zydz-tgjs/result/index",
+    "pages/position-2021-zwsy-tgjs/index",
+    "pages/position-2021-zwsy-tgjs/result/index",
+    "pages/position-2021-lnfs-tgjs/index",
+    "pages/position-2021-lnfs-tgjs/result/index",
     "pages/subscribe-2021-tgjs/index",
     "pages/position-2022yhqz/index",
     "pages/position-2022yhqz/result/index",
