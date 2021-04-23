@@ -3,6 +3,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    timestamp: new Date().valueOf(),
+
     suffix: "",
   },
 

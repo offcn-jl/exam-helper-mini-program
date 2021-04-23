@@ -3,7 +3,7 @@
 
 <!-- 面试峰会 -->
 <navigator target="miniProgram" open-type="navigate" app-id="wxca86930ec3e80717" path="page/course/details?id=276186{{suffix?'&scode='+suffix:''}}">
-  <image class="image-100" mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/sk/2021/interview/images/02.jpg"></image>
+  <image class="image-100" mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/sk/2021/interview/images/02.jpg?{{timestamp}}"></image>
 </navigator>
 
 <!-- 晒分系统 -->
