@@ -1,0 +1,111 @@
+{
+  "type": "2021-tgjs",
+  "version": 1,
+  "banner": {
+    "bottom": {
+      "type": "self",
+      "url": "/pages/ntalk/index",
+      "image": "http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/summary/2021/tgjs/banner-bottom.jpg"
+    },
+    "main": {
+      "type": "miniProgram",
+      "appid": "wxca86930ec3e80717",
+      "path": "/page/course/details?id=281591&scode=$suffix",
+      "image": "http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/summary/2021/tgjs/banner-main.jpg"
+    },
+    "small": [
+      {
+        "type": "self",
+        "url": "/pages/subscribe-2021-sk/index",
+        "image": "http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/summary/2021/tgjs/banner-small-1.jpg"
+      },
+      {
+        "type": "miniProgram",
+        "appid": "wxc431ae4dffa2a8a3",
+        "path": "/page/course/details?id=282773&scode={{suffix}}",
+        "image": "http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/summary/2021/tgjs/banner-small-2.jpg"
+      },
+      {
+        "type": "miniProgram",
+        "appid": "wxc431ae4dffa2a8a3",
+        "path": "/page/course/details?id=192163&scode={{suffix}}",
+        "image": "http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/summary/2021/tgjs/banner-small-3.jpg"
+      },
+      {
+        "type": "miniProgram",
+        "appid": "wxc431ae4dffa2a8a3",
+        "path": "/page/course/details?id=192163&scode={{suffix}}",
+        "image": "http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/summary/2021/tgjs/banner-small-4.jpg"
+      }
+    ]
+  },
+  "tools": [
+    {
+      "type": "miniProgram",
+      "appid": "wxb04ce8efcd61db65",
+      "path": "pages/qyxxinfo/qyxxinfo?scene=UalTmgWEnkzR%40ty5086",
+      "title": "查看公告",
+      "icon": "http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/sk/2021/summary/icons/datas.png"
+    },
+    {
+      "type": "self",
+      "url": "/pages/position-2021-zwsy-tgjs/index",
+      "title": "职位筛选",
+      "icon": "http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/sk/2021/summary/icons/subscribe.png"
+    },
+    {
+      "type": "miniProgram",
+      "appid": "wxc431ae4dffa2a8a3",
+      "path": "/pages/photo-processing-2021-tgjs/index?scene=$suffix",
+      "title": "照片处理",
+      "icon": "http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/sk/2021/summary/icons/19.png"
+    },
+    {
+      "type": "self",
+      "url": "/pages/position-2020-tgjs/index",
+      "title": "历年职位",
+      "icon": "http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/sk/2021/summary/icons/posions.png"
+    },
+    {
+      "type": "self",
+      "url": "/pages/position-2021-lnfs-tgjs/index",
+      "title": "进面分数",
+      "icon": "http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/sk/2021/summary/icons/scores.png"
+    },
+    {
+      "type": "self",
+      "url": "/pages/position-2021-zydz-tgjs/index",
+      "title": "专业对照",
+      "icon": "http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/sk/2021/summary/icons/19.png"
+    },
+    {
+      "type": "self",
+      "url": "/pages/ntalk/index",
+      "title": "报考咨询",
+      "icon": "http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/sk/2021/summary/icons/help.png"
+    },
+    {
+      "type": "self",
+      "url": "/pages/ntalk/index",
+      "title": "面试课程",
+      "icon": "http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/sk/2021/summary/icons/class-info.png"
+    }
+  ],
+  "lives": [
+    {
+      "classID": 281591,
+      "time": { "$date": "2020-10-14T11:00:00Z" },
+      "title": "公告解读峰会-特岗新纪元"
+    },
+    {
+      "classID": 281591,
+      "time": { "$date": "2020-10-14T11:00:00Z" },
+      "title": "招录政策&考情知多少"
+    },
+    {
+      "classID": 281591,
+      "time": { "$date": "2020-10-14T11:00:00Z" },
+      "title": "大咖带你了解特岗教师的待遇与环境"
+    }
+  ]
+}

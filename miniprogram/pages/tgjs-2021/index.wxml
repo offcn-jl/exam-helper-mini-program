@@ -1,0 +1,75 @@
+<image class="header-background" mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/summary/2021/tgjs/header-background.jpg"></image>
+
+<view class="left-time">{{leftTime}}</view>
+
+<!-- 主 Banner -->
+<!-- 本小程序内跳转 -->
+<navigator wx:if="{{config.banner.main.type === 'self'}}" url="{{suffix ? config.banner.main.url + '?scene=' + suffix : config.banner.main.url}}">
+  <image class="banner-main" mode="widthFix" src="{{config.banner.main.image}}"></image>
+</navigator>
+<!-- 打开其他小程序 -->
+<navigator wx:elif="{{config.banner.main.type === 'miniProgram'}}" target="miniProgram" open-type="navigate" app-id="{{config.banner.main.appid}}" path="{{config.banner.main.path}}">
+  <image class="banner-main" mode="widthFix" src="{{config.banner.main.image}}"></image>
+</navigator>
+<view wx:else style="height: 100rpx;"></view>
+
+<!-- 工具 -->
+<view class="tools">
+  <block wx:for="{{config.tools}}" wx:key="index">
+    <!-- 本小程序内跳转 -->
+    <navigator wx:if="{{item.type === 'self'}}" class="tool" url="{{suffix ? item.url + '?scene=' + suffix : item.url}}">
+      <image class="icon" mode="widthFix" src="{{item.icon}}"></image>
+      <view class="name">{{item.title}}</view>
+    </navigator>
+    <!-- 打开其他小程序 -->
+    <navigator wx:if="{{item.type === 'miniProgram'}}" class="tool" target="miniProgram" open-type="navigate" app-id="{{item.appid}}" path="{{item.path}}">
+      <image class="icon" mode="widthFix" src="{{item.icon}}"></image>
+      <view class="name">{{item.title}}</view>
+    </navigator>
+  </block>
+</view>
+
+<!-- 直播专区 -->
+<view class="lives" wx:if="{{config.lives && config.lives.length > 0}}">
+  <view class="lives-title">
+		<image mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/sk/2021/summary/icon-202002071112.png"></image>
+	</view>
+	<view class="content">
+		<navigator class="item" target="miniProgram" open-type="navigate" app-id="wxca86930ec3e80717" path="page/course/details?id={{item.classID}}&scode={{suffix}}" wx:for="{{config.lives}}" wx:key="index">
+			<image src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/sk/2021/summary/icon-play-202101271536.png" class="play"></image>
+			<text class="item-title">{{item.title}}</text>
+			<text class="time">{{item.timeString}}</text>
+			<image src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/sk/2021/summary/icon-goto-live-202101271537.png" class="goto-live"></image>
+		</navigator>
+	</view>
+</view>
+
+<!-- 小 banner -->
+<view class="banners" wx:if="{{config.banner.small.length > 0}}">
+  <block wx:for="{{config.banner.small}}" wx:key="index">
+    <!-- 本小程序内跳转 -->
+    <navigator wx:if="{{item.type === 'self'}}" class="banner" url="{{suffix ? item.url + '?scene=' + suffix : item.url}}">
+		  <image mode="widthFix" src="{{item.image}}"></image>
+    </navigator>
+    <!-- 打开其他小程序 -->
+    <navigator wx:if="{{item.type === 'miniProgram'}}" class="banner" target="miniProgram" open-type="navigate" app-id="{{item.appid}}" path="{{item.path}}">
+		  <image mode="widthFix" src="{{item.image}}"></image>
+    </navigator>
+  </block>
+</view>
+
+<!-- 底部大 Banner -->
+<!-- 本小程序内跳转 -->
+<navigator wx:if="{{config.banner.bottom.type === 'self'}}" url="{{suffix ? config.banner.bottom.url + '?scene=' + suffix : config.banner.bottom.url}}">
+  <image class="banner-bottom" mode="widthFix" src="{{config.banner.bottom.image}}"></image>
+</navigator>
+<!-- 打开其他小程序 -->
+<navigator wx:if="{{config.banner.bottom.type === 'miniProgram'}}" target="miniProgram" open-type="navigate" app-id="{{config.banner.bottom.appid}}" path="{{config.banner.bottom.path}}">
+  <image class="banner-bottom" mode="widthFix" src="{{config.banner.bottom.image}}"></image>
+</navigator>
+
+<!-- 后缀 -->
+<view class="suffix">{{suffix}}</view>
+
+<!-- 版本 -->
+<view class="version" wx:if="{{config.version && config._id}}">Version.{{config.version}}.{{config._id}}</view>
