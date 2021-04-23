@@ -54,7 +54,7 @@ Page({
           //数据导入data.result
           _this.setData({
             result: _this.data.result.concat(list.lists),//不替换原数据添加新数据
-            "query.page": _this.data.result.concat(list.lists).length / _this.data.query.limits,//计算分页页数
+            "query.page": (_this.data.result.concat(list.lists).length / _this.data.query.limits)+1,//计算分页页数
             zcounts: list.zcounts   //总数量录入data
           })
         } catch (err) {//捕获错误并报错
