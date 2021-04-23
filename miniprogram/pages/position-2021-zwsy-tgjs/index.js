@@ -27,7 +27,7 @@ Page({
         _this.setData({ cityValue: _this.data.cityList[e.detail.index] })
         // zg99二级联动
         wx.request({
-          url: "http://zg99.offcn.com/index/chaxun/getlevel?actid="+_this.data.actid+"&callback=?",  //路径
+          url: "https://zg99.offcn.com/index/chaxun/getlevel?actid="+_this.data.actid+"&callback=?",  //路径
           data: {level: '2', grfiled:'city',grtext:_this.data.cityValue,sstime: new Date().valueOf()},  //二级联动，上级联动字段名，上级联动参数值
           success(res) {
               let county_list = JSON.parse(res.data.substring(1, res.data.length - 1));  //去头尾（）,转为json对象
@@ -54,7 +54,7 @@ Page({
         _this.setData({ countyValue: _this.data.countyList[e.detail.index] })
         // zg99三级联动
         wx.request({
-          url: "http://zg99.offcn.com/index/chaxun/getlevel?actid="+_this.data.actid+"&callback=?",  //路径
+          url: "https://zg99.offcn.com/index/chaxun/getlevel?actid="+_this.data.actid+"&callback=?",  //路径
           data: {level: '3', grfiled:'county',grtext:_this.data.countyValue,sstime: new Date().valueOf()},  //二级联动，上级联动字段名，上级联动参数值
           success(res) {
               let subject_list = JSON.parse(res.data.substring(1, res.data.length - 1));  //去头尾（）,转为json对象
@@ -139,7 +139,7 @@ Page({
     var _this=this;
     // 获取数据
     wx.request({
-      url: "http://zg99.offcn.com/index/chaxun/getlevel?actid="+_this.data.actid+"&callback=?",
+      url: "https://zg99.offcn.com/index/chaxun/getlevel?actid="+_this.data.actid+"&callback=?",
       data: {level:"1", grfiled:'',grtext:'',sstime: new Date().valueOf()},
       success(res) {
         try {

@@ -78,7 +78,7 @@ Page({
     var _this=this;
     // 获取数据
     wx.request({
-      url: "http://zg99.offcn.com/index/chaxun/getlevel?actid="+_this.data.actid+"&callback=?",
+      url: "https://zg99.offcn.com/index/chaxun/getlevel?actid="+_this.data.actid+"&callback=?",
       data: {level:"1", grfiled:'',grtext:'',sstime: new Date().valueOf()},
       success(res) {
         try {
