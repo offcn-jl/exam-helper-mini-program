@@ -6,12 +6,13 @@
 <view class="title">查询结果</view>
 
 <view class="my_tip">
-	<text>非精准匹配，尽量覆盖您可能可报的职位\n如对能否报名有疑虑，请务必致电咨询招考单位！</text>
+	<text>此数据仅记录使用该小程序报名人数\n非特岗教师全部报名人数精准数据</text>
 </view>
 
 <view class="result_num">
 	<!-- fixme -->
-	<text class="result_nux">共 {{zcounts}} 条结果</text>
+	<!-- <text class="result_nux">共 {{zcounts}} 条结果</text> -->
+	<text class="result_nux">查询结果</text>
 	<!-- fixme -->
 	<navigator url="../index?scene={{suffix}}">
 		<button class="change_btn">修改条件</button>
@@ -19,15 +20,15 @@
 </view>
 
 <view class="resultWrap">
-	<block wx:for="{{result}}" wx:key="index">
+	<!-- <block wx:for="{{result}}" wx:key="index"> -->
 		<view class="result_item" bindtap="more" data-index="{{index}}">
-			<text class="result_code">{{item.city}}</text>
+			<text class="result_code">{{query.city}}</text>
 			<view class="item_group">
-				<view class="item_line"><label>县/市/区：</label><text>{{item.county}}</text></view>
-				<view class="item_line"><label>申报学科：</label><text>{{item.subject}}</text></view>
+				<view class="item_line"><label>县/市/区：</label><text>{{query.county}}</text></view>
+				<view class="item_line"><label>申报学科：</label><text>{{query.subject}}</text></view>
 			</view>
-			<text class="result_detail">招聘人数：{{item.person?item.person:'0'}}</text>
+			<text class="result_detail">报考人数：{{result?result:'0'}}</text>
 			<!-- <button class="add_btn">年份：2020年</button> -->
 		</view>
-	</block>
+	<!-- </block> -->
 </view>
