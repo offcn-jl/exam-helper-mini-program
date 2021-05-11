@@ -15,20 +15,21 @@
     },
     "small": [
       {
-        "type": "self",
-        "url": "/pages/subscribe-2021-sk/index",
+        "type": "miniProgram",
+        "appid": "wxbb649293a97fa28a",
+        "path": "/pages/course-detail/course-detail?scene=16037",
         "image": "http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/summary/2021/tgjs/banner-small-1.jpg"
       },
       {
         "type": "miniProgram",
-        "appid": "wxc431ae4dffa2a8a3",
+        "appid": "wxca86930ec3e80717",
         "path": "/page/course/details?id=282773&scode={{suffix}}",
         "image": "http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/summary/2021/tgjs/banner-small-2.jpg"
       },
       {
         "type": "miniProgram",
-        "appid": "wxc431ae4dffa2a8a3",
-        "path": "/page/course/details?id=192163&scode={{suffix}}",
+        "appid": "wxbb649293a97fa28a",
+        "path": "/pages/course-detail/course-detail?scene=16040",
         "image": "http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/summary/2021/tgjs/banner-small-3.jpg"
       }
     ]
