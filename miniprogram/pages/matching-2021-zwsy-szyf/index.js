@@ -12,7 +12,7 @@ Page({
     gwlbList: ["支农","支教","就业与社会保障","扶贫","支医","水利","专业技术","初级中学"], //岗位类别
     xlList: ["本科","大专"], //学历
     xlList2: ["本科","专"], //学历筛选条件
-    majorList: [], //专业
+    majorList: [], //专业（数据为表中专业汇总obj部分，后期用于专业major部分筛选）
 
     yearValue: '', //年份
     cityValue: '', //地市
@@ -22,7 +22,7 @@ Page({
 
     suffix: "", // 后缀
     phone: "", // 用户手机号码
-    tipsToSubscribeMessaged: true, // 是否提示过进行消息订阅
+    tipsToSubscribeMessaged: false, // 是否提示过进行消息订阅
   },
 
   // 监听筛选条件切换
@@ -75,11 +75,11 @@ Page({
       _this.setData({ tipsToSubscribeMessaged: true })
       wx.showModal({
         title: '提示',
-        content: '您是否需要订阅“事业单位”考试公告？订阅成功后您可以在公告发布时免费获得推送提示～',
+        content: '您是否需要订阅“三支一扶”考试公告？订阅成功后您可以在公告发布时免费获得推送提示～',
         confirmText: "免费订阅",
         success(res) {
           if (res.confirm) {
-            getApp().methods.subscribeSingleExam(_this.data.suffix, "事业单位", undefined, () => {
+            getApp().methods.subscribeSingleExam(_this.data.suffix, "三支一扶", undefined, () => {
               _this.seach_result() // 订阅成功后执行查询
             })
           } else if (res.cancel) {
@@ -107,7 +107,7 @@ Page({
       getApp().methods.login(this.data.CRMEFSID, this.data.suffix, this.data.CRMRemark, phone => this.setData({ phone })) // 登陆
     }
     var _this=this;
-    // 获取数据
+    // 获取数据(专业名称，获取表中专业汇总obj部分)
     wx.request({
       url: "https://zg99.offcn.com/index/chaxun/getlevel?actid="+_this.data.actid+"&callback=?",
       data: {level:"1", grfiled:'',grtext:'',sstime: new Date().valueOf()},
