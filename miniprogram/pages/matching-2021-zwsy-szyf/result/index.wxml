@@ -1,0 +1,44 @@
+<navigation id='navigation' title="查询结果" hide-icon="{{true}}"></navigation>
+
+<!-- http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/position/2020/jr/header.result.1112.jpg -->
+<image mode="widthFix" src="" class="banner_bk"></image>
+
+<view class="title">查询结果</view>
+
+<view class="my_tip">
+	<text>非精准匹配，尽量覆盖您可能可报的职位\n如对能否报名有疑虑，请务必致电咨询招考单位！</text>
+</view>
+
+<view class="result_num">
+	<!-- fixme -->
+	<text class="result_nux">共 {{zcounts}} 条结果</text>
+	<!-- fixme -->
+	<navigator url="../index?scene={{suffix}}">
+		<button class="change_btn">修改条件</button>
+	</navigator>
+</view>
+
+<view class="resultWrap">
+	<block wx:for="{{result}}" wx:key="index">
+		<view class="result_item" bindtap="more" data-index="{{index}}">
+			<text class="result_code">{{item.city}}</text>
+			<text class="result_detail">{{item.	fwdw}}</text>
+			<view class="item_group">
+				<view class="item_line"><label>招聘人数：</label><text>{{item.zprs?item.zprs:'0'}}</text></view>
+				<view class="item_line"><label>具体职责：</label><text>{{item.jtzw?item.jtzw:'无'}}</text></view>
+				<!-- 可收放数据代码 -->
+				<view class="item-group-wrap {{showId == index ? 'active' : ''}}">
+					<view class="item_line"><label>岗位类别：</label><text>{{item.gwlb?item.gwlb:'无'}}</text></view>
+					<view class="item_line"><label>学 历：</label><text>{{item.xl?item.xl:'无'}}</text></view>
+					<view class="item_line"><label>专 业：</label><text>{{item.major?item.major:'无'}}</text></view>
+					<view class="item_line"><label>其他要求：</label><text>{{item.other?item.other:'无'}}</text></view>
+				</view>
+				<!-- 上下显示箭头 -->
+				<view class="jiantou">
+					<image src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/position/2020/jr/jiantou.png" class='{{showId==index? "" : "active"}}'></image>
+				</view>
+			</view>
+			<button class="add_btn">{{item.year}}</button>
+		</view>
+	</block>
+</view>

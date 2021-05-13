@@ -2,6 +2,8 @@
   "pages": [
     "pages/index/index",
 
+    "pages/matching-2021-zwsy-szyf/index",
+    "pages/matching-2021-zwsy-szyf/result/index",
     "pages/subscribe-2021-gk/index",
     "pages/enroll-2021-tgjs/index",
     "pages/enroll-2021-tgjs/result/index",
@@ -36,7 +38,6 @@
     "pages/position-2020-tgjs/index",
     "pages/position-2020-tgjs/result/index",
     "pages/subscribe-2021-sk/index",
-
     "pages/book/index",
     "pages/book/web-view/index",
     "pages/web-view/index",
