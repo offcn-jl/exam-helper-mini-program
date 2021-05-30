@@ -2,6 +2,7 @@
   "pages": [
     "pages/index/index",
 
+    "pages/event-2021-06-01/index",
     "pages/matching-2021-zwsy-szyf/index",
     "pages/matching-2021-zwsy-szyf/result/index",
     "pages/subscribe-2021-gk/index",
@@ -53,5 +54,6 @@
     "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json",
-  "style": "v2"
+  "style": "v2",
+  "requiredBackgroundModes": ["audio", "location"]
 }
