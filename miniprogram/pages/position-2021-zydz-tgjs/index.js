@@ -1,6 +1,6 @@
 Page({
   data: {
-    title:"2021特岗教师专业对照查询",// 标题
+    title:"专业对照查询-2021特岗教师",// 标题
     banner_bk:"http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/position/2021/2021zydz-tgjs-header.jpg",// 背景图片
     imageUrl:"http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/position/2021/2021zydz-tgjs-share.jpg",// 分享时显示的图片
     CRMEFSID: "fe244d19fef84bb6edc0e46fc39627dc", // CRM 活动表单 ID
