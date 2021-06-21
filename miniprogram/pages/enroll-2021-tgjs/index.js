@@ -131,6 +131,11 @@ Page({
                       },
                     }).then(res=>{
                       _this.seach_result() // 执行查询
+                    }).catch(err =>{
+                      console.error(err);
+                      wx.showToast({
+                        title: '数据库调取失败',
+                      })
                     })
                   }else{    //如果result有值，或为1，表示enroll-2021-tgjs里有这个openid
                     // 对原来数据进行修改
@@ -142,8 +147,18 @@ Page({
                       }
                     }).then(res=>{
                       _this.seach_result() // 执行查询
+                    }).catch(err =>{
+                      console.error(err);
+                      getApp().methods.handleError({
+                        err: err,
+                        title: "出错啦",
+                        content: "创建用户失败"
+                      })
                     })
                   }
+                },
+                fail: res => {
+                  console.log('失败',res);
                 }
               })
             }
@@ -170,6 +185,13 @@ Page({
           },
         }).then(res=>{
           _this.seach_result() // 执行查询
+        }).catch(err =>{
+          console.error(err);
+          getApp().methods.handleError({
+            err: err,
+            title: "出错啦",
+            content: "创建用户失败"
+          })
         })
       }else{    //如果result有值，或为1，表示enroll-2021-tgjs里有这个openid
         // 对原来数据进行修改
@@ -181,6 +203,13 @@ Page({
           }
         }).then(res=>{
           _this.seach_result() // 执行查询
+        }).catch(err =>{
+          console.error(err);
+          getApp().methods.handleError({
+            err: err,
+            title: "出错啦",
+            content: "创建用户失败"
+          })
         })
       }
     }
@@ -210,6 +239,13 @@ Page({
                 result:res.total
               })
               console.log("监听页面期间，判断tgjs里是否有对应数据",_this.data.result)
+            },
+            fail:err =>{
+              getApp().methods.handleError({
+                err: err,
+                title: "出错啦",
+                content: "创建用户失败"
+              })
             }
           })
         }
