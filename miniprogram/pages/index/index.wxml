@@ -1,22 +1,49 @@
-<!--pages/index/index.wxml-->
-<navigation id='navigation' title="考试公告订阅" hideIcon="{{true}}"></navigation>
+<!-- 自定义导航栏 -->
+<header title="中公考试助手" suffix="{{suffix}}" id="header"></header>
 
-<image class="header" mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/subscribe/summary-page/header.1113.jpg"></image>
+<!-- 顶部背景 -->
+<image mode="widthFix" class="w100" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/index/header.png"></image>
 
-<view class="form">
-	<view class="form-title">选择您感兴趣的考试：</view>
-
-	<checkbox-group class="form-checkbox-group" bindchange="checkboxChange">
-		<label wx:for="{{exams}}" wx:key="index">
-			<checkbox value="{{item}}" checked="{{subscribedExams[index]}}" />
-			<text>{{item}}</text>
-		</label>
-	</checkbox-group>
-
-	<view class="tips">您订阅的考试公告发布后，中公考试助手将免费通过微信“服务通知”功能为您推送公告提醒。</view>
-
-	<button type="primary" class="subscribe" bindtap="subscribe">{{!openID ? '订 阅':'更 新 订 阅'}}</button>
-  <button wx:if="{{subscribedExams.length > 1}}" type="warn" class="unsubscribe" bindtap="unsubscribe">退订全部</button>
+<!-- 工具区 -->
+<view class="tools">
+    <block wx:for="{{config.tools}}" wx:key="index">
+        <!-- 本小程序内跳转 -->
+        <navigator wx:if="{{item.type === 'self'}}" class="tool" url="{{suffix ? item.url + '?scene=' + suffix : item.url}}">
+            <image class="icon" mode="widthFix" src="{{item.icon}}"></image>
+            <view class="name">{{item.title}}</view>
+        </navigator>
+        <!-- 打开其他小程序 -->
+        <navigator wx:if="{{item.type === 'miniProgram'}}" class="tool" target="miniProgram" open-type="navigate" app-id="{{item.appid}}" path="{{item.path}}">
+            <image class="icon" mode="widthFix" src="{{item.icon}}"></image>
+            <view class="name">{{item.title}}</view>
+        </navigator>
+    </block>
 </view>
 
+<!-- 大 Banner -->
+<!-- 本小程序内跳转 -->
+<navigator wx:if="{{config.banner.main.type === 'self'}}" url="{{suffix ? config.banner.main.url + '?scene=' + suffix : config.banner.main.url}}">
+    <image class="banner" mode="widthFix" src="{{config.banner.main.image}}"></image>
+</navigator>
+<!-- 打开其他小程序 -->
+<navigator wx:if="{{config.banner.main.type === 'miniProgram'}}" target="miniProgram" open-type="navigate" app-id="{{config.banner.main.appid}}" path="{{config.banner.main.path}}">
+    <image class="banner" mode="widthFix" src="{{config.banner.main.image}}"></image>
+</navigator>
+
+<!-- 19课堂 热门课程 -->
+<view class="lives" wx:if="{{config.lives}}">
+    <view class="lives-title">中公教育19课堂 · 热门课程</view>
+    <view class="content">
+        <navigator class="item" target="miniProgram" open-type="navigate" app-id="wxca86930ec3e80717" path="page/course/details?id={{item.id}}&scode={{suffix}}" wx:for="{{config.lives}}" wx:key="index">
+            <view class="typejob-name">{{item.typejob_name}}</view>
+            <view class="date-str">{{item.date_str}}</view>
+            <view class="title">{{item.title}}</view>
+        </navigator>
+    </view>
+</view>
+
+<!-- 后缀 -->
 <view class="suffix">{{suffix}}</view>
+
+<!-- 版本 -->
+<view class="version" wx:if="{{config.version && config._id}}">Version.{{config.version}}.{{config._id}}</view>

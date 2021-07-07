@@ -1,0 +1,21 @@
+<header title="考试公告订阅" suffix="{{suffix}}" id="header" nav></header>
+
+<image class="header" mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/subscribe/summary-page/header.1113.jpg"></image>
+
+<view class="form">
+	<view class="form-title">选择您感兴趣的考试：</view>
+
+	<checkbox-group class="form-checkbox-group" bindchange="checkboxChange">
+		<label wx:for="{{exams}}" wx:key="index">
+			<checkbox value="{{item}}" checked="{{subscribedExams[index]}}" />
+			<text>{{item}}</text>
+		</label>
+	</checkbox-group>
+
+	<view class="tips">您订阅的考试公告发布后，中公考试助手将免费通过微信“服务通知”功能为您推送公告提醒。</view>
+
+	<button type="primary" class="subscribe" bindtap="subscribe">{{!openID ? '订 阅':'更 新 订 阅'}}</button>
+  <button wx:if="{{subscribedExams.length > 1}}" type="warn" class="unsubscribe" bindtap="unsubscribe">退订全部</button>
+</view>
+
+<view class="suffix">{{suffix}}</view>

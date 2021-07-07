@@ -1,50 +1,101 @@
 /* pages/index/index.wxss */
-
-.header {
-  width: 100vw;
-  display: block;
+.tools {
+    background: #fff;
+    width: 90vw;
+    position: relative;
+    margin: -180rpx auto 50rpx;
+    box-shadow: 0px 0px 24rpx rgba(255, 255, 255, 0.6);
+    border-radius: 10rpx;
 }
 
-.form {
-  background: #FFF;
-  padding-bottom: 1.5vh;
-  box-shadow: 0 1px 5px #fff;
+.tool {
+    display: inline-block;
+    margin-top: 2vh;
+    margin-left: 2vw;
+    width: 20vw;
 }
 
-.form-title {
-  padding-left: 3vw;
-  font-size: 150%;
+.tool:last-child {
+    margin-bottom: 2vh;
 }
 
-.form-checkbox-group {
-  width: 90vw;
-  margin: 0 auto;
-  font-size: 145%;
+.tool .icon {
+    width: 10vw;
+    display: block;
+    margin: 0 auto;
 }
 
-.form-checkbox-group label {
-  display: inline-block;
-  margin: .5vh 0 .5vh 3vw;
+.tool .name {
+    text-align: center;
 }
 
-.tips {
-  color: gray;
-  width: 95vw;
-  text-indent: 2rem;
-  margin: 3vh 0 0 2.5vw;
+.banner {
+    width: 95vw;
+    margin: 0 auto;
+    display: block;
+    border-radius: 20rpx;
 }
 
-.register-tips {
-  color: gray;
-  text-align: center;
+.lives {
+    width: 95vw;
+    border-radius: 20rpx;
+    background: #fff;
+    box-shadow: 0px 0px 12rpx rgba(0, 0, 0, 0.3);
+    margin: 50rpx auto;
 }
 
-.subscribe {
-  width: 90vw !important;
-  margin-top: 2vh;
+.lives-title {
+    width: 665rpx;
+    margin: 0 auto;
+    border-bottom: 2px solid #e0dfe2;
+    padding: 15rpx 0 10rpx;
+    font-size: 1.2rem;
 }
 
-.unsubscribe {
-  width: 90vw !important;
-  margin: 2vh auto 0;
+.lives .content {
+    width: 650rpx;
+    margin: 0 auto;
+    padding-bottom: 30rpx;
+}
+
+.lives .content .item {
+    width: 650rpx;
+    line-height: 50rpx;
+    margin-top: 25rpx;
+    border-bottom: 1px solid #e0dfe2;
+    padding-bottom: 10rpx;
+}
+
+.lives .content .item .typejob-name {
+    display: inline;
+    color: #3A7FFF;
+    background: #E6F0FF;
+    border-radius: 10rpx;
+    padding: 0 8rpx;
+}
+
+.lives .content .item .date-str {
+    display: inline;
+    margin-left: 10rpx;
+    color: #E13D35;
+    background: #FFE5E4;
+    border-radius: 10rpx;
+    padding: 0 8rpx;
+}
+
+.lives .content .item .title {
+    display: block;
+    width: 626rpx;
+    color: #333333;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-top: 5rpx;
+    font-size: 1.1rem;
+}
+
+.version {
+    font-size: 0.5em;
+    text-align: center;
+    color: rgb(50, 50, 50, 0.5);
 }
