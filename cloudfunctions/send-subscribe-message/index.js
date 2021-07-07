@@ -11,14 +11,14 @@ exports.main = async () => {
 
   const 数据库 = 云开发.database()
 
-  const 出公告的考试项目 = "银行考试" // 公共配置
-  const 小程序页面路径 = "/pages/ad-navigate-19/index?scene=2020111301" // 公共配置
-  const 考试名称 = "考试名称" // 公共配置
-  const 报名时间 = "2021/10/1 15:01 ~ 2021/11/1 15:01" // 公共配置
-  const 备注 = "备注" // 公共配置
+  const 出公告的考试项目 = "特岗教师" // 公共配置
+  const 小程序页面路径 = "/pages/ad-navigate-19/index?scene=202106151943" // 公共配置
+  const 考试名称 = "2021吉林省特岗教师招聘3100人公告" // 公共配置
+  const 报名时间 = "2021/06/18 08:30 ~ 2021/06/24 17:00" // 公共配置
+  const 备注 = "今日21点00分,中公为您解读本次公告!" // 公共配置
 
-  const 招聘人数 = "xxxx人" // 仅一次性模板可用
-  const 考试时间 = "2021/10/1 15:01 ~ 2021/11/1 15:01" // 仅一次性模板可用
+  const 招聘人数 = "3100人" // 仅一次性模板可用
+  const 考试时间 = "2021/06/18 08:30 ~ 2021/06/24 17:00" // 仅一次性模板可用
 
   // 获取最大数量
   let 预约记录总数 = await 数据库.collection("subscribeExam").count()
@@ -36,7 +36,8 @@ exports.main = async () => {
         if (订阅记录.subscribe[计数器] === 出公告的考试项目) {
           // 发送
           try {
-            if (订阅记录.suffix) { 小程序页面路径 += "*" + 订阅记录.suffix }
+            let 最终小程序页面路径 = 小程序页面路径;
+            if (订阅记录.suffix) { 最终小程序页面路径 += "*" + 订阅记录.suffix }
             let result = null;
             switch (订阅记录.tmplIds[0]) {
               case "r6jJofVAClt9WWoh9XL42bf5z2t7FVUX6DNZvmKuSNY":
@@ -44,7 +45,7 @@ exports.main = async () => {
                 result = await 云开发.openapi.subscribeMessage.send({
                   templateId: "r6jJofVAClt9WWoh9XL42bf5z2t7FVUX6DNZvmKuSNY",
                   touser: 订阅记录._openid,
-                  page: 小程序页面路径,
+                  page: 最终小程序页面路径,
                   data: { thing1: { value: 考试名称 }, thing2: { value: 招聘人数 }, time3: { value: 报名时间 }, time4: { value: 考试时间 }, thing5: { value: 备注 } }
                 });
                 capsule(订阅记录._id, "发送成功", "success");
@@ -56,7 +57,7 @@ exports.main = async () => {
                 result = await 云开发.openapi.subscribeMessage.send({
                   templateId: "Ff-Mi9uy4hb9YxYiYgAwOSlGEXgqTkkoIi5sUsOtaao",
                   touser: 订阅记录._openid,
-                  page: 小程序页面路径,
+                  page: 最终小程序页面路径,
                   data: { thing2: { value: 考试名称 }, date3: { value: 报名时间 }, thing5: { value: 备注 } }
                 });
                 capsule(订阅记录._id, "发送成功", "success");
