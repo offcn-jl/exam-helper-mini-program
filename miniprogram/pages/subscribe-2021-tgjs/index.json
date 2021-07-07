@@ -1,7 +1,0 @@
-{
-  "usingComponents": {
-    "navigation": "/components/navigation/navigation",
-    "select": "/components/select/select"
-  },
-  "navigationStyle": "custom"
-}
