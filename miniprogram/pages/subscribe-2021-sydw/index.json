@@ -1,7 +1,6 @@
 {
   "usingComponents": {
-    "navigation": "/components/navigation/navigation",
+    "header": "/components/header/header",
     "select": "/components/select/select"
-  },
-  "navigationStyle": "custom"
+  }
 }

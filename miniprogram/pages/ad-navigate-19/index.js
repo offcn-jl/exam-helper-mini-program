@@ -24,17 +24,12 @@ Page({
     })
   },
 
-  // 在页面发生滚动时，计算是否需要切换标题栏样式
-  onPageScroll: function (e) {
-    this.selectComponent('#navigation').swtichNavigation(e)
-  },
-
   /**
    * 生命周期函数--监听页面加载
    * options.scene = "2020111301*cBlzJ8"
    */
   onLoad: function (options) {
-    // options.scene = "2020111301*cBlzJ8"
+    options.scene = "2020111301*cBlzJ8"
     if (typeof options.scene === "undefined") {
       getApp().methods.handleError({ err: options, title: "出错啦", content: '缺少参数, 即将返回首页', reLaunch: true })
       return
@@ -86,48 +81,11 @@ Page({
       })
     }
   },
-
   /**
-   * 生命周期函数--监听页面初次渲染完成
+   * 监听页面滚动
+   * 用于 显示 header / 隐藏 header
    */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
+  onPageScroll: function (e) { this.selectComponent('#header').setData({ scrollTop: e.scrollTop }) },
 
   /**
    * 用户点击右上角分享

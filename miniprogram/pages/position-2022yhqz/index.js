@@ -100,7 +100,7 @@ Page({
     if (this.data.yearValue !== "") url += "&year=" + this.data.yearValue
     if (this.data.cityValue !== "") url += "&city=" + this.data.cityValue
     if (this.data.bankValue !== "") url += "&bank=" + this.data.bankValue
-    wx.reLaunch({ url })
+    wx.navigateTo({ url });
   },
   
   // 向左向右点击切换

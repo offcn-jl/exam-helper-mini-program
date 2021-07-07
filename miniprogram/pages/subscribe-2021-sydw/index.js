@@ -21,10 +21,11 @@ Page({
     qrCodePath: "https://download.cos.jilinoffcn.com/public/qr-code/gh_f20080360b5c.jpg", // 二维码地址
   },
   
-  // 在页面发生滚动时，计算是否需要切换标题栏样式
-  onPageScroll: function (e) {
-    this.selectComponent('#navigation').swtichNavigation(e)
-  },
+  /**
+   * 监听页面滚动
+   * 用于 显示 header / 隐藏 header
+   */
+  onPageScroll: function (e) { this.selectComponent('#header').setData({ scrollTop: e.scrollTop }) },
 
   // 监听筛选条件切换
   m_select_touch(e) {

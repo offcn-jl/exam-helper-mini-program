@@ -96,7 +96,7 @@ Page({
     if (this.data.graduatesValue !== "") url += "&graduates=" + this.data.graduatesValue
     if (this.data.cityValue !== "") url += "&city=" + this.data.cityValue
     if (this.data.bankValue !== "") url += "&bank=" + this.data.bankValue
-    wx.reLaunch({ url })
+    wx.navigateTo({ url });
   },
 
   /**

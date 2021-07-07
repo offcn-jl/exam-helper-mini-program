@@ -11,10 +11,11 @@ Page({
     result: [], // 查询结果
   },
 
-  // 在页面发生滚动时，计算是否需要切换标题栏样式
-  onPageScroll: function (e) {
-    this.selectComponent('#navigation').swtichNavigation(e)
-  },
+  /**
+   * 监听页面滚动
+   * 用于 显示 header / 隐藏 header
+   */
+  onPageScroll: function (e) { this.selectComponent('#header').setData({ scrollTop: e.scrollTop }) },
 
   //可收放数据样式
   more: function (event) {

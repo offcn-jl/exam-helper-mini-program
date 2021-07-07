@@ -1,4 +1,4 @@
-<navigation id='navigation' title="查询结果" hide-icon="{{true}}"></navigation>
+<header title="查询结果" suffix="{{suffix}}" id="header" nav></header>
 
 <image mode="widthFix"
 	src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/position/2020/jr/header.result.1112.jpg"

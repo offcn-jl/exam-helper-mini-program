@@ -13,10 +13,11 @@ Page({
     tipsToSubscribeMessaged: false, // 是否提示过进行消息订阅
   },
 
-  // 在页面发生滚动时，计算是否需要切换标题栏样式
-  onPageScroll: function (e) {
-    this.selectComponent('#navigation').swtichNavigation(e)
-  },
+  /**
+   * 监听页面滚动
+   * 用于 显示 header / 隐藏 header
+   */
+  onPageScroll: function (e) { this.selectComponent('#header').setData({ scrollTop: e.scrollTop }) },
 
   // register 注册
   register: function (e) {

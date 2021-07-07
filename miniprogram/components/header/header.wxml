@@ -1,0 +1,17 @@
+<view wx:if="{{show}}" class="header custom {{fixedTop?'fixed':''}}" style="padding-top:{{statusBarHeight}}px; background: {{background}}; z-index: 10" data-s="{{scrollTop}}">
+    <view class="navigation" wx:if="{{nav}}">
+        <navigator class="nav" hoverClass="none" openType="navigateBack" wx:if="{{canGoBack&&autoGoBack}}">
+            <image src="https://jl.offcn.com/zg/ty/images/exam-helper-mini-program/components/header/back.png"></image>
+        </navigator>
+        <view bindtap="back" class="nav" wx:if="{{canGoBack&&!autoGoBack}}">
+            <image src="https://jl.offcn.com/zg/ty/images/exam-helper-mini-program/components/header/back.png"></image>
+        </view>
+        <text wx:if="{{canGoBack&&!small}}">|</text>
+        <navigator class="nav" hoverClass="none" openType="reLaunch" url="/pages/index/index{{suffix?'?scene='+suffix:''}}" wx:if="{{!(small&&canGoBack)}}">
+            <image src="https://jl.offcn.com/zg/ty/images/exam-helper-mini-program/components/header/home.png"></image>
+        </navigator>
+    </view>
+    <slot></slot>
+    <text class="title" style="margin-right: {{small?80:0}}rpx;color:#{{small?'3C464F':'000'}}" wx:if="{{showTitle}}">{{title}}</text>
+</view>
+<view wx:if="{{alwaysShow}}" class="{{!fixedTop?'fixed':''}}" style="height: calc({{statusBarHeight+44}}px)"></view>
