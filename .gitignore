@@ -5,3 +5,6 @@ __MACOSX
 # Node
 node_modules
 package-lock.json
+
+# 微信开发者工具 项目私有配置
+*.private*
