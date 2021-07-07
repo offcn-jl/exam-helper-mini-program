@@ -14,10 +14,10 @@ module.exports = {
   // 接口路径
   apis: environment === "release" ? {
     // 生产环境
-    gaea: "https://api.gaea.jilinoffcn.com/release",
+    gaea: "https://api.offcn.ltd/release",
   } : {
     // 测试环境
-    gaea: "https://api.gaea.jilinoffcn.com/test",
+    gaea: "https://api.offcn.ltd/test",
   },
   // 引入保密配置项
   ...(environment === "release" ? require("./config.secrets").release : require("./config.secrets").test)

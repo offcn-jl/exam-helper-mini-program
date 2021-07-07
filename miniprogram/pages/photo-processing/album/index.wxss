@@ -1,0 +1,164 @@
+/* pages/photo-processing/album/index.wxss */
+
+page {
+    padding-bottom: 100rpx;
+    background: white;
+}
+
+.list {
+    margin-top: 30rpx;
+    padding: 0 40rpx;
+}
+
+.item {
+    margin-bottom: 40rpx;
+    display: flex;
+    height: 220rpx;
+    align-items: stretch;
+}
+
+.item .photo {
+    height: 220rpx;
+    width: 176rpx;
+    flex: none;
+    margin-right: 30rpx;
+    background: #F5F7FA;
+    border: 1px solid #f2f2f5;
+    box-sizing: content-box;
+}
+
+.item .right {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0;
+    width: 100%;
+}
+
+.item .name {
+    font-size: 28rpx;
+    color: #3C464F;
+    font-weight: bold;
+    line-height: 36rpx;
+    margin-bottom: 4rpx;
+    margin-top: 20rpx;
+}
+
+.item .detail {
+    display: flex;
+    font-size: 24rpx;
+    color: #91979C;
+    align-items: center;
+    margin-bottom: 14rpx;
+}
+
+.item .split {
+    display: inline-block;
+    height: 24rpx;
+    border-right: 1px solid #EAEBEF;
+    margin: 0 24rpx;
+}
+
+.item .type {
+    height: 36rpx;
+    width: 80rpx;
+    border-radius: 4rpx;
+    line-height: 36rpx;
+    text-align: center;
+    font-size: 20rpx;
+}
+
+.item .type0 {
+    color: #7EA3ED;
+    background: #F3F8FF;
+}
+
+.item .type1 {
+    color: #FF8F79;
+    background: #FFF7F0;
+}
+
+.date {
+    font-size: 24rpx;
+    color: #CCCCCC;
+}
+
+.item .more {
+    position: absolute;
+    bottom: -30rpx;
+    right: -30rpx;
+    height: 100rpx;
+    width: 100rpx;
+    z-index: 1;
+}
+
+.item .more>image {
+    margin-top: 30rpx;
+    margin-left: 30rpx;
+    height: 40rpx;
+    width: 40rpx;
+}
+
+.item .more .delete {
+    position: absolute;
+    bottom: 70rpx;
+    right: 30rpx;
+    height: 80rpx;
+    width: 228rpx;
+    border-radius: 80rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4rpx 16rpx 0 rgba(113,125,137,0.10);
+    font-size: 26rpx;
+    color: #3C464F;
+    z-index: 2;
+}
+
+.item .more .delete image {
+    height: 36rpx;
+    width: 36rpx;
+    margin-right: 8rpx;
+}
+
+.empty {
+    margin-top: 326rpx;
+    font-size: 26rpx;
+    color: #91979C;
+    text-align: center;
+}
+
+.empty image {
+    display: block;
+    margin: auto;
+    width: 290rpx;
+    height: 244rpx;
+    margin-bottom: 16rpx;
+}
+
+.empty .btn {
+    background: #3C7CFC;
+    border-radius: 8rpx;
+    width: 350rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    font-size: 30rpx;
+    color: #FFFFFF;
+    font-weight: bold;
+    display: block;
+    margin: 80rpx auto;
+    position: relative;
+}
+
+.statement {
+    width: 85vw;
+    margin: 0 auto;
+    display: block;
+    text-indent: 2rem;
+    color: #91979C;
+}
+
+.suffix {
+    margin-top: 2vh;
+}

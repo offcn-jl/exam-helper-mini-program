@@ -1,0 +1,9 @@
+<view bindtap="choose" class="category {{category.id==currentCategory.id?'active':''}}">
+    <view class="star-wrapper" wx:if="{{category.id==currentCategory.id}}">
+        <image class="star" src="https://jl.offcn.com/zg/ty/images/exam-helper-mini-program/photo-processing/configs-stars.png"></image>
+    </view>
+    <view class="icon-wrapper">
+        <image class="icon" src="{{category.icon}}"></image>
+    </view>
+    <text>{{category.name}}</text>
+</view>

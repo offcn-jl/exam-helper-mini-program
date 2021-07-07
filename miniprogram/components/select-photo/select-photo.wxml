@@ -1,0 +1,12 @@
+<view bindtap="pickPhoto" class="rect {{bgColor}}">
+    <text class="top-left"></text>
+    <text class="top-right"></text>
+    <text class="bottom-left"></text>
+    <text class="bottom-right"></text>
+    <view class="upload-photo" wx:if="{{!src}}">
+        <image src="https://jl.offcn.com/zg/ty/images/exam-helper-mini-program/public/plus-gray.png"></image>
+        <view>选择照片</view>
+    </view>
+    <image class="photo" mode="widthFix" src="{{src}}" wx:if="{{src}}"></image>
+    <image class="watermark" src="https://jl.offcn.com/zg/ty/images/exam-helper-mini-program/public/watermark.png" wx:if="{{src}}"></image>
+</view>

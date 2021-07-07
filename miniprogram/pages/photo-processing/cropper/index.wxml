@@ -1,0 +1,84 @@
+<header title="裁剪照片" suffix="{{suffix}}" alwaysShow nav></header>
+
+<view class="main">
+    <select-photo bind:pickPhoto="pickPhoto" src="{{src}}"></select-photo>
+</view>
+
+<view class="bottom">
+    <button wx:if="{{!phone}}" class="btn btn-choose-spec" open-type="getPhoneNumber" bindgetphonenumber="signUp">选择裁剪规格</button>
+    <button wx:else bindtap="showModal" class="btn btn-choose-spec">选择裁剪规格</button>
+</view>
+
+<cropper bindimageload="loadimage" bindload="cropperload" bindtapcancel="clickCancel" bindtapcrop="clickCrop" disable_height="{{true}}" disable_width="{{true}}" export_scale="{{exportScale}}" height="{{cropHeight}}" id="image-cropper" imgSrc="{{src}}" limit_move="{{true}}" realHeight="{{config.PixelHeight}}" realWidth="{{config.PixelWidth}}" width="{{cropWidth}}" wx:if="{{showCrop}}"></cropper>
+
+<view bindtap="closeModal" class="modal" wx:if="{{showModal}}">
+    <view catchtap="stopProp" class="modal-content specs-modal-content">
+        <view bindtap="closeModal" class="close">
+            <image src="https://jl.offcn.com/zg/ty/images/exam-helper-mini-program/public/cancel-black.png"></image>
+        </view>
+        <view class="search">
+            <image src="https://jl.offcn.com/zg/ty/images/exam-helper-mini-program/public/search-DEE2EA.png"></image>
+            <input bindinput="input" confirmType="search" placeholder="搜索您想拍摄的规格名称、尺寸" placeholderClass="placeholder"></input>
+        </view>
+        <view class="content">
+            <configs bind:chooseConfig="chooseConfig"></configs>
+            <scroll-view bindscrolltolower="loadMore" class="search-results" scrollY="true" wx:if="{{showSearchResults}}">
+                <config bind:chooseConfig="chooseConfig" config="{{item}}" wx:for="{{configs}}" wx:key="index"></config>
+                <view class="empty" wx:if="{{!configs.length}}">
+                    <image src="https://jl.offcn.com/zg/ty/images/exam-helper-mini-program/public/empty-search.png"></image>
+                    <view>没有找到此规格</view>
+                    <text>请按规格名称或尺寸进行搜索</text>
+                </view>
+            </scroll-view>
+        </view>
+    </view>
+    <view catchtap="stopProp" class="modal-content spec-detail-modal-content" wx:if="{{showDetailModal}}">
+        <view bindtap="closeDetailModal" class="close">
+            <image src="https://jl.offcn.com/zg/ty/images/exam-helper-mini-program/public/cancel-black.png"></image>
+        </view>
+        <view class="spec-detail">
+            <view class="title">规格详情</view>
+            <view class="content">
+                <view>
+                    <view class="name">规格类别</view>
+                    {{config.Project}}
+                </view>
+                <view>
+                    <view class="name">规格名称</view>
+                    {{config.Name}}
+                </view>
+                <view>
+                    <view class="name">照片尺寸</view>
+                    {{config.MillimeterWidth}}*{{config.MillimeterHeight}}mm
+                </view>
+                <view>
+                    <view class="name">照片规格</view>
+                    {{config.MillimeterWidth}}*{{config.MillimeterHeight}}px
+                </view>
+                <view>
+                    <view class="name">照片底色</view>
+                    <view class="color {{item}}" wx:for="{{config.BackgroundColors}}" wx:key="index"></view>
+                </view>
+                <view>
+                    <view class="name">文件格式</view>
+                    jpg
+                </view>
+                <view wx:if="{{config.Description}}">
+                    <view class="name">备注</view>
+                    {{config.Description}}
+                </view>
+            </view>
+        </view>
+        <view class="bottom">
+            <button bindtap="gotoCrop" class="btn btn-crop">确认裁剪</button>
+        </view>
+    </view>
+</view>
+
+<!-- 推广后缀 -->
+<view class="suffix">{{suffix}}</view>
+
+<!-- 重新上传提示 -->
+<view bindtap="closeSelectPictureTip" class="reselect-picture" wx:if="{{!selectedPicture}}">
+    <image src="https://jl.offcn.com/zg/ty/images/exam-helper-mini-program/public/reselect-picture-tip.png"></image>
+</view>

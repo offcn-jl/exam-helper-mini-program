@@ -1,0 +1,107 @@
+/* pages/photo-processing/index/index.wxss */
+page {
+    background: white;
+}
+
+.camera {
+    position: relative;
+    display: block;
+    width: 670rpx;
+    height: 220rpx;
+    margin: 30rpx auto;
+    font-size: 34rpx;
+    color: #FFFFFF;
+    font-weight: bold;
+    text-shadow: 0 0 16px #0F57E7;
+    padding: 66rpx 40rpx;
+    line-height: 48rpx;
+    border-radius: 30rpx;
+    overflow: hidden;
+    box-shadow: 0 4rpx 24rpx 0 #DBE8FF;
+}
+
+.camera image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 670rpx;
+    height: 220rpx;
+    z-index: -1;
+}
+
+.color {
+    position: relative;
+    display: inline-block;
+    width: 320rpx;
+    height: 150rpx;
+    margin-left: 40rpx;
+    font-size: 30rpx;
+    color: #FFFFFF;
+    font-weight: bold;
+    padding: 40rpx;
+    line-height: 48rpx;
+    text-shadow: 0 0 10px rgba(255,104,0,0.70);
+    border-radius: 30rpx;
+    overflow: hidden;
+    box-shadow: 0 2px 18rpx 0 rgba(255,237,148,0.70);
+}
+
+.color image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 320rpx;
+    height: 150rpx;
+    z-index: -1;
+}
+
+.crop {
+    position: relative;
+    display: inline-block;
+    width: 320rpx;
+    height: 150rpx;
+    margin-left: 30rpx;
+    font-size: 30rpx;
+    color: #FFFFFF;
+    font-weight: bold;
+    padding: 40rpx;
+    line-height: 48rpx;
+    text-shadow: 0 0 10px rgba(28,171,179,0.80);
+    border-radius: 30rpx;
+    overflow: hidden;
+    box-shadow: 0 2px 18rpx 0 #D1F4F0;
+}
+
+.crop image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 320rpx;
+    height: 150rpx;
+    z-index: -1;
+}
+
+.hot-title {
+    margin: 70rpx 40rpx 20rpx 40rpx;
+    font-size: 34rpx;
+    color: #3C464F;
+    font-weight: bold;
+    line-height: 48rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.hot-title navigator {
+    font-size: 24rpx;
+    color: #B1B5B9;
+    font-weight: normal;
+}
+
+.hot-title image {
+    height: 40rpx;
+    width: 40rpx;
+    vertical-align: middle;
+    margin-top: -2rpx;
+}

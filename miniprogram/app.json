@@ -4,13 +4,25 @@
    
     "pages/event-2021-06-01/index",
     "pages/event-2021-03-25/index",
-    
+
     "pages/tgjs-2021/index",
 
     "pages/sk-2021/interview/index",
     "pages/sk-2021/book/index",
     "pages/sk-2021/scene/index",
     "pages/sk-2021/index",
+
+    "pages/photo-processing/index/index",
+    "pages/photo-processing/configs/index",
+    "pages/photo-processing/detail/index",
+    "pages/photo-processing/detail/camera/index",
+    "pages/photo-processing/detail/preview/index",
+    "pages/photo-processing/detail/preview/save-image/index",
+    "pages/photo-processing/change-background/index",
+    "pages/photo-processing/cropper/index",
+    "pages/photo-processing/cropper/preview/index",
+    "pages/photo-processing/album/index",
+    "pages/photo-processing/album/detail/index",
 
     "pages/position-2022yhqz/index",
     "pages/position-2022yhqz/result/index",
@@ -36,7 +48,8 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
     "navigationBarTitleText": "中公教育考试助手",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
   },
   "sitemapLocation": "sitemap.json",
   "style": "v2",

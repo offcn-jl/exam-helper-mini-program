@@ -1,0 +1,119 @@
+/* pages/photo-processing/cropper/preview/index.wxss */
+
+page {
+    background: #F5F7FA;
+}
+
+.img-wrapper {
+    position: fixed;
+    top: calc(50% - 10rpx);
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 0;
+    border: 4rpx solid #EDF2FA;
+}
+
+.border {
+    position: absolute;
+    height: 24rpx;
+    border-right: 6rpx solid #E7EEF8;
+    border-left: 6rpx solid #E7EEF8;
+    font-size: 28rpx;
+    color: #C0C6CC;
+    display: flex;
+    align-items: center;
+}
+
+.border::before,.border::after {
+    display: block;
+    content: '';
+    width: 50%;
+    height: 1px;
+    background: #E7EEF8;
+}
+
+.border text {
+    flex: none;
+    display: inline-block;
+    margin: 0 25rpx;
+}
+
+.border-top {
+    top: -52rpx;
+    left: 0;
+    width: 100%;
+}
+
+.border-bottom {
+    bottom: -52rpx;
+    left: 0;
+    width: 100%;
+}
+
+.border-right {
+    left: calc(100% + 52rpx);
+    top: 0;
+    transform: rotate(90deg);
+    transform-origin: left top;
+}
+
+.border-left {
+    top: 0;
+    transform: translateX(calc(-100% - 52rpx)) rotate(-90deg);
+    transform-origin: right top;
+}
+
+.bottom {
+    position: fixed;
+    z-index: 1;
+    bottom: 0;
+    width: 100%;
+    height: 128rpx;
+    background: #FFFFFF;
+    box-shadow: 0 8rpx 30rpx 0 #E9E7F1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40rpx;
+}
+
+.bottom .btn-green {
+    background: #01CFC7;
+    border-radius: 8rpx;
+    height: 88rpx;
+    width: 325rpx;
+    line-height: 88rpx;
+    text-align: center;
+    font-size: 30rpx;
+    color: #FFFFFF;
+    font-weight: bold;
+    margin: 0;
+}
+
+.bottom .btn-blue {
+    background: #3C7CFC;
+    border-radius: 8rpx;
+    height: 88rpx;
+    width: 325rpx;
+    line-height: 88rpx;
+    text-align: center;
+    font-size: 30rpx;
+    color: #FFFFFF;
+    font-weight: bold;
+    margin: 0;
+}
+
+.watermark {
+    position: absolute;
+    bottom: -54rpx;
+    right: -54rpx;
+    z-index: 1;
+    width: 200rpx;
+    height: 200rpx;
+}
+
+.suffix {
+    bottom: 128rpx;
+    position: absolute;
+    width: 100vw;
+}

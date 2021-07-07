@@ -79,7 +79,7 @@ Page({
     // 获取配置
     wx.showLoading({ title: '加载中...', mask: true })
     wx.request({
-      url: (getApp().globalData.configs.apis.gaea.replace(".gaea.", ".chaos.")) + '/events/internal-tools/book-pro/info/' + options.scene.split("*")[1],
+      url: (getApp().globalData.configs.apis.gaea.replace("offcn.ltd", "chaos.jilinoffcn.com")) + '/events/internal-tools/book-pro/info/' + options.scene.split("*")[1],
       complete: res => {
         wx.hideLoading() // 隐藏 loading
         if (res.statusCode !== 200) {

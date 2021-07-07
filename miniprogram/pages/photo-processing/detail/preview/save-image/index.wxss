@@ -1,0 +1,94 @@
+/* pages/photo-processing/detail/preview/save-image/index.wxss */
+page {
+    padding-bottom: 140rpx;
+}
+
+.wrapper {
+    width: 670rpx;
+    margin: 40rpx;
+    background: #FFFFFF;
+    box-shadow: 0 4rpx 30rpx 0 rgba(0,0,0,0.10);
+    border-radius: 24rpx;
+    overflow: hidden;
+}
+
+.wrapper .top {
+    padding: 50rpx 40rpx;
+    display: flex;
+    justify-content: center;
+}
+
+.wrapper .image-wrapper {
+    position: relative;
+    font-size: 0;
+}
+
+.watermark {
+    position: absolute;
+    bottom: -54rpx;
+    right: -54rpx;
+    z-index: 1;
+    width: 200rpx;
+    height: 200rpx;
+}
+
+.wrapper .photo {
+    border: 1px solid #f2f2f2;
+}
+
+.wrapper .bottom {
+    background: #F2F6FC;
+    height: 160rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 42rpx 40rpx;
+}
+
+.wrapper .bottom .title {
+    font-size: 28rpx;
+    color: #3C464F;
+    font-weight: bold;
+    line-height: 36rpx;
+    margin-bottom: 4rpx;
+}
+
+.wrapper .bottom .infos {
+    font-size: 24rpx;
+    color: #91979C;
+    line-height: 36rpx;
+}
+
+.wrapper .bottom .infos text {
+    display: inline-block;
+    height: 24rpx;
+    width: 0;
+    border-right: 1px solid #D8D9DF;
+    margin: 6rpx 16rpx;
+    vertical-align: top;
+}
+
+.wrapper .bottom .btn {
+    background: #3C7CFC;
+    border-radius: 16rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    width: 160rpx;
+    font-size: 28rpx;
+    color: #FFFFFF;
+    font-weight: bold;
+    margin: 0;
+}
+
+.btn.btn-share {
+    position: fixed;
+    bottom: 0;
+    height: 140rpx;
+    width: 100%;
+    z-index: 20;
+}
+
+.btn.btn-share image {
+    height: 140rpx;
+    width: 750rpx;
+}

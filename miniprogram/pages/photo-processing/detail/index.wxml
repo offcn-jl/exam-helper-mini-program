@@ -1,0 +1,77 @@
+<!--pages/photo-processing/detail/index.wxml-->
+
+<header title="{{config.Name}}" suffix="{{suffix}}" alwaysShow nav></header>
+
+<view class="top">
+    <image class="reference" src="https://jl.offcn.com/zg/ty/images/exam-helper-mini-program/public/reference.png"></image>
+    <view class="right">
+        <view class="title">拍照须知</view>
+        <view>
+            <image src="https://jl.offcn.com/zg/ty/images/exam-helper-mini-program/public/check-blue.png"></image>
+            站在白墙前，距墙30cm
+        </view>
+        <view>
+            <image src="https://jl.offcn.com/zg/ty/images/exam-helper-mini-program/public/check-blue.png"></image>
+            拍摄前擦干净手机镜头
+        </view>
+        <view>
+            <image src="https://jl.offcn.com/zg/ty/images/exam-helper-mini-program/public/check-orange.png"></image>
+            建议穿着深色衣服
+        </view>
+        <view>
+            <image src="https://jl.offcn.com/zg/ty/images/exam-helper-mini-program/public/check-orange.png"></image>
+            露出耳朵和额头
+        </view>
+        <view>
+            <image src="https://jl.offcn.com/zg/ty/images/exam-helper-mini-program/public/check-orange.png"></image>
+            请勿佩戴眼镜或首饰
+        </view>
+    </view>
+</view>
+<view class="divider"></view>
+<view class="detail">
+    <view class="title">规格详情</view>
+    <view class="content">
+        <view>
+            <view class="name">规格类别</view>
+            {{config.Project}}
+        </view>
+        <view>
+            <view class="name">规格名称</view>
+            {{config.Name}}
+        </view>
+        <view>
+            <view class="name">照片尺寸</view>
+            {{config.MillimeterWidth}}*{{config.MillimeterHeight}}mm
+        </view>
+        <view>
+            <view class="name">照片规格</view>
+            {{config.MillimeterWidth}}*{{config.MillimeterHeight}}px
+        </view>
+        <view>
+            <view class="name">照片底色</view>
+            <view class="color {{item}}" wx:for="{{config.BackgroundColors}}" wx:key="index"></view>
+        </view>
+        <view>
+            <view class="name">文件格式</view>
+            jpg
+        </view>
+        <view wx:if="{{config.Description}}">
+            <view class="name">备注</view>
+            {{config.Description}}
+        </view>
+    </view>
+</view>
+<view class="bottom">
+    <block wx:if="{{!phone}}">
+        <button class="btn btn-green" open-type="getPhoneNumber" bindgetphonenumber="signUp" data-bindtap="album">从相册中选取</button>
+        <button class="btn btn-blue" open-type="getPhoneNumber" bindgetphonenumber="signUp" data-bindtap="camera">拍摄</button>
+    </block>
+    <block wx:else>
+        <button class="btn btn-green" bindtap="album">从相册中选取</button>
+        <button class="btn btn-blue" bindtap="camera">拍摄</button>
+    </block>
+</view>
+
+<!-- 推广后缀 -->
+<view class="suffix">{{suffix}}</view>

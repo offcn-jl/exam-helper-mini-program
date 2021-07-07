@@ -1,0 +1,146 @@
+/* pages/photo-processing/detail/index.wxss */
+.top {
+    margin: 40rpx 0rpx 0 40rpx;
+    display: flex;
+}
+
+.top .reference {
+    height: 390rpx;
+    width: 290rpx;
+    margin-right: 30rpx;
+}
+
+.top .right {
+    margin-top: 30rpx;
+}
+
+.top .right .title {
+    font-size: 34rpx;
+    color: #3C7CFC;
+    font-weight: bold;
+    margin-bottom: 40rpx;
+    position: relative;
+    display: inline-block;
+}
+
+.top .right .title:after {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #E8F0FF;
+    content: '';
+    height: 20rpx;
+    border-radius: 20rpx;
+    z-index: -1;
+}
+
+.top .right view {
+    margin-bottom: 18rpx;
+    font-size: 28rpx;
+    color: #3C464F;
+    line-height: 38rpx;
+}
+
+.top .right view image {
+    height: 30rpx;
+    width: 30rpx;
+    margin-right: 16rpx;
+    vertical-align: top;
+    margin-top: 4rpx;
+}
+
+.divider {
+    height: 20rpx;
+    background: #f2f2f5;
+    margin-top: 50rpx;
+    margin-bottom: 64rpx;
+}
+
+.detail {
+    padding: 0 40rpx;
+}
+
+.detail .title {
+    font-size: 32rpx;
+    color: #3C464F;
+    font-weight: bold;
+    margin-bottom: 36rpx;
+}
+
+.detail .content>view {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24rpx;
+    font-size: 28rpx;
+    color: #3C464F;
+}
+
+.detail .content .name {
+    font-size: 28rpx;
+    color: #91979C;
+    width: 142rpx;
+}
+
+.detail .content .color {
+    height: 30rpx;
+    width: 30rpx;
+    border-radius: 40rpx;
+    margin-right: 16rpx;
+    box-sizing: border-box;
+}
+
+.white {
+    background: white;
+    border: 1px solid #E5E5E5;
+}
+
+.lightblue {
+    background-image: linear-gradient(180deg, #8EC5E9 0%, #AFD7F0 100%);
+}
+
+.blue {
+    background-image: linear-gradient(180deg, #1A8AE4 0%, #4EA4ED 100%);
+}
+
+.red {
+    background-image: linear-gradient(180deg, #C40C20 0%, #D5284A 100%);
+}
+
+.gray {
+    background-image: linear-gradient(180deg, #818892 0%, #A7AFB7 100%);
+}
+
+.bottom {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    width: 100%;
+    bottom: 20rpx;
+}
+
+.bottom .btn {
+    width: 325rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    font-size: 30rpx;
+    color: #FFFFFF;
+    font-weight: bold;
+    margin: 10rpx;
+    position: relative;
+}
+
+.bottom .btn-green {
+    background: #01CFC7;
+}
+
+.bottom .btn-blue {
+    background: #3C7CFC;
+}
+
+.suffix {
+    bottom: 128rpx;
+    position: absolute;
+    width: 100vw;
+}

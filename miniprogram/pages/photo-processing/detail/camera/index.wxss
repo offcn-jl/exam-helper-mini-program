@@ -1,0 +1,59 @@
+/* pages/photo-processing/detail/camera/index.wxss */
+cover-view {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 230rpx;
+    box-sizing: border-box;
+}
+
+cover-view cover-image {
+    height: 826rpx;
+    width: 700rpx;
+}
+
+.bottom {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    height: 230rpx;
+    background: black;
+    display: flex;
+    padding: 30rpx 40rpx 0 40rpx;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bottom .cancel {
+    font-size: 32rpx;
+    color: #FFFFFF;
+    font-weight: bold;
+    height: 60rpx;
+    width: 80rpx;
+    line-height: 60rpx;
+}
+
+.bottom .take-photo {
+    height: 120rpx;
+    width: 120rpx;
+}
+
+.bottom .camera-direction {
+    height: 60rpx;
+    width: 80rpx;
+}
+
+.bottom .camera-direction image {
+    width: 56rpx;
+    height: 56rpx;
+    margin-top: 3rpx;
+    margin-left: 12rpx;
+}
+
+.suffix {
+    bottom: 230rpx;
+    position: absolute;
+    width: 100vw;
+}
