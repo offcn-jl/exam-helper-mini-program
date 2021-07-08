@@ -1,7 +1,7 @@
 <!--pages/photo-processing/detail/camera/index.wxml-->
 <camera devicePosition="{{devicePosition}}" flash="off" style="width: 100%; height: calc(100vh - 230rpx); position: fixed">
     <cover-view>
-        <cover-image src="../../tmp/in-use/human-shape.png"></cover-image>
+        <cover-image src="https://jl.offcn.com/zg/ty/images/exam-helper-mini-program/public/human-shape.png"></cover-image>
     </cover-view>
 </camera>
 
