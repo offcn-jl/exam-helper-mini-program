@@ -1,0 +1,34 @@
+/* pages/index/index.wxss */
+
+.header {
+  width: 100vw;
+  display: block;
+}
+
+.form {
+  position: absolute;
+  top: 1300rpx;
+  width: 95vw;
+  left: 2.5vw;
+}
+
+.register-tips {
+  color: white;
+  text-align: center;
+}
+
+.subscribe {
+  width: 90vw !important;
+  margin-top: 2vh;
+}
+
+.unsubscribe {
+  color: rgb(173, 173, 173);
+  text-align: center;
+  font-size: 1rem;
+  line-height: 2rem;
+}
+
+.unsubscribe-hover {
+  color:skyblue;
+}

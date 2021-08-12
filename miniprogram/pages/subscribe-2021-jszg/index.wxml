@@ -1,0 +1,18 @@
+<!--pages/index/index.wxml-->
+<header title="2021下半年教师资格证笔试公告订阅" suffix="{{suffix}}" id="header" nav></header>
+
+<block wx:if="{{!tipsToSubscribeMessaged}}">
+	<image class="header" mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/subscribe/2021/jszg/index.jpg"></image>
+	<view class="form">
+		<view class="tips"></view>
+		<button wx:if="{{!phone}}" type="primary" class="subscribe" open-type="getPhoneNumber" bindgetphonenumber="register">注 册</button>
+		<view wx:if="{{!phone}}" class="register-tips">请您先注册后再进行订阅操作</view>
+		<button disabled="{{!phone}}" type="primary" class="subscribe" bindtap="subscribe">订 阅</button>
+	</view>
+</block>
+
+<image wx:else class="header" mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/subscribe/2021/jszg/success.jpg"></image>
+
+<view class="suffix">{{suffix}}</view>
+
+<navigator url="/pages/subscribe/index?scene={{suffix}}" class="unsubscribe" hover-class="unsubscribe-hover">不想继续订阅公告推送？点击退订！</navigator>
