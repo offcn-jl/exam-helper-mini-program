@@ -25,14 +25,14 @@
     background: white;
 }
 
-.header .navigation text {
+.header .navigation .text {
     display: inline;
     margin: 0;
     flex: none;
     font-size: 16px;
 }
 
-.header .navigation image {
+.header .navigation .image {
     height: 16px;
     width: 16px;
 }
