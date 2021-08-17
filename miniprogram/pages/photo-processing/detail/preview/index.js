@@ -270,7 +270,6 @@ Page({
                             if (_this.data.config.PixelHeight >= 540) canvasContext.restore();
                             _this.drawImage(canvasContext, 0, 0, _this.data.config.PixelWidth, _this.data.config.PixelHeight, _this.data.color, filePath);
                             canvasContext.draw(false, function () {
-                                fs.unlinkSync(filePath); // 删除临时文件
                                 wx.canvasToTempFilePath({
                                     x: 0,
                                     y: 0,
@@ -281,6 +280,7 @@ Page({
                                     canvasId: "preview-canvas",
                                     fileType: "jpg",
                                     success: function (res) {
+                                        fs.unlinkSync(filePath); // 删除临时文件
                                         wx.hideLoading();
                                         wx.navigateTo({
                                             url: `save-image/index?photoCompo=${tempFilePath}&image=${res.tempFilePath}${_this.data.suffix?`&scene=${_this.data.suffix}`:''}`,
@@ -289,6 +289,11 @@ Page({
                                                 res.eventChannel.emit('acceptDataFromOpenerPage', _this.data.config)
                                             }
                                         });
+                                    },
+                                    fail: err => {
+                                        fs.unlinkSync(filePath); // 删除临时文件
+                                        wx.hideLoading(); // 隐藏 loading
+                                        getApp().methods.handleError({ err: err, title: "出错啦", content: "保存图片出错, 请稍后再试" });
                                     }
                                 }, _this);
                             });
