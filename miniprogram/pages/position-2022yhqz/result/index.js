@@ -39,7 +39,7 @@ Page({
     let _this = this //作用域 
     wx.showLoading({ title: '查询中...', mask: true })
     wx.request({
-      url: "http://zg99.offcn.com/index/chaxun/getfylist?actid=18061&callback=?",
+      url: "https://zg99.offcn.com/index/chaxun/getfylist?actid=18061&callback=?",
       data: _this.data.query,
       success(res) {
         wx.hideLoading() // 隐藏 loading
