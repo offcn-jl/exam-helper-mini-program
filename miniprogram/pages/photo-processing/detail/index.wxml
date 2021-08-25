@@ -46,7 +46,7 @@
         </view>
         <view>
             <view class="name">照片规格</view>
-            {{config.MillimeterWidth}}*{{config.MillimeterHeight}}px
+            {{config.PixelWidth}}*{{config.PixelHeight}}px
         </view>
         <view>
             <view class="name">照片底色</view>
