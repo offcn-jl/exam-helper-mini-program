@@ -4,8 +4,7 @@
 
 <!-- 背景音效 -->
 <view class="background-audio" bindtap="switchBackgroundAudioStatus">
-    <image class="disk" mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/event/2021/06/01/disk.png" 
-    style="{{ backgroundAudioStatus === '关闭音效' ? 'animation:turn 1s linear infinite;' : ''}}"></image>
+    <image class="disk {{ backgroundAudioStatus === '关闭音效' ? 'on' : ''}}" mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/event/2021/06/01/disk.png"></image>
     <text class="text">{{backgroundAudioStatus}}</text>
 </view>
 

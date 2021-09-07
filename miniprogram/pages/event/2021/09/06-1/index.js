@@ -86,13 +86,13 @@ Page({
                 timestamp: (new Date()).valueOf(),
                 actid: 42198,
                 tabnum: 1,
-                phone: this.data.phone,
+                phone:  this.data.phone,
             },
             success(res) {
                 wx.hideLoading() // 隐藏 loading
                 try {
                     const response = JSON.parse(res.data.substring(1, res.data.length - 1)) // 去头尾（）,转为json对象
-                    // console.log(response)
+                    console.log(response)
                     // index.js? [sm]:84 {status: 1, msg: "抽奖成功", prizeid: 5, prizename: "奖品2"}
                     // index.js? [sm]:84 {status: 2, msg: "您已经参与抽奖", prizeid: 5, prizename: "奖品2"}
                     // index.js? [sm]:84 {status: 4, msg: "超过奖品设置的数量"}
@@ -190,13 +190,12 @@ Page({
                 suffix: options.scene
             })
         }
-
         // 配置背景音乐相关内容 开始
         const backgroundAudioManager = wx.getBackgroundAudioManager() // 背景音乐播放器实例
-        backgroundAudioManager.title = '粉丝福利大礼包'
-        backgroundAudioManager.epname = '粉丝福利大礼包'
+        backgroundAudioManager.title = '2022公务员考试宠粉福利'
+        backgroundAudioManager.epname = '2022公务员考试宠粉福利'
         backgroundAudioManager.singer = '中公教育'
-        backgroundAudioManager.coverImgUrl = 'http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/event/2021/06/01/share.jpg'
+        backgroundAudioManager.coverImgUrl = 'http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/event/2021/09/06/share.jpg'
         // 设置了 src 之后会自动播放
         backgroundAudioManager.src = 'cloud://release-yum30.7265-release-yum30-1304214848/event/2021/06/01/6093af04a3003.mp3'
         // 监听播放结束, 播放结束后重新开始播放
@@ -209,7 +208,6 @@ Page({
         if (wx.getLaunchOptionsSync().scene !== 1154) {
             getApp().methods.login(this.data.CRMEFSID, this.data.suffix, this.data.CRMRemark, phone => this.setData({ phone })) // 登陆
         }
-
         // 渲染奖品
         const awards = [
             { name: '一等奖', remark: '活动结束后，三个工作日内将会有工作人员致电您确认领取方式。如有疑问可拨打：0431-81239600,0431-81239633。' },
@@ -233,7 +231,7 @@ Page({
     onShareAppMessage: function () {
         return {
             title: '2022公务员考试宠粉福利',
-            imageUrl: 'http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/event/2021/08/14/share.jpg'
+            imageUrl: 'http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/event/2021/09/06/share.jpg'
         }
     },
 

@@ -15,7 +15,9 @@ page {
     width: 100rpx;
     display: block;
 }
-
+.background-audio .disk.on{
+    animation:turn 1s linear infinite;
+}
 .background-audio .text {
     display: block;
     font-size: 25rpx;
