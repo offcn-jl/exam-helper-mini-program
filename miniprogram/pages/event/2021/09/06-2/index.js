@@ -148,6 +148,7 @@ Page({
 
     // 注册 获取手机号码并推送到对应到 CRM 活动中
     signUp: function (e) {
+        console.log(1)
         // 判断是否授权使用手机号
         if (e.detail.errMsg !== 'getPhoneNumber:ok') {
             getApp().methods.handleError({

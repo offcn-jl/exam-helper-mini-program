@@ -288,3 +288,8 @@ page {
 .suffix {
     margin-top: -5px;
 }
+.onphone{
+    width: 40rpx;
+    height: 40rpx;
+    margin: 0;
+}
