@@ -77,7 +77,7 @@ Page({
    */
   onShareAppMessage: function () {
     return {
-      title: '2021特岗管家',
+      title: '2022国家公务员考试备考工具箱',
       imageUrl: 'http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/summary/2021/tgjs/share.jpg'
     }
   },
@@ -87,7 +87,7 @@ Page({
    */
   onShareTimeline: function () {
     return {
-      title: '2021特岗管家'
+      title: '2022国家公务员考试备考工具箱'
     }
   }
 })
