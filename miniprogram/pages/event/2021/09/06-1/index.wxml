@@ -38,7 +38,14 @@
                     </view>
                 </view>
             </view>
-            <view bindtap="getLottery" class="canvas-btn {{btnDisabled}}">开始</view>
+            <view wx:if="{{!phone}}">
+                <button open-type="getPhoneNumber" bindgetphonenumber="signUp" class="onphone">
+                    <view  class="canvas-btn {{btnDisabled}}">开始</view>
+                </button>
+            </view>
+            <view wx:else>
+                <view bindtap="getLottery" class="canvas-btn {{btnDisabled}}">开始</view>
+            </view>
         </view>
     </view>
 
