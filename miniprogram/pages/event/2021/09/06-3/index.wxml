@@ -9,15 +9,15 @@
 </view>
 
 <!-- 选择项目 -->
-<!-- <view wx:if="{{!phone}}">
+<view wx:if="{{!phone}}">
     <button class="image-button" open-type="getPhoneNumber" bindgetphonenumber="signUp">
-        <image class="image-100" mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/event/2021/08/14/index.jpg"></image>
+        <image class="image-100" mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/event/2021/09/06/index.jpg"></image>
     </button>
-</view> -->
+</view>
 
 <!-- 转盘抽奖 -->
 <!-- <view wx:else class="turntable"> -->
-<view class="turntable">
+<view wx:else class="turntable">
     <image class="image-100 background" mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/event/2021/09/06/main.jpg?1"></image>
     <view class='canvas-layout'>
         <view class='canvas-container'>
@@ -38,14 +38,7 @@
                     </view>
                 </view>
             </view>
-            <view wx:if="{{!phone}}">
-                <button open-type="getPhoneNumber" bindgetphonenumber="signUp" class="onphone">
-                    <view  class="canvas-btn {{btnDisabled}}">开始</view>
-                </button>
-            </view>
-            <view wx:else>
-                <view bindtap="getLottery" class="canvas-btn {{btnDisabled}}">开始</view>
-            </view>
+            <view bindtap="getLottery" class="canvas-btn {{btnDisabled}}">开始</view>
         </view>
     </view>
 

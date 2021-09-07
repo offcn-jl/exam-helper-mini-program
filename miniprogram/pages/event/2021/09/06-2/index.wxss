@@ -1,6 +1,18 @@
 page {
     position: absolute;
     /* 解决 background-audio 位置漂移的问题 */
+    background:#7e4fff;
+}
+.onphone{
+    width: 100vw !important;
+    padding: 0;
+    border-radius: 0;
+    width: 40rpx;
+    height: 40rpx;
+    margin: 0;
+    margin-top: 284rpx;
+    position: relative;
+    z-index: 10000;
 }
 
 .background-audio {
@@ -288,8 +300,4 @@ page {
 .suffix {
     margin-top: -5px;
 }
-.onphone{
-    width: 40rpx;
-    height: 40rpx;
-    margin: 0;
-}
+
