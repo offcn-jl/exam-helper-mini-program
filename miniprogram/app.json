@@ -2,9 +2,6 @@
   "pages": [
     "pages/index/index",
 
-    "pages/event/2021/09/06-1/index",
-    "pages/event/2021/09/06-2/index",
-    "pages/event/2021/09/06-3/index",
     "pages/event/2021/08/14/index",
    
     "pages/event-2021-06-01/index",
