@@ -1,0 +1,23 @@
+<!-- 抽奖 -->
+<view class="turntable">
+    <image class="image-100 background" mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/event/2021/09/08/index.jpg"></image>
+    <button wx:if="{{!phone}}" class="zhuce" open-type="getPhoneNumber" bindgetphonenumber="signUp" style="position: absolute;top: 512rpx;left: 16vw;width: 67vw;margin: 0 auto;opacity: 0;height: 350rpx;"></button>
+    <view wx:else class="con">
+        <block wx:for="{{awards}}" class="luck" wx:key="index">
+            <view wx:if="{{index <= awards.length-2}}">
+                <view class="canvas-btn {{btnDisabled}}" bindtap="getLottery"></view>
+            </view>
+        </block>
+    </view>
+</view>
+
+<!-- 奖品 -->
+<view wx:if="{{showAward}}" class="award" bindtap="hideAward">
+    <view class="text title {{prizeInfo.name.length<=16?'t1':''}}">{{prizeInfo.name}}</view>
+    <view class="text remark">活动结束后，三个工作日内将会有工作人员致电您确认领取方式，</view>
+    <view class="text remark2">如有疑问拨打：0431-81239600</view>
+    <image class="background" mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/event/2021/09/08/award.png"></image>
+</view>
+
+<!-- 后缀 -->
+<view class="suffix">{{suffix}}</view>
