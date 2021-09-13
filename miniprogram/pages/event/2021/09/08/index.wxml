@@ -15,18 +15,18 @@
 <view wx:if="{{showAward}}" class="award" bindtap="hideAward">
     <view class="text title {{prizeInfo.name.length<=16?'t1':''}}">{{prizeInfo.name}}</view>
     <navigator wx:if="{{prizeInfo.name=='教基+公基+幼儿电子版备考资料'}}" class="text remark3" target="miniProgram" open-type="navigate" app-id="wxca86930ec3e80717" path="page/course/details?id=347393">点击领取</navigator>
-    <view wx:else class="text remark">活动结束后，三个工作日内将会有工作人员致电您确认领取方式</view>
-    <text class="text remark2">如有疑问拨打
+    <view wx:else class="text remark">活动结束后，三个工作日内将会有工作人员致电您确认领取方式，</view>
+    <text class="text remark2">如有疑问拨打：        
         吉林市：0432-69929108
+        长春：0431-81239600
         延边：0433-2808666
         四平：0434-6083322
         通化：0435-3505000
         白城：0436-3515993
         辽源：0437-3294822
         松原：0438-2207711
-        白山：0439-6905033
-    </text>
-    <image class="background" mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/event/2021/09/08/award.png"></image>
+        白山：0439-6905033</text>
+    <image class="background" mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/event/2021/09/08/award.png?1"></image>
 </view>
 
 <!-- 后缀 -->
