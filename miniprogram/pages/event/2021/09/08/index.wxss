@@ -67,13 +67,14 @@ page {
     width: 66vw;
     left: 17.5vw;
     line-height: 47rpx;
+    text-align: center;
 }
 .award .remark2 {
     top: 545rpx;
     color: #fff;
     font-size: 30rpx;
-    width: 66vw;
-    left: 17.5vw;
+    width: 48vw;
+    left: 26vw;
 }
 .award .remark3 {
     top: 450rpx;
