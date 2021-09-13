@@ -5,8 +5,8 @@ Page({
      */
     data: {
         title:'吉林教师考试-盲盒抽奖',
-        CRMEFSID: "63e6650fbb036a9db03fcb6273936552", // CRM 活动表单 ID
-        CRMRemark: "活动编码:HD202109060600,活动表单ID:98673", // CRM 注释 小程序-周年庆超级礼
+        CRMEFSID: "ac44909f38e3a6fafd83fb2f66a3fa0b", // CRM 活动表单 ID
+        CRMRemark: "活动编码:HD202109130612,活动表单ID:99491", // CRM 注释 小程序-2021年吉林教师招聘盲盒抽奖
 
         phone: "", // 用户手机号码
         suffix: "", // 推广后缀
