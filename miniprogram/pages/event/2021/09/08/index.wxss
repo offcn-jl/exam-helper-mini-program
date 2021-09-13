@@ -75,6 +75,17 @@ page {
     width: 66vw;
     left: 17.5vw;
 }
+.award .remark3 {
+    top: 450rpx;
+    color: #fff;
+    font-size: 36rpx;
+    width: 50vw;
+    left: 25vw;
+    text-align: center;
+    background: #fea234;
+    border-radius: 10rpx;
+    line-height: 80rpx;
+}
 .suffix {
     margin-top: -5px;
 }

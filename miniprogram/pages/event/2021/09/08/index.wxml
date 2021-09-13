@@ -14,7 +14,8 @@
 <!-- 奖品 -->
 <view wx:if="{{showAward}}" class="award" bindtap="hideAward">
     <view class="text title {{prizeInfo.name.length<=16?'t1':''}}">{{prizeInfo.name}}</view>
-    <view class="text remark">活动结束后，三个工作日内将会有工作人员致电您确认领取方式，</view>
+    <navigator wx:if="{{prizeInfo.name=='教基+公基+幼儿电子版备考资料'}}" class="text remark3" target="miniProgram" open-type="navigate" app-id="wxca86930ec3e80717" path="page/course/details?id=347393">点击领取</navigator>
+    <view wx:else class="text remark">活动结束后，三个工作日内将会有工作人员致电您确认领取方式，</view>
     <view class="text remark2">如有疑问拨打：0431-81239600</view>
     <image class="background" mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/event/2021/09/08/award.png"></image>
 </view>

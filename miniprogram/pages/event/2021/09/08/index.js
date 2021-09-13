@@ -61,7 +61,9 @@ Page({
                             getApp().methods.handleError({ err: response, title: '呃..出错啦！', content: '您是否已经参与过抽奖？一位用户仅可参与一次抽奖喔～(如未参与，请重启小程序后再试)' })
                         } else {
                             // 找到了奖品
-                            wx.showToast({ icon: 'none', title: '您已经进行过抽奖, 抽中的奖品是：' + response.prizename, })
+                            wx.showToast({ icon: 'none', title: '您已经进行过抽奖' })
+                            // 找到了奖品
+                            _this.setData({ showAward: true, prizeInfo: _this.data.awards[response.prizeid-1] })
                         }
                     } else if (response.msg === '超过奖品设置的数量') {
                         // 返回错误: 超过奖品设置的数量，经过测试，抽奖接口存在奖品尚有余量但是返回这个错误的问题，猜测可能是由于奖品概率设置导致的
