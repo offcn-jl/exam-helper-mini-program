@@ -53,8 +53,15 @@
 <view class="banners" wx:if="{{config.banner.small.length > 0}}">
   <block wx:for="{{config.banner.small}}" wx:key="index">
     <!-- 本小程序内跳转 -->
-    <navigator wx:if="{{item.type === 'self'}}" class="banner" url="{{suffix ? item.url + '?scene=' + suffix : item.url}}">
+    <!-- <navigator wx:if="{{item.type === 'self'}}" class="banner" url="{{suffix ? item.url + '?scene=' + suffix : item.url}}">
 		  <image mode="widthFix" src="{{item.image}}"></image>
+    </navigator> -->
+    <!-- 特殊小程序 本小程序内跳转白皮书 -->
+    <navigator  wx:if="{{item.type === 'self' && index == 0}}" class="banner" url="/pages/book/index?scene={{suffix}}*478">
+      <image mode="widthFix" src="{{item.image}}"></image>
+    </navigator>
+    <navigator  wx:if="{{item.type === 'self' && index == 1}}" class="banner" url="/pages/book/index?scene={{suffix}}*479">
+      <image mode="widthFix" src="{{item.image}}"></image>
     </navigator>
     <!-- 打开其他小程序 -->
     <navigator wx:if="{{item.type === 'miniProgram'}}" class="banner" target="miniProgram" open-type="navigate" app-id="{{item.appid}}" path="{{item.path}}">
