@@ -37,7 +37,8 @@ page {
   display: inline-block;
   margin-top: 2vh;
   margin-left: 2.2vw;
-  width: 20vw;
+  /* width: 20vw; */
+  width: 27vw;
 }
 
 .tool .icon {
