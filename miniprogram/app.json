@@ -2,6 +2,8 @@
   "pages": [
     "pages/index/index",
 
+    "pages/book-sydw1.0/index",
+
     "pages/event/2021/09/08/index",
     "pages/event/2021/08/14/index",
    
@@ -59,6 +61,5 @@
     "navigationStyle": "custom"
   },
   "sitemapLocation": "sitemap.json",
-  "style": "v2",
   "requiredBackgroundModes": ["audio", "location"]
 }
