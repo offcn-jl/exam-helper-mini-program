@@ -1,12 +1,16 @@
 {
   "pages": [
     "pages/index/index",
-   
+
+    "pages/book-sydw1.0/index",
+
+    "pages/event/2021/09/08/index",
     "pages/event/2021/08/14/index",
    
     "pages/event-2021-06-01/index",
     "pages/event-2021-03-25/index",
 
+    "pages/gk-2022/index",
     "pages/tgjs-2021/index",
 
     "pages/sk-2021/interview/index",
@@ -31,6 +35,7 @@
     "pages/position-2020-jr/index",
     "pages/position-2020-jr/result/index",
 
+    "pages/subscribe-2021-sydw-th/index",
     "pages/subscribe-2021-jszg/index",
     "pages/subscribe-2022-sk/index",
     "pages/subscribe-2021-gk/index",
@@ -56,6 +61,5 @@
     "navigationStyle": "custom"
   },
   "sitemapLocation": "sitemap.json",
-  "style": "v2",
   "requiredBackgroundModes": ["audio", "location"]
 }

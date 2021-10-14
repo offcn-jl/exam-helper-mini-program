@@ -1,0 +1,162 @@
+/* pages/sk-2021/index.wxss */
+page {
+  background: #fff7f8;
+}
+
+.header-background {
+  position: absolute;
+  z-index: -1;
+  width: 100vw;
+}
+
+.left-time {
+  font-size: 48rpx;
+  color: #ffe400;
+  padding-top: 473rpx;
+  padding-left: 445rpx;
+  font-weight: bold;
+  letter-spacing: 5rpx;
+  width: 80rpx;
+  text-align: center;
+}
+
+.banner-main {
+  display: block;
+  margin: 5vh auto 0;
+  width: 90vw;
+  border-radius: 20rpx;
+  box-shadow: 0px 0px 12rpx rgba(0, 0, 0, 0.5);
+}
+
+.tools {
+  width: 90vw;
+  margin: 1vh auto;
+}
+
+.tool {
+  display: inline-block;
+  margin-top: 2vh;
+  margin-left: 2.2vw;
+  /* width: 20vw; */
+  width: 27vw;
+}
+
+.tool .icon {
+  width: 10vw;
+  display: block;
+  margin: 0 auto;
+}
+
+.tool .name {
+  text-align: center;
+}
+
+.lives {
+  width: 95vw;
+  border-radius: 20rpx;
+  background: #fff;
+  box-shadow: 0px 0px 12rpx rgba(0, 0, 0, 0.3);
+  margin: 50rpx auto;
+}
+
+.lives-title {
+  width: 630rpx;
+  margin: 0 auto;
+  border-bottom: 1px solid #e0dfe2;
+}
+
+.lives-title image {
+  display: inline-block;
+  padding: 27rpx 0 11rpx;
+  width: 150rpx;
+}
+
+.lives .content {
+  width: 626rpx;
+  margin: 0 auto;
+  padding-bottom: 30rpx;
+}
+
+.lives .content .item {
+  width: 626rpx;
+  height: 32rpx;
+  display: flex;
+  justify-content: space-between;
+  line-height: 32rpx;
+  margin-top: 25rpx;
+  overflow: hidden;
+}
+
+.lives .content .item .play {
+  display: block;
+  width: 30rpx;
+  height: 30rpx;
+  position: relative;
+  top: 2rpx;
+}
+
+.lives .content .item .item-title {
+  display: block;
+  width: 345rpx;
+  height: 32rpx;
+  line-height: 32rpx;
+  color: #333333;
+  font-size: 26rpx;
+  padding: 0 10rpx;
+  border-right: 1px solid #d6d6d6;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.lives .content .item .time {
+  display: block;
+  width: 155rpx;
+  height: 32rpx;
+  line-height: 32rpx;
+  color: #666666;
+  font-size: 26rpx;
+  padding: 0 10rpx;
+}
+
+.lives .content .item .goto-live{
+  width: 74rpx;
+  height: 29rpx;
+  padding: 2rpx 0 1rpx;
+}
+
+.banners {
+  width: 95vw;
+  margin: 0 auto;
+}
+
+.banner {
+  display: inline-block;
+  margin-top: 0.2vh;
+}
+
+.banner:nth-child(odd) {
+  margin-right: 2vw;
+}
+
+.banner image {
+  width: 46.5vw;
+  border-radius: 20rpx;
+  box-shadow: 0px 0px 12rpx rgba(0, 0, 0, 0.5);
+}
+
+.banner-bottom {
+  margin-top: 2vh;
+  width: 100vw;
+}
+
+.version {
+  font-size: 0.5em;
+  text-align: center;
+  color: rgb(50, 50, 50, 0.5);
+  margin-top: 2vh;
+}
+
+.suffix {
+  color: rgb(85, 85, 85);
+}

@@ -6,6 +6,7 @@ Page({
     suffix: "", // 后缀
     showId: 0, // 当前显示的元素的 ID
     query: { // 查询条件
+      xzcity: "吉林",
       limits: 10,
     }, 
     zcounts: 0,//最大数据量
@@ -79,8 +80,8 @@ Page({
     if (typeof options.education !== "undefined" && options.education !== "不限") this.setData({ "query.xzeducation": options.education })
     if (typeof options.major !== "undefined" && options.major !== "不限") this.setData({ "query.xzmajor": options.major })
     if (typeof options.level !== "undefined" && options.level !== "不限") this.setData({ "query.xzlanglevel": options.level })
-    if (typeof options.year !== "undefined" && options.year !== "不限") this.setData({ "query.year": options.year })
-    if (typeof options.city !== "undefined" && options.city !== "不限") this.setData({ "query.xzcity": options.city })
+    // if (typeof options.year !== "undefined" && options.year !== "不限") this.setData({ "query.year": options.year })
+    // if (typeof options.city !== "undefined" && options.city !== "不限") this.setData({ "query.xzcity": options.city })
     if (typeof options.bank !== "undefined" && options.bank !== "不限") this.setData({ "query.xzbank": options.bank })
     this.search();
   },

@@ -1,0 +1,93 @@
+page {
+    position: absolute;
+    /* 解决 background-audio 位置漂移的问题 */
+    background:#8b5aff;
+}
+
+.image-100 {
+    width: 100vw;
+    display: block;
+}
+
+.image-button {
+    width: 100vw !important;
+    padding: 0;
+    border-radius: 0;
+}
+.con{
+    position: absolute;
+    top: 522rpx;
+    left: 18vw;
+    width: 64vw;
+    margin: 0 auto;
+}
+.zhuce{
+    position: absolute;
+    top: 240rpx;
+    left: 5vw;
+    width: 90vw;
+    margin: 0 auto;
+}
+.canvas-btn {
+    width: 33%;
+    height: 80px;
+    float: left;
+}
+
+
+.award {
+    position: fixed;
+    top: 25vh;
+    z-index: 99999;
+}
+
+.award .background {
+    width: 100vw;
+}
+
+.award .text {
+    position: absolute;
+}
+
+.award .title {
+    top: 346rpx;
+    color: #e30706;
+    font-size: 32rpx;
+    text-align: center;
+    width: 62vw;
+    left: 19vw;
+}
+.award .title.t1 {
+    line-height: 80rpx;
+}
+.award .remark {
+    top: 450rpx;
+    color: #fff;
+    font-size: 30rpx;
+    width: 66vw;
+    left: 17.5vw;
+    line-height: 47rpx;
+    text-align: center;
+}
+.award .remark2 {
+    top: 545rpx;
+    color: #fff;
+    font-size: 30rpx;
+    width: 48vw;
+    left: 26vw;
+}
+.award .remark3 {
+    top: 450rpx;
+    color: #fff;
+    font-size: 36rpx;
+    width: 50vw;
+    left: 25vw;
+    text-align: center;
+    background: #fea234;
+    border-radius: 10rpx;
+    line-height: 80rpx;
+}
+.suffix {
+    margin-top: -5px;
+}
+

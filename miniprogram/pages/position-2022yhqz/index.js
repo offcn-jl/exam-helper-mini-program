@@ -6,18 +6,18 @@ Page({
     CRMEFSID: "da93326080a205698c5637031e9bfa88", // CRM 活动表单 ID
     CRMRemark: "活动编码:HD202104140438,活动表单ID:81907", // CRM 注释  网站专题页-2022银行秋招职位查询
     
-    yearList: ["2021", "2020"],//年份
+    // yearList: ["2021", "2020"],//年份
     bankList: ["不限","中国银行","工商银行","建设银行","交通银行","农业银行","邮政储蓄银行","国家开发银行","中国进出口银行","中国农业发展银行","股份制银行"],//银行
-    cityList: ["不限", "普通地市", "一线大城市", "普通省会/知名二线城市", "县域城市"],//城市
+    // cityList: ["不限", "普通地市", "一线大城市", "普通省会/知名二线城市", "县域城市"],//城市
     majorList: ["不限", "计算机及相关专业"],//专业
     educationList: ["不限", "研究生", "本科", "专科"],//学历
     schoolList: ["不限", "985院校", "211院校", "双一流院校", "重点院校", "一般院校", "专科院校"],//院校级别
     schoolList2: ["不限", "985", "211", "双一流", "重点", "一般", "专科"],//院校级别（搜索）
     levelList: ["不限", "六级", "四级"],//外语等级
 
-    yearValue: '', //年份
+    // yearValue: '', //年份
     bankValue: '',//银行
-    cityValue: '',//城市
+    // cityValue: '',//城市
     majorValue: '',//专业
     educationValue: '',//学历
     schoolValue: '', //院校级别
@@ -34,15 +34,15 @@ Page({
   // 监听筛选条件切换
   m_select_touch(e) {
     switch (e.detail.type) {
-      case "year": //年份
-        this.setData({ yearValue: this.data.yearList[e.detail.index] })
-        break
+      // case "year": //年份
+      //   this.setData({ yearValue: this.data.yearList[e.detail.index] })
+      //   break
       case "bank"://银行
         this.setData({ bankValue: this.data.bankList[e.detail.index] })
         break
-      case "city"://城市
-        this.setData({ cityValue: this.data.cityList[e.detail.index] })
-        break
+      // case "city"://城市
+      //   this.setData({ cityValue: this.data.cityList[e.detail.index] })
+      //   break
       case "major"://专业
         this.setData({ majorValue: this.data.majorList[e.detail.index] })
         break
@@ -97,8 +97,8 @@ Page({
     if (this.data.educationValue !== "") url += "&education=" + this.data.educationValue
     if (this.data.majorValue !== "") url += "&major=" + this.data.majorValue
     if (this.data.levelValue !== "") url += "&level=" + this.data.levelValue
-    if (this.data.yearValue !== "") url += "&year=" + this.data.yearValue
-    if (this.data.cityValue !== "") url += "&city=" + this.data.cityValue
+    // if (this.data.yearValue !== "") url += "&year=" + this.data.yearValue
+    // if (this.data.cityValue !== "") url += "&city=" + this.data.cityValue
     if (this.data.bankValue !== "") url += "&bank=" + this.data.bankValue
     wx.navigateTo({ url });
   },

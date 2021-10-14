@@ -2,15 +2,15 @@
 
 <view class="container">
 	<view class="select_wrap">
-		<view class='offer_item'>
+		<!-- <view class='offer_item'>
 				<select options='{{yearList}}' icon="icon-rili" text="年份" type="year" bind:m_select_touch="m_select_touch"></select>
-		</view>
+		</view> -->
 		<view class='offer_item'>
 				<select options='{{bankList}}' icon="icon-home" text="银行" type="bank" bind:m_select_touch="m_select_touch"></select>
 		</view>
-		<view class='offer_item'>
+		<!-- <view class='offer_item'>
 				<select options='{{cityList}}' icon="icon-dizhi" text="城市" type="city" bind:m_select_touch="m_select_touch"></select>
-		</view>
+		</view> -->
 		<view class='offer_item'>
 				<select options='{{majorList}}' icon="icon-icon1" text="专业" type="major" bind:m_select_touch="m_select_touch"></select>
 		</view>
