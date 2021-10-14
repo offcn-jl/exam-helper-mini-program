@@ -35,11 +35,11 @@
 <view class="pupop" wx:if="{{code}}">
   <view class="con">
     <image mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/cha.png" class="close" bindtap="close"></image>
-    <image mode="widthFix" src="" class="code"></image>
-    <text>领取更多资料方法：
-    1.保存图片到相册，长按二维码进群；
-    2.如进群失败，重新【扫码领取】即可；
+    <image bindtap="keep" mode="widthFix" src="{{imgalist[0]}}" class="code"></image>
+    <text>扫码进群
+    领取资料|每日练题|时政汇总|公告获取
+    【如加群失败请重新扫码即可】
     </text>
-    <view class="btn" bindtap="keep">保存图片</view>
+    <view class="btn" bindtap="keep">点击识别二维码</view>
   </view>
 </view>

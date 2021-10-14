@@ -11,7 +11,9 @@ Page({
     phone: "", // 用户手机号
     tipsToSubscribeMessaged: false, // 是已经否提示订阅考试信息
     code: false,  //显示二维码弹窗
-    code_img:'http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/cha.png', //二维码
+    imgalist:[
+      "http://jl.offcn.com/zt/ty/2021images/exam-helper-mini/book-sydw1.0-code.png"//二维码
+    ],
   },
 
   // 浏览
@@ -71,35 +73,10 @@ Page({
   pupop(){this.setData({code: true})},
   close(){this.setData({code: false})},
   keep(){
-    wx.showLoading({
-      title: '正在下载',
-      mask:true
-    })
-    wx.downloadFile({
-      url: this.data.code_img,
-      success (res) {
-        if (res.statusCode === 200) {
-          wx.saveImageToPhotosAlbum({
-            filePath: res.tempFilePath,
-            success: function (data) {
-              wx.hideLoading()
-              wx.showToast({
-                title: '下载成功',
-                icon: 'none'
-              })
-            },
-            fail: function (err) {
-              wx.hideLoading()
-              wx.showToast({
-                title: '下载出错，请重新下载',
-                icon: 'none'
-              })
-              console.log(err)
-            }
-          })
-        }
-      }
-    })
+    wx.previewImage({ 
+      current: this.data.imgalist[0], // 当前显示图片的http链接 
+      urls: this.data.imgalist, // 需要预览的图片http链接列表 
+    }) 
   },
 
   /**
