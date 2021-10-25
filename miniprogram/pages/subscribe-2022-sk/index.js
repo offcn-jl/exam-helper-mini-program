@@ -5,8 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    CRMEFSID: "a1836aa84d7bba2e34415cd5a57bea39", // CRM 活动表单 ID
-    CRMRemark: "HD202107141120/93504", // CRM 注释
+    CRMEFSID: "4b4c940319a07431af4df15dd53edb0f", // CRM 活动表单 ID
+    CRMRemark: "HD202110250562/103534", // CRM 注释
 
     suffix: "", // 后缀
     phone: "", // 用户手机号码, 注册函数执行完成后设置, 已经注册的用户在初次打开页面时也会设置
