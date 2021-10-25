@@ -17,7 +17,7 @@
 <view class="tools">
   <block wx:for="{{config.tools}}" wx:key="index">
     <!-- 本小程序内跳转 -->
-    <navigator wx:if="{{item.type === 'self'&& index != 4}}" class="tool" url="{{suffix ? item.url + '?scene=' + suffix : item.url}}">
+    <navigator wx:if="{{item.type === 'self'&& index != 4 && index != 3}}" class="tool" url="{{suffix ? item.url + '?scene=' + suffix : item.url}}">
       <image class="icon" mode="widthFix" src="{{item.icon}}"></image>
       <view class="name">{{item.title}}</view>
     </navigator>
@@ -26,11 +26,17 @@
       <image class="icon" mode="widthFix" src="{{item.icon}}"></image>
       <view class="name">{{item.title}}</view>
     </navigator>
+    <!-- 特殊小程序 本小程序内跳转照片处理系统 -->
+    <navigator  wx:if="{{item.type === 'self' && index == 3}}" class="tool" url="/pages/photo-processing/detail/index?scene={{suffix}}*11">
+      <image class="icon" mode="widthFix" src="{{item.icon}}"></image>
+      <view class="name">{{item.title}}</view>
+    </navigator>
     <!-- 特殊小程序 本小程序内跳转白皮书 -->
     <navigator  wx:if="{{item.type === 'self' && index == 4}}" class="tool" url="/pages/book/index?scene={{suffix}}*404">
       <image class="icon" mode="widthFix" src="{{item.icon}}"></image>
       <view class="name">{{item.title}}</view>
     </navigator>
+    
   </block>
 </view>
 

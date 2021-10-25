@@ -82,7 +82,7 @@
 }
 .pupop .con{
   width: 90vw;
-  padding: 40rpx;
+  padding: 5vw;
   padding-bottom: 0;
   border-radius: 20rpx;
   background: #fff;
@@ -106,7 +106,7 @@
   height: 350rpx;
   display: block;
   margin: 20rpx auto;
-  background: #000;
+  border: 2px solid #e0dede;
 }
 .pupop .con text{
   display: block;
@@ -114,6 +114,7 @@
   font-size: 30rpx;
   line-height: 50rpx;
   margin-bottom: 20rpx;
+  text-align: center;
 }
 .pupop .con .btn{
   width: 100%;
