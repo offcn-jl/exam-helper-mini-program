@@ -2,7 +2,6 @@
   "pages": [
     "pages/index/index",
 
-    "pages/book-sydw1.0/index",
     "pages/event/2021/09/08/index",
     "pages/event/2021/08/14/index",
    
@@ -44,12 +43,16 @@
     "pages/header/index",
     "pages/image-cuter/index",
 
+    "pages/book/new",
+    "pages/book-sydw1.0/index",
     "pages/book/index",
     "pages/book/web-view/index",
 
     "pages/web-view/index",
     "pages/ntalk/index",
-    "pages/ad-navigate-19/index"
+    "pages/ad-navigate-19/index",
+    
+    "handler"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -60,5 +63,11 @@
     "navigationStyle": "custom"
   },
   "sitemapLocation": "sitemap.json",
-  "requiredBackgroundModes": ["audio", "location"]
+  "requiredBackgroundModes": ["audio", "location"],
+  "plugins": {
+    "contactPlugin": {
+      "version": "1.4.4",
+      "provider": "wx104a1a20c3f81ec2"
+    }
+   }
 }

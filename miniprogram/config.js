@@ -11,13 +11,19 @@ module.exports = {
   environment,
   // 云开发运行环境
   cloudEnvironment: environment === "release" ? "release-yum30" : "test-unokj",
+  // 本小程序的 AppID
+  appid: 'wx5e256375813b119f',
+  // 本小程序的 原始ID
+  username: 'gh_146c7fa5a832',
   // 接口路径
   apis: environment === "release" ? {
     // 生产环境
     gaea: "https://api.offcn.ltd/release",
+    base: "https://appopenbg.offcn.com/apis/wechat/mini-program",
   } : {
     // 测试环境
     gaea: "https://api.offcn.ltd/test",
+    base: "https://wt-backend.t.eoffcn.com/apis/wechat/mini-program",
   },
   // 引入保密配置项
   ...(environment === "release" ? require("./config.secrets").release : require("./config.secrets").test)
