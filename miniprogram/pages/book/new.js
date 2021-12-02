@@ -47,7 +47,7 @@ Page({
 
   // 登陆
   login: function (event) {
-    getApp().methods.login({event, crmEventFormSID: this.data.configs.CRMEventFormSID, suffix: { suffix: this.data.suffix, suffixStr: this.data.suffixStr }, remark: `活动表单ID:${this.data.configs.CRMEventID};白皮书-新;${this.data.configs.Name};${this.data.bookID};`, callback: ({ phone, openid }) => {
+    getApp().methods.newLogin({event, crmEventFormSID: this.data.configs.CRMEventFormSID, suffix: { suffix: this.data.suffix, suffixStr: this.data.suffixStr }, remark: `活动表单ID:${this.data.configs.CRMEventID};白皮书-新;${this.data.configs.Name};${this.data.bookID};`, callback: ({ phone, openid }) => {
       this.setData({ phone, openid });
       if ( this.data.configs.Subscribe.length > 0 ) {
         wx.showModal({ title: '提示', content: '注册成功，请您点击“点击登陆”按钮进行登陆～', showCancel: false, confirmText: "我知道啦" });
