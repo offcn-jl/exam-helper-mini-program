@@ -41,3 +41,5 @@ button.btn {
 button.btn:after {
   display: none;
 }
+/* 新増 底部样式 */
+@import '/components/shareWap/shareWap.wxss'
