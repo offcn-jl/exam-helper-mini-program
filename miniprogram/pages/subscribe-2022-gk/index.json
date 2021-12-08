@@ -1,10 +1,5 @@
 {
-  "window": {
-    "navigationBarBackgroundColor": "#ffffff",
-    "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "miniProgram",
-    "backgroundColor": "#eeeeee",
-    "backgroundTextStyle": "light",
-    "enablePullDownRefresh": false
+  "usingComponents": {
+    "shareWap": "/components/shareWap/shareWap"
   }
 }

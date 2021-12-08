@@ -1,52 +1,58 @@
 {
-  "pages": [
-    "pages/subscribe-2022-gk/index",
+  "pages": [ 
+    "pages/subscribe-2022-gk/index", 
+ 
+    "pages/index/index", 
+ 
+    "pages/event/2021/09/08/index", 
+    "pages/event/2021/08/14/index", 
+    
+    "pages/event-2021-06-01/index", 
+    "pages/event-2021-03-25/index", 
+ 
+    "pages/gk-2022/index", 
+    "pages/tgjs-2021/index", 
+ 
+    "pages/sk-2021/interview/index", 
+    "pages/sk-2021/book/index", 
+    "pages/sk-2021/scene/index", 
+    "pages/sk-2021/index", 
+    "pages/sk-2021/index", 
+ 
+    "pages/photo-processing/index/index", 
+    "pages/photo-processing/configs/index", 
+    "pages/photo-processing/detail/index", 
 
-    "pages/index/index",
-
-    "pages/sk-2021/index",
-    "pages/event/2021/09/08/index",
-    "pages/event/2021/08/14/index",
-    "pages/event-2021-06-01/index",
-    "pages/event-2021-03-25/index",
-    "pages/gk-2022/index",
-    "pages/tgjs-2021/index",
-    "pages/sk-2021/interview/index",
-    "pages/sk-2021/book/index",
-    "pages/sk-2021/scene/index",
-    "pages/photo-processing/index/index",
-    "pages/photo-processing/configs/index",
-    "pages/photo-processing/detail/index",
-    "pages/photo-processing/detail/camera/index",
-    "pages/photo-processing/detail/preview/index",
-    "pages/photo-processing/detail/preview/save-image/index",
-    "pages/photo-processing/change-background/index",
-    "pages/photo-processing/cropper/index",
-    "pages/photo-processing/cropper/preview/index",
-    "pages/photo-processing/album/index",
-    "pages/photo-processing/album/detail/index",
-    "pages/position-2022yhqz/index",
-    "pages/position-2022yhqz/result/index",
-    "pages/position-2020-jr/index",
-    "pages/position-2020-jr/result/index",
-    "pages/subscribe-2021-sydw-th/index",
-    "pages/subscribe-2021-jszg/index",
-    "pages/subscribe-2022-sk/index",
-    "pages/subscribe-2021-gk/index",
-    "pages/subscribe-2021-sydw/index",
-    "pages/subscribe/index",
-    "pages/header/index",
-    "pages/image-cuter/index",
-    "pages/book/new",
-    "pages/book-sydw1.0/index",
-    "pages/book/index",
-    "pages/book/web-view/index",
-    "pages/web-view/index",
-    "pages/ntalk/index",
-    "pages/ad-navigate-19/index",
-    "handler",
-    "components/shareWap/shareWap"
-  ],
+    "pages/photo-processing/cropper/preview/index", 
+    "pages/photo-processing/album/index", 
+    "pages/photo-processing/album/detail/index", 
+ 
+    "pages/position-2022yhqz/index", 
+    "pages/position-2022yhqz/result/index", 
+    "pages/position-2020-jr/index", 
+    "pages/position-2020-jr/result/index", 
+ 
+    "pages/subscribe-2021-sydw-th/index", 
+    "pages/subscribe-2021-jszg/index", 
+    "pages/subscribe-2022-sk/index", 
+    "pages/subscribe-2021-gk/index", 
+    "pages/subscribe-2021-sydw/index", 
+    "pages/subscribe/index", 
+ 
+    "pages/header/index", 
+    "pages/image-cuter/index", 
+ 
+    "pages/book/new", 
+    "pages/book-sydw1.0/index", 
+    "pages/book/index", 
+    "pages/book/web-view/index", 
+ 
+    "pages/web-view/index", 
+    "pages/ntalk/index", 
+    "pages/ad-navigate-19/index", 
+     
+    "handler" 
+  ], 
   "window": {
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
