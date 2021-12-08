@@ -1,0 +1,53 @@
+/* pages/code-2021-ghfls/index.wxss */
+page{
+  background: #fff;
+}
+.banner{
+  width: 100vw;
+  height: 1448rpx;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.con{
+  width: 90vw;
+  margin: 0 auto;
+  margin-top: 800rpx;
+  position: relative;
+}
+.con navigator{
+  width: 80vw;
+  display: block;
+  margin: 30rpx auto;
+  background: linear-gradient(to bottom,#817be7,#5f5bb0);
+  border-radius: 50rpx;
+  overflow:hidden;
+}
+.con navigator image{
+  width: 50rpx;
+  height: 45rpx;
+  float: left;
+  margin:20rpx;
+  margin-left: 80rpx;
+}
+.con navigator view{
+  color: #fff;
+  font-weight: bold;
+  font-size: 40rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  float: left;
+}
+.search_btn{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top:0;
+  left: 0;
+  opacity: 0;
+}
+.suffix {
+  color: #fff;
+}

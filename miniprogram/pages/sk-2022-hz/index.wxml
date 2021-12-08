@@ -1,0 +1,31 @@
+<!-- 背景图 -->
+<image src="{{banner_bk}}" class="banner"></image>
+<!-- 按钮 点击添加客服 -->
+<view class="con">
+  <button wx:if="{{!phone}}" class="search_btn" open-type="getPhoneNumber" bindgetphonenumber="buttonStart"></button>
+  <navigator url="/pages/sk-2022-zwjs/index">
+  <!-- <navigator bindtap="btn"> -->
+    <image src="http://jl.offcn.com/zt/ty/2021images/exam-helper/2022sk/22sk_hz1.png"></image>
+    <view>职位匹配筛选系统</view>
+  </navigator>
+  <navigator url="/pages/sk-2022-zyfl/index">
+    <image src="http://jl.offcn.com/zt/ty/2021images/exam-helper/2022sk/22sk_hz2.png"></image>
+    <view>专业分类查询系统</view>
+  </navigator>
+  <navigator target="miniProgram" open-type="navigate" app-id="wxb04ce8efcd61db65" path="/pages/photo-processing/detail/index?id=77&{{suffixStr}}" version="release">
+  <!-- <navigator bindtap="btn"> -->
+    <image src="http://jl.offcn.com/zt/ty/2021images/exam-helper/2022sk/22sk_hz3.png"></image>
+    <view>报名照片处理系统</view>
+  </navigator>
+  <navigator url="/pages/sk-2022-cjwt/index">
+    <image src="http://jl.offcn.com/zt/ty/2021images/exam-helper/2022sk/22sk_hz4.png"></image>
+    <view>常见问题搜索系统</view>
+  </navigator>
+  <navigator url="/pages/sk-2022-lnfs/index">
+  <!-- <navigator bindtap="btn"> -->
+    <image src="http://jl.offcn.com/zt/ty/2021images/exam-helper/2022sk/22sk_hz5.png"></image>
+    <view>历年分数线查询系统</view>
+  </navigator>
+</view>
+<!-- 后缀 -->
+<view class="suffix">{{suffixStr}}</view>

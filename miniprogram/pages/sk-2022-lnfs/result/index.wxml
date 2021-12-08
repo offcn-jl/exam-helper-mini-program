@@ -1,0 +1,47 @@
+<navigation id='navigation' title="查询结果" hide-icon="{{true}}"></navigation>
+
+
+<!-- <image mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper/photo-processing/2021-lnfs-zsb-result.jpg" class="banner_bk"></image> -->
+<image mode="widthFix" src="" class="banner_bk"></image>
+
+
+<view class="title">查询结果</view>
+
+<view class="my_tip">
+	<text>非精准比例，尽量根据您选择的专业进行数据查询\n如对查询结果有疑虑，请务必致电咨询招考单位！</text>
+</view>
+
+<view class="result_num">
+	<!-- fixme -->
+	<text class="result_nux">共 {{zcounts}} 条结果</text>
+	<!-- fixme -->
+	<navigator url="../index?{{suffixStr}}">
+		<button class="change_btn">修改条件</button>
+	</navigator>
+</view>
+
+<view class="resultWrap">
+	<block wx:for="{{result}}" wx:key="index">
+		<view class="result_item">
+			<!-- <button class="add_btn">年份：{{item.nf}}</button> -->
+			<!-- <text class="result_code">{{item.areaname}}</text> -->
+			<view class="result_detail"><label>职位名称:</label><text>{{item.zhiwei_name}}</text></view>
+			<view class="result_detail"><label>所属单位:</label><text>{{item.danwei_name}}</text></view>
+			<!-- <view class="result_detail"><label>所属单位:</label><text>{{item.danwei_name}}</text></view> -->
+
+			<view class="item_group">
+				<!-- 可收放数据代码 -->
+				<view class="item-group-wrap {{showId == index ? 'active' : ''}}">
+						<view class="item_line"><label>2021:</label><text>{{score[0].fsx}}</text></view>
+						<view class="item_line"><label>2020:</label><text>{{score[1].fsx}}</text></view>
+						<view class="item_line"><label>2019:</label><text>{{score[2].fsx}}</text></view>
+						<view class="item_line"><label>2018:</label><text>{{score[3].fsx}}</text></view>
+				</view>
+				<!-- 上下显示箭头 -->
+				<view class="jiantou" bindtap="lnfsx" data-id="{{item.id}}"  data-index="{{index}}">
+					<image src="http://jl.offcn.com/zt/ty/2021images/exam-helper/jiantou.png?4" class='{{showId==index? "" : "active"}}'></image>
+				</view>
+			</view>
+		</view>
+	</block>
+</view>

@@ -1,0 +1,42 @@
+<navigation id='navigation' title="查询结果" hide-icon="{{true}}"></navigation>
+
+<!-- http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/position/2020/jr/header.result.1112.jpg -->
+<image mode="widthFix" src="" class="banner_bk"></image>
+
+<view class="title">查询结果</view>
+
+<view class="my_tip">
+	<text>非精准匹配，尽量覆盖您可能可报的职位\n如对能否报名有疑虑，请务必致电咨询招考单位！</text>
+</view>
+
+<view class="result_num">
+	<!-- fixme -->
+	<text class="result_nux">共 {{zcounts}} 条结果</text>
+	<!-- fixme -->
+	<navigator url="../index?{{suffixStr}}">
+		<button class="change_btn">修改条件</button>
+	</navigator>
+</view>
+
+<view class="resultWrap">
+	<block wx:for="{{result}}" wx:key="index">
+		<view class="result_item" bindtap="more" data-index="{{index}}">
+			<text class="result_code">{{item.name}}</text>
+			<view class="result_detail"><label>学历：</label><text>{{item.edu?item.edu:"暂无记录"}}</text></view>
+			<!-- <view class="result_detail"><label>考试成绩：</label><text>{{item.kscj}}</text></view> -->
+			<view class="item_group">
+				<!-- 可收放数据代码 -->
+				<view class="item-group-wrap active">
+					<view class="item_line"><label>专业门类（大类）：</label><text>{{item.class?item.class:'-'}}</text></view>
+					<view class="item_line"><label>专业类（一级学科）：</label><text>{{item.major1?item.major1:'-'}}</text></view>
+					<view class="item_line"><label>专业名称（二级学科）：</label><text>{{item.major2?item.major2:'-'}}</text></view>
+				</view>
+				<!-- 上下显示箭头 -->
+				<!-- <view class="jiantou">
+					<image src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/position/2020/jr/jiantou.png" class='{{showId==index? "" : "active"}}'></image>
+				</view> -->
+			</view>
+			<!-- <button class="add_btn">名次：{{item.placing}}</button> -->
+		</view>
+	</block>
+</view>
