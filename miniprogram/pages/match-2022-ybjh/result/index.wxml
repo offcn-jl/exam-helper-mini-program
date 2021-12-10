@@ -1,0 +1,41 @@
+<navigation id='navigation' title="查询结果" hide-icon="{{true}}"></navigation>
+
+<!-- http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/position/2020/jr/header.result.1112.jpg -->
+<image mode="widthFix" src="" class="banner_bk"></image>
+
+<view class="title">查询结果</view>
+
+<view class="my_tip">
+	<text>非精准匹配，尽量覆盖您可能可报的职位\n如对能否报名有疑虑，请务必致电咨询招考单位！</text>
+</view>
+
+<view class="result_num">
+	<!-- fixme -->
+	<text class="result_nux">共 {{zcounts}} 条结果</text>
+	<!-- fixme -->
+	<navigator url="../index?{{suffixStr}}">
+		<button class="change_btn">修改条件</button>
+	</navigator>
+</view>
+
+<view class="resultWrap">
+	<block wx:for="{{result}}" wx:key="index">
+		<view class="result_item" bindtap="more" data-index="{{index}}">
+			<text class="result_code">{{item.pro}}</text>
+			<view class="result_detail"><label>招考职位：</label><text>{{item.position?item.position:"暂无记录"}}</text></view>
+			<view class="result_detail"><label>最低进面分数线：</label><text>{{item.score?item.score:'-'}}</text></view>
+			<view class="item_group">
+				<!-- 可收放数据代码 -->
+				<view class="item-group-wrap {{showId == index ? 'active' : ''}}">
+					<view class="item_line"><label>用人司局：</label><text>{{item.address?item.address:'-'}}</text></view>
+					<view class="item_line"><label>招录机关：</label><text>{{item.area?item.area:'-'}}</text></view>
+				</view>
+				<!-- 上下显示箭头 -->
+				<view class="jiantou">
+					<image src="http://jl.offcn.com/zt/ty/2021images/exam-helper/jiantou.png" class='{{showId==index? "" : "active"}}'></image>
+				</view>
+			</view>
+			<button class="add_btn">年份：{{item.year}}</button>
+		</view>
+	</block>
+</view>
