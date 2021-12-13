@@ -1,8 +1,8 @@
 {
   "pages": [ 
-    "pages/subscribe-2022-gk/index", 
- 
     "pages/index/index", 
+
+    "pages/subscribe-2022-gk/index", 
  
     "pages/event/2021/09/08/index", 
     "pages/event/2021/08/14/index", 
