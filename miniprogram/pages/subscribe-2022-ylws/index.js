@@ -5,11 +5,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-    CRMEFSID: "9a578092aca1f09ac7fd200627af5ac6", // CRM 活动表单 ID
-    CRMEventID: "HD202112030880", // CRM 注释 /108218
-    title:'2022国考成绩查询预约提醒服务', // 标题
-    banner:'http://jl.offcn.com/zt/ty/2021images/exam-helper-mini/subscribe-2022gk-index.jpg', // 背景
-    imageUrl:'http://jl.offcn.com/zt/ty/2021images/exam-helper-mini/subscribe-2022gk-share.jpg', // 分享图
+    CRMEFSID: "2ce05117ba9407e34800f01a2d6adb71", // CRM 活动表单 ID
+    CRMEventID: "HD202112100532", // CRM 注释  小程序-2022年吉林医疗卫生招聘公告预约/109610
+    title:'2022年吉林医疗卫生招聘公告预约', // 标题
+    banner:'http://jl.offcn.com/zt/ty/2021images/exam-helper-mini/subscribe-2022-ylws-index.jpg', // 背景
+    imageUrl:'http://jl.offcn.com/zt/ty/2021images/exam-helper-mini/subscribe-2022-ylws-share.jpg', // 分享图
 
     suffix: "", // 后缀
     phone: "", // 用户手机号码, 注册函数执行完成后设置, 已经注册的用户在初次打开页面时也会设置
@@ -36,7 +36,7 @@ Page({
 
   // subscribe 订阅
   subscribe() {
-    getApp().methods.subscribeSingleExam(this.data.suffix, "国家公务员", undefined, ()=>{
+    getApp().methods.subscribeSingleExam(this.data.suffix, "医学考试", undefined, ()=>{
       this.setData({tipsToSubscribeMessaged: true});
     })
   },

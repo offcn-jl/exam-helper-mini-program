@@ -1,0 +1,44 @@
+/* pages/index/index.wxss */
+
+.header {
+  width: 100vw;
+  display: block;
+}
+
+.form {
+  position: absolute;
+  top: 1060rpx;
+  /* background: rgba(255,255,255,0.8); */
+  width: 100vw;
+  padding: 30rpx 2vw;
+}
+
+.tips {
+  color: #000;
+  width: 94vw;
+  text-indent: 2rem;
+}
+
+.register-tips {
+  color: white;
+  text-align: center;
+}
+
+.subscribe {
+  margin-top: 6.5vh;
+  width: 280rpx;
+  float: right;
+  margin-right: 30rpx;
+}
+
+.unsubscribe {
+  color: rgb(173, 173, 173);
+  text-align: center;
+  font-size: 1rem;
+  line-height: 2rem;
+  /* margin-bottom: 150rpx; */
+}
+
+.unsubscribe-hover {
+  color:skyblue;
+}

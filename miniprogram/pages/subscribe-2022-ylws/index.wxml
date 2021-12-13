@@ -1,0 +1,16 @@
+<!--pages/index/index.wxml-->
+<header title="{{title}}" suffix="{{suffix}}" id="header" nav></header>
+
+<block>
+	<image class="header" mode="widthFix" src="{{banner}}"></image>
+	<view class="form">
+		<button class="subscribe" wx:if="{{CRMEFSID.length === 32 && !phone}}" type="primary" open-type="getPhoneNumber" bindgetphonenumber="login">请先授权注册</button>
+		<button wx:else type="primary" class="subscribe" bindtap="subscribe">一 键 预 约</button>
+	</view>
+</block>
+
+<!-- <image wx:else class="header" mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/subscribe/2022/sk/success.jpg"></image> -->
+
+<view class="suffix">{{suffixStr}}</view>
+
+<navigator url="/pages/subscribe/index?scene={{suffixStr}}" class="unsubscribe" hover-class="unsubscribe-hover">不想继续订阅公告推送？点击退订！</navigator>
