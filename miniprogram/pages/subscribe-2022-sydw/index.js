@@ -6,10 +6,11 @@ Page({
    */
   data: {
     CRMEFSID: "b3f893c2fb99f62bc6fb2a400ec2b695", // CRM 活动表单 ID
-    CRMEventID: "HD202112030880", // CRM 注释 网站专题页-2022年公告预约查询/108862
+    CRMEventID: "HD202112061488", // CRM 注释 网站专题页-2022年公告预约查询/108862
     title:'2022事业单位考试公告订阅', // 标题
     banner:'http://jl.offcn.com/zt/ty/2021images/exam-helper-mini/subscribe-2022sydw-index.jpg', // 背景
     imageUrl:'http://jl.offcn.com/zt/ty/2021images/exam-helper-mini/subscribe-2022sydw-share.jpg', // 分享图
+    type:'事业单位', //服务类型  （国家公务员，吉林公务员，事业单位，医疗招聘，教师招聘，特岗教师，教师资格，银行考试，三支一扶，公选遴选，社会工作，会计取证，军队文职，军人考试，医学考试，农信社，选调生，招警，国企）
 
     cityList: ["不限", "省直", "长春市", "吉林市", "四平市", "辽源市", "通化市", "白山市", "松原市", "白城市", "延边朝鲜族自治州"], // 地市
     typeList: ["不限", "综合岗", "教师岗", "医疗岗"], // 岗位类别
@@ -17,7 +18,6 @@ Page({
     cityValue: "未知", // 地市 选中内容
     typeValue: "未知", // 岗位类别 选中内容
 
-    suffix: {}, // 后缀
     phone: "", // 用户手机号码, 注册函数执行完成后设置, 已经注册的用户在初次打开页面时也会设置
     tipsToSubscribeMessaged: false, // 是否提示过进行消息订阅
 
@@ -54,7 +54,7 @@ Page({
       })
       return
     }
-    getApp().methods.newLogin({event, crmEventFormSID: this.data.CRMEFSID, suffix: { suffix: this.data.suffix, suffixStr: this.data.suffixStr }, remark: `活动表单ID:${this.data.CRMEventID}，意向报考地市:${this.data.CRMEventID}意向报考岗位类别:${this.data.typeValue}`, callback: ({ phone, openid }) => {
+    getApp().methods.newLogin({event, crmEventFormSID: this.data.CRMEFSID, suffix: { suffix: this.data.suffix, suffixStr: this.data.suffixStr }, remark: `活动表单ID:${this.data.CRMEventID}，意向报考地市:${this.data.CRMEventID}，意向报考岗位类别:${this.data.typeValue}`, callback: ({ phone, openid }) => {
       this.setData({ phone, openid });
       if ( this.data.configs.Subscribe.length > 0 ) {
         wx.showModal({ title: '提示', content: '注册成功，请您点击“点击登陆”按钮进行登陆～', showCancel: false, confirmText: "我知道啦" });
@@ -66,7 +66,7 @@ Page({
 
   // subscribe 订阅
   subscribe() {
-    getApp().methods.subscribeSingleExam(this.data.suffix, "事业单位", undefined, ()=>{
+    getApp().methods.subscribeSingleExam(this.data.suffix, this.data.type, undefined, ()=>{
       this.setData({tipsToSubscribeMessaged: true});
     })
   },

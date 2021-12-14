@@ -10,8 +10,8 @@ Page({
     title:'2022年吉林医疗卫生招聘公告预约', // 标题
     banner:'http://jl.offcn.com/zt/ty/2021images/exam-helper-mini/subscribe-2022-ylws-index.jpg', // 背景
     imageUrl:'http://jl.offcn.com/zt/ty/2021images/exam-helper-mini/subscribe-2022-ylws-share.jpg', // 分享图
+    type:'医疗招聘', //服务类型  （国家公务员，吉林公务员，事业单位，医疗招聘，教师招聘，特岗教师，教师资格，银行考试，三支一扶，公选遴选，社会工作，会计取证，军队文职，军人考试，医学考试，农信社，选调生，招警，国企）
 
-    suffix: "", // 后缀
     phone: "", // 用户手机号码, 注册函数执行完成后设置, 已经注册的用户在初次打开页面时也会设置
     tipsToSubscribeMessaged: false, // 是否提示过进行消息订阅
   },
@@ -36,7 +36,7 @@ Page({
 
   // subscribe 订阅
   subscribe() {
-    getApp().methods.subscribeSingleExam(this.data.suffix, "医学考试", undefined, ()=>{
+    getApp().methods.subscribeSingleExam(this.data.suffix, this.data.type, undefined, ()=>{
       this.setData({tipsToSubscribeMessaged: true});
     })
   },
