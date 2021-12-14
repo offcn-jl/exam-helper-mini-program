@@ -14,4 +14,4 @@
 
 <view class="suffix">{{suffixStr}}</view>
 
-<navigator url="/pages/subscribe/index?scene={{suffixStr}}" class="unsubscribe" hover-class="unsubscribe-hover">不想继续订阅公告推送？点击退订！</navigator>
+<navigator url="/pages/subscribe/index?{{suffixStr}}" class="unsubscribe" hover-class="unsubscribe-hover">不想继续订阅公告推送？点击退订！</navigator>
