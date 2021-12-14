@@ -17,7 +17,7 @@ Page({
     cityValue: "未知", // 地市 选中内容
     typeValue: "未知", // 岗位类别 选中内容
 
-    suffix: "", // 后缀
+    suffix: {}, // 后缀
     phone: "", // 用户手机号码, 注册函数执行完成后设置, 已经注册的用户在初次打开页面时也会设置
     tipsToSubscribeMessaged: false, // 是否提示过进行消息订阅
 
@@ -54,7 +54,7 @@ Page({
       })
       return
     }
-    getApp().methods.newLogin({event, crmEventFormSID: this.data.CRMEFSID, suffix: { suffix: this.data.suffix, suffixStr: this.data.suffixStr }, remark: `活动表单ID:${this.data.CRMEventID}`, callback: ({ phone, openid }) => {
+    getApp().methods.newLogin({event, crmEventFormSID: this.data.CRMEFSID, suffix: { suffix: this.data.suffix, suffixStr: this.data.suffixStr }, remark: `活动表单ID:${this.data.CRMEventID}，意向报考地市:${this.data.CRMEventID}意向报考岗位类别:${this.data.typeValue}`, callback: ({ phone, openid }) => {
       this.setData({ phone, openid });
       if ( this.data.configs.Subscribe.length > 0 ) {
         wx.showModal({ title: '提示', content: '注册成功，请您点击“点击登陆”按钮进行登陆～', showCancel: false, confirmText: "我知道啦" });
