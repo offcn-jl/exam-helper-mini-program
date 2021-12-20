@@ -1,5 +1,11 @@
 {
   "pages": [ 
+    "pages/sk-2022/index", 
+
+    "pages/subscribe-2022-gk/index", 
+
+    "pages/sk-2022-cjwt/index", 
+
     "pages/index/index", 
 
     "pages/event/2021/12/16/index", 
@@ -16,7 +22,6 @@
     "pages/sk-2022-zyfl/index", 
     "pages/sk-2022-zwjs/index", 
     "pages/sk-2022-lnfs/index", 
-    "pages/sk-2022-cjwt/index", 
     "pages/sk-2021/interview/index", 
     "pages/sk-2021/book/index", 
     "pages/sk-2021/scene/index", 
@@ -36,7 +41,6 @@
  
     "pages/subscribe-2022-sydw/index", 
     "pages/subscribe-2022-ylws/index", 
-    "pages/subscribe-2022-gk/index", 
     "pages/subscribe-2021-sydw-th/index", 
     "pages/subscribe-2021-jszg/index", 
     "pages/subscribe-2022-sk/index", 
