@@ -12,7 +12,7 @@
 <view wx:if="{{CRMEFSID.length === 32 && !phone}}">
     <button class="image-button" open-type="getPhoneNumber" bindgetphonenumber="login">
         <image class="image-100" mode="widthFix" src="{{banner}}"></image>
-        <image src="http://news01.offcn.com/jl/2021/1220/20211220100123480.gif"></image>
+        <image src="http://news01.offcn.com/jl/2021/1220/20211220100123480.gif" style="position: fixed;top: 766rpx;left: 440rpx;width: 200rpx;height: 200rpx;"></image>
     </button>
 </view>
 
