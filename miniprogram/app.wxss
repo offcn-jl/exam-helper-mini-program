@@ -3,7 +3,7 @@
   margin: .5vh auto;
   color: gainsboro;
   text-align: center;
-  font-size: 120%;
+  font-size: 86%;
 }
 
 .w100 {

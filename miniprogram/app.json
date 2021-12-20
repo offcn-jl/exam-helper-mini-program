@@ -2,10 +2,6 @@
   "pages": [ 
     "pages/sk-2022/index", 
 
-    "pages/subscribe-2022-gk/index", 
-
-    "pages/sk-2022-cjwt/index", 
-
     "pages/index/index", 
 
     "pages/event/2021/12/16/index", 
@@ -18,6 +14,7 @@
     "pages/gk-2022/index", 
     "pages/tgjs-2021/index", 
 
+    "pages/sk-2022-cjwt/index", 
     "pages/sk-2022-hz/index", 
     "pages/sk-2022-zyfl/index", 
     "pages/sk-2022-zwjs/index", 
@@ -39,6 +36,7 @@
     "pages/position-2022yhqz/index", 
     "pages/position-2022yhqz/result/index", 
  
+    "pages/subscribe-2022-gk/index", 
     "pages/subscribe-2022-sydw/index", 
     "pages/subscribe-2022-ylws/index", 
     "pages/subscribe-2021-sydw-th/index", 
