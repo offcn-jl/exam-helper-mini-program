@@ -1,7 +1,5 @@
 {
   "pages": [ 
-    "pages/sk-2022/index", 
-
     "pages/index/index", 
 
     "pages/event/2021/12/16/index", 
@@ -14,6 +12,7 @@
     "pages/gk-2022/index", 
     "pages/tgjs-2021/index", 
 
+    "pages/sk-2022/index", 
     "pages/sk-2022-cjwt/index", 
     "pages/sk-2022-hz/index", 
     "pages/sk-2022-zyfl/index", 
@@ -32,6 +31,7 @@
     "pages/photo-processing/album/index", 
     "pages/photo-processing/album/detail/index", 
  
+    "pages/match-2022-tgjs/index", 
     "pages/match-2022-ybjh/index", 
     "pages/position-2022yhqz/index", 
     "pages/position-2022yhqz/result/index", 

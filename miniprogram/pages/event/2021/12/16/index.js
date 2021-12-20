@@ -5,7 +5,7 @@ Page({
      */
     data: {
         CRMEFSID: "eee12b27f451888c10d91967a17772a2", // CRM 活动表单 ID
-        CRMEventID: "活动编码:HD202112160641,活动表单ID:110295", // CRM 注释  小程序-2022公务员考试嗨转圣诞年终送好礼  
+        CRMEventID: "HD202112160641", // CRM 注释  小程序-2022公务员考试嗨转圣诞年终送好礼  110295
         title:'2022公务员考试-嗨转年终', // 标题
         actid:45071, // zg99id
         banner:'http://jl.offcn.com/zt/ty/2021images/exam-helper-mini/22gwycj_index.jpg', // 未登录注册时页面展示
@@ -151,18 +151,13 @@ Page({
     },
 
     // 登陆
-  login: function (event) {
-    getApp().methods.newLogin({event, crmEventFormSID: this.data.CRMEFSID, suffix: { suffix: this.data.suffix, suffixStr: this.data.suffixStr }, remark: `活动表单ID:${this.data.CRMEventID}`, callback: ({ phone, openid }) => {
-      this.setData({ phone, openid });
-      if ( this.data.configs.Subscribe.length > 0 ) {
-        wx.hideLoading() // 隐藏 loading
-        this.setData({ phone }) // 保存手机号信息
-        wx.showToast({ icon: 'none', title: '注册成功, 请点击转盘开始抽奖～', }) // 弹出提示
-      } else {
-        wx.pageScrollTo({ selector: '.doc-title', duration: 1000 });
-      }
-    }});
-  },
+    login: function (event) {
+        getApp().methods.newLogin({event, crmEventFormSID: this.data.CRMEFSID, suffix: { suffix: this.data.suffix, suffixStr: this.data.suffixStr }, remark: `活动表单ID:${this.data.CRMEventID}`, callback: ({ phone, openid }) => {
+            this.setData({ phone, openid });
+            wx.hideLoading() // 隐藏 loading
+            wx.showToast({ icon: 'none', title: '注册成功, 请点击转盘开始抽奖～', }) // 弹出提示
+        }});
+    },
 
     // 切换背景音频播放状态
     switchBackgroundAudioStatus: function () {
