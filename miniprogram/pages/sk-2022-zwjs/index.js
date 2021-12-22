@@ -83,7 +83,7 @@ Page({
 
   // 搜索
   async seach_result1() {
-    let url = "result/index?scene=" + this.data.suffixStr
+    let url = "result/index?" + this.data.suffixStr
     url += "&city=" + this.data.cityvalue
     url += "&bmxz=" + this.data.bmxzvalue
     url += "&bmmc=" + this.data.bmmcvalue
@@ -92,7 +92,7 @@ Page({
     // wx.navigateTo({ url })   //尝试点击返回可以回到当前页面，但被十层页面栈限制
   },
   async seach_result2() {
-    let url = "result/index?scene=" + this.data.suffixStr
+    let url = "result/index?" + this.data.suffixStr
     url += "&year=" + this.data.yearvalue
     url += "&city=" + this.data.cityvalue
     url += "&xueli=" + this.data.xuelivalue
@@ -150,7 +150,6 @@ Page({
         remark: `活动表单ID:${this.data.CRMEventID}`, 
         callback: ({ phone, openid }) => {
           this.setData({ phone, openid }); 
-          wx.pageScrollTo({ selector: '.doc-title', duration: 1000 });
         } 
       });
     }

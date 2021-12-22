@@ -11,23 +11,27 @@ Page({
     imageUrl:'http://news01.offcn.com/jl/2021/1220/20211220102838974.jpg', // 分享图
 
     config: {},
-    suffix: ""
+    suffixStr: ""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: async function (options) {
+    // 获取后缀
+    if (typeof options !== "undefined") this.setData({ 
+      suffixStr: 'scode='+options.scode+'&erp='+options.erp+'&erpcity='+options.erpcity+'&misid='+options.misid
+    })
     // 动态设置当前页面的标题
     wx.setNavigationBarTitle({
       title: this.data.title
     })
-    // 获取后缀
-    if (typeof options.scene !== "undefined") {
-      this.setData({
-        suffix: options.scene
-      })
-    }
+    // // 获取后缀
+    // if (typeof options.scene !== "undefined") {
+    //   this.setData({
+    //     suffixStr: options.scene
+    //   })
+    // }
     const suffixInfo = await getApp().methods.getSuffix(options); // 获取后缀信息
     this.setData(suffixInfo); // 保存后缀信息
     this.setData({ contactInformation: await getApp().methods.getContactInformation(suffixInfo) }); // 获取推广信息
@@ -44,7 +48,7 @@ Page({
         }
         // 处理主 Banner 配置
         if (res.data[0].banner.main.type === 'miniProgram') {
-          res.data[0].banner.main.path = res.data[0].banner.main.path.replace('$suffix', this.data.suffix);
+          res.data[0].banner.main.path = res.data[0].banner.main.path.replace('$suffix', this.data.suffixStr);
         }
         // 处理工具配置
         if (res.data[0].tools && res.data[0].tools.length > 0) {
@@ -52,7 +56,7 @@ Page({
             // 判断是否是外部跳转
             if (value.path) {
               // 填充外部跳转路径中的后缀
-              res.data[0].tools[index].path = value.path.replace('$suffix', this.data.suffix);
+              res.data[0].tools[index].path = value.path.replace('$suffix', this.data.suffixStr);
             }
           })
         }
@@ -62,13 +66,13 @@ Page({
             // 判断是否是外部跳转
             if (value.path) {
               // 填充外部跳转路径中的后缀
-              res.data[0].banner.small[index].path = value.path.replace('$suffix', this.data.suffix);
+              res.data[0].banner.small[index].path = value.path.replace('$suffix', this.data.suffixStr);
             }
           })
         }
         // 处理底部 Banner 配置
         if (res.data[0].banner.bottom.type === 'miniProgram') {
-          res.data[0].banner.bottom.path = res.data[0].banner.bottom.path.replace('$suffix', this.data.suffix);
+          res.data[0].banner.bottom.path = res.data[0].banner.bottom.path.replace('$suffix', this.data.suffixStr);
         }
         // 将配置信息保存
         this.setData({

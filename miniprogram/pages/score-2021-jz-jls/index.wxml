@@ -1,0 +1,29 @@
+<image mode="widthFix" src="{{banner_bk}}" class="banner_bk"></image>
+
+<view class="container">
+	<view class="select_wrap">
+		<view class='offer_item' wx:if="{{cityList.length > 0}}">
+			<select options='{{cityList}}' icon="icon-dizhi" text="地市" type="city" bind:m_select_touch="m_select_touch"></select>
+		</view>
+		<view class='offer_item' wx:if="{{countyList.length > 0}}">
+			<select options='{{countyList}}' icon="icon-home" text="县区" type="county" bind:m_select_touch="m_select_touch"></select>
+		</view>
+		<view class='offer_item' wx:if="{{subjectList.length > 0}}">
+			<select options='{{subjectList}}' icon="icon-xueli" text="学段" type="subject" bind:m_select_touch="m_select_touch"></select>
+		</view>
+		<view class='offer_item' wx:if="{{postList.length > 0}}">
+			<select options='{{postList}}' icon="icon-icon1" text="岗位" type="post" bind:m_select_touch="m_select_touch"></select>
+		</view>
+		<view class="offer_item last {{active ? 'on' : ''}}">
+			<input options='{{gradeList}}' placeholder="笔试成绩" type="digit" bindinput='getInputValue'/>
+			<text class="iconfont icon-rili icon_title"></text>
+		</view>
+		<view class='offer_item btn'>
+			<button class="search_btn" wx:if="{{CRMEFSID.length === 32 && !phone}}" open-type="getPhoneNumber" bindgetphonenumber="login">注册后进行查询</button>
+			<button wx:else class="search_btn" bindtap="tipsToSubscribeMessage">点击晒分</button>
+		</view>
+	</view>
+</view>
+
+<!-- 后缀 -->
+<view class="suffix">{{suffixStr}}</view>

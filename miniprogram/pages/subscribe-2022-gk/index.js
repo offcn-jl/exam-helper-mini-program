@@ -28,8 +28,6 @@ Page({
       this.setData({ phone, openid });
       if ( this.data.configs.Subscribe.length > 0 ) {
         wx.showModal({ title: '提示', content: '注册成功，请您点击“点击登陆”按钮进行登陆～', showCancel: false, confirmText: "我知道啦" });
-      } else {
-        wx.pageScrollTo({ selector: '.doc-title', duration: 1000 });
       }
     }});
   },
@@ -63,7 +61,6 @@ Page({
         remark: `活动表单ID:${this.data.CRMEventID}`, 
         callback: ({ phone, openid }) => {
           this.setData({ phone, openid }); 
-          wx.pageScrollTo({ selector: '.doc-title', duration: 1000 });
         } 
       });
     }

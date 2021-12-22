@@ -24,7 +24,7 @@ Page({
 
   // 搜索
   async seach_result() {
-    let url = "result/index?scene=" + this.data.suffix
+    let url = "result/index?" + this.data.suffixStr
     if (this.data.zylbValue !== "") url += "&zylb=" + this.data.zylbValue
     console.log(url)
     wx.reLaunch({ url })
@@ -78,7 +78,6 @@ Page({
         remark: `活动表单ID:${this.data.CRMEventID}`, 
         callback: ({ phone, openid }) => {
           this.setData({ phone, openid }); 
-          wx.pageScrollTo({ selector: '.doc-title', duration: 1000 });
         } 
       });
     }

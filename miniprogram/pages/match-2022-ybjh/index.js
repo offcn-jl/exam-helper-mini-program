@@ -168,7 +168,6 @@ Page({
         remark: `活动表单ID:${this.data.CRMEventID}`, 
         callback: ({ phone, openid }) => {
           this.setData({ phone, openid }); 
-          wx.pageScrollTo({ selector: '.doc-title', duration: 1000 });
         } 
       });
     }

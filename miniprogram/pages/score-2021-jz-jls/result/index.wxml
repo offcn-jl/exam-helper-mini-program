@@ -1,0 +1,38 @@
+<navigation id='navigation' title="查询结果" hide-icon="{{true}}"></navigation>
+
+<!-- http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/position/2020/jr/header.result.1112.jpg -->
+<image mode="widthFix" src="" class="banner_bk"></image>
+
+<view class="title">查询结果</view>
+
+<view class="my_tip">
+	<text>此数据仅记录使用该小程序进行晒分\n非特岗教师全部精准数据</text>
+</view>
+
+<view class="result_num">
+	<!-- fixme -->
+	<!-- <text class="result_nux">共 {{zcounts}} 条结果</text> -->
+	<text class="result_nux">查询结果</text>
+	<!-- fixme -->
+	<navigator url="../index?scene={{suffix}}">
+		<button class="change_btn">修改条件</button>
+	</navigator>
+</view>
+
+<view class="resultWrap">
+	<view wx:if="{{result.length == 0}}" class="wu">该岗位暂时没有晒分数据</view>
+	<view wx:else>
+		<block wx:for="{{result}}" wx:key="index">
+			<view class="result_item">
+				<text class="result_code">{{item.city}}</text>
+				<view class="item_group">
+					<view class="item_line"><label>县区：</label><text>{{item.county}}</text></view>
+					<view class="item_line"><label>学段：</label><text>{{item.subject}}</text></view>
+					<view class="item_line"><label>岗位：</label><text>{{item.post}}</text></view>
+				</view>
+				<text class="result_detail">成绩：{{item.grade}}</text>
+				<button class="add_btn">排名：第{{index+1}}名</button>
+			</view>
+		</block>
+	</view>
+</view>

@@ -30,7 +30,7 @@ page {
 
 .tools {
   width: 90vw;
-  margin: 1vh auto;
+  margin: 1vh auto 3vh;
 }
 
 .tool {
