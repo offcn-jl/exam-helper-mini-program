@@ -1,0 +1,21 @@
+<view>
+    <image class="meavatul" src="http://jl.offcn.com/zg/ty/images/exam-helper/zl-2022gk-mnsj/bargain2.png"></image>
+    <view class="zl_people">仅需<text>3人助力</text>即可领取模考试卷</view>
+    <view class="zl_list">
+        <view class="zl_num">好友助力进度<text class="yzl_peo">{{zcount}}</text>/3人</view>
+        <view class="zl_list_info">
+            <view class="zhuli" wx:for="{{phonelist}}" wx:key="index">
+                <image class="zl_img" src="http://jl.offcn.com/zg/ty/images/exam-helper/zl-2022gk-mnsj/t{{index+1}}.png"></image>
+                <text class="zl_txt">{{item}}</text>
+            </view>
+        </view>
+        <button bindtap="onShareAppMessage" class="contacButton" hidden="{{shareSuccess}}" openType="share">
+            <view class="yq_btn">喊好友免费领试卷
+            </view>
+        </button>
+        <button bindtap="zlSuccess" class="contacButton" hidden="{{!shareSuccess}}">
+            <view class="yq_btn">助力完成免费领取试卷
+            </view>
+        </button>
+    </view>
+</view>

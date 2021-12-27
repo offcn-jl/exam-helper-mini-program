@@ -1,0 +1,12 @@
+<image src="{{banner}}" class="banner_bk"></image>
+
+<view class="con">
+    <image alt="" class="zl_fm" src="http://jl.offcn.com/zg/ty/images/exam-helper/zl-2022gk-mnsj/index2.png"></image>
+    <view class="fmsq_btn">
+        <button class="search_btn" wx:if="{{CRMEFSID.length === 32 && !phone}}" type="primary" open-type="getPhoneNumber" bindgetphonenumber="login">点击领取</button>
+        <button wx:else class="search_btn" bindtap="getUserProfile">点击领取</button>
+    </view>
+</view>
+
+<!-- 后缀 -->
+<view class="suffix">{{suffixStr}}</view>

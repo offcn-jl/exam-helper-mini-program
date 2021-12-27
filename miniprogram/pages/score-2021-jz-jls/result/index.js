@@ -5,7 +5,6 @@ Page({
     title:"2021年吉林市教师招聘晒分数知分差",// 标题  
     imageUrl:"http://jl.offcn.com/zt/ty/2021images/exam-helper-mini/subscribe-2022-ylws-index.jpg",// 分享时显示的图片
     superiorLink:"/pages/score-2021-jz-jls/index", //上级链接
-    actid:"40864", //zg99id
     cloudid:"score-2021-jz-jls",//云数据库名，用于云函数调用
 
     suffix: "", // 后缀
@@ -62,7 +61,9 @@ Page({
 
   onLoad: function (options) {
     // 获取后缀
-    if (typeof options.scene !== "undefined") this.setData({ suffix: options.scene })
+    if (typeof options !== "undefined") this.setData({ 
+      suffixStr: 'scode='+options.scode+'&erp='+options.erp+'&erpcity='+options.erpcity+'&misid='+options.misid
+    })
     // 配置查询条件
     if (typeof options.city !== "undefined" && options.city !== "不限") this.setData({ "query.city": options.city })
     if (typeof options.county !== "undefined" && options.county !== "不限") this.setData({ "query.county": options.county })
@@ -110,7 +111,7 @@ Page({
   onShareAppMessage: function () {
     return {
       title: this.data.title,
-      path: this.data.superiorLink+"?scene=" + this.data.suffix,
+      path: this.data.superiorLink+"?" + this.data.suffixStr,
       imageUrl: this.data.imageUrl
     }
   },

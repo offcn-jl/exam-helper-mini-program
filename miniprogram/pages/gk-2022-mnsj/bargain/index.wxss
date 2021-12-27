@@ -1,0 +1,100 @@
+page {
+  background: url(http://jl.offcn.com/zg/ty/images/exam-helper/zl-2022gk-mnsj/bargain1.jpg) no-repeat top #4b47fc;
+  width: 100%;
+  background-size: 100% 1442rpx;
+}
+
+.meavatul {
+  display: block;
+  width: 325rpx;
+  height: 325rpx;
+  margin: 38rpx auto 10rpx;
+  border: 5rpx solid #b1b0ff;
+  border-radius: 50%;
+  margin-top: 200rpx;
+}
+
+.zl_people {
+  text-align: center;
+  font-size: 41rpx;
+  color: #fff;
+  line-height: 75rpx;
+}
+
+.zl_people text {
+  color: #ffdc00;
+  font-weight: 700;
+  margin: 0 10rpx;
+}
+
+.yq_btn {
+  margin: 0 auto;
+  margin-top: 30rpx;
+  color: #fff;
+  font-size: 32rpx;
+  text-align: center;
+  background: url(http://jl.offcn.com/zg/ty/images/exam-helper/zl-2022gk-mnsj/btn2.png) no-repeat 50%;
+  width: 400rpx;
+  height: 120rpx;
+  background-size: 100% 100%;
+  color: #fff;
+  font-weight: bold;
+  line-height: 95rpx;
+  text-shadow: 2px 2px 2px #fe8b13;
+}
+
+.zl_list {
+  border: 2rpx solid #fff;
+  width: 550rpx;
+  margin: 30rpx auto 50rpx;
+  border-radius: 10rpx;
+  padding-bottom: 50rpx;
+  background: #fff;
+}
+
+.zl_num {
+  text-align: center;
+  font-size: 40rpx;
+  font-weight: 700;
+  color: #054dff;
+  width: 400rpx;
+  margin: 30rpx auto;
+}
+
+.zl_list_info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.zhuli{
+  overflow: hidden;
+}
+.zl_img {
+  display: block;
+  width: 140rpx;
+  height: 140rpx;
+  margin-bottom: 20rpx;
+  border-radius: 100rpx;
+}
+
+.zl_txt {
+  font-size: 28rpx;
+  line-height: 40rpx;
+  display: block;
+  color: #000;
+  font-weight: bold;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.contacButton {
+  padding: 0;
+  background: none;
+  text-align: left;
+}
+
+.contacButton:after {
+  border: none;
+}

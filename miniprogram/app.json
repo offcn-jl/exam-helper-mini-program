@@ -2,6 +2,11 @@
   "pages": [
     "pages/index/index", 
 
+    "pages/gk-2022-mnsj/index/index",
+    "pages/gk-2022-mnsj/bargain/index",
+    "pages/gk-2022-mnsj/promote/index",
+    "pages/gk-2022-mnsj/success/index",
+
     "pages/score-2021-jz-jls/index", 
     "pages/score-2021-jz-jls/result/index", 
 

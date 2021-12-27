@@ -120,7 +120,7 @@ Page({
   onShareAppMessage: function () {
     return {
       title: this.data.title,
-      path: this.data.superiorLink+"?scene=" + this.data.suffix,
+      path: this.data.superiorLink+"?" + this.data.suffixStr,
       imageUrl: this.data.imageUrl
     }
   },

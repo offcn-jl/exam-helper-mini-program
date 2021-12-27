@@ -1,0 +1,11 @@
+page {
+  background: #4b47fc url(http://jl.offcn.com/zg/ty/images/exam-helper/zl-2022gk-mnsj/success1.jpg) no-repeat top;
+  background-size: 750rpx 1500rpx;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+image{
+  display: block;
+  margin: 700rpx auto;
+}
