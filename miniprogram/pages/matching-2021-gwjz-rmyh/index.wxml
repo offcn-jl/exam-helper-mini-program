@@ -1,0 +1,19 @@
+<image mode="widthFix" src="{{banner_bk}}" class="banner_bk"></image>
+
+<view class="container">
+	<view class="select_wrap">
+		<view class='offer_item' wx:if="{{nfList.length > 0}}">
+			<select options='{{nfList}}' icon="icon-dizhi" text="年份" type="nf" bind:m_select_touch="m_select_touch"></select>
+		</view>
+		<view class='offer_item' wx:if="{{zyList.length > 0}}">
+			<select-search options='{{zyList}}' icon="icon-home" text="专业分类" type="zy" bind:m_select_touch="m_select_touch"></select-search>
+		</view>
+		<view class='offer_item btn'>
+			<button class="search_btn" wx:if="{{CRMEFSID.length === 32 && !phone}}" open-type="getPhoneNumber" bindgetphonenumber="login">注册后进行查询</button>
+			<button wx:else class="search_btn" bindtap="tipsToSubscribeMessage">点击查询</button>
+		</view>
+	</view>
+	<!-- 后缀 -->
+	<view class="suffix">{{suffixStr}}</view>
+</view>
+
