@@ -86,8 +86,9 @@ Page({
       suffixStr: 'scode='+options.scode+'&erp='+options.erp+'&erpcity='+options.erpcity+'&misid='+options.misid
     })
     // 配置查询条件
-    if (typeof options.nf !== "undefined" && options.nf !== "不限") this.setData({ "query.nf": options.nf })
-    if (typeof options.gw !== "undefined" && options.gw !== "不限") this.setData({ "query.gw": options.gw })
+    if (typeof options.nf !== "undefined" && options.nf !== "不限") this.setData({ "query.year": options.nf })
+    if (typeof options.city !== "undefined" && options.city !== "不限") this.setData({ "query.pro": options.city })
+    if (typeof options.zy !== "undefined" && options.zy !== "不限") this.setData({ "query.item01": options.zy })
 
     this.search();
   },
