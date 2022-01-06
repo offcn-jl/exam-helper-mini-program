@@ -58,23 +58,16 @@ Page({
                 let result_text = text.substring(1, text.length - 1);
                 let result = JSON.parse(result_text);
                 console.log(result)
-                if(result.status==1){
-                    wx.showToast({
-                        title: result.msg,
-                        icon: 'none',
-                        duration: 1000
-                    }).then(
-                        this.setData({
-                            success:true
-                        })
-                    )
-                }else{
-                    wx.showToast({
-                        title: result.msg,
-                        icon: 'none',
-                        duration: 1000
+                // 可以用result.status为1,2,3等来控制页面显示 这里未控制，目的是多收集手机号，无论助力成功与否，都可以去参加活动
+                wx.showToast({
+                    title: result.msg,
+                    icon: 'none',
+                    duration: 1000
+                }).then(
+                    this.setData({
+                        success:true
                     })
-                }
+                )
             }
         });
     },
