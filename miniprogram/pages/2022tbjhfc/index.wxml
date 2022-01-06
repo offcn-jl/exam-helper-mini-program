@@ -1,0 +1,61 @@
+<view class="container">
+    <view class="banner">
+        <image alt="" class="s2img" src="http://www.jinrongren.net/zt/sfxcximg/s2bg1.png"></image>
+        <image alt="" class="s2img" src="http://www.jinrongren.net/zt/sfxcximg/s2bg2.png"></image>
+        <view>2022银保监会&证监会</view>
+        <text>笔试排名及分差查询</text>
+    </view>
+    <view class="s1">
+        <view class="searchName">报考职位：</view>
+        <view class="section">
+            <picker bindchange="bindPickerDepartment" name="departmentName" range="{{department}}" value="{{department_index}}">
+                <view class="picker">
+                    <view class="picker_text">{{department[department_index]}}</view>
+                </view>
+            </picker>
+        </view>
+        <view class="section">
+            <picker bindchange="bindPickerPro" name="proName" range="{{pro}}" value="{{pro_index}}">
+                <view class="picker">
+                    <view class="picker_text">{{pro[pro_index]}}</view>
+                </view>
+            </picker>
+        </view>
+        <view class="section">
+            <picker bindchange="bindPickerCity" name="cityName" range="{{city}}" value="{{city_index}}">
+                <view class="picker">
+                    <view class="picker_text">{{city[city_index]}}</view>
+                </view>
+            </picker>
+        </view>
+        <view class="section">
+            <picker bindchange="bindPickerCode" name="codeName" range="{{code}}" value="{{code_index}}">
+                <view class="picker">
+                    <view class="picker_text">{{code[code_index]}}</view>
+                </view>
+            </picker>
+        </view>
+    </view>
+    <view class="s1">
+        <view class="searchName">笔试分数：</view>
+        <view class="section section2">
+            <input bindinput="getInputVal" class="score" name="fenshu" placeholder="笔试分数" value="{{inputValue}}"></input>
+        </view>
+        <view class="page-section">
+            <view>是否进入面试：</view>
+            <view class="weui-cells weui-cells_after-title">
+                <radio-group bindchange="radioChange">
+                    <label class="weui-cell weui-check__label" wx:for="{{items}}" wx:key="value">
+                        <view class="weui-cell__hd">
+                            <radio checked="{{item.checked}}" name="pass" value="{{item.value}}"></radio>{{item.name}}
+						</view>
+                    </label>
+                </radio-group>
+            </view>
+        </view>
+    </view>
+   
+    <button class="search_btn click" wx:if="{{CRMEFSID.length === 32 && !phone}}" open-type="getPhoneNumber" bindgetphonenumber="login">注册后进行查询</button>
+    <view bindtap="search" wx:else   class="click">点击查询</view>
+    <!-- <button bindgetphonenumber="getPhoneNumber" class="click click2" hidden="{{isHiddenPhoneAuthModal}}" openType="getPhoneNumber">立即登陆</button> -->
+</view>

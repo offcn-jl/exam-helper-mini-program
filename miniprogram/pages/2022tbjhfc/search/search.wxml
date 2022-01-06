@@ -1,0 +1,53 @@
+<view class="container">
+    <view class="s3person">
+        <view class="s3procity">{{s3procity}}</view>
+        <view class="s3code">{{s3code}}</view>
+        <image alt="" bindtap="back" class="zgimg" src="http://www.jinrongren.net/zt/sfxcximg/s3icon1.png"></image>
+    </view>
+    <view class="s3numShow">
+        <image alt="" class="s3img" src="http://www.jinrongren.net/zt/sfxcximg/s3bg1.png"></image>
+        <image alt="" class="s3img" src="http://www.jinrongren.net/zt/sfxcximg/s3bg2.png"></image>
+        <view class="rank">
+            <view class="s3paim">{{s3paim}}</view>
+            <view class="s3sfword">{{s3sfword}}</view>
+        </view>
+        <view class="scoreShow">
+            <view>
+                <view class="s3fenshu">{{s3fenshu}}</view>
+                <text>我的分数</text>
+            </view>
+            <view>
+                <view class="s3cha_fenshu">{{s3cha_fenshu}}</view>
+                <text>与前一名分差</text>
+            </view>
+            <view>
+                <view class="s3total">{{s3total}}</view>
+                <text>当前晒分</text>
+            </view>
+            <view>
+                <view class="zprs">{{zprs}}</view>
+                <text>本岗招聘</text>
+            </view>
+        </view>
+    </view>
+    <view class="s3phb">
+        <image alt="" class="zgimg" src="http://www.jinrongren.net/zt/sfxcximg/s2titbg.png"></image>排行榜
+	</view>
+    <view class="phbtit">
+        <view>当前排名</view>
+        <view>笔试分数</view>
+        <view>与前一名分差</view>
+        <view>是否进入面试</view>
+    </view>
+    <view class="fenshuyc">
+        <view class="fenshuBox">
+            <view class="phbtit2" wx:for="{{numlist}}" wx:key="index">
+                <view class="{{item.redcss}}">{{item.paihang}}</view>
+                <view class="{{item.redcss}}">{{item.fenshu}}</view>
+                <view class="{{item.redcss}}">{{item.cha_fenshu}}</view>
+                <view class="{{item.redcss}}">{{item.pass}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="shuom">说明：晒分成绩及排名是根据晒分人提供的成绩进行排名，而晒分成绩或许并非真实，因此排名结果仅供参考。</view>
+</view>
