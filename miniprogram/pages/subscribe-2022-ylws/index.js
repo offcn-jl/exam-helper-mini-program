@@ -6,7 +6,7 @@ Page({
    */
   data: {
     CRMEFSID: "2ce05117ba9407e34800f01a2d6adb71", // CRM 活动表单 ID
-    CRMEventID: "HD202112061488", // CRM 注释 网站专题页-2022年公告预约查询/108862
+    CRMEventID: "HD202112100532", // CRM 注释 网站专题页-2022年公告预约查询/108862
     title:'2022年吉林医疗卫生招聘公告预约', // 标题
     banner:'http://news01.offcn.com/jl/2022/0106/20220106035442752.jpg', // 背景
     imageUrl:'http://news01.offcn.com/jl/2022/0106/20220106035452811.jpg', // 分享图
