@@ -1,6 +1,6 @@
 {
   "pages": [
-    
+
     "pages/index/index", 
     
     "pages/2022tbjhfc/index",
@@ -59,6 +59,7 @@
     "pages/subscribe-2021-sydw/index", 
     "pages/subscribe/index", 
     "pages/subscribe-2022-ylws/index",
+    "pages/subscribe-2022-jlyc/index",
  
     "pages/header/index", 
     "pages/image-cuter/index", 

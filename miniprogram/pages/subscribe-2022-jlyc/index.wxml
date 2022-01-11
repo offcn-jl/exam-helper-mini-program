@@ -1,0 +1,30 @@
+<!--pages/index/index.wxml-->
+<image class="header" mode="widthFix" src="{{banner}}"></image>
+
+<view class="form">
+	<view class="select_wrap" wx:if="{{!tipsToSubscribeMessaged}}">
+		<!-- <view wx:if="{{CRMEFSID.length === 32 && !phone}}" class='offer_item'>
+				<select options='{{cityList}}' icon="icon-dizhi" text="意向报考地市" type="city" bind:m_select_touch="m_select_touch"></select>
+		</view> -->
+		<view wx:if="{{CRMEFSID.length === 32 && !phone}}" class='offer_item'>
+				<select options='{{typeList}}' icon="icon-zhengzhi-tianchong" text="意向报考岗位类别" type="type" bind:m_select_touch="m_select_touch"></select>
+		</view>
+		<view class='offer_item'>
+			<button class="subscribe" wx:if="{{CRMEFSID.length === 32 && !phone}}" type="primary" open-type="getPhoneNumber" bindgetphonenumber="login">注册后进行订阅</button>
+			<button wx:else class="search_btn" bindtap="subscribe">点击订阅</button>
+		</view>
+		<view class="tips">您订阅的考试公告发布后，中公考试助手将免费通过微信“服务通知”功能为您推送公告提醒。</view>
+	</view>
+	<view class="select_wrap" wx:else>
+		<!-- <navigator target="miniProgram" open-type="navigate" app-id="wxca86930ec3e80717" path="/page/course/details?id=226969{{suffix ? '&scode=' + suffix : ''}}">
+			<image class="ad" mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/subscribe/2021/sydw/ad-1-202102050854.jpg"></image>
+		</navigator> -->
+		<!-- <view class="tips" style="text-align:center;text-indent: 0;">点击图片进入19课堂领取</view> -->
+		<!-- <image class="ad" mode="widthFix" style="width: 50%" bindtap="saveQrCode" src="{{qrCodePath}}"></image> -->
+		<!-- <view class="tips">点击二维码保存到手机或截屏后，扫描识别二维码随时关注最新招聘动态</view> -->
+	</view>
+</view>
+
+<view class="suffix">{{suffixStr}}</view>
+
+<navigator url="/pages/subscribe/index?{{suffixStr}}" class="unsubscribe" hover-class="unsubscribe-hover">不想继续订阅公告推送？点击退订！</navigator>
