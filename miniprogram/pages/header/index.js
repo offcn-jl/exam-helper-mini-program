@@ -27,318 +27,161 @@ Page({
     // 图片列表
     imageList: [
       {
-        icon: "/new-year-5/0.png",
+        icon: "/new-year-2022-1/0.png",
         image: [
           {
-            path: "/new-year-5/0.png",
+            path: "/new-year-2022-1/0.png",
           },
           {
-            path: "/new-year-5/1.png",
+            path: "/new-year-2022-1/1.png",
             lock: true,
           },
           {
-            path: "/new-year-5/2.png",
+            path: "/new-year-2022-1/2.png",
             lock: true,
           },
           {
-            path: "/new-year-5/3.png",
-            lock: true,
-          },
-          {
-            path: "/new-year-5/4.png",
-            lock: true,
-          },
-          {
-            path: "/new-year-5/5.png",
-            lock: true,
-          },
-          {
-            path: "/new-year-5/6.png",
-            lock: true,
-          },
-          {
-            path: "/new-year-5/7.png",
-            lock: true,
-          },
-          {
-            path: "/new-year-5/8.png",
-            lock: true,
-          },
-          {
-            path: "/new-year-5/9.png",
-            lock: true,
-          },
-          {
-            path: "/new-year-5/10.png",
-            lock: true,
-          },
-          {
-            path: "/new-year-5/11.png",
-            lock: true,
-          },
-          {
-            path: "/new-year-5/12.png",
-            lock: true,
-          },
-          {
-            path: "/new-year-5/13.png",
-            lock: true,
-          },
-          {
-            path: "/new-year-5/14.png",
-            lock: true,
-          },
-          {
-            path: "/new-year-5/15.png",
-            lock: true,
-          },
-          {
-            path: "/new-year-5/16.png",
-            lock: true,
-          },
-          {
-            path: "/new-year-5/17.png",
-            lock: true,
-          },
-          {
-            path: "/new-year-5/18.png",
-            lock: true,
-          },
-          {
-            path: "/new-year-5/19.png",
-            lock: true,
-          },
-          {
-            path: "/new-year-5/20.png",
+            path: "/new-year-2022-1/3.png",
             lock: true,
           },
         ],
       },
       {
-        icon: "/new-year-6/0.png",
+        icon: "/new-year-2022-2/0.png",
         image: [
           {
-            path: "/new-year-6/0.png",
+            path: "/new-year-2022-2/0.png",
           },
           {
-            path: "/new-year-6/1.png",
+            path: "/new-year-2022-2/1.png",
             lock: true,
           },
           {
-            path: "/new-year-6/2.png",
+            path: "/new-year-2022-2/2.png",
             lock: true,
           },
           {
-            path: "/new-year-6/3.png",
-            lock: true,
-          },
-          {
-            path: "/new-year-6/4.png",
-            lock: true,
-          },
-          {
-            path: "/new-year-6/5.png",
-            lock: true,
-          },
-          {
-            path: "/new-year-6/6.png",
-            lock: true,
-          },
-          {
-            path: "/new-year-6/7.png",
-            lock: true,
-          },
-          {
-            path: "/new-year-6/8.png",
-            lock: true,
-          },
-          {
-            path: "/new-year-6/9.png",
-            lock: true,
-          },
-          {
-            path: "/new-year-6/10.png",
-            lock: true,
-          },
-          {
-            path: "/new-year-6/11.png",
-            lock: true,
-          },
-          {
-            path: "/new-year-6/12.png",
-            lock: true,
-          },
-          {
-            path: "/new-year-6/13.png",
-            lock: true,
-          },
-          {
-            path: "/new-year-6/14.png",
-            lock: true,
-          },
-          {
-            path: "/new-year-6/15.png",
-            lock: true,
-          },
-          {
-            path: "/new-year-6/16.png",
-            lock: true,
-          },
-          {
-            path: "/new-year-6/17.png",
-            lock: true,
-          },
-          {
-            path: "/new-year-6/18.png",
+            path: "/new-year-2022-2/3.png",
             lock: true,
           },
         ],
       },
       {
-        icon: "/new-year-1/0.png",
+        icon: "/new-year-2022-3/0.png",
         image: [
           {
-            path: "/new-year-1/0.png",
+            path: "/new-year-2022-3/0.png",
           },
           {
-            path: "/new-year-1/1.png",
-            lock: true,
-          },
-          {
-            path: "/new-year-1/2.png",
+            path: "/new-year-2022-3/1.png",
             lock: true,
           },
         ],
       },
       {
-        icon: "/new-year-2/0.png",
+        icon: "/new-year-2022-4/0.png",
         image: [
           {
-            path: "/new-year-2/0.png",
+            path: "/new-year-2022-4/0.png",
           },
           {
-            path: "/new-year-2/1.png",
-          },
-          {
-            path: "/new-year-2/2.png",
+            path: "/new-year-2022-4/1.png",
             lock: true,
           },
           {
-            path: "/new-year-2/3.png",
+            path: "/new-year-2022-4/2.png",
             lock: true,
           },
           {
-            path: "/new-year-2/4.png",
+            path: "/new-year-2022-4/3.png",
             lock: true,
           },
           {
-            path: "/new-year-2/5.png",
+            path: "/new-year-2022-4/4.png",
             lock: true,
           },
           {
-            path: "/new-year-2/6.png",
+            path: "/new-year-2022-4/5.png",
             lock: true,
           },
           {
-            path: "/new-year-2/7.png",
-            lock: true,
-          },
-          {
-            path: "/new-year-2/8.png",
-            lock: true,
-          },
-          {
-            path: "/new-year-2/9.png",
-            lock: true,
-          },
-          {
-            path: "/new-year-2/10.png",
-            lock: true,
-          },
-          {
-            path: "/new-year-2/11.png",
+            path: "/new-year-2022-4/6.png",
             lock: true,
           },
         ],
       },
       {
-        icon: "/new-year-3/0.png",
+        icon: "/new-year-public-1/0.png",
         image: [
           {
-            path: "/new-year-3/0.png",
+            path: "/new-year-public-1/0.png",
           },
           {
-            path: "/new-year-3/1.png",
-          },
-          {
-            path: "/new-year-3/2.png",
+            path: "/new-year-public-1/1.png",
             lock: true,
           },
           {
-            path: "/new-year-3/3.png",
+            path: "/new-year-public-1/2.png",
             lock: true,
           },
           {
-            path: "/new-year-3/4.png",
+            path: "/new-year-public-1/3.png",
             lock: true,
           },
           {
-            path: "/new-year-3/5.png",
+            path: "/new-year-public-1/4.png",
             lock: true,
           },
           {
-            path: "/new-year-3/6.png",
+            path: "/new-year-public-1/5.png",
             lock: true,
           },
           {
-            path: "/new-year-3/7.png",
+            path: "/new-year-public-1/6.png",
             lock: true,
           },
           {
-            path: "/new-year-3/8.png",
-            lock: true,
-          },
-          {
-            path: "/new-year-3/9.png",
-            lock: true,
-          },
-          {
-            path: "/new-year-3/10.png",
-            lock: true,
-          },
-          {
-            path: "/new-year-3/11.png",
-            lock: true,
-          },
-          {
-            path: "/new-year-3/12.png",
+            path: "/new-year-public-1/7.png",
             lock: true,
           },
         ],
       },
       {
-        icon: "/new-year-4/0.png",
+        icon: "/new-year-public-2/0.png",
         image: [
           {
-            path: "/new-year-4/0.png",
+            path: "/new-year-public-2/0.png",
           },
           {
-            path: "/new-year-4/1.png",
-          },
-          {
-            path: "/new-year-4/2.png",
+            path: "/new-year-public-2/1.png",
             lock: true,
           },
           {
-            path: "/new-year-4/3.png",
+            path: "/new-year-public-2/2.png",
             lock: true,
           },
           {
-            path: "/new-year-4/4.png",
+            path: "/new-year-public-2/3.png",
             lock: true,
           },
           {
-            path: "/new-year-4/5.png",
+            path: "/new-year-public-2/4.png",
+            lock: true,
+          },
+          {
+            path: "/new-year-public-2/5.png",
+            lock: true,
+          },
+          {
+            path: "/new-year-public-2/6.png",
+            lock: true,
+          },
+          {
+            path: "/new-year-public-2/7.png",
+            lock: true,
+          },
+          {
+            path: "/new-year-public-2/8.png",
             lock: true,
           },
         ],
@@ -406,10 +249,10 @@ Page({
         ],
       },
       {
-        icon: "/public/2.png",
+        icon: "/public/1.png",
         image: [
           {
-            path: "/public/2.png",
+            path: "/public/1.png",
           },
           {
             path: "/public/3.png",
@@ -425,9 +268,6 @@ Page({
           },
           {
             path: "/public/7.png",
-          },
-          {
-            path: "/public/8.png",
           },
         ],
       },
@@ -507,6 +347,12 @@ Page({
           },
           {
             path: "/hat/8.png",
+          },
+          {
+            path: "/hat/9.png",
+          },
+          {
+            path: "/hat/10.png",
           },
         ],
       },
@@ -1051,7 +897,7 @@ Page({
    */
   onShareAppMessage: function () {
     return {
-      title: '头像 DIY',
+      title: '2022 虎年头像 DIY',
       imageUrl: 'http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/header/share-202101200841.jpg'
     }
   },
@@ -1061,7 +907,7 @@ Page({
    */
   onShareTimeline: function () {
     return {
-      title: '头像 DIY'
+      title: '2022 虎年头像 DIY'
     }
   }
 })

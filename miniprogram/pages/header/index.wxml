@@ -1,13 +1,13 @@
 <!--pages/header/index.wxml-->
 
 <!-- 背景图 -->
-<image src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/header/background-202101200841.jpg"
+<image src="https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/background-2022.jpg"
   mode="widthFix" class="background"></image>
 
 <!-- 欢迎页 ( 引导订阅考试公告 ) -->
 <view class="welcome-page" wx:if="{{welcomePage}}">
-  <image class="title" mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/header/welcome-page-title-202101200833.png"></image>
-  <image class="button" mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/header/welcome-page-button-202101200842.png" bindtap="welcomePageButton"></image>
+  <image class="title" mode="widthFix" src="https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/title-2022.png"></image>
+  <image class="button" mode="widthFix" src="https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/button-2022.png" bindtap="welcomePageButton"></image>
 </view>
 
 <!-- 操作页面 -->

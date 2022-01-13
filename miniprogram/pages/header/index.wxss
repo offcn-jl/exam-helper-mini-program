@@ -13,14 +13,13 @@
 .welcome-page .title {
   width: 85vw;
   position: relative;
-  top: 28vh;
-  left: 7.5vw;
+  top: 40vh;
 }
 
 .welcome-page .button {
   width: 60vw;
   position: relative;
-  top: 29vh;
+  top: 43vh;
   left: 20vw;
 }
 
@@ -76,16 +75,17 @@
   width: 100vw;
   position: fixed;
   bottom: 0;
-  height: 140rpx;
   background: #fff;
   white-space: nowrap;
+  padding-bottom: constant(safe-area-inset-bottom); /* 底部安全距离 兼容 IOS<11.2 */
+  padding-bottom: env(safe-area-inset-bottom); /* 底部安全距离 兼容 IOS>11.2 */
 }
 
 .tab-bar .item {
   display: inline-block;
   padding: 20rpx 0;
   width: 160rpx;
-  height: 100rpx;
+  height: 140rpx;
 }
 
 .tab-bar .item image {
@@ -101,9 +101,10 @@
 .tab-bar-top{
   position: fixed;
   bottom: 138rpx;
-  height: 180rpx;
   width: 100vw;
   text-align: center;
+  padding-bottom: constant(safe-area-inset-bottom); /* 底部安全距离 兼容 IOS<11.2 */
+  padding-bottom: env(safe-area-inset-bottom); /* 底部安全距离 兼容 IOS>11.2 */
 }
 
 .tab-bar-top .container {
