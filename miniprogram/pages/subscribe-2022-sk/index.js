@@ -5,10 +5,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-    CRMEFSID: "4b4c940319a07431af4df15dd53edb0f", // CRM 活动表单 ID
-    CRMRemark: "HD202110250562/103534", // CRM 注释
+    CRMEFSID: "4b4c940319a07431af4df15dd53edb0f", // CRM 活动表单 ID
+    CRMRemark: "HD202110250562", // CRM 注释 /108218
+    title:'2022省考公告订阅', // 标题
+    banner:'http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/subscribe/2022/sk/header.jpg', // 背景
+    imageUrl:'http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/subscribe/2022/sk/share.jpg', // 分享图
+    type:'吉林公务员', //服务类型  （国家公务员，吉林公务员，事业单位，医疗招聘，教师招聘，特岗教师，教师资格，银行考试，三支一扶，公选遴选，社会工作，会计取证，军队文职，军人考试，医学考试，农信社，选调生，招警，国企）
 
-    suffix: {}, // 后缀
     phone: "", // 用户手机号码, 注册函数执行完成后设置, 已经注册的用户在初次打开页面时也会设置
     tipsToSubscribeMessaged: false, // 是否提示过进行消息订阅
   },
@@ -17,19 +20,21 @@ Page({
    * 监听页面滚动
    * 用于 显示 header / 隐藏 header
    */
-  onPageScroll: function (e) { this.selectComponent('#header').setData({ scrollTop: e.scrollTop }) },
+  // onPageScroll: function (e) { this.selectComponent('#header').setData({ scrollTop: e.scrollTop }) },
 
-  // register 注册
-  register: function (e) {
-    getApp().methods.register(e, this.data.suffix, this.data.CRMEFSID, this.data.CRMRemark, phone => {
-      this.setData({ phone })
-      wx.showModal({ title: '提示', content: '注册成功，请您点击“订阅”按钮完成订阅～', showCancel: false, confirmText: "我知道啦" })
-    })
+  // 登陆
+  login: function (event) {
+    getApp().methods.newLogin({event, crmEventFormSID: this.data.CRMEFSID, suffix: { suffix: this.data.suffix, suffixStr: this.data.suffixStr }, remark: `活动表单ID:${this.data.CRMEventID}`, callback: ({ phone, openid }) => {
+      this.setData({ phone, openid });
+      if ( this.data.configs.Subscribe.length > 0 ) {
+        wx.showModal({ title: '提示', content: '注册成功，请您点击“点击登陆”按钮进行登陆～', showCancel: false, confirmText: "我知道啦" });
+      }
+    }});
   },
 
   // subscribe 订阅
   subscribe() {
-    getApp().methods.subscribeSingleExam(this.data.suffix, "吉林公务员", undefined, ()=>{
+    getApp().methods.subscribeSingleExam(this.data.suffix, this.data.type, undefined, ()=>{
       this.setData({tipsToSubscribeMessaged: true});
     })
   },
@@ -37,18 +42,32 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: async function (options) {
     // 获取后缀
     if (typeof options.scene !== "undefined") {
       this.setData({
         suffix: options.scene
       })
     }
-    
+    const suffixInfo = await getApp().methods.getSuffix(options); // 获取后缀信息
+    this.setData(suffixInfo); // 保存后缀信息
+    this.setData({ contactInformation: await getApp().methods.getContactInformation(suffixInfo) }); // 获取推广信息
     // 判断是否是单页模式
-    if (wx.getLaunchOptionsSync().scene !== 1154) {
-      getApp().methods.login(this.data.CRMEFSID, this.data.suffix, this.data.CRMRemark, phone => this.setData({ phone })) // 登陆
+    if (wx.getLaunchOptionsSync().scene !== 1154 && this.data.CRMEFSID.length === 32) {
+      // 获取登陆状态
+      getApp().methods.newLoginCheck({ 
+        crmEventFormSID: this.data.CRMEFSID, 
+        suffix: { suffix: this.data.suffix, suffixStr: this.data.suffixStr }, 
+        remark: `活动表单ID:${this.data.CRMEventID}`, 
+        callback: ({ phone, openid }) => {
+          this.setData({ phone, openid }); 
+        } 
+      });
     }
+    // 动态设置当前页面的标题
+    wx.setNavigationBarTitle({
+      title: this.data.title
+    })
   },
 
   /**
@@ -56,8 +75,8 @@ Page({
   */
   onShareAppMessage: function () {
     return {
-      title: '公告订阅',
-      imageUrl: 'http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/subscribe/2022/sk/share.jpg'
+      title: this.data.title,
+      imageUrl: this.data.imageUrl
     }
   },
 
@@ -66,7 +85,7 @@ Page({
    */
   onShareTimeline: function () {
     return {
-      title: '免费考试公告订阅服务'
+      title:  this.data.title
     }
   }
 })

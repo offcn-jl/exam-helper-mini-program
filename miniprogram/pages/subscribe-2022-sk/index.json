@@ -1,5 +1,5 @@
 {
   "usingComponents": {
-    "header": "/components/header/header"
+    "shareWap": "/components/shareWap/shareWap"
   }
 }
