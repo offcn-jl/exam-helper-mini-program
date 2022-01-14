@@ -11,7 +11,7 @@ Page({
     banner:'http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/subscribe/2022/sk/header.jpg', // 背景
     imageUrl:'http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/subscribe/2022/sk/share.jpg', // 分享图
     type:'吉林公务员', //服务类型  （国家公务员，吉林公务员，事业单位，医疗招聘，教师招聘，特岗教师，教师资格，银行考试，三支一扶，公选遴选，社会工作，会计取证，军队文职，军人考试，医学考试，农信社，选调生，招警，国企）
-
+ 
     phone: "", // 用户手机号码, 注册函数执行完成后设置, 已经注册的用户在初次打开页面时也会设置
     tipsToSubscribeMessaged: false, // 是否提示过进行消息订阅
   },

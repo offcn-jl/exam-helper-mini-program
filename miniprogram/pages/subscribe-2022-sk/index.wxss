@@ -10,7 +10,7 @@
   top: 1290rpx;
   width: 100vw;
   padding: 30rpx 2vw;
-}
+} 
 
 .tips {
   color: #fff;
