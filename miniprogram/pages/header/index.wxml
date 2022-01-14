@@ -52,7 +52,7 @@
   <view class="selector-container {{openSelector?'show':''}}">
     <view class="selector">
       <view>
-        <button hover-class="none" class="btn" open-type="getUserInfo" bindgetuserinfo="useUserAvatar">使用微信头像</button>
+        <button hover-class="none" class="btn" bindtap="useUserAvatar">使用微信头像</button>
       </view>
       <view bindtap="chooseImage">使用相册图片</view>
       <view class="cancel" bindtap="cancel">取消</view>

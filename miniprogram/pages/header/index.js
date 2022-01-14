@@ -419,11 +419,11 @@ Page({
         if (res.confirm) {
           getApp().methods.subscribeAllExam(_this.data.suffix, undefined, () => {
             // 跳转页面
-            _this.setData({welcomePage: false})
+            _this.setData({ welcomePage: false })
           })
         } else if (res.cancel) {
           // 跳转页面
-          _this.setData({welcomePage: false})
+          _this.setData({ welcomePage: false })
         }
       }
     })
@@ -441,7 +441,7 @@ Page({
   /**
    * TabBar 添加图片到画板
    */
-  addImage: function(e) {
+  addImage: function (e) {
     if (this.data.headerImage === '') {
       wx.showToast({ icon: 'none', title: '您还未添加头像' })
       return
@@ -468,14 +468,14 @@ Page({
       fail: err => {
         wx.hideLoading()
         getApp().methods.handleError({ err: err, title: '下载素材失败', content: err.errMsg, reLaunch: false })
-      } 
+      }
     })
   },
 
   /**
    * TabBar 解锁图片
    */
-  unlock: function() {
+  unlock: function () {
     this.setData({
       openUnlock: true
     })
@@ -484,7 +484,7 @@ Page({
   /**
    * TabBar 解锁图片 关闭
    */
-  unlockClose: function() {
+  unlockClose: function () {
     this.setData({
       openUnlock: false
     })
@@ -493,7 +493,7 @@ Page({
   /**
    * TabBar 解锁图片 成功
    */
-  unlockSuccess: function() {
+  unlockSuccess: function () {
     this.setData({
       isLock: false,
       openUnlock: false
@@ -503,7 +503,7 @@ Page({
   /**
    * 添加头像 ( 打开选择器 )
    */
-  add: function() {
+  add: function () {
     this.setData({
       openSelector: true
     })
@@ -543,7 +543,7 @@ Page({
             url: '/pages/image-cuter/index',
             events: {
               // 为指定事件添加一个监听器，获取被打开页面传送到当前页面的数据
-              acceptDataFromOpenedPage: function(data) {
+              acceptDataFromOpenedPage: function (data) {
                 wx.showLoading({ title: '加载中...' })
                 _this.setData({
                   headerImage: data.imageSrc
@@ -554,12 +554,12 @@ Page({
                 }, 600)
               }
             },
-            success: function(res) {
+            success: function (res) {
               // 通过 eventChannel 向被打开页面传送数据
-              res.eventChannel.emit('acceptDataFromOpenerPage', { imageSrc: e.tempFilePaths[0], config: {width: 300, height: 300} })
+              res.eventChannel.emit('acceptDataFromOpenerPage', { imageSrc: e.tempFilePaths[0], config: { width: 300, height: 300 } })
             }
           })
-        }else{
+        } else {
           wx.hideLoading()
           wx.showToast({ icon: 'none', title: '您未选择图片' })
         }
@@ -577,14 +577,14 @@ Page({
    */
   useUserAvatar() {
     var that = this;
-    wx.showLoading({ title: '下载中...', mask: true })
-    wx.getUserInfo({
-      success: res => {
+    wx.getUserProfile({
+      desc: '用于进行头像 DIY',
+      success: (res) => {
+        wx.showLoading({ title: '下载中...', mask: true })
         // 转换头像链接, 修改为高分辨率链接
         res.userInfo.avatarUrl = res.userInfo.avatarUrl.split('/')
         res.userInfo.avatarUrl[res.userInfo.avatarUrl.length - 1] = 0
         res.userInfo.avatarUrl = res.userInfo.avatarUrl.join('/')
-
         wx.downloadFile({
           url: res.userInfo.avatarUrl,
           success: function (res) {
@@ -602,20 +602,16 @@ Page({
           fail: err => {
             wx.hideLoading()
             getApp().methods.handleError({ err: err, title: '下载用户头像失败', content: err.errMsg, reLaunch: false })
-          } 
+          }
         })
       },
-      fail: function (res) {
-        if (res.errMsg === "getUserInfo:fail scope unauthorized") {
-          wx.openSetting({
-            success(settingdata) {
-              if (settingdata.authSetting["scope.userInfo"]) {
-                console.log("获取权限成功，再次点击图片保存到相册")
-              } else {
-                console.log("获取权限失败")
-              }
-            }
-          })
+      fail: err => {
+        if (err.errMsg === "getUserProfile:fail auth deny") {
+          // 未授权
+          getApp().methods.handleError({ err: err, title: '出错啦', content: "需要您同意授权后方可使用您的头像进行 DIY", reLaunch: false })
+        } else {
+          // 其他错误
+          getApp().methods.handleError({ err: err, title: '出错啦', content: `未知错误，请稍后再试 ${err.errMsg}`, reLaunch: false })
         }
       }
     })
@@ -692,7 +688,7 @@ Page({
       wx.showModal({
         title: '头像已保存',
         content: '可以去炫耀一波啦！',
-        showCancel:false,
+        showCancel: false,
         success: function (sm) {
           if (sm.confirm) {
             // 创建海报文件
@@ -702,7 +698,7 @@ Page({
           }
         }
       })
-      
+
     }).catch(() => {
       this.showTotal('保存失败')
     })
@@ -718,7 +714,7 @@ Page({
     const posterCanvasContext = wx.createCanvasContext('posterCanvas');
     // 下载海报背景图
     wx.downloadFile({
-      url: 'https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/poster-202101200917.jpg',
+      url: 'https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/poster-2022.jpg',
       success: function (res) {
         if (res.statusCode === 200) {
           // 绘制海报背景图
@@ -741,7 +737,7 @@ Page({
                     // 绘制头像
                     posterCanvasContext.arc(95, 95, 65, 0, 2 * Math.PI);
                     posterCanvasContext.clip();
-                    posterCanvasContext.drawImage(_this.data.headerSrc, 30, 30, 130, 130); 
+                    posterCanvasContext.drawImage(_this.data.headerSrc, 30, 30, 130, 130);
                     // 结束绘制
                     posterCanvasContext.draw();
 
@@ -782,7 +778,7 @@ Page({
                 fail: err => {
                   wx.hideLoading()
                   getApp().methods.handleError({ err: err, title: '下载海报背景图失败', content: err.errMsg, reLaunch: false })
-                } 
+                }
               })
             },
             fail: err => {
@@ -798,7 +794,7 @@ Page({
       fail: err => {
         wx.hideLoading()
         getApp().methods.handleError({ err: err, title: '下载海报背景图失败', content: err.errMsg, reLaunch: false })
-      } 
+      }
     })
   },
 
@@ -827,7 +823,7 @@ Page({
         // 清空海报路径, 隐藏海报弹窗
         _this.setData({ posterPath: '' })
         getApp().methods.handleError({ err: err, title: '保存海报失败', content: err.errMsg, reLaunch: false })
-      } 
+      }
     })
   },
 
@@ -861,7 +857,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+
   },
 
   /**
@@ -898,7 +894,7 @@ Page({
   onShareAppMessage: function () {
     return {
       title: '2022 虎年头像 DIY',
-      imageUrl: 'http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/header/share-202101200841.jpg'
+      imageUrl: 'https://download.cos.jilinoffcn.com/mini-program/exam-helper/header/share-2022.jpg'
     }
   },
 
