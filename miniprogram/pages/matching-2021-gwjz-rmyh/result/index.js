@@ -2,7 +2,7 @@ const app = getApp()
 
 Page({
   data: {
-    title:"2023人行职位查询及竞争比",// 标题
+    title:"2022人行职位查询及竞争比",// 标题
     imageUrl:"http://news01.offcn.com/jl/2021/1231/20211231095348419.jpg",// 分享时显示的图片
     superiorLink:"/pages/matching-2021-gwjz-rmyh/index", //上级链接
     actid:"22272", //zg99id
