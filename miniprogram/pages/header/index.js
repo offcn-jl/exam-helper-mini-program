@@ -550,7 +550,6 @@ Page({
                 })
                 setTimeout(() => {
                   _this.initCanvas()
-                  wx.hideLoading()
                 }, 600)
               }
             },
@@ -576,11 +575,11 @@ Page({
    * 选择器 使用用户头像
    */
   useUserAvatar() {
+    wx.showLoading({ title: '请稍候...', mask: true })
     var that = this;
     wx.getUserProfile({
       desc: '用于进行头像 DIY',
       success: (res) => {
-        wx.showLoading({ title: '下载中...', mask: true })
         // 转换头像链接, 修改为高分辨率链接
         res.userInfo.avatarUrl = res.userInfo.avatarUrl.split('/')
         res.userInfo.avatarUrl[res.userInfo.avatarUrl.length - 1] = 0
@@ -606,6 +605,7 @@ Page({
         })
       },
       fail: err => {
+        wx.hideLoading()
         if (err.errMsg === "getUserProfile:fail auth deny") {
           // 未授权
           getApp().methods.handleError({ err: err, title: '出错啦', content: "需要您同意授权后方可使用您的头像进行 DIY", reLaunch: false })
@@ -698,9 +698,8 @@ Page({
           }
         }
       })
-
-    }).catch(() => {
-      this.showTotal('保存失败')
+    }).catch((err) => {
+      getApp().methods.handleError({ err: err, title: '出错啦', content: "保存失败，请稍后再试", reLaunch: false })
     })
   },
 
