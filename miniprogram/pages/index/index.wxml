@@ -24,11 +24,11 @@
 <!-- 本小程序内跳转 -->
 <navigator wx:if="{{config.banner.main.type === 'self'}}" url="{{suffix ? config.banner.main.url + '?scene=' + suffix : config.banner.main.url}}">
     <image class="banner" mode="widthFix" src="{{config.banner.main.image}}"></image>
-</navigator>
+</navigator> 
 <!-- 打开其他小程序 -->
 <navigator wx:if="{{config.banner.main.type === 'miniProgram'}}" target="miniProgram" open-type="navigate" app-id="{{config.banner.main.appid}}" path="{{config.banner.main.path}}">
     <image class="banner" mode="widthFix" src="{{config.banner.main.image}}"></image>
-</navigator>
+</navigator> 
 
 <!-- 19课堂 热门课程 -->
 <view class="lives" wx:if="{{config.lives}}">
