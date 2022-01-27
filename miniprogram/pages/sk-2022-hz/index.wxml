@@ -2,7 +2,7 @@
 <image src="{{banner_bk}}" class="banner"></image>
 <!-- 按钮 点击添加客服 -->
 <view class="con">
-  <button wx:if="{{!phone}}" class="search_btn" open-type="getPhoneNumber" bindgetphonenumber="buttonStart"></button>
+  <!-- <button wx:if="{{!phone}}" class="search_btn" open-type="getPhoneNumber" bindgetphonenumber="buttonStart"></button> -->
   <navigator url="/pages/sk-2022-zwjs/index?{{suffixStr}}">
   <!-- <navigator bindtap="btn"> -->
     <image src="http://jl.offcn.com/zt/ty/2021images/exam-helper/2022sk/22sk_hz1.png"></image>
