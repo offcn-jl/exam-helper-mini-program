@@ -2,7 +2,8 @@
   "pages": [
 
     "pages/index/index", 
-    
+
+
     "pages/2022tbjhfc/index",
 
     "pages/matching-2021-gwjz-rmyh/index",
@@ -19,10 +20,12 @@
     "pages/event/2021/12/16/index", 
     "pages/event/2021/09/08/index", 
     "pages/event/2021/08/14/index", 
-    "pages/event/2022/01/18/index", 
-    
     "pages/event-2021-06-01/index", 
     "pages/event-2021-03-25/index", 
+
+    "pages/event/2022/01/18/index", 
+    "pages/event/2022/02/08/index", 
+ 
  
     "pages/sk-2022/index", 
     "pages/gk-2022/index", 

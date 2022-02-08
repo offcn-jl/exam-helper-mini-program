@@ -1,0 +1,156 @@
+/* pages/event-2021-06-01/index.wxss */
+page {
+    position: absolute;
+    /* 解决 background-audio 位置漂移的问题 */
+    background-color: #d70000;
+}
+
+.background-audio {
+    width: 100rpx;
+    position: fixed;
+    right: 3vw;
+    top: 10vh;
+    z-index: 99;
+}
+
+.background-audio .disk {
+    width: 100rpx;
+    display: block;
+}
+
+.background-audio .text {
+    display: block;
+    font-size: 25rpx;
+    text-align: center;
+    color: aliceblue;
+}
+
+/* 
+    使用方法: animation:turn 1s linear infinite;
+    turn : 定义的动画名称
+    1s : 动画时间
+    linear : 动画以何种运行轨迹完成一个周期
+    infinite :规定动画应该无限次播放
+*/
+@keyframes turn {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+
+    25% {
+        -webkit-transform: rotate(90deg);
+    }
+
+    50% {
+        -webkit-transform: rotate(180deg);
+    }
+
+    75% {
+        -webkit-transform: rotate(270deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+.image-100 {
+    width: 100vw;
+    display: block;
+}
+
+.image-button {
+    width: 100vw !important;
+    padding: 0;
+    border-radius: 0;
+    margin-top: -200rpx;
+}
+
+.image-button::after {
+    border: none;
+}
+
+.con{
+    position: absolute;
+    top: 65vh;
+    left: 5vw;
+    width:90vw;
+    margin: 0 auto;
+}
+
+.bz{
+    width:30vw ;
+    height: 240rpx;
+    float: left;
+    background-image: url(http://news01.offcn.com/jl/2022/0114/20220114040531659.png);
+    background-size: auto 100%;
+}
+  
+.canvas-btn {
+    width:30vw;
+    float: left;
+}
+
+.dj_active {
+    position: fixed;
+    top:40%;
+    left:35%;
+    animation: shake 0.8s forwards;
+}
+
+.dj_active1 {
+    animation: shake1 0.4s infinite 0.8s;
+}
+
+@keyframes shake {
+    0% {transform: scale(1); }
+    20%{transform: scale(1.5) rotate(-3deg);}
+    40%{ transform: scale(2) rotate(3deg);}
+    60%{ transform: scale(2.6) rotate(-3deg);}
+    80%{ transform: scale(3) rotate(3deg); }
+    100%{transform: scale(3) rotate(0);}
+}
+
+@keyframes shake1 {
+    0%{ transform: rotate(3deg);}
+    25%{ transform: rotate(-3deg);}
+    50%{ transform: rotate(3deg);}
+    75%{ transform: rotate(-3deg);}
+    100%{transform: rotate(3deg);}
+}
+
+.award {
+    position: fixed;
+    top: 25vh;
+    z-index: 99999;
+}
+
+.award .background {
+    width: 100vw;
+}
+
+.award .text {
+    position: absolute;
+}
+
+.award .title {
+    top: 365rpx;
+    color: #ff1212;
+    font-size: 40rpx;
+    text-align: center;
+    width: 100vw;
+}
+
+.award .remark {
+    top: 450rpx;
+    color: #fcf07e;
+    font-size: 30rpx;
+    text-indent: 60rpx;
+    width: 66vw;
+    left: 17.5vw;
+}
+
+.prize_tit{ font-size: 40rpx; width:80vw; font-weight: bold;margin: 0 auto; text-align: center; line-height:80rpx ; }
+.prize{ color: #ffe4b6; width: 90vw; margin: 0 auto 5vh;  font-size:30rpx;line-height: 50rpx;  }
+.prize_tit2{border: 1px solid #ffe4b6; padding: 0.5rem;text-indent: 2rem;}
+.prize_name{ color: #fff; margin:0 auto;  font-size:30rpx;width:90vw; line-height: 50rpx;}

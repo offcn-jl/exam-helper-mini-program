@@ -1,0 +1,73 @@
+<!-- 背景音效 fixme -->
+<view class="background-audio" bindtap="switchBackgroundAudioStatus" wx:if="{{enableBackgroundAudio}}">
+    <image class="disk" mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/event/2022/01/18/disk.png" style="{{ backgroundAudioStatus === '关闭音效' ? 'animation:turn 1s linear infinite;' : ''}}"></image>
+    <text class="text">{{backgroundAudioStatus}}</text>
+</view>
+
+<!-- 选择项目 -->
+<view wx:if="{{init}}">
+    <image class="image-100" mode="widthFix" src="http://jl.offcn.com/zt/ty/2021images/exam-helper-mini/event20220208.jpg"></image>
+
+    <!-- 未登录 -->
+    <view wx:if="{{!phone}}">
+       
+        <button class="image-button" open-type="getPhoneNumber" bindgetphonenumber="signUp" data-project="sydw">
+            <image class="image-100" mode="widthFix" src="http://jl.offcn.com/zt/ty/2021images/exam-helper-mini/btn01.png"></image>
+        </button>
+       
+
+    </view>
+
+    <!-- 已登录 -->
+    <view wx:else>
+      
+        <button class="image-button" bindtap="signUp" data-project="sydw" style="background-color:#ffffff00;">
+            <image class="image-100" mode="widthFix" src="http://jl.offcn.com/zt/ty/2021images/exam-helper-mini/btn01.png"></image>
+        </button>
+     
+    
+    
+     
+    </view>
+</view>
+
+<!-- 抽奖 -->
+<view wx:else class="turntable">
+    <image class="image-100 background" mode="widthFix" src="http://jl.offcn.com/zt/ty/2021images/exam-helper-mini/event20220208bg2.jpg"></image>
+    <view class="con">
+        <block wx:for="{{[0,1,2,3,4,5]}}" class="luck" wx:key="index">
+            <view class="bz">
+                <view class="canvas-btn {{dj_active==index?'dj_active':''}}">
+                    <image style="width: 30vw;" class="{{dj_active==index?'dj_active1':''}}" src="http://jl.offcn.com/zt/ty/2021images/exam-helper-mini/event20220208fu.png" mode="widthFix" bindtap="getLottery" data-index='{{index}}'></image>
+                </view>
+            </view>
+        </block>
+    </view>
+
+    <!-- 中奖结果 -->
+    <view class="prize" wx:if="{{awardInfo.prizeInfo}}">
+        <view class="prize_tit">
+            {{awardInfo.prizeInfo.name}}
+        </view>
+        <view class="prize_tit2">
+            {{awardInfo.prizeInfo.remark}}
+        </view>
+    </view>
+
+    <!-- 奖品列表 -->
+    <view class="prize_name">
+        <view wx:for="{{awardInfo.awards}}" wx:key="index">
+            奖品{{index+1}}: {{item.name}}, 中奖概率: {{item.chance}}%。
+        </view>
+    </view>
+</view>
+
+<!-- 奖品 -->
+<view wx:if="{{showAward}}" class="award" bindtap="hideAward">
+    <view class="text title">恭喜您，中奖啦</view>
+    <view class="text remark">{{awardInfo.prizeInfo.name}}</view>
+    <image class="background" mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/event/2021/08/14/award.png"></image>
+</view>
+
+<!-- 后缀 -->
+<view class="suffix">{{suffixInfo.suffixStr}}</view>
