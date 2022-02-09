@@ -25,6 +25,7 @@
 
     "pages/event/2022/01/18/index", 
     "pages/event/2022/02/08/index", 
+  
  
  
     "pages/sk-2022/index", 
@@ -65,6 +66,7 @@
     "pages/subscribe/index", 
     "pages/subscribe-2022-ylws/index",
     "pages/subscribe-2022-jlyc/index",
+    "pages/subscribe-2022-dy/index", 
  
     "pages/header/index", 
     "pages/image-cuter/index", 

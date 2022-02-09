@@ -1,0 +1,19 @@
+<!--pages/index/index.wxml-->
+<header title="{{title}}" suffix="{{suffix}}" id="header" nav></header>
+
+<block>
+	<image class="header" mode="widthFix" src="{{banner}}"></image>
+	<view class="form">
+		<!-- <view class="tips">您预约后，中公考试助手将免费通过微信“服务通知”功能为您推送相关提醒。</view> -->
+		<button class="subscribe" wx:if="{{CRMEFSID.length === 32 && !phone}}" type="primary" open-type="getPhoneNumber" bindgetphonenumber="login">请先授权注册</button>
+		<text class="subscribetip" >您已预约成功\n我们将尽快与您联系~</text> 
+	
+	</view>
+
+</block>
+
+<!-- <image wx:else class="header" mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/subscribe/2022/sk/success.jpg"></image> -->
+
+<view class="suffix">{{suffixStr}}</view>
+
+<!-- <navigator url="/pages/subscribe/index?{{suffixStr}}" class="unsubscribe" hover-class="unsubscribe-hover">不想继续订阅公告推送？点击退订！</navigator> -->
