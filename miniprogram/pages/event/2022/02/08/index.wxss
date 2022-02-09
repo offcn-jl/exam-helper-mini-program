@@ -72,7 +72,7 @@ page {
 
 .con{
     position: absolute;
-    top: 65vh;
+    top: 835rpx;
     left: 5vw;
     width:90vw;
     margin: 0 auto;
