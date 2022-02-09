@@ -5,8 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    CRMEFSID: "9dd63b66b9ba31b9aa514bc6802d8ba1", // CRM 活动表单 ID
-    CRMEventID: "HD202201280221", // CRM 注释 /114846
+    CRMEFSID: "06a01bd60eba9434150bbe20ac948449", // CRM 活动表单 ID
+    CRMEventID: "HD202201280221", // CRM 注释 //115015
     title:'抖粉专属顾问预约', // 标题
     banner:'http://jl.offcn.com/zt/ty/2022images/exam-helper-mini/subscribe-2022dy-index.jpg', // 背景
     imageUrl:'http://jl.offcn.com/zt/ty/2022images/exam-helper-mini/subscribe-2022dy-share.jpg', // 分享图
