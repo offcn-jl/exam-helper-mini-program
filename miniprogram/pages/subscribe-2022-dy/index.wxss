@@ -1,0 +1,52 @@
+/* pages/index/index.wxss */
+
+.header {
+  width: 100vw;
+  display: block;
+}
+
+.form {
+  position: absolute;
+  top: 1150rpx;
+  width: 100vw;
+  padding: 30rpx 2vw;
+  text-align: center;
+}
+
+.tips {
+  color: #000;
+  width: 80vw;
+  margin: 0 auto;
+  text-indent: 2rem;
+}
+
+.register-tips {
+  color: white;
+  text-align: center;
+}
+
+.subscribe {
+  width: 80vw !important;
+  margin-top: 2vh;
+  line-height: 100rpx;
+}
+
+.unsubscribe {
+  color: rgb(173, 173, 173);
+  text-align: center;
+  font-size: 1rem;
+  line-height: 2rem;
+  /* margin-bottom: 150rpx; */
+}
+.subscribetip{
+  width: 70vw !important;
+  margin: 0 auto;
+  padding-top:-350rpx;
+  text-align: center;
+  font-size: 60rpx;
+  color: #053b47;
+}
+
+.unsubscribe-hover {
+  color:skyblue;
+}
