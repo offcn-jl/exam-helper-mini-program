@@ -10,7 +10,7 @@
 	</view> -->
 	<view class="{{!switch?'select_wrap':'select_wrap on'}}">
 			<view class='offer_item' wx:if="{{cityList.length > 0}}">
-					<select options='{{cityList}}' icon="icon-dizhi" text="地市" type="city"  bind:m_select_touch="m_select_touch"></select>
+					<select options='{{cityList}}' icon="icon-dizhi" text="地区" type="city"  bind:m_select_touch="m_select_touch"></select>
 			</view>
 			<view class='offer_item' wx:if="{{bmxzList.length > 0}}">
 					<select options='{{bmxzList}}' icon="icon-xueli1" text="机构层级" type="bmxz"  bind:m_select_touch="m_select_touch"></select>

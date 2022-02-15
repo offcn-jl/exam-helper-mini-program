@@ -34,39 +34,35 @@
 				<view class="item-group-wrap {{showId == index ? 'active' : ''}}">
 					<view class="item-list">
 						<view class="top">单位信息</view>
-						<view class="item_line"><label>部门名称:</label><text>{{item.danwei_name}}</text></view>
-						<view class="item_line"><label>部门代码:</label><text>{{item.danwei_code}}</text></view>
-						<view class="item_line"><label>部门性质:</label><text>{{item.xitong}}</text></view>
+						<view class="item_line"><label>地区:</label><text>{{item.areaname}}</text></view>
+						<view class="item_line"><label>单位名称:</label><text>{{item.danwei_name}}</text></view>
+						<view class="item_line"><label>系统:</label><text>{{item.xitong}}</text></view>
+						<view class="item_line"><label>机构层级:</label><text>{{item.jgcj}}</text></view>
 					</view>
 
 					<view class="item-list">
 						<view class="top">职位信息</view>
 						<view class="item_line"><label>职位名称:</label><text>{{item.zhiwei_name}}</text></view>
-						<view class="item_line"><label>职位代码:</label><text>{{item.zhiwei_code}}</text></view>
+						<view class="item_line"><label>职位简介:</label><text>{{item.zhiwei_intro}}</text></view>
 						<view class="item_line"><label>招考人数:</label><text>{{item.zkrs}}</text></view>
-						<view class="item_line"><label>招考对象:</label><text>{{item.isyj}}</text></view>
-						<view class="item_line"><label>最低服务年限要求:</label><text>{{item.zdfwnx}}</text></view>
+
 					</view>
 
 					<view class="item-list">
 						<view class="top">报考条件</view>
 						<view class="item_line"><label>学历要求:</label><text>{{item.xueli}}</text></view>
-						<view class="item_line"><label>学位要求:</label><text>{{item.xwyq}}</text></view>
-						<view class="item_line"><label>是否允许以学位证所列专业报考:</label><text>{{item.sfyxyxwzbk}}</text></view>
+						<view class="item_line"><label>学位要求:</label><text>{{item.xuewei}}</text></view>
 						<view class="item_line"><label>专业要求:</label><text>{{item.zhuanye}}</text></view>
-						<view class="item_line"><label>性别要求:</label><text>{{item.sex}}</text></view>
 						<view class="item_line"><label>政治面貌:</label><text>{{item.zzmm}}</text></view>
-						<view class="item_line"><label>基层工作经历要求:</label><text>{{item.gzjl}}</text></view>
-						<view class="item_line"><label>其他资格条件要求:</label><text>{{item.qtzgtj}}</text></view>
+						<view class="item_line"><label>工作经历:</label><text>{{item.gzjl}}</text></view>
+						<view class="item_line"><label>其他条件:</label><text>{{item.qita}}</text></view>
 					</view>
 
 					<view class="item-list">
 						<view class="top">其他信息</view>
-						<view class="item_line"><label>科目类别:</label><text>{{item.kskm}}</text></view>
-						<view class="item_line"><label>体能测试或专业考试要求:</label><text>{{item.isks}}</text></view>
-						<view class="item_line"><label>体检标准:</label><text>{{item.tjbz}}</text></view>
+						<view class="item_line"><label>比例:</label><text>{{item.bili}}</text></view>
 						<view class="item_line"><label>备注:</label><text>{{item.note}}</text></view>
-						<view class="item_line"><label>咨询电话:</label><text>{{item.phone}}</text></view>
+				
 					</view>
 
 				</view>
