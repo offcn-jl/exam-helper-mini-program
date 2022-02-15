@@ -1,0 +1,74 @@
+<image mode="widthFix" src="{{banner_bk}}" class="banner_bk"></image>
+
+<view class="container">
+	<view class="list">
+			<view class="{{!switch?'':'on'}}" bindtap='switch1'>职位要求</view>
+			<view class="{{switch?'':'on'}}" bindtap='switch2'>个人条件</view>
+	</view>
+	<!-- <view class="nav_title">
+			<image src="https://sahd.offcn.com/gkxcx/cx_title2.png"></image>
+	</view> -->
+	<view class="{{!switch?'select_wrap':'select_wrap on'}}">
+			<view class='offer_item' wx:if="{{cityList.length > 0}}">
+					<select options='{{cityList}}' icon="icon-dizhi" text="地市" type="city"  bind:m_select_touch="m_select_touch"></select>
+			</view>
+			<view class='offer_item' wx:if="{{bmxzList.length > 0}}">
+					<select options='{{bmxzList}}' icon="icon-xueli1" text="机构层级" type="bmxz"  bind:m_select_touch="m_select_touch"></select>
+			</view>
+			<view class='offer_item'>
+					<view class="new_tit">
+							<text class="iconfont icon_title icon-zhengzhi-tianchong"></text>
+							<input class="weui-input" bindinput="bmmc" placeholder="部门名称"/>
+					</view>
+			</view>
+			<view class='offer_item'>
+					<view class="new_tit">
+							<text class="iconfont icon_title icon-icon1"></text>
+							<input class="weui-input" bindinput="zwmc" placeholder="职位名称"/>
+					</view>
+			</view>
+			<view class='offer_item'>
+					<view wx:if="{{SinglePageMode}}" class="single-page">
+							<button class="search_btn">请点击下方“前往小程序”按钮使用</button>
+					</view>
+					<view wx:else>
+						<!-- <button wx:if="{{!phone}}" class="search_btn" open-type="getPhoneNumber" bindgetphonenumber="buttonStart">点击查询</button> -->
+						<button class="search_btn" wx:if="{{CRMEFSID.length === 32 && !phone}}" open-type="getPhoneNumber" bindgetphonenumber="login">点击查询</button>
+						<button wx:else class="search_btn" bindtap="seach_result1">点击查询</button>
+					</view>
+			</view>
+	</view>
+	<view class="{{switch?'select_wrap':'select_wrap on'}}">
+			<view class='offer_item' wx:if="{{yearList.length > 0}}">
+					<select options='{{yearList}}' icon="icon-rili" text="年份" type="year"  bind:m_select_touch="m_select_touch"></select>
+			</view>
+			<view class='offer_item' wx:if="{{cityList.length > 0}}">
+					<select options='{{cityList}}' icon="icon-dizhi" text="地区" type="city"  bind:m_select_touch="m_select_touch"></select>
+			</view>
+			<view class='offer_item' wx:if="{{xueliList1.length > 0}}">
+					<select options='{{xueliList1}}' icon="icon-xueli1" text="学历" type="xueli"  bind:m_select_touch="m_select_touch"></select>
+			</view>
+			<view class='offer_item' wx:if="{{zzmmList1.length > 0}}">
+					<select options='{{zzmmList1}}' icon="icon-zhengzhi-tianchong" text="政治面貌" type="zzmm"  bind:m_select_touch="m_select_touch"></select>
+			</view>
+			<view class='offer_item'>
+					<view class="new_tit">
+							<text class="iconfont icon_title icon-icon1"></text>
+							<input class="weui-input" bindinput="zylb" placeholder="专业类别"/>
+					</view>
+			</view>
+			<view class='offer_item'>
+					<view wx:if="{{SinglePageMode}}" class="single-page">
+							<button class="search_btn">请点击下方“前往小程序”按钮使用</button>
+					</view>
+					<view wx:else>
+						<!-- <button wx:if="{{!phone}}" class="search_btn" open-type="getPhoneNumber" bindgetphonenumber="buttonStart">点击查询</button> -->
+						<button class="search_btn" wx:if="{{CRMEFSID.length === 32 && !phone}}" open-type="getPhoneNumber" bindgetphonenumber="login">点击查询</button>
+						<button wx:else class="search_btn" bindtap="seach_result2">点击查询</button>
+					</view>
+			</view>
+	</view>
+</view>
+
+<!-- 后缀 -->
+<view class="suffix">{{suffixStr}}</view>

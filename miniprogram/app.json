@@ -1,6 +1,7 @@
 {
   "pages": [
-  
+
+ 
     "pages/index/index", 
 
 
@@ -39,6 +40,7 @@
     "pages/sk-2022-hz/index", 
     "pages/sk-2022-zyfl/index", 
     "pages/sk-2022-zwjs/index", 
+    "pages/sk-2022-zwjs-lj/index", 
     "pages/sk-2022-lnfs/index", 
     "pages/sk-2021/interview/index", 
     "pages/sk-2021/book/index", 

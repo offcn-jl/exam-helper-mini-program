@@ -1,9 +1,11 @@
 /**app.wxss**/
 .suffix {
+  width: 90vw;
   margin: .5vh auto;
   color: gainsboro;
   text-align: center;
   font-size: 86%;
+  word-wrap: break-word;
 }
 
 .w100 {
