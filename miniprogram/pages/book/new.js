@@ -98,8 +98,9 @@ Page({
 
     // 获取配置
     wx.showLoading({ title: '加载中...', mask: true })
+    console.log(getApp().globalData.configs.apis.gaea.replace("api.", "api.chaos.") + '/events/internal-tools/book-pro/info/' + options.id);
     wx.request({
-      url: (getApp().globalData.configs.apis.gaea.replace("offcn.ltd", "chaos.jilinoffcn.com")) + '/events/internal-tools/book-pro/info/' + options.id,
+      url: (getApp().globalData.configs.apis.gaea.replace("api.", "api.chaos.")) + '/events/internal-tools/book-pro/info/' + options.id,
       complete: res => {
         wx.hideLoading() // 隐藏 loading
         if (res.statusCode !== 200) {
