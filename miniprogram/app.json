@@ -15,7 +15,6 @@
     "pages/score-2021-jz-jls/index", 
     "pages/score-2021-jz-jls/result/index", 
     
-
     "pages/event/2021/12/16/index", 
     "pages/event/2021/09/08/index", 
     "pages/event/2021/08/14/index", 
@@ -56,6 +55,7 @@
     "pages/position-2022yhqz/index", 
     "pages/position-2022yhqz/result/index", 
  
+    "pages/subscribe-2022-sk-cj/index", 
     "pages/subscribe-2022-gk/index", 
     "pages/subscribe-2022-sydw/index", 
     "pages/subscribe-2021-sydw-th/index", 
@@ -69,7 +69,6 @@
     "pages/subscribe-2022-dy/index", 
     "pages/subscribe-2022-skcj/index", 
 
- 
     "pages/header/index", 
     "pages/image-cuter/index", 
  
