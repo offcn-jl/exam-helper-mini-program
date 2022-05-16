@@ -1,4 +1,3 @@
-// pages/announcement/index.js
 Page({
 
     /**
@@ -160,7 +159,7 @@ Page({
                     success: function (res) {
                         // 裁剪并绘制公告预览
                         context.drawImage(res.path, 0, 0, res.width, res.height * (900 / 1380), 94, 172, 900, 1380)
-                        let url = `https://appopen.offcn.com/wechat/mini-program/handler/?appid=${getApp().globalData.configs.appid}&username=${getApp().globalData.configs.username}&path=pages/announcement/index&id=${_this.data.config.id}${_this.data.suffixStr ? `&${_this.data.suffixStr}` : ''}`;
+                        let url = `https://appopen.offcn.com/wechat/mini-program/handler/?appid=${getApp().globalData.configs.appid}&username=${getApp().globalData.configs.username}&path=pages/appopen/announcement/index&id=${_this.data.config.id}${_this.data.suffixStr ? `&${_this.data.suffixStr}` : ''}`;
                         // 生成小程序码
                         const QR = require('../../utils/weapp-qrcode.js');
                         var imgData = QR.drawImg(url, {
@@ -249,7 +248,7 @@ Page({
 
     // gotoOnlineConsulting 打开在线咨询
     gotoOnlineConsulting: function () {
-        wx.navigateTo({ url: `/pages/sobot/auto${this.data.suffixStr ? `?${this.data.suffixStr}` : ''}` });
+        wx.navigateTo({ url: `../sobot/auto${this.data.suffixStr ? `?${this.data.suffixStr}` : ''}` });
     },
 
     /**
