@@ -161,7 +161,7 @@ Page({
                         context.drawImage(res.path, 0, 0, res.width, res.height * (900 / 1380), 94, 172, 900, 1380)
                         let url = `https://appopen.offcn.com/wechat/mini-program/handler/?appid=${getApp().globalData.configs.appid}&username=${getApp().globalData.configs.username}&path=pages/appopen/announcement/index&id=${_this.data.config.id}${_this.data.suffixStr ? `&${_this.data.suffixStr}` : ''}`;
                         // 生成小程序码
-                        const QR = require('../../utils/weapp-qrcode.js');
+                        const QR = require('../../../utils/weapp-qrcode.js');
                         var imgData = QR.drawImg(url, {
                             version: 1,
                             errorCorrectLevel: 'M',
