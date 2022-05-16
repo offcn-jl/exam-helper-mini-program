@@ -1,0 +1,118 @@
+/* pages/photo-processing/configs/index.wxss */
+page {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    height: 100vh;
+}
+
+.bg {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 370rpx;
+    z-index: -1;
+}
+
+.header {
+    height: 44px;
+    width: 100%;
+    flex: none;
+    padding: 0 24rpx;
+    font-size: 34rpx;
+    font-weight: bold;
+    color: #000000;
+    text-align: left;
+    line-height: 44px;
+    display: flex;
+    align-items: center;
+}
+
+.header .arrow {
+    height: 22rpx;
+    width: 15rpx;
+    
+}
+.tit{
+    margin-left: 40rpx;
+}
+.search {
+    width: 100%;
+    height: 140rpx;
+    background: #ff8d1d;
+    display: flex;
+    align-items: center;
+}
+
+.search_cont {
+    margin: 0 auto;
+    width: 700rpx;
+    height: 80rpx;
+    border-radius: 10rpx;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+}
+
+.search image {
+    margin-left: 20rpx;
+    height: 40rpx;
+    width: 40rpx;
+}
+
+.search input {
+    flex: 1;
+    display: inline-block;
+    margin-left: 20rpx;
+    box-sizing: border-box;
+    font-size: 28rpx;
+    color: #3C464F;
+    background: #ffffff;
+}
+
+.placeholder {
+    font-size: 28rpx;
+    color: #A6AAB9;
+}
+
+.content {
+    padding-top: 10rpx;
+    height: 100%;
+    background: white;
+    overflow: hidden;
+    position: relative;
+}
+
+.search-results {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: white;
+    z-index: 10;
+    border-radius: 24rpx 24rpx 0 0;
+}
+
+.empty {
+    margin-top: 170rpx;
+    font-size: 0;
+    text-align: center;
+}
+
+.empty image {
+    width: 290rpx;
+    height: 244rpx;
+    margin-bottom: 10rpx;
+}
+
+.empty view {
+    font-size: 32rpx;
+    color: #91979C;
+}
+
+.empty text {
+    font-size: 26rpx;
+    color: #CCCCCC;
+    line-height: 40rpx;
+}

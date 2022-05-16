@@ -1,0 +1,84 @@
+/* pages/user/my/index.wxss */
+
+page {
+    background-color: #ededed;
+}
+
+.logo {
+    width: 40vw;
+    display: block;
+    position: absolute;
+    top: 6vh;
+    left: 2vh;
+}
+
+.top {
+    background-color: #fff;
+    height: 33vh;
+    border-bottom: 1px solid rgb(88, 88, 88, .2);
+}
+
+.top .header {
+    width: 20vw;
+    position: absolute;
+    top: 16vh;
+    left: 8vw;
+}
+
+.top .nickname {
+    position: absolute;
+    top: 17vh;
+    left: 35vw;
+    font-size: 45rpx;
+}
+
+.top .account {
+    position: absolute;
+    top: 22vh;
+    left: 35vw;
+    font-size: 35rpx;
+    color: rgb(88, 88, 88, .6);
+}
+
+.cotainer {
+    margin-top: 1vh;
+    background-color: #fff;
+    border-bottom: 1px solid rgb(88, 88, 88, .2);
+}
+
+.cotainer .item {
+    margin-top: 1vh;
+    background-color: #fff;
+    display: flex;
+}
+
+.cotainer .item .icon {
+    display: inline-block;
+    margin: 20rpx;
+    width: 60rpx;
+}
+
+.cotainer .item .text {
+    display: inline-block;
+    vertical-align: top;
+    font-size: 35rpx;
+    margin-top: 22rpx;
+    margin-left: 10rpx;
+    border-bottom: 1px solid rgb(88, 88, 88, .2);
+    width: 100%;
+}
+
+.cotainer .item:last-child .text {
+    border-bottom: none;
+}
+
+.cotainer .item .text::after {
+    content: '';
+    background: url('https://appopenoss.offcn.com/statics/image/icons/right-333333.png') no-repeat center;
+    background-size: 100%;
+    width: 40rpx;
+    height: 40rpx;
+    float: right;
+    opacity: .8;
+    margin-right: 25rpx;
+}

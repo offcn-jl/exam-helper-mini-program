@@ -1,0 +1,46 @@
+
+.spec {
+    width:100%;
+    height: 330rpx;
+    text-align: center;
+    background: #fbfbfb;
+    overflow: hidden;
+    margin-bottom: 30rpx;
+}
+
+.spec .image {
+    margin-top: 50rpx;
+    height: 100rpx;
+    width: 70rpx;
+    flex: none;
+    background: red;
+}
+
+.spec .right {
+    width: 100%;
+    height: 140rpx;
+    padding: 34rpx 0;
+}
+
+.spec .name {
+    font-size: 30rpx;
+    color: #3C464F;
+    font-weight: bold;
+    margin-bottom: 4rpx;
+}
+
+.spec .detail {
+    margin-top: 20rpx;
+    font-size: 24rpx;
+    color: #888888;
+    line-height: 36rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.spec .detail .split {
+    height: 24rpx;
+    border-right: 1px solid #f2f2f5;
+    margin: 0 10rpx;
+}

@@ -1,0 +1,4 @@
+<!--pages/sobot/manual.wxml-->
+<view wx:if="{{!channelid}}" style="text-align: center;margin: 45vh auto 0;width: 85vw;word-wrap: break-word;">缺少 channelid 参数，示例路径：pages/sobot/manual?channelid=112&groupid=b430774aa0294c458417bbefac417751</view>
+<view wx:elif="{{!groupid}}" style="text-align: center;margin: 45vh auto 0;width: 85vw;word-wrap: break-word;">缺少 groupid 参数，示例路径：pages/sobot/manual?channelid=112&groupid=b430774aa0294c458417bbefac417751</view>
+<web-view wx:else src="https://offcn.sobot.com/chat/h5/v2/index.html?sysnum=020bd1a0655d4c5e9603b2d261018f6a&channelid={{channelid}}&groupid={{groupid}}"></web-view>

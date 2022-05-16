@@ -1,0 +1,63 @@
+<!--pages/announcement/index.wxml-->
+<header id="header" title="{{config.name}}" suffixStr="{{suffixStr}}" nav></header>
+
+<image class="w100" mode="widthFix" src="{{config.previewImage}}"></image>
+
+<view class="bottom">
+    <view class="shareWap">
+        <image src="https://news01.offcn.com/jl/2021/1115/20211115032302356.png" class="coverImg" mode="widthFix"></image>
+        <view class="iconCon coverOnlineConsulting" bindtap="gotoOnlineConsulting">
+            <image src="https://news01.offcn.com/jl/2021/1116/20211116050741819.png" class="coverIcon"></image>
+            <view class="coverText">在线咨询</view>
+        </view>
+        <view class="borderLine"></view>
+        <view class="iconCon coverHaibao">
+            <cell id="wx-work" styleType="2" bubbleColor="ff5b5d" bind:startmessage='startmessage' bind:completemessage="completemessage" plugid="{{contactInformation.WechatWorkContactMePlugID ? contactInformation.WechatWorkContactMePlugID : '97896ab4bdb0448da687855b770f8b08'}}"/>
+            <view class="coverText" style="margin-top:-30rpx;">加微信</view>
+        </view>
+        <view class="borderLine"></view>
+        <view class="iconCon coverPhone" bindtap="makePhoneCall">
+            <image src="https://news01.offcn.com/jl/2021/1116/20211116051543150.png" class="coverIcon"></image>
+            <view class="coverText">打电话</view>
+        </view>
+        <view class="borderLine"></view>
+        <view class="iconCon coverWeixin" bindtap="showActionSheet">
+            <image src="https://news01.offcn.com/jl/2021/1116/20211116051646351.png" class="coverIcon"></image>
+            <view class="coverText">转发</view>
+        </view>
+    </view>
+
+    <!-- 查看原文 -->
+    <!-- 区分登陆状态和未登录状态 -->
+    <button wx:if="{{phone}}" class="view" bindtap="view">查看全文</button>
+    <button wx:if="{{!phone}}" class="view" bindtap="SSOCheckManual">查看全文</button>
+</view>
+
+<!-- 广告 收集手机号 -->
+<button wx:if="{{config.advertisementConfig.enable && config.advertisementConfig.collectPhone && !phone}}" class="button-custom advertising w100" bindtap="SSOCheckManualAdvertising">
+    <image class="w100" mode="widthFix" src="{{config.advertisementConfig.picture}}"></image>
+</button>
+<!-- 广告 不收集手机号 -->
+<image wx:if="{{config.advertisementConfig.enable && ( !config.advertisementConfig.collectPhone || (config.advertisementConfig.collectPhone && phone))}}" class="advertising w100" mode="widthFix" src="{{config.advertisementConfig.picture}}" bindtap="goAdvertising"></image>
+
+<!-- 推广后缀 -->
+<view class="suffix">{{suffixStr}}</view>
+
+<!-- 占位元素 -->
+<image wx:if="{{config.advertisementConfig.enable}}" class="advertising w100 placeholder" mode="widthFix" src="{{config.advertisementConfig.picture}}" bindtap="advertising"></image>
+<view class="bottom placeholder">底部区域</view>
+
+<!-- 转发选项 -->
+<view class='tabbar-bg {{actionSheet?"show":""}}'>
+    <view class='tabbar'>
+        <view bindtap="hideActionSheet">
+            <button hover-class='none' class='btn' open-type="share">转发给好友</button>
+        </view>
+        <view class="line"></view>
+        <view bindtap='makePoster'>生成海报</view>
+        <view class='cancel' bindtap='hideActionSheet'>取消</view>
+    </view>
+</view>
+
+<!-- 生成海报用的 canvas 容器 -->
+<canvas style="width:1080px;height:2000px;position:fixed;top:9999px" canvas-id="mycanvas" hidden="{{canvasHidden}}" />

@@ -1,0 +1,53 @@
+<!--pages/simple-help-event/index.wxml-->
+<header id="header" title="{{config.name}}" suffixStr="{{suffixStr}}" nav></header>
+
+<!-- 首页 -->
+<!-- 登录状态无效，调用登陆函数进行登陆操作后切换页面 -->
+<button wx:if="{{page === 'index' && !phone}}" class="button-custom w100" bindtap="SSOCheckManual" data-bindtap="join">
+    <image class="w100" mode="widthFix" src="{{config.indexImage}}"></image>
+</button>
+<!-- 登录状态有效，调用切换页面函数切换页面 -->
+<image wx:if="{{page === 'index' && phone}}" class="w100" mode="widthFix" src="{{config.indexImage}}" bindtap="switchPage" data-bindtap="join"></image>
+
+<!-- 邀请页 -->
+<!-- 登录状态无效，调用登陆函数进行登陆操作后切换页面 -->
+<button wx:if="{{page === 'invite' && !phone}}" class="button-custom w100" bindtap="SSOCheckManual" data-bindtap="doHelp">
+    <image class="w100" mode="widthFix" src="{{config.inviteImage}}"></image>
+</button>
+<!-- 登录状态有效，调用切换页面函数切换页面 -->
+<image wx:if="{{page === 'invite' && phone}}" class="w100" mode="widthFix" src="{{config.inviteImage}}" bindtap="switchPage" data-bindtap="doHelp"></image>
+
+<!-- 助力记录页面 -->
+<view wx:if="{{page === 'detail'}}" class="detail">
+    <!-- 背景图 -->
+    <image class="w100 background" mode="widthFix" src="https://appopenoss.offcn.com/prod/mini-program/simple-help-event/detail.jpg"></image>
+
+    <!-- 顶部占位 -->
+    <view style="height: 12vh;"></view>
+
+    <!-- 头像与昵称 -->
+    <open-data type="userAvatarUrl" class="header"></open-data>
+    <view class="tips">Hi, <open-data type="userNickName" lang="zh_CN"></open-data>!\n<span class="warn">仅需 {{config.target}} 人助力</span>，即可领取喔～</view>
+
+    <!-- 邀请列表 -->
+    <view class="list">
+        <view class="num">助力进度 <text class="{{log.length>=config.target? 'current' : ''}}">{{log.length}} / {{config.target}}</text> 人</view>
+        <view class="phone">
+            <view wx:for="{{log}}" wx:key="index">{{item}}</view>
+        </view>
+    </view>
+
+    <!-- 判断是否完成 已经完成则显示领取按钮 未完成则显示邀请按钮 -->
+    <button wx:if="{{log.length<config.target}}" bindtap="onShareAppMessage" openType="share" class="button-custom w100">
+        <view class="button">喊好友 <text class="important">免费领</text></view>
+    </button>
+    <button wx:else bindtap="getReward" class="button-custom w100">
+        <view class="button">助力完成 <text class="important">免费领</text></view>
+    </button>
+</view>
+
+<!-- 奖品 图片 页面 -->
+<image wx:if="{{page === 'reward-picture'}}" class="w100" mode="widthFix" src="{{config.reward.picture}}"></image>
+
+<!-- 推广后缀 -->
+<view class="suffix">{{suffixStr}}</view>

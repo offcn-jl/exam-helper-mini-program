@@ -1,0 +1,17 @@
+<!--pages/login-demo/index.wxml-->
+<header title="登陆与登陆态维护演示" suffixStr="{{suffixStr}}" alwaysShow nav></header>
+
+<view style="margin-top:20vh;width:100vw;text-align:center;">登陆及登陆态维护 Demo</view>
+
+<view style="margin-top:2vh;width:100vw;text-align:center;">当前登陆手机号码：{{phone?phone:'无'}}</view>
+<view style="margin-top:2vh;width:100vw;text-align:center;">当前登陆 openid：{{openid?openid:'无'}}</view>
+
+<view style="margin-top:2vh;">
+    <button wx:if="{{!phone}}" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取手机号码按钮</button>
+    <button wx:else >登陆后的操作按钮</button>
+</view>
+
+<button style="margin-top:2vh;" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">一直显示的获取手机号码按钮</button>
+
+<!-- 推广后缀 -->
+<view class="suffix">{{suffixStr}}</view>

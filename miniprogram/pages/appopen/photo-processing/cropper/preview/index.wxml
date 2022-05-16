@@ -1,0 +1,28 @@
+<!--pages/photo-processing/cropper/preview/index.wxml-->
+
+<header title="裁剪照片" suffixStr="{{suffixStr}}" alwaysShow nav></header>
+
+<view class="img-wrapper">
+    <view class="border border-top">
+        <text>{{config.pixelWidth}}px</text>
+    </view>
+    <view class="border border-right" style="width:{{config.pixelHeight}}rpx">
+        <text>{{config.pixelHeight}}px</text>
+    </view>
+    <view class="border border-bottom">
+        <text>{{config.millimeterWidth}}mm</text>
+    </view>
+    <view class="border border-left" style="width:{{config.pixelHeight}}rpx">
+        <text>{{config.millimeterHeight}}mm</text>
+    </view>
+    <image mode="widthFix" src="{{img}}" style="width: {{config.pixelWidth}}rpx;"></image>
+    <image class="watermark" src="https://jl.offcn.com/zg/ty/images/exam-helper-mini-program/public/watermark.png"></image>
+</view>
+
+<view class="bottom">
+    <navigator class="btn-green" openType="navigateBack">重新剪裁</navigator>
+    <button bindtap="save" class="btn btn-blue">保存图片</button>
+</view>
+
+<!-- 推广后缀 -->
+<view class="suffix">{{suffixStr}}</view>

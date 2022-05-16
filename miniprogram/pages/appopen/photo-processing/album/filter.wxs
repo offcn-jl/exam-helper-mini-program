@@ -1,0 +1,6 @@
+module.exports = {
+    datePipe: function (time) {
+        var date = getDate(time);
+        return date.getFullYear() + '.' + [0, date.getMonth() + 1].join('').slice(-2) + '.' + [0, date.getDate()].join('').slice(-2) + ' ' + [0].concat(date.getHours().toString().split('')).slice(-2).join('') + ':' + [0].concat(date.getMinutes().toString().split('')).slice(-2).join('') + ':' + [0].concat(date.getSeconds().toString().split('')).slice(-2).join('');
+    },
+};

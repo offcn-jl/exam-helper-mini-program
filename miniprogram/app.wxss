@@ -1,47 +1,58 @@
 /**app.wxss**/
+
+/* 推广后缀 */
 .suffix {
-  width: 90vw;
-  margin: .5vh auto;
-  color: gainsboro;
-  text-align: center;
-  font-size: 86%;
-  word-wrap: break-word;
+    width: 95vw;
+    margin: 2vh auto;
+    color: gainsboro;
+    text-align: center;
+    font-size: 90%;
+    word-wrap: break-word;
 }
 
-.w100 {
-  width: 100vw;
-}
-
+/* 遮罩 */
 .modal {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.6);
-  z-index: 10;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 10;
 }
 
 view,
 text,
 scroll-view,
 navigator {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 ::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
 
 button.btn {
-  padding: 0;
-  margin: 0;
-  background: transparent;
-  border: none;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    border: none;
 }
 
 button.btn:after {
-  display: none;
+    display: none;
 }
+
+.button-custom {
+    padding: 0;
+    border-radius: 0;
+    background: none;
+}
+
+.w100 {
+    display: block;
+    width: 100vw !important;
+}
+
 /* 新増 底部样式 */
 @import '/components/shareWap/shareWap.wxss'

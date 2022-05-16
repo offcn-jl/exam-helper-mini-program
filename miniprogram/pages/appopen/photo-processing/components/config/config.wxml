@@ -1,0 +1,11 @@
+<view bindtap="choose" class="spec list_spec">
+    <image class="image" src="https://www.offcn.com/zg/wltg/2021zpjc/zg_pic4.png"></image>
+    <view class="right">
+        <view class="name">{{config.name}}</view>
+        <view class="detail">
+            <text>{{config.millimeterWidth}}*{{config.millimeterHeight}}mm</text>
+            <text class="split"></text>
+            <text>{{config.pixelWidth}}*{{config.pixelHeight}}px</text>
+        </view>
+    </view>
+</view>

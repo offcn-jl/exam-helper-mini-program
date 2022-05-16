@@ -1,0 +1,75 @@
+/* pages/simple-help-event/index.wxss */
+.background {
+    position: absolute;
+    z-index: -1;
+}
+
+.detail .header {
+    display: block;
+    width: 40vw;
+    height: 40vw;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.detail .tips {
+    top: 37vh;
+    width: 100vw;
+    text-align: center;
+    white-space: pre-wrap;
+    color: whitesmoke;
+    font-size: 40rpx;
+    margin-top: 2vh;
+}
+
+.detail .tips .warn {
+    color: #ffdc00;
+}
+
+.detail .list {
+    border: 2rpx solid #fff;
+    width: 550rpx;
+    margin: 89rpx auto 50rpx;
+    border-radius: 10rpx;
+    padding-bottom: 50rpx;
+}
+
+.detail .list .num {
+    text-align: center;
+    font-size: 40rpx;
+    font-weight: 700;
+    color: #fff;
+    background-color: #4b47fc;
+    width: 400rpx;
+    margin: -30rpx auto 50rpx;
+}
+
+.detail .list .num .current {
+    color: #ffdc00;
+}
+
+.detail .list .phone {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    font-size: 38rpx;
+    color: #fff;
+}
+
+.detail .button {
+    width: 488rpx;
+    height: 131rpx;
+    background: url(https://sahd.offcn.com/shengkao/zlhd/zl_btn.png) no-repeat 50%;
+    background-size: 488rpx 131rpx;
+    margin: 30rpx auto 80rpx;
+    text-align: center;
+    font-size: 45rpx;
+    font-weight: 700;
+    line-height: 114rpx;
+}
+
+.detail .button .important {
+    color: #4b47fc;
+}

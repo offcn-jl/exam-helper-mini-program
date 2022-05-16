@@ -80,6 +80,33 @@
     "pages/web-view/index", 
     "pages/ntalk/index", 
     "pages/ad-navigate-19/index", 
+    
+    "pages/appopen/announcement/index",
+    "pages/appopen/announcement/simple",
+    
+    "pages/appopen/simple-help-event/index",
+    
+    "pages/appopen/photo-processing/index/index",
+    "pages/appopen/photo-processing/configs/index",
+    "pages/appopen/photo-processing/detail/index",
+    "pages/appopen/photo-processing/detail/camera/index",
+    "pages/appopen/photo-processing/detail/preview/index",
+    "pages/appopen/photo-processing/detail/preview/save-image/index",
+    "pages/appopen/photo-processing/change-background/index",
+    "pages/appopen/photo-processing/cropper/index",
+    "pages/appopen/photo-processing/cropper/preview/index",
+    "pages/appopen/photo-processing/album/index",
+    "pages/appopen/photo-processing/album/detail/index",
+    
+    "pages/appopen/demo/login/index",
+    "pages/appopen/demo/login-sso/index",
+
+    "pages/appopen/user/my/index",
+    "pages/appopen/user/register/index",
+    "pages/appopen/user/agreement/privacy/index",
+    "pages/appopen/sobot/manual",
+    "pages/appopen/sobot/auto",
+    "pages/appopen/web-view/index",
      
     "handler" 
   ], 
@@ -96,6 +123,7 @@
     "audio",
     "location"
   ],
+  "style": "v2",
   "plugins": {
     "contactPlugin": {
       "version": "1.4.4",

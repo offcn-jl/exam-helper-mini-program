@@ -1,0 +1,43 @@
+<!--pages/photo-processing/album/index.wxml-->
+<view bindtap="tapPage">
+    <header title="我的证件照" suffixStr="{{suffixStr}}" alwaysShow nav></header>
+    <view class="list">
+        <view bindtap="gotoDetail" class="item" data-index="{{index}}" wx:for="{{photos}}" wx:key="index">
+            <image class="photo" lazyLoad="true" mode="aspectFit" src="{{item.path}}"></image>
+            <view class="right">
+                <view>
+                    <view class="name">{{item.config.name}}</view>
+                    <view class="detail">
+                        <text wx:if="{{item.config.millimeterWidth}}">{{item.config.millimeterWidth}}*{{item.config.millimeterHeight}}mm</text>
+                        <text class="split" wx:if="{{item.config.millimeterWidth}}"></text>
+                        <text wx:if="{{item.config.pixelWidth}}">{{item.config.pixelWidth}}*{{item.config.pixelHeight}}px</text>
+                        <text class="split" wx:if="{{item.config.pixelWidth}}"></text>
+                        <text>{{item.size/1000}}KB</text>
+                    </view>
+                    <view class="type type{{item.type=='电子版'?'0':'1'}}">{{item.type=='电子版'?'电子版':'冲印版'}}</view>
+                    <view catchtap="more" class="more" data-index="{{index}}">
+                        <image src="https://jl.offcn.com/zg/ty/images/exam-helper-mini-program/public/more-gray.png"></image>
+                        <view catchtap="deletePhoto" class="delete" data-index="{{index}}" wx:if="{{index==moreIndex}}">
+                            <image src="https://jl.offcn.com/zg/ty/images/exam-helper-mini-program/public/delete-black.png"></image>删除照片
+                        </view>
+                    </view>
+                </view>
+                <view class="date">{{filter.datePipe(item.time)}}</view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="empty" wx:if="{{!photos.length}}">
+    <image src="https://jl.offcn.com/zg/ty/images/exam-helper-mini-program/public/empty-album.png"></image>
+    <view>暂无照片，快去拍张证件照吧</view>
+    <navigator open-type="switchTab" url="/pages/photo-processing/index/index" class="btn btn-blue">
+        去拍照
+    </navigator>
+</view>
+
+<view class="statement">为保护您的信息安全，您的所有照片都将保存在本小程序的本地缓存文件系统中。受到本地缓存文件系统的容量限制 ( 总上限为 200 MB ) ，将仅保存您最近保存的部分照片。</view>
+
+<!-- 推广后缀 -->
+<view class="suffix">{{suffixStr}}</view>
+
+<wxs module="filter" src="filter.wxs" />

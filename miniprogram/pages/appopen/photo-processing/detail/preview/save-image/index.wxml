@@ -1,0 +1,47 @@
+<!--pages/photo-processing/detail/preview/save-image/index.wxml-->
+<header title="保存图片" suffixStr="{{suffixStr}}" alwaysShow nav></header>
+<view class="wrapper">
+    <view class="top">
+        <view class="image-wrapper">
+            <image class="watermark" src="https://jl.offcn.com/zg/ty/images/exam-helper-mini-program/public/watermark.png"></image>
+            <image class="photo" mode="widthFix" src="{{image}}" style="width: {{config.pixelWidth}}rpx;"></image>
+        </view>
+    </view>
+    <view class="bottom">
+        <view class="specs">
+            <view class="title">电子预览照</view>
+            <view class="infos">
+                {{config.millimeterWidth}}*{{config.millimeterHeight}}mm
+                <text></text>
+                {{config.pixelWidth}}*{{config.pixelHeight}}px
+            </view>
+        </view>
+        <button bindtap="saveImage" class="btn btn-blue">保存</button>
+    </view>
+</view>
+<view class="wrapper">
+    <view class="top">
+        <view class="image-wrapper">
+            <image class="watermark" src="https://jl.offcn.com/zg/ty/images/exam-helper-mini-program/public/watermark.png"></image>
+            <image class="photo" mode="widthFix" src="{{photoCompo}}" style="width: 590rpx"></image>
+        </view>
+    </view>
+    <view class="bottom">
+        <view class="specs">
+            <view class="title">冲印预览照</view>
+            <view class="infos">
+                152*102mm
+                <text></text>
+                1795*1205px
+            </view>
+        </view>
+        <button bindtap="savePhotoCompo" class="btn btn-blue">保存</button>
+    </view>
+</view>
+
+<!-- 推广后缀 -->
+<view class="suffix">{{suffixStr}}</view>
+
+<button class="btn btn-share" openType="share">
+    <image src="https://jl.offcn.com/zg/ty/images/exam-helper-mini-program/photo-processing/share-tip.png"></image>
+</button>

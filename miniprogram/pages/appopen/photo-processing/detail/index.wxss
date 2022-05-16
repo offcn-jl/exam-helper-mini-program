@@ -1,0 +1,162 @@
+/* pages/photo-processing/detail/index.wxss */
+.top {
+    margin: 40rpx auto;
+    width: 600rpx;
+}
+
+.top .reference {
+    display: block;
+    height: 291rpx;
+    width:220rpx;
+    margin: 0 auto 30rpx;
+}
+
+.top .right {
+    margin-top: 30rpx;
+}
+
+.top .right .title {
+    padding-left: 100rpx;
+    font-size: 34rpx;
+    color: #000000;
+    line-height: 50rpx;
+    font-weight: bold;
+    margin-bottom: 40rpx;
+    position: relative;
+    display: inline-block;
+    background: url(https://www.offcn.com/zg/wltg/2021zpjc/zg_pic5.png) no-repeat left center;
+    background-size: 58rpx 49rpx;
+}
+
+
+.top .right view {
+    margin-bottom: 18rpx;
+    font-size:24rpx;
+    color: #888888;
+    line-height: 44rpx;
+    text-align: justify;
+}
+
+.top .right view image {
+    height: 30rpx;
+    width: 30rpx;
+    margin-right: 16rpx;
+    vertical-align: top;
+    margin-top: 4rpx;
+}
+
+.divider {
+    height: 20rpx;
+    background: #f2f2f5;
+    margin-top: 50rpx;
+    margin-bottom: 64rpx;
+}
+
+.detail {
+    margin: 40rpx auto 100rpx;
+    width: 600rpx;
+}
+
+.detail .title {
+    padding-left: 100rpx;
+    font-size: 34rpx;
+    color: #000000;
+    line-height: 50rpx;
+    font-weight: bold;
+    margin-bottom: 40rpx;
+    position: relative;
+    display: inline-block;
+    background: url(https://www.offcn.com/zg/wltg/2021zpjc/zg_pic6.png) no-repeat left center;
+    background-size: 58rpx 49rpx;
+}
+
+.detail .content>view {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24rpx;
+    font-size: 28rpx;
+    color: #3C464F;
+}
+
+.detail .content .name {
+    font-size: 28rpx;
+    color: #888888;
+    width: 142rpx;
+}
+.zg_name{
+color:#000000;
+}
+.detail .content .color {
+    height: 30rpx;
+    width: 30rpx;
+    border-radius: 40rpx;
+    margin-right: 16rpx;
+    box-sizing: border-box;
+}
+
+.white {
+    background: white;
+    border: 1px solid #E5E5E5;
+}
+
+.lightblue {
+    background-image: linear-gradient(180deg, #8EC5E9 0%, #AFD7F0 100%);
+}
+
+.blue {
+    background-image: linear-gradient(180deg, #1A8AE4 0%, #4EA4ED 100%);
+}
+
+.red {
+    background-image: linear-gradient(180deg, #C40C20 0%, #D5284A 100%);
+}
+
+.gray {
+    background-image: linear-gradient(180deg, #818892 0%, #A7AFB7 100%);
+}
+
+.bottom {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    width: 100%;
+    bottom: 20rpx;
+}
+
+.bottom .btn {
+    width:283rpx;
+    height: 77rpx;
+    line-height: 77rpx;
+    font-size: 30rpx;
+    color: #FFFFFF;
+    font-weight: bold;
+    margin: 10rpx;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.bottom .btn image{
+    margin-right: 10rpx;
+}
+.btn_img1{
+    width:31rpx;
+    height: 26rpx;
+}
+.btn_img2{
+    width:32rpx;
+    height: 28rpx;
+}
+.bottom .btn-green {
+    background: url(https://www.offcn.com/zg/wltg/2021zpjc/zg_pic10.png) no-repeat;
+    background-size: 283rpx 77rpx; 
+}
+
+.bottom .btn-blue {
+    background: url(https://www.offcn.com/zg/wltg/2021zpjc/zg_pic11.png) no-repeat;
+    background-size:  283rpx 77rpx; 
+}
+
+.suffix {
+    width: auto;
+}

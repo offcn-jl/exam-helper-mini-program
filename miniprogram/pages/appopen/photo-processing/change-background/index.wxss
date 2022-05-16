@@ -1,0 +1,135 @@
+/* pages/photo-processing/change-background/index.wxss */
+page {
+    background: #F5F7FA;
+}
+
+.main {
+    position: fixed;
+    width: 100%;
+    bottom: 322rpx;
+}
+
+.main .suffix {
+    bottom: .5vh;
+    width: 100vw;
+    position: absolute;
+}
+
+.bottom {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 322rpx;
+    background: white;
+    box-shadow: 0 -5rpx 24rpx 0 rgba(0,0,0,0.04);
+    border-radius: 32rpx 32rpx 0 0;
+}
+
+.colors {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 176rpx;
+}
+
+.color {
+    height: 64rpx;
+    width: 64rpx;
+    margin: 38rpx;
+    border-radius: 64rpx;
+    font-size: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.color.active::after {
+    content: '';
+    height: 56rpx;
+    width: 56rpx;
+    border: 10rpx solid white;
+    border-radius: 56rpx;
+    box-sizing: border-box;
+    display: block;
+    margin: 0;
+}
+
+.color.white {
+    border: 4rpx solid #F2F2F5;
+}
+
+.white {
+    background: white;
+}
+
+.color.white.active::after {
+    content: '';
+    display: block;
+    height: 36rpx;
+    width: 36rpx;
+    border: 4rpx solid #DEE0E7;
+    border-radius: 38rpx;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.lightblue {
+    background-image: linear-gradient(180deg,#8EC5E9 0%,#AFD7F0 100%);
+}
+
+.blue {
+    background-image: linear-gradient(180deg,#1A8AE4 0%,#4EA4ED 100%);
+}
+
+.red {
+    background-image: linear-gradient(180deg,#C40C20 0%,#D5284A 100%);
+}
+
+.gray {
+    background-image: linear-gradient(180deg,#818892 0%,#A7AFB7 100%);
+}
+
+.btn-wrapper {
+    height: 146rpx;
+    padding: 29rpx 40rpx;
+    border-top: 1px solid #f2f2f5;
+}
+
+.btn-wrapper .btn {
+    height: 88rpx;
+    line-height: 88rpx;
+    border-radius: 8rpx;
+    background: #3c7cfc;
+    color: white;
+    font-weight: bold;
+    font-size: 30rpx;
+    width: 670rpx;
+}
+
+canvas {
+    transform-origin: left top;
+    position: fixed;
+    top: 100rpx;
+    left: 0;
+    width: 1000px;
+    height: 1000px;
+    transform: translate(2000px,2000px);
+}
+
+.reselect-picture {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vh;
+    z-index: 100;
+    background: rgba(0,0,0,0.5);
+}
+
+.reselect-picture image {
+    width: 420rpx;
+    height: 270rpx;
+    position: absolute;
+    bottom: 344rpx;
+    left: 165rpx;
+}

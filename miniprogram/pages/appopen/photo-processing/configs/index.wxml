@@ -1,0 +1,27 @@
+
+<view class="header" style="margin-top: {{statusBarHeight}}px">
+    <navigator hoverClass="none" openType="navigateBack">
+        <image class="arrow" src="https://www.offcn.com/zg/wltg/2021zpjc/zg_pic12.png"></image>
+    </navigator>
+    <view class="tit">选规格拍照</view>
+</view>
+<view class="search">
+   <view class="search_cont">
+    <image src="https://jl.offcn.com/zg/ty/images/exam-helper-mini-program/public/search-DEE2EA.png"></image>
+    <input bindinput="input" confirmType="search" placeholder="搜索规格名称/尺寸" placeholderClass="placeholder"></input>
+   </view>
+</view>
+<view class="content">
+    <configs bind:chooseConfig="gotoDetail"></configs>
+    <scroll-view bindscrolltolower="loadMore" class="search-results" scrollTop="{{searchResultsScrollTop}}" scrollY="true" wx:if="{{showSearchResults}}">
+        <config bind:chooseConfig="gotoDetai-l" config="{{item}}" wx:for="{{configs}}" wx:key="index"></config>
+        <view class="empty" wx:if="{{!configs.length}}">
+            <image src="https://jl.offcn.com/zg/ty/images/exam-helper-mini-program/public/empty-search.png"></image>
+            <view>没有找到此规格</view>
+            <text>请按规格名称或尺寸进行搜索</text>
+        </view>
+    </scroll-view>
+</view>
+
+<!-- 推广后缀 --> 
+<view class="suffix">{{suffixStr}}</view>

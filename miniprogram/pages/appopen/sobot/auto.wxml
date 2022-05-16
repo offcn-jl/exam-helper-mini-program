@@ -1,0 +1,3 @@
+<!--pages/sobot/auto.wxml-->
+<view wx:if="{{!(contactInformation.SobotChannelID && contactInformation.SobotGroupID)}}" style="text-align:center;margin-top: 45vh;font-size:80rpx;">加载中...</view>
+<web-view wx:else src="https://offcn.sobot.com/chat/h5/v2/index.html?sysnum=020bd1a0655d4c5e9603b2d261018f6a&channelid={{contactInformation.SobotChannelID}}&groupid={{contactInformation.SobotGroupID}}"></web-view>

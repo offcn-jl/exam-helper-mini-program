@@ -1,0 +1,7 @@
+{
+    "component": true,
+    "usingComponents": {
+        "config": "../config/config",
+        "category": "/components/category/category"
+    }
+}

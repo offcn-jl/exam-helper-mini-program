@@ -1,0 +1,36 @@
+<!--pages/user/my/index.wxml-->
+
+<view class="top">
+    <image class="logo" src="https://appopenoss.offcn.com/statics/image/logo-horizontal-red-black.png" mode="widthFix"></image>
+
+    <!-- 头像 -->
+    <image class="header" mode="widthFix" src="{{user && user.info.headPortrait !== '' ? user.info.headPortrait : 'https://appopenoss.offcn.com/statics/image/offcn-app.png'}}"></image>
+
+    <!-- 昵称 -->
+    <view class="nickname">{{user ? ( user.info.nickName !== '' ? user.info.nickName : '中公学员') : '未登录'}}</view>
+
+    <!-- 账号 -->
+    <view class="account" wx:if="{{user}}">账号：{{user.info.phone}}</view>
+</view>
+
+<view class="cotainer">
+    <navigator class="item" url="/pages/photo-processing/album/index{{suffixStr?'?'+suffixStr:''}}">
+        <image class="icon" mode="widthFix" src="https://appopenoss.offcn.com/statics/image/icons/image-333333.png"></image>
+        <view class="text">我的证件照</view>
+    </navigator>
+</view>
+
+<view class="cotainer">
+    <view class="item" wx:if="{{!user}}" bindtap="SSOCheckManual">
+        <image class="icon" mode="widthFix" src="https://appopenoss.offcn.com/statics/image/icons/login-333333.png"></image>
+        <view class="text">注册 / 登录</view>
+    </view>
+
+    <view class="item" wx:else bindtap="logout">
+        <image class="icon" mode="widthFix" src="https://appopenoss.offcn.com/statics/image/icons/logout-333333.png"></image>
+        <view class="text">退出登录</view>
+    </view>
+</view>
+
+<!-- 推广后缀 -->
+<view class="suffix">{{suffixStr}}</view>

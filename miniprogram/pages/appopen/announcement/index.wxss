@@ -1,0 +1,222 @@
+/* pages/announcement/index.wxss */
+/* 底部广告区域 */
+.advertising {
+    position: fixed;
+    width: 100vw;
+    bottom: 319rpx;
+    z-index: 99;
+}
+
+.advertising::after {
+    content: "广告";
+    z-index: 100;
+    position: absolute;
+    top: 0;
+    right: 0;
+    text-shadow:
+        -.025em -.025em 0 #444,
+        .025em -.025em 0 #444,
+        -.025em .025em 0 #444,
+        .025em .025em 0 #444;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 0 8rpx 0 10rpx;
+    border-radius: 0 0 0 10rpx;
+}
+
+/* 底部操作区域 */
+.bottom {
+    position: fixed;
+    width: 100vw;
+    height: 320rpx;
+    bottom: 0;
+    background: #fff;
+    padding-top: 30rpx;
+    z-index: 1;
+}
+
+.bottom .view {
+    margin-top: 10rpx;
+    width: 90vw;
+    background: linear-gradient(to right, #ff5b5d, #ff552d);
+    color: #fff;
+}
+
+.placeholder {
+    position: static;
+    z-index: -1;
+    opacity: 0;
+}
+
+.tabbar {
+    width: 750rpx;
+    position: absolute;
+    bottom: 0;
+}
+
+.tabbar-bg {
+    position: fixed;
+    top: 0;
+    width: 750rpx;
+    bottom: 0;
+    z-index: 99;
+    background: rgba(0, 0, 0, 0.5);
+    transform: translateX(-100%);
+    transition: all 0s ease 0.3s;
+    z-index: 9999999;
+}
+
+.tabbar-bg.show {
+    transition: all 0s ease 0s;
+    transform: translateX(0);
+}
+
+.tabbar {
+    overflow: hidden;
+    border-radius: 20rpx 20rpx 0 0;
+    background: #f7f7f7;
+    transition: all 0.3s ease 0s;
+    transform: translateY(100%);
+}
+
+.tabbar-bg.show .tabbar {
+    transform: translateY(0);
+}
+
+.tabbar view {
+    background: #ffffff;
+    font-size: 32rpx;
+    text-align: center;
+    height: 122rpx;
+    line-height: 122rpx;
+}
+
+.tabbar view button {
+    background: none;
+    height: 122rpx;
+    line-height: 122rpx;
+}
+
+.tabbar view.line {
+    height: 1px;
+    background: #f7f7f7;
+}
+
+.tabbar view.cancel {
+    border: 0;
+    margin-top: 20rpx;
+    padding-bottom: 35rpx;
+}
+
+.shareWap {
+    width: 90%;
+    padding: 25rpx 0;
+    z-index: 99999999999;
+    margin: 0 auto;
+    height: 130rpx;
+    background: #fff;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    border-radius: 10rpx;
+    overflow: hidden;
+    -moz-box-shadow: 0px 0px 12rpx rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0px 0px 12rpx rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 12rpx rgba(0, 0, 0, 0.1);
+    margin-bottom: 30rpx;
+}
+
+.coverImg {
+    width: 80rpx;
+    display: block;
+    border-radius: 43rpx;
+    margin-left: 25rpx;
+    margin-top: 5rpx;
+}
+
+.coverName {
+    width: 190rpx;
+    padding-left: 20rpx;
+}
+
+.coverWeixin {
+    width: 116rpx;
+    margin-right: 15rpx;
+}
+
+.borderLine {
+    width: 2rpx;
+    height: 100%;
+    background: #eeeeee;
+}
+
+.coverIcon {
+    display: block;
+    margin: 0 auto;
+    width: 45rpx;
+    height: 45rpx;
+    padding: 5rpx 0;
+}
+
+.coverOnlineConsulting {
+    padding-left: 30rpx;
+    width: 140rpx;
+    margin-right: 15rpx;
+}
+
+.coverHaibao {
+    width: 140rpx;
+}
+
+.coverPhone {
+    width: 140rpx;
+}
+
+.iconCon .coverText {
+    font-size: 26rpx;
+    line-height: 28rpx;
+    text-align: center;
+    padding-top: 4rpx;
+}
+
+.cell {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+}
+
+.cell--wrapper {
+    width: 100% !important;
+    height: 100% !important;
+    text-align: center;
+    position: relative;
+}
+
+.cell--bubble {
+    top: 0;
+    left: 0;
+    z-index: 999;
+    position: absolute;
+    width: 100% !important;
+    height: 100% !important;
+    background-color: transparent !important;
+    line-height: 64rpx !important;
+    background: url(https://news01.offcn.com/jl/2021/1116/20211116052824115.png) top center no-repeat;
+    background-size: 48rpx;
+}
+
+.cell--light_without_border {
+    display: none;
+    width: 30rpx !important;
+    height: 30rpx !important;
+}
+
+.cell--messagecard {
+    width: 100% !important;
+}
+.abstract{
+    font-size: 18rpx;
+}

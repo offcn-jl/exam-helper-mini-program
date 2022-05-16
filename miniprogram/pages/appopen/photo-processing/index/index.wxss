@@ -1,0 +1,122 @@
+/* pages/photo-processing/index/index.wxss */
+page {
+    background: white;
+}
+
+.camera {
+    position: relative;
+    display: block;
+    width: 320rpx;
+    height:330rpx;
+    font-size: 34rpx;
+    color: #FFFFFF;
+    font-weight: bold;
+    padding: 66rpx 40rpx;
+    line-height: 48rpx;
+    border-radius: 30rpx;
+    overflow: hidden;
+}
+
+.camera image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 320rpx;
+    height:330rpx;
+    z-index: -1;
+}
+
+.color {
+    position: relative;
+    display: inline-block;
+    width: 320rpx;
+    height: 150rpx;
+    font-size: 30rpx;
+    color: #FFFFFF;
+    font-weight: bold;
+    padding: 40rpx;
+    line-height: 48rpx;
+    border-radius: 30rpx;
+    overflow: hidden;
+}
+
+.color image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 320rpx;
+    height: 150rpx;
+    z-index: -1;
+}
+
+.crop {
+    position: relative;
+    display: inline-block;
+    width: 320rpx;
+    height: 150rpx;
+    font-size: 30rpx;
+    color: #FFFFFF;
+    font-weight: bold;
+    padding: 40rpx;
+    line-height: 48rpx;
+    border-radius: 30rpx;
+    overflow: hidden;
+    margin-bottom: 23rpx;
+}
+
+.crop image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 320rpx;
+    height: 150rpx;
+    z-index: -1;
+}
+
+.hot-title {
+    margin: 70rpx 40rpx 20rpx 40rpx;
+    font-size: 34rpx;
+    color: #3C464F;
+    font-weight: bold;
+    line-height: 48rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.hot-title navigator {
+    font-size: 24rpx;
+    color: #B1B5B9;
+    font-weight: normal;
+}
+
+.hot-title image {
+    height: 40rpx;
+    width: 40rpx;
+    vertical-align: middle;
+    margin-top: -2rpx;
+}
+
+.zg_zjlist {
+    margin: 0 auto;
+    width: 673rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.zg_zjlist_left{
+    width: 320rpx;
+    height: 330rpx;
+}
+.zg_zjlist_right{
+    width: 320rpx;
+}
+.hot-list{
+    margin: 0 auto;
+    width: 673rpx;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}

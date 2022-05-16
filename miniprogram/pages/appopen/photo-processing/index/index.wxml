@@ -1,0 +1,39 @@
+<!--pages/photo-processing/index/index.wxml-->
+<header title="中公证件照" suffixStr="{{suffixStr}}" alwaysShow nav></header>
+
+
+<view class="zg_zjlist">
+    <view class="zg_zjlist_left">
+        <navigator url="../cropper/index{{suffixStr?'?'+suffixStr:''}}" class="crop">
+            <image src="https://www.offcn.com/zg/wltg/2021zpjc/zg_pic1.png"></image>
+            按规格裁剪
+        </navigator>
+        <navigator url="../change-background/index{{suffixStr?'?'+suffixStr:''}}" class="color">
+            <image src="https://www.offcn.com/zg/wltg/2021zpjc/zg_pic2.png"></image>
+            换照片底色
+        </navigator>
+
+    </view>
+    <view class="zg_zjlist_right">
+        <navigator url="../album/index{{suffixStr?'?'+suffixStr:''}}" class="camera">
+            <image src="https://www.offcn.com/zg/wltg/2021zpjc/zg_pic3.png"></image>
+            我的相册
+        </navigator>
+    </view>
+</view>
+
+
+<view class="hot-title zg_homepage">
+    裁剪并更换底色
+    <navigator url="../configs/index{{suffixStr?'?'+suffixStr:''}}">
+        全部规格
+        <image src="https://jl.offcn.com/zg/ty/images/exam-helper-mini-program/public/arrow-right-gray.png"></image>
+    </navigator>
+</view>
+
+<view class="hot-list">
+    <config bind:chooseConfig="gotoDetail" config="{{item}}" wx:for="{{configs}}" wx:key="index" style="width:48%"></config>
+</view>
+
+<!-- 推广后缀 --> 
+<view class="suffix">{{suffixStr}}</view>

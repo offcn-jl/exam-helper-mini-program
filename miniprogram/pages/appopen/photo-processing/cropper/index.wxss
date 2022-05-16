@@ -1,0 +1,273 @@
+/* pages/photo-processing/clipper/index.wxss */
+
+@-webkit-keyframes slideUp {
+    0% {
+        transform: translateY(100%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(100%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+page {
+    background: #F5F7FA;
+}
+
+.main {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.bottom {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #FFFFFF;
+    box-shadow: 0 8rpx 30rpx 0 #E9E7F1;
+    height: 128rpx;
+}
+
+.bottom .btn-choose-spec {
+    height: 88rpx;
+    border-radius: 8rpx;
+    background: #3c7cfc;
+    color: white;
+    line-height: 88rpx;
+    font-weight: bold;
+    margin: 20rpx auto;
+    width: 670rpx;
+    font-size: 30rpx;
+}
+
+.cropper-wrapper {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgb(65,69,74);
+    z-index: 10;
+}
+
+.modal-content {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1094rpx;
+    max-height: 90vh;
+    border-radius: 20rpx 20rpx 0 0;
+    background: white;
+    padding-top: 96rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    animation: slideUp 0.4s;
+}
+
+.modal .close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 88rpx;
+    height: 88rpx;
+    padding: 20rpx;
+}
+
+.modal .close image {
+    height: 48rpx;
+    width: 48rpx;
+}
+
+.specs-modal-content .search {
+    height: 88rpx;
+    width: 670rpx;
+    margin: 0 auto;
+    background: white;
+    border-radius: 8rpx;
+    flex: none;
+    border: 1px solid #DEE2EA;
+    box-sizing: content-box;
+}
+
+.search image {
+    height: 40rpx;
+    width: 40rpx;
+    margin-top: 24rpx;
+    margin-left: 40rpx;
+    vertical-align: top;
+}
+
+.search input {
+    display: inline-block;
+    width: 580rpx;
+    height: 88rpx;
+    line-height: 40rpx;
+    padding: 24rpx 30rpx;
+    box-sizing: border-box;
+    font-size: 28rpx;
+    color: #3C464F;
+}
+
+.placeholder {
+    font-size: 28rpx;
+    color: #A6AAB9;
+}
+
+.specs-modal-content .content {
+    height: 100%;
+    background: white;
+    border-radius: 24rpx 24rpx 0 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.search-results {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: white;
+    z-index: 10;
+    border-radius: 24rpx 24rpx 0 0;
+}
+
+.spec-detail {
+    padding: 0 40rpx;
+    height: 100%;
+}
+
+.spec-detail .title {
+    font-size: 32rpx;
+    color: #3C464F;
+    font-weight: bold;
+    margin-bottom: 36rpx;
+}
+
+.spec-detail .content>view {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24rpx;
+    font-size: 28rpx;
+    color: #3C464F;
+}
+
+.spec-detail .content .name {
+    font-size: 28rpx;
+    color: #91979C;
+    width: 142rpx;
+}
+
+.spec-detail-modal-content {
+    z-index: 11;
+}
+
+.spec-detail-modal-content .bottom {
+    height: 144rpx;
+    border-top: 1px solid #f2f2f5;
+    padding: 30rpx;
+    box-shadow: none;
+}
+
+.spec-detail-modal-content .bottom .btn-crop {
+    height: 88rpx;
+    border-radius: 8rpx;
+    background: #3c7cfc;
+    color: white;
+    line-height: 88rpx;
+    font-weight: bold;
+    margin: 0 auto;
+    width: 670rpx;
+    font-size: 30rpx;
+}
+
+.color {
+    height: 30rpx;
+    width: 30rpx;
+    border-radius: 40rpx;
+    margin-right: 16rpx;
+    box-sizing: border-box;
+}
+
+.white {
+    background: white;
+    border: 1px solid #E5E5E5;
+}
+
+.lightblue {
+    background-image: linear-gradient(180deg,#8EC5E9 0%,#AFD7F0 100%);
+}
+
+.blue {
+    background-image: linear-gradient(180deg,#1A8AE4 0%,#4EA4ED 100%);
+}
+
+.red {
+    background-image: linear-gradient(180deg,#C40C20 0%,#D5284A 100%);
+}
+
+.gray {
+    background-image: linear-gradient(180deg,#818892 0%,#A7AFB7 100%);
+}
+
+.empty {
+    margin-top: 170rpx;
+    font-size: 0;
+    text-align: center;
+}
+
+.empty image {
+    width: 290rpx;
+    height: 244rpx;
+    margin-bottom: 10rpx;
+}
+
+.empty view {
+    font-size: 32rpx;
+    color: #91979C;
+}
+
+.empty text {
+    font-size: 26rpx;
+    color: #CCCCCC;
+    line-height: 40rpx;
+}
+
+.reselect-picture {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vh;
+    z-index: 100;
+    background: rgba(0,0,0,0.5);
+}
+
+.reselect-picture image {
+    width: 420rpx;
+    height: 270rpx;
+    position: absolute;
+    bottom: 244rpx;
+    left: 165rpx;
+}
+
+.suffix {
+    bottom: 128rpx;
+    position: absolute;
+    width: 100vw;
+}

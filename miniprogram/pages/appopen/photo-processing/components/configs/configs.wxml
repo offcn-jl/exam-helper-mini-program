@@ -1,0 +1,14 @@
+<scroll-view class="scroll-view" bindscrolltolower="loadMore" scrollY="true">
+    <view class="zg_tablist">
+        <view class="categories">
+            <category bind:choose="chooseCategory" category="{{item}}" currentCategory="{{currentCategory}}"
+                wx:for="{{categories}}" wx:key="index"></category>
+        </view>
+        <view class="zg_right">
+            <!-- <view class="title">{{currentCategory.name}}</view> -->
+            <view class="list">
+                <config bind:chooseConfig="chooseConfig" config="{{item}}" wx:for="{{configs}}" wx:key="index" style="width:48%;"></config>
+            </view>
+        </view>
+    </view>
+</scroll-view>

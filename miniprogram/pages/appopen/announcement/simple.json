@@ -1,0 +1,7 @@
+{
+  "disableScroll": true,
+  "usingComponents": {
+    "header": "/components/header/header",
+    "cell": "plugin://contactPlugin/cell"
+  }
+}

@@ -1,0 +1,67 @@
+<!--pages/photo-processing/detail/index.wxml-->
+
+<header title="{{config.name}}" suffixStr="{{suffixStr}}" alwaysShow nav></header>
+
+<view class="top">
+    <image class="reference" src="https://www.offcn.com/zg/wltg/2021zpjc/zg_pic7.png"></image>
+    <view class="right">
+        <view class="title">拍照须知</view>
+        <view>
+            站在白墙前，距离30cm，建议穿着深色衣服，头部居中，正对镜头，露出耳朵和额头，请勿佩戴眼镜或首饰
+        </view>
+    </view>
+</view>
+<view class="divider"></view>
+<view class="detail">
+    <view class="title">规格详情</view>
+    <view class="content">
+        <view>
+            <view class="name">所属地区</view>
+            <view class="zg_name"> {{config.ownerErpAreaName}}</view>
+        </view>
+        <view>
+            <view class="name">所属类别</view>
+            <view class="zg_name"> {{config.ownerErpExamName==0?'通用尺寸':config.ownerErpExamName}}</view>
+        </view>
+        <view>
+            <view class="name">规格名称</view>
+            <view class="zg_name">{{config.name}}</view>
+        </view>
+        <view>
+            <view class="name">照片尺寸</view>
+            <view class="zg_name">{{config.millimeterWidth}} * {{config.millimeterHeight}} mm</view>
+        </view>
+        <view>
+            <view class="name">照片规格</view>
+            <view class="zg_name">{{config.pixelWidth}} * {{config.pixelHeight}} px</view>
+        </view>
+        <view>
+            <view class="name">照片底色</view>
+            <view class="color {{item}}" wx:for="{{config.backgroundColors}}" wx:key="index"></view>
+        </view>
+        <view>
+            <view class="name">文件格式</view>
+            <view class="zg_name">jpg</view>
+        </view>
+        <view wx:if="{{config.description}}">
+            <view class="name">备注</view>
+            <view class="zg_name">{{config.description}}</view>
+        </view>
+    </view>
+    <!-- 推广后缀 -->
+    <view class="suffix">{{suffixStr}}</view>
+</view>
+<view class="bottom">
+    <block wx:if="{{!phone}}">
+        <button class="btn btn-green" bindtap="SSOCheckManual" data-bindtap="album">从相册中选取</button>
+        <button class="btn btn-blue" bindtap="SSOCheckManual" data-bindtap="camera">拍摄</button>
+    </block>
+    <block wx:else>
+        <button class="btn btn-green" bindtap="album">
+            <image class="btn_img1" src="https://www.offcn.com/zg/wltg/2021zpjc/zg_pic8.png"></image>
+        从相册中选取</button>
+        <button class="btn btn-blue" bindtap="camera">
+            <image class="btn_img2" src="https://www.offcn.com/zg/wltg/2021zpjc/zg_pic9.png"></image>
+        拍摄</button>
+    </block>
+</view>

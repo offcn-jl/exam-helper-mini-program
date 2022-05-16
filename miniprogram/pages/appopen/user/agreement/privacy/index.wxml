@@ -1,0 +1,10 @@
+<header title="隐私协议" alwaysShow nav></header>
+
+<button wx:if="{{!src && !htmlSnip}}" style="margin-top: 30vh;" bindtap="webViewPage">WebView 查看 ( 网页 )</button>
+<button wx:if="{{!src && !htmlSnip}}" style="margin-top: 1vh;" bindtap="richText">页面内 查看 ( 富文本 )</button>
+
+<!-- WebView 查看 ( 网页 ) -->
+<web-view wx:if="{{src}}" src="{{src}}"></web-view>
+
+<!-- 页面内 查看 ( 富文本 ) -->
+<rich-text wx:if="{{htmlSnip}}" nodes="{{htmlSnip}}"></rich-text>

@@ -1,0 +1,17 @@
+<!--pages/photo-processing/detail/camera/index.wxml-->
+<camera devicePosition="{{devicePosition}}" flash="off" style="width: 100%; height: calc(100vh - 230rpx); position: fixed">
+    <cover-view>
+        <cover-image src="https://jl.offcn.com/zg/ty/images/exam-helper-mini-program/public/human-shape.png"></cover-image>
+    </cover-view>
+</camera>
+
+<view class="bottom">
+    <view bindtap="cancel" class="cancel">取消</view>
+    <image bindtap="takePhoto" class="take-photo" src="https://jl.offcn.com/zg/ty/images/exam-helper-mini-program/public/take-photo.png"></image>
+    <view bindtap="changeDevicePhoto" class="camera-direction">
+        <image src="https://jl.offcn.com/zg/ty/images/exam-helper-mini-program/public/camera-direction.png"></image>
+    </view>
+</view>
+
+<!-- 推广后缀 -->
+<view class="suffix">{{suffixStr}}</view>
