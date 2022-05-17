@@ -51,7 +51,7 @@
 <view class='tabbar-bg {{actionSheet?"show":""}}'>
     <view class='tabbar'>
         <view bindtap="hideActionSheet">
-            <button hover-class='none' class='btn' open-type="share">转发给好友</button>
+            <button hover-class='none' class='btn w100' open-type="share">转发给好友</button>
         </view>
         <view class="line"></view>
         <view bindtap='makePoster'>生成海报</view>
