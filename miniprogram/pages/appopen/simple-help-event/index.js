@@ -235,7 +235,7 @@ Page({
             title: this.data.config.shareContent,
             imageUrl: this.data.config.shareImage,
             // 页面参数 尤其是邀请的参数
-            path: `/pages/simple-help-event/index?id=${this.data.config.id}${this.data.phone ? `&inviter=${this.data.phone}` : ''}${this.data.suffixStr ? `&${this.data.suffixStr}` : ''}`,
+            path: `/pages/appopen/simple-help-event/index?id=${this.data.config.id}${this.data.phone ? `&inviter=${this.data.phone}` : ''}${this.data.suffixStr ? `&${this.data.suffixStr}` : ''}`,
         }
     },
 
