@@ -1072,9 +1072,31 @@ App({
             }
         },
 
+        /**
+         * 获取腾讯云签名
+         * @param {*} host 服务域名
+         * @param {*} payload 请求内容
+         * @param {*} callback 回调函数
+         */
+        getTencentCloudSign(host, payload, callback) {
+            getApp().methods.requsetWithCode({
+                path: "/tencent-cloud/sign",
+                data: { host, hashedRequestPayload: require('utils/sha256').sha256_digest(payload) },
+                // 推送 crm 并返回数据
+                callback: res => {
+                    if (!res.success) {
+                        wx.hideLoading(); // 隐藏 loading
+                        getApp().methods.handleError({ err: res, title: "出错啦", content: res.errorMessage ? res.errorMessage : '获取签名失败，请稍后再试', reLaunch: true })
+                    } else {
+                        // 调用回调函数, 返回签名信息
+                        callback && callback({ authorizeToOpenid: res.data.authorizeToOpenid, timestamp: res.data.timestamp, authorization: res.data.authorization });
+                    }
+                }
+            });
+        },
 
         /**
-           * loginCheck 公共函数 SSO 检查登陆状态
+           * SSOCheck 公共函数 SSO 检查登陆状态
            * @param {*} crmEventFormSID CRM 活动表单 SID
            * @param {*} suffix 后缀信息
            * @param {*} remark 备注
