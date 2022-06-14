@@ -1,6 +1,9 @@
 {
   "pages": [
-    "pages/index/index", 
+    "pages/index/index",
+
+    "pages/enroll/2022/tgjs/index", 
+    "pages/enroll/2022/tgjs/result/index", 
 
     "pages/2022tbjhfc/index",
 
@@ -42,7 +45,6 @@
     "pages/photo-processing/index/index", 
     "pages/photo-processing/configs/index", 
     "pages/photo-processing/detail/index", 
-
     "pages/photo-processing/cropper/preview/index", 
     "pages/photo-processing/album/index", 
     "pages/photo-processing/album/detail/index", 
@@ -51,7 +53,8 @@
     "pages/match/2022/tgjs/lnfs/result/index", 
     "pages/match-2022-tgjs/index", 
     "pages/match-2022-tgjs2/index", 
-    "pages/match-2022-ybjh/index", 
+    "pages/match-2022-ybjh/index",
+
     "pages/position-2022yhqz/index", 
     "pages/position-2022yhqz/result/index", 
  

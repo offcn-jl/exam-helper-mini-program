@@ -1,0 +1,22 @@
+<image mode="widthFix" src="{{banner_bk}}" class="banner_bk"></image>
+
+<view class="container">
+    <view class="select_wrap">
+        <view class='offer_item' wx:if="{{cityList.length > 0}}">
+            <select options='{{cityList}}' icon="icon-dizhi" text="地市" type="city" bind:m_select_touch="m_select_touch"></select>
+        </view>
+        <view class='offer_item' wx:if="{{countyList.length > 0}}">
+            <select options='{{countyList}}' icon="icon-home" text="县（市、区）" type="county" bind:m_select_touch="m_select_touch"></select>
+        </view>
+        <view class='offer_item' wx:if="{{subjectList.length > 0}}">
+            <select options='{{subjectList}}' icon="icon-icon1" text="学科" type="subject" bind:m_select_touch="m_select_touch"></select>
+        </view>
+        <view class='offer_item btn'>
+            <button wx:if="{{!phone}}" class="search_btn" bindtap="SSOCheckManual">点击查询</button>
+            <button wx:else class="search_btn" bindtap="search">点击查询</button>
+        </view>
+    </view>
+</view>
+
+<!-- 后缀 -->
+<view class="suffix">{{suffixStr}}</view>

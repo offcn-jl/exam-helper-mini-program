@@ -1,0 +1,35 @@
+<navigation id='navigation' title="查询结果" hide-icon="{{true}}"></navigation>
+
+<image mode="widthFix" src="" class="banner_bk"></image>
+
+<view class="title">查询结果</view>
+
+<view class="my_tip">
+	<text>此数据仅记录使用该小程序报名人数\n非特岗教师全部报名人数精准数据</text>
+</view>
+
+<view class="result_num">
+	<!-- fixme -->
+	<!-- <text class="result_nux">共 {{zcounts}} 条结果</text> -->
+	<text class="result_nux"></text>
+	<!-- fixme -->
+	<navigator url="../index?{{suffixStr}}">
+		<button class="change_btn">修改条件</button>
+	</navigator>
+</view>
+
+<view class="resultWrap">
+	<!-- <block wx:for="{{result}}" wx:key="index"> -->
+		<view class="result_item" bindtap="more" data-index="{{index}}">
+			<text class="result_code">{{query.city}}</text>
+			<view class="item_group">
+				<view class="item_line"><label>县/市/区：</label><text>{{query.county}}</text></view>
+				<view class="item_line"><label>申报学科：</label><text>{{query.subject}}</text></view>
+			</view>
+			<text class="result_detail">报考人数：{{result?result:'0'}}</text>
+			<!-- <button class="add_btn">年份：2020年</button> -->
+		</view>
+    <!-- </block> -->
+    <view style="color:gray;text-align: center;">下拉页面可刷新数据</view>
+    <view style="color:gray;text-align: center;font-size: 80%;margin-top: 50rpx;">{{suffixStr}}</view>
+</view>
