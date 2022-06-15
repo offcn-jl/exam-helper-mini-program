@@ -205,7 +205,22 @@ Page({
                         for (var i = 0; i < list.lists.length; i++) {
                             _this.setData({ cityList: _this.data.cityList.concat(list.lists[i].city) });
                         }
+                        // 判断是否是单页模式
+                        if (wx.getLaunchOptionsSync().scene !== 1154) {
+                            // 不是单页模式，进行登陆操作
+                            // 获取登陆状态
+                            getApp().methods.SSOCheck({
+                                crmEventFormSID: _this.data.CRMEFSID,
+                                suffix: { suffix: _this.data.suffix, suffixStr: _this.data.suffixStr },
+                                remark: _this.data.CRMRemark,
+                                callback: ({ phone, openid }) => this.setData({ phone, openid }),
+                            });
+                            wx.hideLoading(); // 隐藏 loading
+                        } else {
+                            wx.hideLoading(); // 隐藏 loading
+                        }
                     } catch (err) {//捕获错误并报错
+                        wx.hideLoading(); // 隐藏 loading
                         getApp().methods.handleError({ err, title: "出错啦", content: '查询失败', reLaunch: true });
                     }
                 },
@@ -214,20 +229,6 @@ Page({
                     getApp().methods.handleError({ err: err, title: "出错啦", content: '查询失败', reLaunch: true });
                 }
             });
-            // 判断是否是单页模式
-            if (wx.getLaunchOptionsSync().scene !== 1154) {
-                // 不是单页模式，进行登陆操作
-                // 获取登陆状态
-                getApp().methods.SSOCheck({
-                    crmEventFormSID: this.data.CRMEFSID,
-                    suffix: { suffix: this.data.suffix, suffixStr: this.data.suffixStr },
-                    remark: this.data.CRMRemark,
-                    callback: ({ phone, openid }) => this.setData({ phone, openid }),
-                });
-                wx.hideLoading(); // 隐藏 loading
-            } else {
-                wx.hideLoading(); // 隐藏 loading
-            }
         }).catch(err => {
             wx.hideLoading(); // 隐藏 loading
             getApp().methods.handleError({ err: err, title: "出错啦", content: '获取后缀失败', reLaunch: true });
