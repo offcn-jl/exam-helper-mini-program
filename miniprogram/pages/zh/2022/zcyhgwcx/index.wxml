@@ -1,0 +1,69 @@
+<!--pages/zh/2022/yhqzgwcx/index.wxml-->
+<image mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/zh/zcyh/zcyh-bg.jpg" class="banner_bk w100"></image>
+<view class="container">
+	<view class="select_wrap">
+		<view class='offcn_item' wx:if="{{yearList.length > 0}}">
+			<select options='{{yearList}}' icon="icon-rili" text="年份" type="year" bind:m_select_touch="m_select_touch"></select>
+		</view>
+		<view class='offcn_item' wx:if="{{bankList.length > 0}}">
+			<select options='{{bankList}}' icon="icon-dizhi" text="银行" type="bank" bind:m_select_touch="m_select_touch"></select>
+		</view>
+		<view class='offcn_item' wx:if="{{provenceList.length > 0}}">
+			<select-search options='{{provenceList}}' icon="icon-home" text="省份" type="provence" bind:m_selectSearch_touch="m_select_touch"></select-search>
+		</view>
+		
+		<view class='offcn_item' wx:if="{{cityList.length > 0}}">
+			<select-search options='{{cityList}}' icon="icon-home" text="地市" type="city" bind:m_selectSearch_touch="m_select_touch"></select-search>
+		</view>
+		<view class='offcn_item' wx:if="{{xueliList.length > 0}}">
+			<select options='{{xueliList}}' icon="icon-dizhi" text="学历" type="xueli" bind:m_select_touch="m_select_touch"></select>
+		</view>
+		<view class='offcn_item' wx:if="{{cetList.length > 0}}">
+			<select options='{{cetList}}' icon="icon-dizhi" text="英语" type="cet" bind:m_select_touch="m_select_touch"></select>
+		</view>
+		<view class='offcn_item btn'>
+		
+			<button wx:if="{{!phone}}" class="search_btn" bindtap="SSOCheckManual">点击查询</button>
+            <button wx:else class="search_btn" bindtap="search">点击查询</button>
+		</view>
+	</view>
+
+    <view class="resultWrap">
+	<block wx:for="{{result}}" wx:key="index"> 
+		<view class="result_item" >
+	
+			<text class="result_code">{{item.item2}}</text>
+			<view class="result_detail"><label>岗位:</label><text>{{item.item7}}</text></view>
+
+			<!-- 可收放数据代码 -->
+			<view class="item_group">
+				<view class="item-group-wrap {{showIndex == index ? 'active' : ''}}">
+				<view class="item_line"><label>年份：</label><text>{{item.item1}}</text>
+					<view class="item_line"><label>银行：</label><text>{{item.item2}}</text></view>
+					<view class="item_line"><label>省份：</label><text>{{item.item3}}</text></view>
+					<view class="item_line"><label>地市：</label><text>{{item.item4}}</text></view>
+					<view class="item_line"><label>学历：</label><text>{{item.item5}}</text></view>
+					<view class="item_line"><label>外语等级：</label><text>{{item.item6}}</text></view>
+					<view class="item_line"><label>岗位：</label><text>{{item.item7}}</text></view>
+					<view class="item_line"><label>人数：</label><text>{{item.item8}}</text></view>
+					<view class="item_line"><label>专业：</label><text>{{item.item9}}</text></view>
+					<view class="item_line"><label>待遇：</label><text>{{item.item10}}</text></view>
+
+			    </view>
+				</view>
+                 <!-- 上下显示箭头 -->
+               <view class="jiantou"  bindtap="showmore"   data-index="{{index}}">
+				<image src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/zh/yhqz/more.png" class='{{showIndex==index? "" : "active"}}'></image>
+			   </view>
+		
+			</view>
+			
+		</view>
+   </block> 
+    <view wx:if="{{result.length>0}}" style="color:gray;text-align: center;">下拉页面可刷新数据</view>
+    <view style="color:gray;text-align: center;font-size: 80%;margin-top: 50rpx;">{{suffixStr}}</view>
+    </view>
+	<!-- 后缀 -->
+	<view class="suffix">{{suffixStr}}</view>
+</view>
+

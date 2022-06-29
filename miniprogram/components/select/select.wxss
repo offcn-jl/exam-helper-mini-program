@@ -1,4 +1,5 @@
 @import "/style/icon.wxss";
+@import "/style/icon2.wxss";
 
 .select_box_wrap {
   position: relative;
@@ -20,7 +21,7 @@
 
 .icon_title {
   display: inblock;
-  font-size: 40rpx;
+  font-size:45rpx;
   padding-left: 20rpx;
   color: #999;
   font-weight: bold;
@@ -63,7 +64,6 @@
   right: 0;
   bottom: 0;
   margin: auto;
-  font-size: 32rpx;
   height: 38rpx;
   line-height: 38rpx;
   text-indent: 65rpx;
