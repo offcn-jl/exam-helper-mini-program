@@ -30,13 +30,13 @@
 
     <view class="resultWrap">
 	<block wx:for="{{result}}" wx:key="index"> 
-		<view class="result_item" >
+		<view class="result_item" bindtap="showmore"   data-index="{{index}}" >
 	
 			<text class="result_code">{{item.item2}}</text>
 			<view class="result_detail"><label>岗位:</label><text>{{item.item7}}</text></view>
 
 			<!-- 可收放数据代码 -->
-			<view class="item_group">
+			<view class="item_group" >
 				<view class="item-group-wrap {{showIndex == index ? 'active' : ''}}">
 				<view class="item_line"><label>年份：</label><text>{{item.item1}}</text>
 					<view class="item_line"><label>银行：</label><text>{{item.item2}}</text></view>
@@ -52,7 +52,7 @@
 			    </view>
 				</view>
                  <!-- 上下显示箭头 -->
-               <view class="jiantou"  bindtap="showmore"   data-index="{{index}}">
+               <view class="jiantou" >
 				<image src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/zh/yhqz/more.png" class='{{showIndex==index? "" : "active"}}'></image>
 			   </view>
 		
@@ -60,7 +60,7 @@
 			
 		</view>
    </block> 
-    <view wx:if="{{result.length>0}}" style="color:gray;text-align: center;">下拉页面可刷新数据</view>
+    <view wx:if="{{result.length>0&&result.length<count}}" style="color:gray;text-align: center;">下拉页面可刷新数据</view>
     <view style="color:gray;text-align: center;font-size: 80%;margin-top: 50rpx;">{{suffixStr}}</view>
     </view>
 	<!-- 后缀 -->
