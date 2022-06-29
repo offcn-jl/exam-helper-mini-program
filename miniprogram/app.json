@@ -1,6 +1,8 @@
 {
   "pages": [
     "pages/index/index",
+    
+    "pages/sk/2022/navigation/index",
 
     "pages/enroll/2022/tgjs/index", 
     "pages/enroll/2022/tgjs/result/index", 

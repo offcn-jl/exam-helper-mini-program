@@ -1,0 +1,37 @@
+<!--pages/sk/2022/navigation/index.wxml-->
+<!-- 考点导航 -->
+
+<!-- 背景图 -->
+<image class="background" mode="widthFix" src="https://jl.offcn.com/zg/ty/images/exam-helper-mini-program/sk/2022/navigation/bg.jpg"></image>
+
+<!-- 考点选择 -->
+<view class="select_wrap">
+    <!-- 导航 -->
+    <view class="navigation m ld" bindtap="open" wx:if="{{mapInfo.latitude && mapInfo.longitude}}">
+        <view class="nav_left">{{siteValue}}</view>
+        <view class="nav_right">
+            <image class="nav_img" src="https://fj.offcn.com/zt/fjzgksfw_img/tools_img/sk_kczn/b1.png"></image>
+            <text>导航</text>
+        </view>
+    </view>
+    <!-- 地图 -->
+    <view class="map" wx:if="{{mapInfo.latitude && mapInfo.longitude}}">
+        <map bindtap="open" style="width: 100%; height: 310rpx;" show-compass="true" markers="{{mapInfo.markers}}" latitude="{{mapInfo.latitude}}" longitude="{{mapInfo.longitude}}" scale="16"></map>
+    </view>
+    <!-- 考点选择 -->
+    <view class='offcn_item'>
+        <select options='{{cityList}}' icon="icon-dizhi" text="请选择考区" type="city" bind:m_select_touch="m_select_touch"></select>
+    </view>
+    <view class='offcn_item' wx:if="{{siteList.length > 0}}">
+        <select-search options='{{siteList}}' icon="icon-home" text="请选择考点" type="site" bind:m_selectSearch_touch="m_select_touch"></select-search>
+    </view>
+    <view class='offcn_item btn' wx:if="{{cityValue && siteValue}}">
+        <button class="search_btn" wx:if="{{!phone}}" bindtap="SSOCheckManual">注册后进行查询</button>
+        <button wx:else class="search_btn" bindtap="search">点击查询</button>
+    </view>
+</view>
+
+<view style="height: 200rpx;"></view>
+
+<!-- 后缀 -->
+<view class="suffix">{{suffixStr}}</view>

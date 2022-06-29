@@ -1,0 +1,81 @@
+/* pages/sk/2022/navigation/index.wxss */
+
+page {
+    background: #e20101;
+}
+
+.background {
+    width: 100vw;
+}
+
+.navigation {
+    width: 600rpx;
+    background: #C1201B;
+    border: 1rpx solid #C1201B;
+    border-radius: 20rpx;
+    color: #fff;
+    padding: 18rpx 24rpx 14rpx;
+    box-sizing: border-box;
+    line-height: 30rpx;
+    margin: 0 auto;
+}
+
+.nav_left {
+    width: 90%;
+    float: left;
+    height: 60rpx;
+    line-height: 60rpx;
+
+}
+
+.nav_right {
+    width: 10%;
+    height: 60rpx;
+    font-size: 16rpx;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav_img {
+    width: 33rpx;
+    height: 33rpx;
+}
+
+.map {
+    width: 590rpx;
+    height: 310rpx;
+    background: #FFFFFF;
+    border: 1rpx solid #C1201B;
+    border-radius: 20rpx;
+    overflow: hidden;
+    margin: 20rpx auto;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translate3d(0, 0, 0);
+}
+
+
+.select_wrap {
+    width: 640rpx;
+    background: #5f5f5f87;
+    border-radius: 15rpx;
+    margin: -650rpx auto 0;
+    padding-top: 60rpx;
+    position: relative;
+    margin-bottom: 60rpx;
+    overflow: hidden;
+}
+
+.offcn_item {
+    width: 550rpx;
+    height: 90rpx;
+    margin: 0 auto 40rpx;
+}
+
+.search_btn {
+    background: #FF9800;
+    color: #fff;
+    font-size: 36rpx;
+}
