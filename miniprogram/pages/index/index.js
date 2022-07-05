@@ -46,6 +46,7 @@ Page({
                         config: res.data[0]
                     })
                     wx.hideLoading() // 隐藏 loading
+                    return
                     wx.showLoading({ title: '获取课程列表', mask: true })
                     // 请求 19 课堂接口调用 Sign
                     wx.request({
