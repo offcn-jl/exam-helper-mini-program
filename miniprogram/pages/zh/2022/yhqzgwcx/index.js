@@ -49,7 +49,7 @@ Page({
                 _this.setData({
                     yearValue: _this.data.yearList[e.detail.index],
                     bankList: [],
-                    provenceValue: [],
+                    provenceList: [],
                     cityList: [],
                     graduatesList: [],
                     cetList: []
@@ -97,7 +97,7 @@ Page({
             case "bank": //银行
                 _this.setData({
                     bankValue: _this.data.bankList[e.detail.index],
-                    provenceValue: [],
+                    provenceList: [],
                     cityList: [],
                     graduatesList: [],
                     cetList: []
