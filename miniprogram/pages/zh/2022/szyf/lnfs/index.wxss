@@ -1,0 +1,134 @@
+/* pages/zh/2022/szyf/lnfs/index.wxss */
+page {
+    background: #7c101f;
+}
+
+.container {
+    margin-top: -600rpx;
+}
+
+.select_wrap {
+    width: 640rpx;
+    background: #e6bd74;
+    /* height: 1060rpx; */
+    border-radius: 15rpx;
+    margin: 0 auto;
+    padding-top: 60rpx;
+    position: relative;
+    /* z-index: 1; */
+    /* box-shadow: 2px 2px 10px #d4d4d4; */
+    margin-bottom: 60rpx;
+    overflow: hidden;
+}
+
+.offcn_item {
+    width: 550rpx;
+    height: 90rpx;
+    margin: 0 auto 40rpx;
+}
+
+.search_btn {
+    background-color: #7c101f;
+    color: #fff;
+}
+
+.result_item {
+    width: 620rpx;
+    margin: 0 auto;
+    border-radius: 20rpx;
+    background: #fff;
+    border-radius: 15rpx;
+    -moz-box-shadow: 0rpx 0rpx 7rpx #d6d7d3;
+    -webkit-box-shadow: 0rpx 0rpx 7rpx #d6d7d3;
+    box-shadow: 0rpx 0rpx 7rpx #d6d7d3;
+    padding: 30rpx;
+    position: relative;
+    margin-bottom: 30rpx;
+}
+
+.result_code {
+    display: block;
+    font-size: 40rpx;
+    font-weight: bold;
+    color: #3b444e;
+    line-height: 100rpx;
+    text-align: center;
+}
+
+
+.result_detail {
+    display: block;
+    font-size: 40rpx;
+    /* color: #999999; */
+    line-height: 49rpx;
+    background: #f4f8f9;
+    padding: 20rpx;
+    border-radius: 10rpx;
+    text-align: center;
+    color: #f10;
+}
+
+.item_group {
+    width: 100%;
+    padding-top: 20rpx;
+}
+
+.item-group-wrap {
+    max-height: 0;
+    transition: all 1s;
+    overflow: hidden;
+}
+
+.item-group-wrap.active {
+    max-height: 2000rpx;
+    transition: all 1s;
+    overflow: hidden;
+}
+
+.item_group .item_line {
+    justify-content: flex-start;
+    margin-bottom: 14rpx;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-size: 36rpx;
+    line-height: 60rpx;
+}
+
+.item_group .item_line label {
+    color: #969799;
+    display: inline-block;
+    margin-right: 10rpx;
+    /* 文本两端对齐 */
+    text-align-last: justify;
+    width: 200rpx;
+}
+
+.jiantou {
+    width: 90%;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.jiantou image {
+    display: block;
+    width: 70rpx;
+    height: 70rpx;
+    transform: rotate(180deg);
+}
+
+.jiantou image.active {
+    transition: all 0.2s;
+    transform: rotate(0);
+}
+
+.item_group .item_line text {
+    color: #46504f;
+    display: inline-block;
+}
+
+.resultWrap {
+    padding-bottom: 100rpx;
+}

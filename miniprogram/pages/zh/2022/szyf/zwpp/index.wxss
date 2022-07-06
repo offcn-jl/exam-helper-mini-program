@@ -1,0 +1,12 @@
+/* pages/zh/2022/szyf/zwpp/index.wxss */
+
+@import "../lnfs/index.wxss";
+
+page {
+    background: #212d5f;
+}
+
+.container {
+    margin-top: -250rpx;
+}
+
