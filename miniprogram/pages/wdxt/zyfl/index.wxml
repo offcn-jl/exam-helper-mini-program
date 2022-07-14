@@ -33,7 +33,7 @@
             </view>
         </block>
         <view wx:if="{{result.length>0&&result.length<count}}" style="color:gray;text-align: center;">下拉页面可刷新数据</view>
-        <view style="color:gray;text-align: center;font-size: 80%;margin-top: 50rpx;">{{suffixStr}}</view>
+
     </view>
     <!-- 后缀 -->
     <view class="suffix">{{suffixStr}}</view>
