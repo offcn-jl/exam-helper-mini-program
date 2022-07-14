@@ -1,0 +1,163 @@
+<!-- 欢迎页 -->
+<view wx:if="{{Step===0}}">
+	<button class="index-button" bindtap="buttonStart">
+		<image class="index-image" mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper/ranking-list/2021-sk.jpg"></image>
+	</button>
+	<view class="suffix">{{Suffix}}</view>
+</view>
+
+<!-- 职位检索页 -->
+<view class="search" wx:if="{{Step===1}}">
+	<text class="search-title">职位检索</text>
+	<text class="tap-tips" style="margin-bottom: 2vh;">选择筛选条件后点击“检索”按钮查看职位信息</text>
+	<view class="form-item">
+		<text class="form-lable" decode="true">地&emsp;区：</text>
+		<picker class="form-picker" bindchange="bindSearchAreaPickerChange" value="{{index}}" range="{{SearchArea}}">
+			<text style="{{SearchAreaIndex === -1 ? 'color:gray;' : ''}}">{{SearchAreaIndex === -1 ? "点击选择 ( 非必选 )" : SearchArea[SearchAreaIndex]}}</text>
+			<text style="float:right;margin-right:10px;">▼</text>
+		</picker>
+	</view>
+	<view class="form-item">
+		<view class="form-lable">部门属性：</view>
+		<picker class="form-picker" bindchange="bindSearchDepartmentAttributePickerChange" value="{{index}}" range="{{SearchDepartmentAttribute}}">
+			<text style="{{SearchDepartmentAttributeIndex === -1 ? 'color:gray;' : ''}}">{{SearchDepartmentAttributeIndex === -1 ? "点击选择 ( 非必选 )" : SearchDepartmentAttribute[SearchDepartmentAttributeIndex]}}</text>
+			<text style="float:right;margin-right:10px;">▼</text>
+		</picker>
+	</view>
+	<view class="form-item">
+		<view class="form-lable">部门名称：</view>
+		<input class="form-input" bindinput="bindSearchDepartmentNameInput" placeholder="点击填写 ( 非必填 )" value="{{SearchDepartmentName}}"></input>
+	</view>
+	<view class="form-item">
+		<view class="form-lable">职位名称：</view>
+		<input class="form-input" bindinput="bindSearchPositionNameInput" placeholder="点击填写 ( 非必填 )" value="{{SearchPositionName}}"></input>
+	</view>
+
+	<button class="search-start" type="primary" open-type="getPhoneNumber" bindgetphonenumber="buttonSearchStartWhitoutSignUp" wx:if="{{Phone===-1}}">检 索</button>
+	<button class="search-start" type="primary" bindtap="buttonSearchStart" wx:else>检 索</button>
+</view>
+
+<!-- 提示 -->
+<text class="tap-tips" wx:if="{{PositionData.lists}}">点击心仪的职位，完成晒分后即可查看同岗位分差</text>
+
+<!-- 职位列表 -->
+<block wx:for="{{PositionData.lists}}" wx:key="index">
+	<view class="card" bindtap="bindShowDetailTap" data-index="{{index}}">
+		<view>
+			<text class="location">{{item.areaname}}</text> <!-- 地区 -->
+			<text class="department">{{item.danwei_name}}</text> <!-- 部门 -->
+		</view>
+		<view>
+			<text class="position">{{item.zhiwei_name}}</text> <!-- 职位 -->
+		</view>
+	</view>
+</block>
+
+<!-- 提示 -->
+<text class="tap-tips" wx:if="{{PositionData.total < PositionData.page * 15}}">没有更多数据了</text>
+
+<!-- 详情遮罩 -->
+<view class="cover" wx:if="{{DetailData.Position}}"></view>
+<!-- 详情 -->
+<scroll-view scroll-y="true" wx:if="{{DetailData.Position}}" class="detail">
+	<view class="title">晒分知分差</view>
+	<view class="score-label">行测成绩 : </view>
+	<input class="score-input" type="digit" confirm-type="done" placeholder="请填写行政职业能力测验成绩" bindinput="bindXCScoreInput" style="border-bottom: 1px solid #0066CC;{{Score <= 300 && XCScore <= 100 ? '' : 'color:red;'}}"></input>
+	<view class="score-label">申论成绩 : </view>
+	<input class="score-input" type="digit" confirm-type="done" placeholder="请填写申论成绩" bindinput="bindSLScoreInput" style="border-bottom: 1px solid #0066CC;{{Score <= 300 && SLScore <= 100 ? '' : 'color:red;'}}"></input>
+	<text class="tips" style="margin:0px;color:red;">公安专业科目成绩仅限公安机关行政执法类职位填写</text>
+	<view class="score-label">公安成绩 : </view>
+	<input class="score-input" type="digit" confirm-type="done" placeholder="请填写公安专业科目成绩" bindinput="bindGAScoreInput" style="border-bottom: 1px solid #0066CC;{{Score <= 300 && GAScore <= 100 ? '' : 'color:red;'}}"></input>
+	<text class="tips" style="color:red;" wx:if="{{Score > 300}}">总分应当小于 300 分</text>
+
+	<!-- 判断是否晒分 -->
+	<block wx:if="{{DetailData.Score.My}}">
+		<text class="tips">您已晒分的部门为 {{DetailData.Score.My.Department}} ( 部门代码 )\n职位 {{DetailData.Score.My.Position}} ( 职位代码 )</text>
+	</block>
+	<block wx:else>
+		<view class="tips">完成晒分后即可查看竞争简报及晒分详情</view>
+	</block>
+	<button style="width: 98%;" bindtap="buttonPostRank" type="warn">晒 分</button>
+
+	<view class="title">竞争简报</view>
+	<view class="info">招考人数 : <text>{{DetailData.Position.zkrs}}</text></view>
+	<block wx:if="{{!DetailData.Score.My}}">
+		<view class="info">晒分人数 : <text style="color:red;">?</text></view>
+		<view class="info">竞争比 : <text>1 : </text><text style="color:red;">?</text></view>
+		<view class="info">最高分 : <text style="color:red;">?</text></view>
+		<view class="info">平均分 : <text style="color:red;">?</text></view>
+		<view class="info">最低分 : <text style="color:red;">?</text></view>
+		<text class="tips" style="color:red;">选择您心仪的岗位，完成晒分后，即可查看报名人数与竞争比 ~!</text>
+	</block>
+	<block wx:else>
+		<view class="info">晒分人数 : <text>{{DetailData.Score.List.length}}</text></view>
+		<view class="info">竞争比 : <text>1 : {{DetailData.Score.List.length/DetailData.Position.zkrs}}</text></view>
+		<view class="info">我的分数 : <text>{{DetailData.Score.My.Score}}</text></view>
+		<view class="info">最高分 : <text>{{DetailData.Score.Max}}</text></view>
+		<view class="info">平均分 : <text>{{DetailData.Score.Avg}}</text></view>
+		<view class="info">最低分 : <text>{{DetailData.Score.Min}}</text></view>
+		<text class="tips" style="color:red;">晒分人数、竞争比、最高分、最低分、平均分仅代表通过本系统参与晒分的考生情况, 数据仅供参考！</text>
+	</block>
+
+	<view class="title">晒分详情</view>
+	<block wx:if="{{!DetailData.Score.My}}">
+		<text class="tips" style="color:red;">选择您心仪的岗位，完成晒分后，即可查看晒分详情 ~!</text>
+	</block>
+	<block wx:else>
+		<view class="tips">您可以上下滑动下方区域查看更多</view>
+		<view class="tips" style="color:black;">用户名 / 笔试成绩 / 面试需追分差</view>
+		<scroll-view scroll-y="true" class="ranks">
+			<block wx:for="{{DetailData.Score.List}}" wx:key="index">
+				<text style="{{item.Self ? 'color:red;' : ''}}">{{item.Phone}} / {{item.Score}}分 / {{DetailData.Position.danwei_code===DetailData.Score.My.Department&&DetailData.Position.zhiwei_code===DetailData.Score.My.Position ? ((item.Score-DetailData.Score.My.Score)*0.75)+'分' : '您未晒分本岗'}}</text>
+			</block>
+		</scroll-view>
+		<button style="width: 98%;margin-top:10px;" bindtap="buttonOpenCalculator" type="">逆袭计算器</button>
+	</block>
+
+	<view class="title">职位详情</view>
+	<view class="info">所属地区 : <text>{{DetailData.Position.areaname}}</text></view>
+	<view class="info">部门名称 : <text>{{DetailData.Position.danwei_name}}</text></view>
+	<view class="info">部门代码 : <text>{{DetailData.Position.danwei_code}}</text></view>
+	<view class="info">职位名称 : <text>{{DetailData.Position.zhiwei_name}}</text></view>
+	<view class="info">职位代码 : <text>{{DetailData.Position.zhiwei_code}}</text></view>
+	<view class="info">科目类别 : <text>{{DetailData.Position.kskm}}</text></view>
+	<view class="info">招考对象 : <text>{{DetailData.Position.isyj}}</text></view>
+	<view class="info">学历要求 : <text>{{DetailData.Position.xueli}}</text></view>
+	<view class="info">专业及其它条件要求 : <text>{{DetailData.Position.zhuanye}}</text></view>
+	<view class="info">性别要求 : <text>{{DetailData.Position.sex}}</text></view>
+	<view class="info">政治面貌要求 : <text>{{DetailData.Position.zzmm}}</text></view>
+	<view class="info">最低服务年限要求 : <text>{{DetailData.Position.zdfwnx}}</text></view>
+	<view class="info">基层工作经历要求 : <text>{{DetailData.Position.gzjl}}</text></view>
+	<view class="info">体能测试或专业考试要求 : <text>{{DetailData.Position.isks}}</text></view>
+	<view class="info">部门属性 : <text>{{DetailData.Position.xitong}}</text></view>
+	<view class="info">咨询电话 : <text>{{DetailData.Position.phone}}</text></view>
+	<view class="info">备注 : <text>{{DetailData.Position.note}}</text></view>
+	<text class="close" bindtap="bindHideDetailCloseTap">✘</text>
+</scroll-view>
+
+<!-- 返回顶部 -->
+<image wx:if="{{backTopValue}}" class="back-top" bindtap="backTop" src="http://jl.offcn.com/zg/ty/images/exam-helper/public/top.png"></image>
+
+<!-- 广告 19课堂 -->
+<!-- <navigator wx:if="{{ADClass!=='' && ADPictureURL!==''}}" class="ad" target="miniProgram" open-type="navigate" app-id="wxca86930ec3e80717" path="page/course/details?id={{ADClass}}&scode={{Suffix}}">
+	<image mode="widthFix" src="{{ADPictureURL}}"></image>
+</navigator> -->
+
+<!-- 广告 小能 -->
+<navigator wx:if="{{Step===1}}" class="ad" target="miniProgram" open-type="navigate" app-id="wx5e256375813b119f" path="pages/ntalk/index{{Suffix?'?scene='+Suffix:''}}">
+	<image mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper/public/ad-2021-sk-ntalk.jpg"></image>
+</navigator>
+
+<!-- 逆袭计算器遮罩 -->
+<view class="cover calculator-cover" wx:if="{{OpenCalculator}}"></view>
+<!-- 逆袭计算器 -->
+<view wx:if="{{OpenCalculator}}" class="detail calculator">
+	<view class="title">逆袭计算器</view>
+	<view class="score-label">您的成绩 : </view>
+	<input class="score-input" type="digit" confirm-type="done" placeholder="请填写您的笔试总分" bindinput="bindCalculatorMyScoreInput" style="width:53vw;border-bottom: 1px solid #0066CC;{{CalculatorMyScore <= 300 ? '' : 'color:red;'}}"></input>
+	<view class="score-label">对手成绩 : </view>
+	<input class="score-input" type="digit" confirm-type="done" placeholder="请填写对手笔试总分" bindinput="bindCalculatorOtherScoreInput" style="width:53vw;border-bottom: 1px solid #0066CC;{{CalculatorOtherScore <= 300 ? '' : 'color:red;'}}"></input>
+	<text class="tips" style="color:black;">{{CalculatorScore === -1 ? '输入双方成绩即可计算面试需追分差' : '面试需追 '+CalculatorScore+' 分'}}</text>
+	<button style="width: 98%;" bindtap="buttonDoCalculator" type="primary">计算面试需追分差</button>
+	<text class="close" bindtap="buttonCloseCalculator">✘</text>
+</view>

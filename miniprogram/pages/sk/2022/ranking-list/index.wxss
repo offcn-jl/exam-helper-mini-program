@@ -1,0 +1,229 @@
+/* pages/simulated-enrollment-2020-sk/index.wxss */
+.suffix {
+  opacity: 0.6;
+  text-align: center;
+  margin: 1vh auto;
+}
+
+.index-button {
+  width: auto !important;
+  background: none;
+  padding: 0;
+}
+
+.index-image {
+  width: 100vw;
+  display: block;
+}
+
+.search {
+  width: 90vw;
+  margin: 4.5vh auto 0;
+}
+
+.search-title {
+  display: block;
+  text-align: center;
+  margin: 1vh auto 0 auto;
+  font-size: 2.4rem;
+}
+
+.form-item {
+  margin: 0 auto;
+  border-top: 1px solid #d0d0d0;
+  padding-top: 5px;
+  padding: 1vh 0 1vh 0;
+}
+
+.form-lable {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 1.5vw;
+  width: 26vw;
+  text-align: right;
+}
+
+.form-input {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 1.5vw;
+  width: 60vw;
+}
+
+.form-picker {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 1.5vw;
+  width: 60vw;
+}
+
+.search-start {
+  margin: 4vh auto;
+}
+
+.tap-tips {
+  color: #6A6A6A;
+  display: block;
+  text-align: center;
+}
+
+.card {
+  color: #6A6A6A;
+  background: #6A6A6A10;
+  width: 90vw;
+  padding: 5px;
+  margin: 1vh auto;
+  box-shadow: 3px 3px 3px #888888;
+  border: 2px solid;
+  border-radius: 10px;
+}
+
+.card .location {
+  color: #0066CC;
+  background: #0066CC10;
+  border: 1px solid;
+  padding: 0 5px;
+  margin-right: 5px;
+  border-radius: 25px;
+}
+
+.card .position{
+  color: black;
+  font-size: 20px;
+}
+
+.card .department {
+  color: black;
+  font-size: 20px;
+}
+
+.cover{
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: #000;
+  opacity: 0.7;
+  z-index: 100;
+}
+
+.detail {
+  position: fixed;
+  top: 11vh;
+  width: 90vw;
+  margin-left: 3vw;
+  border: 1px solid #0066CC;
+  border-radius: 10px;
+  z-index: 999;
+  padding: 1vh 2vw;
+  background: white;
+  height: 80vh;
+  color: #0066CC;
+  z-index: 101;
+}
+
+.detail .close {
+  position: fixed;
+  top: 12vh;
+  right: 7vw;
+  font-size: 25px;
+  font-weight: 900;
+}
+
+.detail .title {
+  font-size: 22px;
+  margin: 2vh 1vw 1vh 1vw;
+  border-bottom: 1px solid #d0d0d0;
+  font-weight: 900;
+}
+
+.detail .title:first-child {
+  margin: 0.5vh 1vw 1vh 1vw;
+}
+
+.detail .info {
+  color: #0066CC;
+  font-size: 18px;
+  margin: 1vw 1vh;
+}
+
+.detail text {
+  color: black;
+}
+
+.detail .ranks {
+  width: 80vw;
+  margin: 0 auto;
+  height: 10vh;
+  text-align: center;
+}
+
+.detail .ranks text {
+  margin-left: 1vw;
+  display: inline-block;
+  font-size: 16px;
+  width: 305px;
+  text-align: left;
+}
+
+.detail .tips {
+  color: gray;
+  text-align: center;
+  display: block;
+  margin: 1vh auto;
+}
+
+.back-top {
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  right: 2vw;
+  bottom: 5vh;
+  background: white;
+  border-radius: 50px;
+  border: 1px solid;
+}
+
+.score-label {
+  font-size: 18px;
+  margin: 0.5vh 1vw;
+  width: 90px;
+  display: inline-block;
+}
+
+.score-input {
+  font-size: 18px;
+  width: 60vw;
+  display: inline-block;
+  margin: 0.5vh 0;
+  vertical-align: top;
+  color: black;
+}
+
+.ad {
+  position: fixed;
+  bottom: 0;
+}
+
+.ad image {
+  width: 100vw;
+  display: block;
+}
+
+.calculator-cover {
+  z-index: 102;
+}
+
+.calculator {
+  top: 35vh;
+  height: 30vh;
+  z-index: 103;
+  width: 80vw;
+  margin-left: 8vw;
+}
+
+.calculator .close {
+  top: 35.5vh;
+  right: 10vw;
+}

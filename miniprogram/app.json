@@ -2,6 +2,8 @@
   "pages": [   
     "pages/index/index",
     
+    "pages/sk/2022/ranking-list/index",
+    
     "pages/wdxt/syxcjwt/index",
     "pages/wdxt/lnfs/index", 
     "pages/wdxt/zyfl/index",
