@@ -1,0 +1,40 @@
+<!--pages/sydw/syxcjwt/index.wxml-->
+<view style=" background:{{backgroundColor}};min-height: 100vh;">
+<image mode="widthFix" src="{{imageUrl}}"
+    class="banner_bk w100"></image>
+<view class="container">
+    <view class="select_wrap">
+        <view class='offcn_item btn' wx:if="{{!phone}}">
+            <button class="search_btn" bindtap="SSOCheckManual">登录后搜索</button>
+        </view>
+
+        <view class='offcn_item' wx:if="{{phone&&questionList.length > 0}}">
+            <select-search options='{{questionList}}' icon="icon-home" text="点击搜索" type="question"
+                bind:m_selectSearch_touch="m_select_touch"></select-search>
+        </view>
+
+    </view>
+
+    <view class="resultWrap">
+        <block wx:for="{{result}}" wx:key="index">
+            <view class="result_item" bindtap="showmore" data-index="{{index}}">
+
+                <text class="result_code">{{item.item2}}</text>
+                <view class="result_detail"><label></label><text>{{item.question}}</text></view>
+                <!-- 可收放数据代码 -->
+                <view class="item_group">
+                    <view class="item-group-wrap active">
+                        <view class="item_line"><text>{{item.answer}}</text>
+                        </view>
+                    </view>
+
+                </view>
+            </view>
+        </block>
+        <view wx:if="{{result.length>0&&result.length<count}}" style="color:gray;text-align: center;">下拉页面可刷新数据</view>
+        <view style="color:gray;text-align: center;font-size: 80%;margin-top: 50rpx;">{{suffixStr}}</view>
+    </view>
+    <!-- 后缀 -->
+    <view class="suffix">{{suffixStr}}</view>
+</view>
+</view>

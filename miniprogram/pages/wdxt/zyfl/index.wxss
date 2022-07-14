@@ -1,0 +1,19 @@
+/* pages/sydw/syxcjwt/index.wxss */
+
+@import '../style.wxss';
+
+
+
+.item_group .item_line label {
+    display: block;
+    width: 100%;
+    background: #f4f8f9;
+    text-align-last:left;
+    text-indent: 1rem;
+    line-height: 80rpx;
+}
+
+
+.item_group .item_line text{
+    text-indent: 1.5rem;
+}

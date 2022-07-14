@@ -2,6 +2,10 @@
   "pages": [   
     "pages/index/index",
     
+    "pages/wdxt/syxcjwt/index",
+    "pages/wdxt/lnfs/index", 
+    "pages/wdxt/zyfl/index",
+
     "pages/zh/2022/szyf/zwpp/index",
     "pages/zh/2022/szyf/lnfs/index",
     
