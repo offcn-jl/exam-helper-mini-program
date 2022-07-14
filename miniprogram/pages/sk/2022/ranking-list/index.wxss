@@ -125,8 +125,8 @@
 
 .detail .close {
   position: fixed;
-  top: 12vh;
-  right: 7vw;
+  top: 11.5vh;
+  right: 10.5vw;
   font-size: 25px;
   font-weight: 900;
 }
@@ -164,7 +164,7 @@
   display: inline-block;
   font-size: 16px;
   width: 305px;
-  text-align: left;
+  text-align: center;
 }
 
 .detail .tips {
@@ -217,7 +217,7 @@
 
 .calculator {
   top: 35vh;
-  height: 30vh;
+  height: 32vh;
   z-index: 103;
   width: 80vw;
   margin-left: 8vw;
@@ -225,5 +225,5 @@
 
 .calculator .close {
   top: 35.5vh;
-  right: 10vw;
+  right: 15vw;
 }

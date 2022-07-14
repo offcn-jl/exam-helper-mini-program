@@ -1,9 +1,9 @@
 <!-- 欢迎页 -->
 <view wx:if="{{Step===0}}">
 	<button class="index-button" bindtap="buttonStart">
-		<image class="index-image" mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper/ranking-list/2021-sk.jpg"></image>
+		<image class="index-image" mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/sk/2022/ranking-list/index.jpg"></image>
 	</button>
-	<view class="suffix">{{Suffix}}</view>
+	<view class="suffix">{{suffixStr}}</view>
 </view>
 
 <!-- 职位检索页 -->
@@ -33,7 +33,7 @@
 		<input class="form-input" bindinput="bindSearchPositionNameInput" placeholder="点击填写 ( 非必填 )" value="{{SearchPositionName}}"></input>
 	</view>
 
-	<button class="search-start" type="primary" open-type="getPhoneNumber" bindgetphonenumber="buttonSearchStartWhitoutSignUp" wx:if="{{Phone===-1}}">检 索</button>
+	<button class="search-start" type="primary" wx:if="{{!phone}}" bindtap="SSOCheckManual">检 索</button>
 	<button class="search-start" type="primary" bindtap="buttonSearchStart" wx:else>检 索</button>
 </view>
 
@@ -127,7 +127,6 @@
 	<view class="info">性别要求 : <text>{{DetailData.Position.sex}}</text></view>
 	<view class="info">政治面貌要求 : <text>{{DetailData.Position.zzmm}}</text></view>
 	<view class="info">最低服务年限要求 : <text>{{DetailData.Position.zdfwnx}}</text></view>
-	<view class="info">基层工作经历要求 : <text>{{DetailData.Position.gzjl}}</text></view>
 	<view class="info">体能测试或专业考试要求 : <text>{{DetailData.Position.isks}}</text></view>
 	<view class="info">部门属性 : <text>{{DetailData.Position.xitong}}</text></view>
 	<view class="info">咨询电话 : <text>{{DetailData.Position.phone}}</text></view>
@@ -144,9 +143,9 @@
 </navigator> -->
 
 <!-- 广告 小能 -->
-<navigator wx:if="{{Step===1}}" class="ad" target="miniProgram" open-type="navigate" app-id="wx5e256375813b119f" path="pages/ntalk/index{{Suffix?'?scene='+Suffix:''}}">
+<!-- <navigator wx:if="{{Step===1}}" class="ad" target="miniProgram" open-type="navigate" app-id="wx5e256375813b119f" path="pages/ntalk/index{{Suffix?'?scene='+Suffix:''}}">
 	<image mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper/public/ad-2021-sk-ntalk.jpg"></image>
-</navigator>
+</navigator> -->
 
 <!-- 逆袭计算器遮罩 -->
 <view class="cover calculator-cover" wx:if="{{OpenCalculator}}"></view>

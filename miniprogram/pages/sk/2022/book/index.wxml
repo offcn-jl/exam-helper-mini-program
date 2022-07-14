@@ -1,0 +1,17 @@
+<!-- 封面背景图 -->
+<image class="cover-image" mode="widthFix" src="{{configs.Cover ? configs.Cover : configs.CoverConfig.defaultImg}}"></image>
+
+<!-- 按钮 -->
+<!-- 获取手机号 -->
+<button class="cover-button" wx:if="{{!phone}}" open-type="getPhoneNumber" bindgetphonenumber="login">点击领取</button>
+
+<!-- 资料列表 -->
+<view class="doc-title" wx:if="{{configs.Docs && !phone}}">注册后即可在线阅读以下资料</view>
+<view class="doc-title" wx:else>点击封面即可在线阅读以下资料</view>
+<view class="doc" wx:for="{{configs.Docs}}" wx:key="index" bindtap="view" data-link="{{item.Link}}">
+  <image class="doc-image" mode="widthFix" src="{{item.Cover}}"></image>  
+  <view class="doc-name">{{item.Name}}</view> 
+</view>
+
+<!-- 个人后缀 -->
+<view class="suffix">{{suffix}}</view>

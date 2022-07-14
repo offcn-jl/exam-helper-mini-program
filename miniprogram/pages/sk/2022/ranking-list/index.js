@@ -5,9 +5,17 @@ Page({
      * 页面的初始数据
      */
     data: {
-        Suffix: "", // 后缀
+        CRMEFSID: "f577517a0eacf2704fa03e9e59cfbe8e", // CRM 活动表单 ID
+        CRMRemark: "活动编码:HD202207140249,活动表单ID:136242", // CRM 注释 小程序-2022吉林省考面试晒分系统
+
+        phone: '', // 用户手机号码
+        openid: '',  // 用户 openid
+
+        suffix: {}, // 后缀
+        suffixStr: '', // 后缀 字符串
+
         Step: 0, // 当前步骤 0, 欢迎页
-        NowYear: 2021, // 接口参数 当前年份
+        NowYear: 2022, // 接口参数 当前年份
         SearchArea: [], // 检索选项 地区
         SearchAreaIndex: -1, // 检索选项 地区 被选中的选项下标
         SearchDepartmentAttribute: [], // 检索选项 部门属性
@@ -17,7 +25,6 @@ Page({
         SearchData: {}, // 检索条件 对象 点击检索按钮后缓存 用于后续上拉刷新使用 避免切换条件后上拉刷新造成数据不一致的问题
         PositionData: {}, // 职位列表数据
         DetailData: {}, // 预约详情数据
-        Phone: -1, // 用户手机号码
         XCScore: 0, // 用户输入的晒分成绩
         SLScore: 0, // 用户输入的晒分成绩
         GAScore: 0, // 用户输入的晒分成绩
@@ -44,17 +51,14 @@ Page({
             success(res) {
                 if (res.confirm) {
                     // 弹出 Loading
-                    wx.showLoading({
-                        title: '登陆中...',
-                        mask: true
-                    })
+                    wx.showLoading({ title: '加载中...', mask: true });
                     // 获取检索条件
                     wx.request({
                         url: 'https://app.offcn.com/zwsk/wechat/zhiwei/index',
                         data: {
                             zwcode: "jl",
                             zwyear: that.data.NowYear,
-                            // sign: "b4a8b2f7z4d3n6o0hs"
+                            sign: "b4a8b2f7z4d3n6o0hs",
                         },
                         success: (res) => {
                             if (res.statusCode === 200) {
@@ -91,6 +95,7 @@ Page({
                                         timingFunc: 'easeIn'
                                     }
                                 })
+                                wx.hideLoading(); // 隐藏 loading
                             } else {
                                 app.methods.handleError({
                                     err: res,
@@ -141,66 +146,27 @@ Page({
         })
     },
 
-    /**
-     * 按钮 职位检索 检索 未登录状态
-     */
-    buttonSearchStartWhitoutSignUp: function (e) {
-        // 判断是否授权使用手机号
-        if (e.detail.errMsg !== 'getPhoneNumber:ok') {
-            app.methods.handleError({
-                err: e.detail.errMsg,
-                title: "出错啦",
-                content: "需要您使用手机号码进行登陆后才可进行检索～"
-            })
-            return
-        }
 
-        // 弹出 Loading
-        wx.showLoading({
-            title: '登陆中...',
-            mask: true
-        })
-
-        // 提交数据
-        wx.cloud.callFunction({
-            name: 'ranking-list-2021-sk-sign-up',
-            data: {
-                Environment: app.globalData.configs.environment,
-                Suffix: this.data.Suffix,
-                cloudID: wx.cloud.CloudID(e.detail.cloudID)
-            },
-            success: res => {
-                if (res.errMsg === "cloud.callFunction:ok" && res.result.code === 0) {
-                    // 保存登陆状态
-                    this.setData({
-                        Phone: res.result.Phone
-                    })
-                    // 调用检索功能
-                    this.buttonSearchStart()
-                } else {
-                    app.methods.handleError({
-                        err: res.result.error,
-                        title: "出错啦",
-                        content: res.result.error
-                    })
-                }
-                wx.hideLoading() // 隐藏 loading
-            },
-            fail: err => {
-                app.methods.handleError({
-                    err: err,
-                    title: "出错啦",
-                    content: "调用云函数出错"
-                })
-                wx.hideLoading() // 隐藏 loading
+    // 手动检查 SSO 登录状态
+    SSOCheckManual: function () {
+        getApp().methods.SSOCheckManual({
+            crmEventFormSID: this.data.CRMEFSID,
+            suffix: { suffix: this.data.suffix, suffixStr: this.data.suffixStr },
+            remark: this.data.CRMRemark,
+            callback: ({ phone, openid }) => {
+                this.setData({ phone, openid });
+                // 调用检索功能
+                this.buttonSearchStart()
             }
-        })
+        });
     },
 
     /**
      * 按钮 职位检索 检索
      */
     buttonSearchStart: function () {
+        // 弹出 Loading
+        wx.showLoading({ title: '加载中...', mask: true });
         // 检索职位
         wx.request({
             url: 'https://app.offcn.com/zwsk/wechat/zhiwei/search',
@@ -210,9 +176,20 @@ Page({
                 areaname: this.data.SearchAreaIndex === -1 ? "" : this.data.SearchArea[this.data.SearchAreaIndex],
                 xitong: this.data.SearchDepartmentAttributeIndex === -1 ? "" : this.data.SearchDepartmentAttribute[this.data.SearchDepartmentAttributeIndex],
                 danwei_name: this.data.SearchDepartmentName,
-                zhiwei_name: this.data.SearchPositionName
+                zhiwei_name: this.data.SearchPositionName,
+                sign: "b4a8b2f7z4d3n6o0hs",
             },
             success: (res) => {
+                wx.hideLoading(); // 隐藏 loading
+                // 判断是否取回数据
+                if (res.data.msg) {
+                    app.methods.handleError({
+                        err: res,
+                        title: "出错啦",
+                        content: res.data.msg
+                    })
+                    return
+                }
                 // 缓存搜索条件 用于后续上拉刷新使用 避免切换条件后上拉刷新造成数据不一致的问题
                 this.setData({
                     SearchData: {
@@ -273,8 +250,8 @@ Page({
         const db = wx.cloud.database()
 
         // 获取当前用户已经晒分的岗位
-        let myScore = await db.collection("RankingListScore2021SK").where({
-            Phone: this.data.Phone
+        let myScore = await db.collection("RankingListScore2022SK").where({
+            Phone: this.data.phone
         }).get()
         if (myScore.errMsg !== "collection.get:ok") {
             app.methods.handleError({
@@ -318,7 +295,7 @@ Page({
         const db = wx.cloud.database()
 
         // 获取当前用户已经晒分的岗位
-        let listData = await db.collection("RankingListScore2021SK").where({
+        let listData = await db.collection("RankingListScore2022SK").where({
             Department: department,
             Position: position
         }).orderBy('Score', 'desc').get()
@@ -344,7 +321,7 @@ Page({
                 delete item._id;
                 delete item._openid;
                 // 设置是否为本人的标志
-                if (item.Phone == this.data.Phone) {
+                if (item.Phone == this.data.phone) {
                     item.Self = true
                 } else {
                     item.Self = false
@@ -535,7 +512,7 @@ Page({
     },
 
     /**
-     * 辅助函数 按钮 报名本岗位
+     * 辅助函数 按钮 报名本岗位 todo
      */
     postRank: function () {
         // 弹出 Loading
@@ -546,9 +523,9 @@ Page({
 
         // 提交报名信息
         const db = wx.cloud.database()
-        db.collection("RankingListScore2021SK").where({
-                Phone: this.data.Phone
-            }).get()
+        db.collection("RankingListScore2022SK").where({
+            Phone: this.data.phone
+        }).get()
             .then(res => {
                 if (res.errMsg !== "collection.get:ok") {
                     wx.hideLoading() // 隐藏 loading
@@ -561,16 +538,16 @@ Page({
                     // 判断是否提交过晒分信息
                     if (res.data.length > 0) {
                         // 提交过, 进行更新操作
-                        db.collection("RankingListScore2021SK").where({
-                                Phone: this.data.Phone
-                            }).update({
-                                data: {
-                                    Phone: this.data.Phone,
-                                    Department: this.data.DetailData.Position.danwei_code,
-                                    Position: this.data.DetailData.Position.zhiwei_code,
-                                    Score: this.data.Score,
-                                }
-                            })
+                        db.collection("RankingListScore2022SK").where({
+                            Phone: this.data.phone
+                        }).update({
+                            data: {
+                                Phone: this.data.phone,
+                                Department: this.data.DetailData.Position.danwei_code,
+                                Position: this.data.DetailData.Position.zhiwei_code,
+                                Score: this.data.Score,
+                            }
+                        })
                             .then(res => {
                                 if (res.errMsg !== "collection.update:ok") {
                                     wx.hideLoading() // 隐藏 loading
@@ -594,14 +571,14 @@ Page({
                             })
                     } else {
                         // 没有提交过, 进行插入操作
-                        db.collection('RankingListScore2021SK').add({
-                                data: {
-                                    Phone: this.data.Phone,
-                                    Department: this.data.DetailData.Position.danwei_code,
-                                    Position: this.data.DetailData.Position.zhiwei_code,
-                                    Score: this.data.Score,
-                                }
-                            })
+                        db.collection('RankingListScore2022SK').add({
+                            data: {
+                                Phone: this.data.phone,
+                                Department: this.data.DetailData.Position.danwei_code,
+                                Position: this.data.DetailData.Position.zhiwei_code,
+                                Score: this.data.Score,
+                            }
+                        })
                             .then(res => {
                                 if (res.errMsg !== "collection.add:ok") {
                                     wx.hideLoading() // 隐藏 loading
@@ -731,17 +708,31 @@ Page({
      * 获取参数中的后缀并进行保存
      */
     onLoad: function (options) {
+        const _this = this;
+        wx.showLoading({ title: '加载中' });
         // 获取后缀
-        if (typeof options.scene !== "undefined") {
-            this.setData({
-                Suffix: options.scene
-            })
-        }
-        if (wx.getLaunchOptionsSync().scene === 1154) {
-            this.setData({
-                SinglePageMode: true
-            })
-        }
+        getApp().methods.getSuffix(options).then(res => {
+            // 保存后缀信息
+            this.setData(res);
+            // 判断是否是单页模式
+            if (wx.getLaunchOptionsSync().scene !== 1154) {
+                // 不是单页模式，进行登陆操作
+                // 获取登陆状态
+                getApp().methods.SSOCheck({
+                    crmEventFormSID: _this.data.CRMEFSID,
+                    suffix: { suffix: _this.data.suffix, suffixStr: _this.data.suffixStr },
+                    remark: _this.data.CRMRemark,
+                    callback: ({ phone, openid }) => _this.setData({ phone, openid }),
+                });
+                wx.hideLoading(); // 隐藏 loading
+            } else {
+                _this.setData({ SinglePageMode: true });
+                wx.hideLoading(); // 隐藏 loading
+            }
+        }).catch(err => {
+            wx.hideLoading(); // 隐藏 loading
+            getApp().methods.handleError({ err: err, title: "出错啦", content: '获取后缀失败', reLaunch: true });
+        });
     },
 
     /**
@@ -801,7 +792,8 @@ Page({
             url: 'https://app.offcn.com/zwsk/wechat/zhiwei/search',
             data: {
                 ...this.data.SearchData,
-                page: Number(this.data.PositionData.page) + 1
+                page: Number(this.data.PositionData.page) + 1,
+                sign: "b4a8b2f7z4d3n6o0hs",
             },
             success: (res) => {
                 if (res.statusCode === 200) {
@@ -827,7 +819,7 @@ Page({
     onShareAppMessage: function () {
         return {
             title: '省考晒分知分差',
-            imageUrl: 'http://jl.offcn.com/zg/ty/images/exam-helper/ranking-list/2021-sk-share.jpg'
+            imageUrl: 'http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/sk/2022/ranking-list/share.jpg'
         }
     },
 
@@ -836,7 +828,7 @@ Page({
      */
     onShareTimeline: function () {
         return {
-            title: '2021年吉林省公务员考试晒分知分差'
+            title: '2022年吉林省公务员考试晒分知分差'
         }
     }
 })
