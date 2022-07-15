@@ -2,6 +2,7 @@
   "pages": [   
     "pages/index/index",
     
+    "pages/sk/2022/exam/index",
     "pages/sk/2022/ranking-list/index",
     "pages/sk/2022/book/index",
     
