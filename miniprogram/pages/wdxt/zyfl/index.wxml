@@ -1,6 +1,7 @@
 <!--pages/sydw/syxcjwt/index.wxml-->
 <view style=" background:{{backgroundColor}};min-height: 100vh;">
 <image mode="widthFix" src="{{imageUrl}}"  class="banner_bk w100"></image>
+<view class="tit">{{title}}</view>
 <view class="container">
     <view class="select_wrap">
         <view class='offcn_item btn' wx:if="{{!phone}}">
