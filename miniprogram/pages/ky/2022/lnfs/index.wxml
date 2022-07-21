@@ -1,0 +1,62 @@
+<!--pages/ky/2022/lnfs/index.wxml-->
+
+<view style="background:#e9f8ff;min-height: 100vh;">
+    <image mode="widthFix" src="https://jl.offcn.com/zg/ty/images/exam-helper-mini-program/ky/lnfs/index-20220719.jpg" class="banner_bk w100"></image>
+    <view class="container">
+        <view class="select_wrap">
+            <view class='offcn_item' wx:if="{{yearList.length > 0}}">
+                <select options='{{yearList}}' icon="icon-rili" text="年份" type="year" bind:m_select_touch="m_select_touch"></select>
+            </view>
+            <view class='offcn_item' wx:if="{{provinceNameList.length > 0}}">
+                <select-search options='{{provinceNameList}}' icon="icon-dizhi" text="省份" type="provinceName" bind:m_selectSearch_touch="m_select_touch"></select-search>
+            </view>
+            <view class='offcn_item' wx:if="{{schoolList.length > 0}}">
+                <select-search options='{{schoolList}}' icon="icon-xueli" text="学校" type="school" bind:m_selectSearch_touch="m_select_touch"></select-search>
+            </view>
+            <view class='offcn_item' wx:if="{{classNameList.length > 0}}">
+                <select options='{{classNameList}}' icon="icon-bumenbaodao" text="学科门类" type="className" bind:m_select_touch="m_select_touch"></select>
+            </view>
+            <view class='offcn_item' wx:if="{{facultyList.length > 0}}">
+                <select options='{{facultyList}}' icon="icon-danwei" text="学院 ( 选填 )" type="faculty" bind:m_select_touch="m_select_touch"></select>
+            </view>
+            <view class='offcn_item' wx:if="{{courseNameList.length > 0}}">
+                <select options='{{courseNameList}}' icon="icon-zhuanyeziyuanku" text="专业名称 ( 选填 )" type="courseName" bind:m_select_touch="m_select_touch"></select>
+            </view>
+            <view class='offcn_item btn'>
+                <button wx:if="{{!phone}}" class="search_btn" bindtap="SSOCheckManual">点击查询</button>
+                <button wx:else class="search_btn" bindtap="search">点击查询</button>
+            </view>
+        </view>
+
+        <view class="resultWrap">
+            <block wx:for="{{result}}" wx:key="index">
+                <view class="result_item" bindtap="showmore" data-index="{{index}}">
+                    <text class="result_code">{{item.course_name}}</text>
+                    <view class="result_detail"><label>总分：</label>{{item.score_all}}</view>
+                    <!-- 可收放数据代码 -->
+                    <view class="item_group">
+                        <view class="item-group-wrap {{showIndex == index ? 'active' : ''}}">
+                            <view class="item_line"><label>年份：</label><text>{{item.year}}</text></view>
+                            <view class="item_line"><label>省份：</label><text>{{item.province_name}}</text></view>
+                            <view class="item_line"><label>学校名称：</label><text>{{item.school}}</text></view>
+                            <view class="item_line"><label>学科门类：</label><text>{{item.class_name}}</text></view>
+                            <view class="item_line"><label>学院名称：</label><text>{{item.faculty}}</text></view>
+                            <view class="item_line"><label>专业名称：</label><text>{{item.course_name}}</text></view>
+                            <view class="item_line"><label>政治：</label><text>{{item.politics}}</text></view>
+                            <view class="item_line"><label>外语：</label><text>{{item.english}}</text></view>
+                            <view class="item_line"><label>业务课1：</label><text>{{item.subject_1}}</text></view>
+                            <view class="item_line"><label>业务课2：</label><text>{{item.subject_2}}</text></view>
+                            <view class="item_line"><label>总分：</label><text>{{item.score_all}}</text></view>
+                        </view>
+                        <!-- 上下显示箭头 -->
+                        <view class="jiantou">
+                            <image src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/zh/yhqz/more.png" class='{{showIndex==index? "" : "active"}}'></image>
+                        </view>
+                    </view>
+                </view>
+            </block>
+            <view wx:if="{{result.length>0&&result.length<count}}" style="color:gray;text-align: center;">下拉页面可刷新数据</view>
+            <view style="color:gray;text-align: center;font-size: 80%;margin-top: 50rpx;">{{suffixStr}}</view>
+        </view>
+    </view>
+</view>

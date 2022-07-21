@@ -37,6 +37,8 @@
 	<button class="search-start" type="primary" bindtap="buttonSearchStart" wx:else>检 索</button>
 </view>
 
+<share suffix="{{suffix}}" suffixStr="{{suffixStr}}" wx:if="{{Step===1}}" style="position: fixed; bottom: 0; left: 2.5vw;"/>
+
 <!-- 提示 -->
 <text class="tap-tips" wx:if="{{PositionData.lists}}">点击心仪的职位，完成晒分后即可查看同岗位分差</text>
 

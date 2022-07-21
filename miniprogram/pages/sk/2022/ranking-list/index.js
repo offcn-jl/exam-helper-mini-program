@@ -710,7 +710,7 @@ Page({
     onLoad: function (options) {
         const _this = this;
         wx.showLoading({ title: '加载中' });
-        // 获取后缀
+        // 获取后缀信息
         getApp().methods.getSuffix(options).then(res => {
             // 保存后缀信息
             this.setData(res);
@@ -731,7 +731,7 @@ Page({
             }
         }).catch(err => {
             wx.hideLoading(); // 隐藏 loading
-            getApp().methods.handleError({ err: err, title: "出错啦", content: '获取后缀失败', reLaunch: true });
+            getApp().methods.handleError({ err: err, title: "出错啦", content: '获取后缀信息失败', reLaunch: true });
         });
     },
 

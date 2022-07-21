@@ -1,0 +1,7 @@
+/* pages/ky/2022/lnfs/index.wxss */
+
+@import "../../../wdxt/style.wxss";
+
+.container {
+    margin-top: -350rpx;
+}

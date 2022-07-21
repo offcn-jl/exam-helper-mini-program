@@ -1,0 +1,32 @@
+<!--pages/ky/2022/jzyy/index.wxml-->
+
+<view style="background:#ffd79c;min-height: 100vh;">
+    <image mode="widthFix" src="https://jl.offcn.com/zg/ty/images/exam-helper-mini-program/ky/jzyy/index.jpg" class="banner_bk w100"></image>
+    <view class="container">
+        <view class="select_wrap">
+            <view class='offcn_item'>
+                <select options='{{educationList}}' icon="icon-bumenbaodao" text="请选择学历" type="education" bind:m_select_touch="m_select_touch"></select>
+            </view>
+            <view class='offcn_item'>
+                <view class="select_content {{school ? 'active' : ''}}">
+                    <text class="iconfont icon-danwei icon_title" style="{{school ? 'color:#d32423;' : ''}}"></text>
+                    <input class="input" bindinput="inputSchool" type="text" placeholder="目标院校" style="{{school ? 'color:#d32423;' : ''}}"/>
+                </view>
+            </view>
+            <view class='offcn_item'>
+                <view class="select_content {{course ? 'active' : ''}}">
+                    <text class="iconfont icon-zhuanyemingcheng icon_title" style="{{course ? 'color:#d32423;' : ''}}"></text>
+                    <input class="input" bindinput="inputCourse" type="text" placeholder="目标专业" style="{{course ? 'color:#d32423;' : ''}}"/>
+                </view>
+            </view>
+            <view class='offcn_item btn'>
+                <button class="search_btn" bindtap="SSOCheckManual">点击预约</button>
+                <!-- <button wx:if="{{!phone}}" class="search_btn" bindtap="SSOCheckManual">点击预约</button> -->
+                <!-- <button wx:else class="search_btn" bindtap="search">点击预约</button> -->
+            </view>
+        </view>
+    </view>
+
+    <!-- 后缀 -->
+    <view class="suffix">{{suffixStr}}</view>
+</view>
