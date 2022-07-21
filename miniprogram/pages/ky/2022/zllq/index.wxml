@@ -3,7 +3,7 @@
 
 <button wx:if="{{!phone}}" class="search_btn" bindtap="SSOCheckManual">点击领取</button>
 
-<view>
+<view style="margin-bottom: 50rpx;">
     <scroll-view scroll-x="true" enable-flex="true" class="scroll-container">
         <view class="scroll-item {{scrollItemActiveIndex == index ? 'active' : ''}}" wx:for="{{bookTypeList}}" wx:key="index" data-index="{{index}}" bindtap="scrollItemOnClick">
             {{item}}
