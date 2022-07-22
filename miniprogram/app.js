@@ -223,6 +223,15 @@ App({
                                 getApp().methods.handleError({ err: res, title: "出错啦", content: res.data.errorMessage ? res.data.errorMessage : `发送请求失败，状态码：${res.statusCode}` });
                                 resolve(false)
                             } else {
+                                // 将总部默认的联系方式替换为省内的联系方式
+                                if (res.data.data.MisID === 0) {
+                                    res.data.data.MisID = 16278;
+                                    res.data.data.SobotChannelID = 79;
+                                    res.data.data.SobotGroupID = '4b695bc1e2fe45b197ad6ddf1aa2ea7e';
+                                    res.data.data.WechatWorkContactMePlugID = 'e1584dea55b27b579dd6e0a479b6faec';
+                                    res.data.data.WechatWorkQrCode = 'https://open.work.weixin.qq.com/wwopen/userQRCode?vcode=vcc523b25a56ca8f0b';
+                                    res.data.data.ConsultationPhone = '0431-81239600';
+                                }
                                 // 调用回调函数, 返回响应内容
                                 resolve(res.data.data)
                             }
