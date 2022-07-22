@@ -1,6 +1,6 @@
 {
   "pages": [   
-    "pages/sk-2022/index", 
+    "pages/appopen/photo-processing/index/index",
     
     "pages/index/index",
 
@@ -50,6 +50,7 @@
     "pages/event/2022/01/18/index", 
     "pages/event/2022/02/08/index", 
  
+    "pages/sk-2022/index", 
     "pages/gk-2022/index", 
     "pages/tgjs-2021/index", 
 
@@ -111,7 +112,6 @@
     
     "pages/appopen/simple-help-event/index",
     
-    "pages/appopen/photo-processing/index/index",
     "pages/appopen/photo-processing/configs/index",
     "pages/appopen/photo-processing/detail/index",
     "pages/appopen/photo-processing/detail/camera/index",

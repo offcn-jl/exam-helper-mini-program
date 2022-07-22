@@ -12,6 +12,9 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        wx.switchTab({ url: `/pages/appopen/photo-processing/index/index` })
+        return
+
         // 获取后缀
         if (typeof options.scene !== "undefined") {
             this.setData({
