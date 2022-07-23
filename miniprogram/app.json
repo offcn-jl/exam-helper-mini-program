@@ -1,5 +1,7 @@
 {
   "pages": [   
+
+    
     "pages/appopen/photo-processing/index/index",
     
     "pages/index/index",
@@ -12,6 +14,7 @@
     "pages/sk/2022/ranking-list/index",
     "pages/sk/2022/book/index",
     
+    "pages/wdxt/zwpp/index",    
     "pages/wdxt/syxcjwt/index",
     "pages/wdxt/lnfs/index", 
     "pages/wdxt/zyfl/index",

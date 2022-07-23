@@ -1,0 +1,11 @@
+/* pages/wdxt/lnfs-cc/index.wxss */
+@import '../style.wxss';
+
+
+
+.item_group .item_line label {
+    display: block;
+    width:100vw;
+    text-align-last:auto;
+    color: #c30014;
+}
