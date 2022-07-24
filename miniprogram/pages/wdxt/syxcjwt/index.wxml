@@ -10,7 +10,7 @@
         </view>
 
         <view class='offcn_item' wx:if="{{phone&&questionList.length > 0}}">
-            <select-search options='{{questionList}}' icon="icon-home" text="点击搜索" type="question"
+            <select-search options='{{questionList}}' icon="icon-search" text="点击搜索" type="question"
                 bind:m_selectSearch_touch="m_select_touch"></select-search>
         </view>
 

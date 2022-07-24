@@ -6,16 +6,16 @@
     <view class="container">
         <view class="select_wrap">
             <view class='offcn_item' wx:if="{{ageList.length > 0}}">
-                <select options='{{ageList}}' icon="icon-rili" text="年龄" type="age" bind:m_select_touch="m_select_touch"></select>
+                <select options='{{ageList}}' icon="icon-lianwangdanwei" text="年龄" type="age" bind:m_select_touch="m_select_touch"></select>
             </view>
 
             <view class='offcn_item' wx:if="{{educationList.length > 0}}">
-                <select options='{{educationList}}' icon="icon-rili" text="学历" type="education" bind:m_select_touch="m_select_touch"></select>
+                <select options='{{educationList}}' icon="icon-danwei" text="学历" type="education" bind:m_select_touch="m_select_touch"></select>
 
             </view>
 
             <view class='offcn_item' wx:if="{{professionalList.length > 0}}">
-                <select-search options='{{professionalList}}' icon="icon-home" text="专业" type="professional" bind:m_selectSearch_touch="m_select_touch"></select-search>
+                <select-search options='{{professionalList}}' icon="icon-renshizhuanye" text="专业" type="professional" bind:m_selectSearch_touch="m_select_touch"></select-search>
             </view>
 
 

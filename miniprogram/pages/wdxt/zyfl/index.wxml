@@ -9,7 +9,7 @@
         </view>
 
         <view class='offcn_item' wx:if="{{phone&&majorList.length > 0}}">
-            <select-search options='{{majorList}}' icon="icon-home" text="点击搜索" type="major"
+            <select-search options='{{majorList}}' icon="icon-search" text="点击搜索" type="major"
                 bind:m_selectSearch_touch="m_select_touch"></select-search>
         </view>
 

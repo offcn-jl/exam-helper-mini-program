@@ -9,7 +9,7 @@
 		</view>
 
 		<view class='offcn_item' wx:if="{{dwList.length > 0}}">
-			<select-search options='{{dwList}}' icon="icon-home" text="单位" type="dw" bind:m_selectSearch_touch="m_select_touch"></select-search>
+			<select-search options='{{dwList}}' icon="icon-icon1" text="单位" type="dw" bind:m_selectSearch_touch="m_select_touch"></select-search>
 		</view>
 		
 		<view class='offcn_item' wx:if="{{gwList.length > 0}}">
