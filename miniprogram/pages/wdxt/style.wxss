@@ -87,7 +87,7 @@ page {
 }
 
 .item-group-wrap.active {
-    max-height: 2000rpx;
+    max-height: 3000rpx;
     transition: all 1s;
     overflow: hidden;
 }
