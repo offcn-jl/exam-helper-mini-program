@@ -5,20 +5,23 @@ Page({
      * 页面的初始数据
      */
     data: {
-        title: "", // 活动名称
-        imageUrl: "", // 背景图
-        shareImages: "", // 分享图
-        CRMEFSID: "", // CRM 活动表单 ID
-        CRMRemark: "", // CRM 注释  长春事业单位历年分数线
-        actid: "", //zg99id  
-        backgroundColor: "",
-        version: "",
+        title: "2022年吉林特岗教师面试教材版本查询", // 标题
+        imageUrl: "https://jl.offcn.com/zt/ty/2022images/exam-helper-mini/tgjc.jpg", // 背景图片
+        shareImages: "https://jl.offcn.com/zt/ty/2022images/exam-helper-mini/tgjc-share.jpg", // 分享时显示的图片
+        CRMEFSID: "a273262ab115f53d9d19e5b22b0bd801", // CRM 活动表单 ID
+        CRMRemark: "活动编码:HD202207250369,活动表单ID:137858", // CRM 注释  2022年吉林特岗教师面试教材版本查询
+        actid: "49965", //zg99id 
+        backgroundColor: "#000a45",
+
 
         yearList: [],
         yearValue: '',
 
-        dwList: [],
-        dwValue: '',
+        cityList: [],
+        cityValue: '',
+
+        xdList: [],
+        xdValue: '',
 
         gwList: [],
         gwValue: '',
@@ -40,11 +43,11 @@ Page({
             case "year": //年份
                 _this.setData({
                     yearValue: _this.data.yearList[e.detail.index],
-                    dwList: [],
+                    cityList: [],
+                    xdList: [],
                     gwList: [],
 
                 })
-
                 // zg99二级联动
                 wx.request({
                     url: "https://zg99.offcn.com/index/chaxun/getlevel?actid=" + _this.data.actid, //路径
@@ -57,18 +60,16 @@ Page({
                     success(res) {
                         let response = JSON.parse(res.data.substring(1, res.data.length - 1)); //去头尾（）,转为json对象
                         // 现将之前地市选项中报考职位内容清空
-                        const dwList = []
+                        const List = []
 
-               
                         // 将数据添加到已清空的报考职位中
                         for (var i = 0; i < response.lists.length; i++) {
 
-                            dwList.push(response.lists[i].item03)
+                            List.push(response.lists[i].item02)
                         }
                         _this.setData({
-                            dwList
+                            cityList:List
                         })
-
 
                     },
                     fail: err => { //获取失败后提示
@@ -82,23 +83,67 @@ Page({
                     }
                 })
                 break
-            case "dw": //单位
+            case "city": //单位
                 _this.setData({
-                    dwValue: e.detail.text,
-                    gwList: [],      
+                    cityValue: e.detail.text,
+                    xdList: [],
+                    gwList: [],
                 })
-                // zg99四级联动
+    
                 wx.request({
                     url: "https://zg99.offcn.com/index/chaxun/getlevel?actid=" + _this.data.actid, //路径
                     data: {
                         level: '3',
+                        grfiled: 'item02',
+                        grtext: e.detail.text,
+                        onefiled: 'item01',
+                        onetext: this.data.yearValue,
+
+                        sstime: new Date().valueOf()
+                    }, //上级联动字段名，上级联动参数值
+                    success(res) {
+                        let response = JSON.parse(res.data.substring(1, res.data.length - 1)); //去头尾（）,转为json对象
+                        // console.log(response);
+                        // 现将之前地市选项中报考职位内容清空
+                        const List = []
+                        // 将数据添加到已清空地市
+                        for (var i = 0; i < response.lists.length; i++) {
+                            List.push(response.lists[i].item03)
+                        }
+                        _this.setData({
+                            xdList: List
+                        })
+                    },
+                    fail: err => { //获取失败后提示
+                        wx.hideLoading() // 隐藏 loading
+                        getApp().methods.handleError({
+                            err: err,
+                            title: "出错啦",
+                            content: '查询失败',
+                            reLaunch: true
+                        })
+                    }
+                })
+                break
+            case "xd": //单位
+                _this.setData({
+                    xdValue: e.detail.text,
+                    gwList: [],
+                })
+    
+                wx.request({
+                    url: "https://zg99.offcn.com/index/chaxun/getlevel?actid=" + _this.data.actid, //路径
+                    data: {
+                        level: '4',
                         grfiled: 'item03',
                         grtext: e.detail.text,
-                        onefiled:'item01',
-                        onetext:this.data.yearValue,
-                       
+                        onefiled: 'item01',
+                        onetext: this.data.yearValue,
+                        twofiled: 'item02',
+                        twotext: this.data.cityValue,
+
                         sstime: new Date().valueOf()
-                    }, //四级联动，上级联动字段名，上级联动参数值
+                    }, //上级联动字段名，上级联动参数值
                     success(res) {
                         let response = JSON.parse(res.data.substring(1, res.data.length - 1)); //去头尾（）,转为json对象
                         // console.log(response);
@@ -125,7 +170,7 @@ Page({
                 break
             case "gw": //岗位
                 _this.setData({
-                    gwValue:e.detail.text
+                    gwValue: e.detail.text
                 })
 
         }
@@ -163,16 +208,32 @@ Page({
             wx.showToast({title: '请选择年份',icon: 'error'})
             return
         }
-      
+        if(!_this.data.cityValue){
+            wx.showToast({title: '请选择地市',icon: 'error'})
+            return
+        }
+        if(!_this.data.xdValue){
+            wx.showToast({title: '请选学段',icon: 'error'})
+            return
+        }
+
+        if(!_this.data.gwValue){
+            wx.showToast({title: '请选岗位',icon: 'error'})
+            return
+        }
+    
         wx.showLoading({
             title: '查询中...',
             mask: true
         })
+
         wx.request({
-            url: "https://zg99.offcn.com/index/chaxun/getfzinfo?actid=" + _this.data.actid,
+            url: "https://zg99.offcn.com/index/chaxun/getfzinfo",
             data: {
+                actid:this.data.actid,
                 item01: this.data.yearValue,
-                item03: this.data.dwValue,
+                item02: this.data.cityValue,
+                item03: this.data.xdValue,
                 item04: this.data.gwValue,
                 tabnum: 2,
                 limits: 200,
@@ -194,37 +255,17 @@ Page({
                     }
                     if (list.lists.length <= 0) { //如果内容长度小于等于0，弹出无数据提示
                         wx.showToast({
-                            title: '没有查询到职位',
+                            title: '没有查询到信息',
                             icon: 'none'
                         })
                         return
                     }
 
-                    const result = [];
-                    if (list.lists) {
-                        list.lists.forEach(valueList=>{
-                            let same = false;
-                            result.forEach(valueResult=>{
-                                if (valueList.item07 == valueResult.item07) {
-                                    same = true;
-                                }
-                            });
-                            if (!same) {
-                                result.push(valueList);
-                            }
-                        })
-                    }
-                    result.forEach(valueResult=>{
-                        if (valueResult.item07 == 0) {
-                            valueResult.item07 = '暂无';
-                        }
-                    });
-
                     //数据导入data.result
                     _this.setData({
-                        result: _this.data.result.concat(result), //不替换原数据添加新数据
+                        result: _this.data.result.concat(list.lists), //不替换原数据添加新数据
                         page: (_this.data.result.concat(list.lists).length / 200) + 1, //计算分页页数
-                        count: result.length //总数量录入data
+                        count: list.total //总数量录入data
                     })
                 } catch (err) { //捕获错误并报错
                     getApp().methods.handleError({
@@ -255,25 +296,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        //console.log(options);
-        if (!options.version) {
-            getApp().methods.handleError({
-                err: null,
-                title: "出错啦",
-                content: '缺少版本号',
-                reLaunch: true
-            });
-            return
-        }
-        if (!options.actid) {
-            getApp().methods.handleError({
-                err: null,
-                title: "出错啦",
-                content: '缺少活动id',
-                reLaunch: true
-            });
-            return
-        }
+
         const _this = this;
         wx.showLoading({
             title: '加载中'
@@ -282,131 +305,68 @@ Page({
         getApp().methods.getSuffix(options).then(res => {
 
             this.setData(res);
-            // 获取活动配置
+            // 获取一级联动数据
             wx.request({
-                url: "https://zg99.offcn.com/index/chaxun/getfylist",
+                url: "https://zg99.offcn.com/index/chaxun/getlevel",
                 data: {
-                    actid: options.actid,
-                    version: options.version,
-                    tabnum: "100",
+                    actid: _this.data.actid,
+                    level: "1",
+                    grfiled: '',
+                    grtext: '',
                     sstime: new Date().valueOf()
                 },
                 success(res) {
                     try {
-                        let response = JSON.parse(res.data.substring(1, res.data.length - 1)); //去头尾（）,转为json对象
-                        if (response.status !== 1) {
-                            // 如果status不等于1，弹出错误提示
-                            getApp().methods.handleError({
-                                err: null,
-                                title: "出错啦",
-                                content: response.msg,
-                                reLaunch: true
+                        let list = JSON.parse(res.data.substring(1, res.data.length - 1)); //去头尾（）,转为json对象
+                        // console.log(list)
+                        if (list.status !== 1) {
+                            //如果status不等于1，弹出错误提示
+                            wx.showToast({
+                                title: list.msg,
+                                icon: 'none'
                             });
                             return
                         }
-                        if (response.lists.length <= 0) {
-                            // 如果内容长度小于等于0，弹出无数据提示
-                            getApp().methods.handleError({
-                                err: null,
-                                title: "出错啦",
-                                content: '没有查询到活动配置',
-                                reLaunch: true
+                        if (list.lists.length <= 0) {
+                            //如果内容长度小于等于0，弹出无数据提示
+                            wx.showToast({
+                                title: '没有查询到数据',
+                                icon: 'none'
                             });
                             return
                         }
-                        // 保存活动配置
-                        _this.setData({
-                            version: options.version,
-                            actid: options.actid,
-                            CRMEFSID: response.lists[0].CRMEFSID,
-                            imageUrl: response.lists[0].imageUrl,
-                            title: response.lists[0].title,
-                            shareImages: response.lists[0].shareImages,
-                            backgroundColor: response.lists[0].backgroundColor,
-                            CRMRemark: `${response.lists[0].title}，${options.version}`
-                        })
-                        // 获取一级联动数据
-                        wx.request({
-                            url: "https://zg99.offcn.com/index/chaxun/getlevel",
-                            data: {
-                                actid: _this.data.actid,
-                                level: "1",
-                                grfiled: '',
-                                grtext: '',
-                                sstime: new Date().valueOf()
-                            },
-                            success(res) {
-                                try {
-                                    let list = JSON.parse(res.data.substring(1, res.data.length - 1)); //去头尾（）,转为json对象
-                                    // console.log(list)
-                                    if (list.status !== 1) {
-                                        //如果status不等于1，弹出错误提示
-                                        wx.showToast({
-                                            title: list.msg,
-                                            icon: 'none'
-                                        });
-                                        return
-                                    }
-                                    if (list.lists.length <= 0) {
-                                        //如果内容长度小于等于0，弹出无数据提示
-                                        wx.showToast({
-                                            title: '没有查询到数据',
-                                            icon: 'none'
-                                        });
-                                        return
-                                    }
-                                    // 录入问题，不用提前清空，因为只进行一次获取
-                                    const yearList = [];
-                                    for (var i = 0; i < list.lists.length; i++) {
-                                        yearList.push(list.lists[i].item01)
+                        // 录入年份，不用提前清空，因为只进行一次获取
+                        const yearList = [];
+                        for (var i = 0; i < list.lists.length; i++) {
+                            yearList.push(list.lists[i].item01)
 
-                                    }
-                                    _this.setData({
-                                        yearList
-                                    })
-                                    // 判断是否是单页模式
-                                    if (wx.getLaunchOptionsSync().scene !== 1154) {
-                                        // 不是单页模式，进行登陆操作
-                                        // 获取登陆状态
-                                        getApp().methods.SSOCheck({
-                                            crmEventFormSID: _this.data.CRMEFSID,
-                                            suffix: {
-                                                suffix: _this.data.suffix,
-                                                suffixStr: _this.data.suffixStr
-                                            },
-                                            remark: _this.data.CRMRemark,
-                                            callback: ({
-                                                phone,
-                                                openid
-                                            }) => _this.setData({
-                                                phone,
-                                                openid
-                                            }),
-                                        });
-                                        wx.hideLoading(); // 隐藏 loading
-                                    } else {
-                                        wx.hideLoading(); // 隐藏 loading
-                                    }
-                                } catch (err) { //捕获错误并报错
-                                    wx.hideLoading(); // 隐藏 loading
-                                    getApp().methods.handleError({
-                                        err,
-                                        title: "出错啦",
-                                        content: '查询失败',
-                                        reLaunch: true
-                                    });
-                                }
-                            },
-                            fail: err => { //获取失败后提示
-                                wx.hideLoading(); // 隐藏 loading
-                                getApp().methods.handleError({
-                                    err: err,
-                                    title: "出错啦",
-                                    content: '查询失败',
-                                    reLaunch: true
-                                });
-                            }
-                        });
+                        }
+                        _this.setData({
+                            yearList
+                        })
+                        // 判断是否是单页模式
+                        if (wx.getLaunchOptionsSync().scene !== 1154) {
+                            // 不是单页模式，进行登陆操作
+                            // 获取登陆状态
+                            getApp().methods.SSOCheck({
+                                crmEventFormSID: _this.data.CRMEFSID,
+                                suffix: {
+                                    suffix: _this.data.suffix,
+                                    suffixStr: _this.data.suffixStr
+                                },
+                                remark: _this.data.CRMRemark,
+                                callback: ({
+                                    phone,
+                                    openid
+                                }) => _this.setData({
+                                    phone,
+                                    openid
+                                }),
+                            });
+                            wx.hideLoading(); // 隐藏 loading
+                        } else {
+                            wx.hideLoading(); // 隐藏 loading
+                        }
                     } catch (err) { //捕获错误并报错
                         wx.hideLoading(); // 隐藏 loading
                         getApp().methods.handleError({
@@ -427,6 +387,7 @@ Page({
                     });
                 }
             });
+
         }).catch(err => {
             wx.hideLoading(); // 隐藏 loading
             getApp().methods.handleError({
@@ -437,6 +398,8 @@ Page({
             });
         });
     },
+
+
 
     /**
      * 生命周期函数--监听页面初次渲染完成
@@ -477,7 +440,7 @@ Page({
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function () {
-        if (this.data.yearValue !== "" && this.data.bankValue !== "" && this.data.provenceValue !== "" && this.data.cityValue !== "" && this.data.graduatesValue !== "" && this.data.cetValue !== "" && this.data.result.length < this.data.count) {
+        if (this.data.result.length < this.data.count) {
             this.search();
         }
     },
