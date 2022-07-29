@@ -9,7 +9,7 @@ Page({
         banner_bk: "https://jl.offcn.com/zt/ty/2022images/exam-helper-mini/22tssf.jpg", // 背景图片
         imageUrl: "https://jl.offcn.com/zt/ty/2022images/exam-helper-mini/22tgsf-share.jpg", // 分享时显示的图片
         CRMEFSID: "9d116228b4c43209918fbbebd1d22ec1", // CRM 活动表单 ID
-        CRMRemark: "活动编码:HD202207250367,活动表单ID:137857", // CRM 注释  小程序-2021吉林省特岗教师晒分系统
+        CRMRemark: "活动编码:HD202207250367，2022年吉林特岗教师晒分系统", // CRM 注释  小程序-2021吉林省特岗教师晒分系统
         actid: "49949", //zg99id  2022年吉林特岗教师晒分系统
 
         cityList: [], //地市

@@ -233,7 +233,7 @@ Page({
                             title: response.lists[0].title,
                             shareImages: response.lists[0].shareImages,
                             backgroundColor: response.lists[0].backgroundColor,
-                            CRMRemark: `${response.lists[0].title}，${options.version}`,
+                            CRMRemark: `职位匹配，${response.lists[0].title}，${options.version}`,
 
                             search:response.lists[0].search.split(','),
 

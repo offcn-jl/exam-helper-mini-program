@@ -9,7 +9,7 @@ Page({
         imageUrl: "https://jl.offcn.com/zt/ty/2022images/exam-helper-mini/tgjc.jpg", // 背景图片
         shareImages: "https://jl.offcn.com/zt/ty/2022images/exam-helper-mini/tgjc-share.jpg", // 分享时显示的图片
         CRMEFSID: "a273262ab115f53d9d19e5b22b0bd801", // CRM 活动表单 ID
-        CRMRemark: "活动编码:HD202207250369,活动表单ID:137858", // CRM 注释  2022年吉林特岗教师面试教材版本查询
+        CRMRemark: "活动编码:HD202207250369，2022年吉林特岗教师面试教材版本查询", // CRM 注释  2022年吉林特岗教师面试教材版本查询
         actid: "49965", //zg99id 
         backgroundColor: "#000a45",
 

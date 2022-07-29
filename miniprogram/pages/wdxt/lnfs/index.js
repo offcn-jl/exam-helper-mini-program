@@ -323,7 +323,7 @@ Page({
                             title: response.lists[0].title,
                             shareImages: response.lists[0].shareImages,
                             backgroundColor: response.lists[0].backgroundColor,
-                            CRMRemark: `${response.lists[0].title}，${options.version}`
+                            CRMRemark: `历年分数，${response.lists[0].title}，${options.version}`
                         })
                         // 获取一级联动数据
                         wx.request({
