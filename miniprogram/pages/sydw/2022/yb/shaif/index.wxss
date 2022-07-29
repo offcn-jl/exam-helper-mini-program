@@ -1,0 +1,14 @@
+/* pages/sydw/2022/yb/shaif/index.wxss */
+@import "../../../../tgjs/2022/shaif/index.wxss";
+
+page {
+    background: #011135;
+}
+
+.container {
+    margin-top: -500rpx;
+}
+
+.banner_bk {
+    margin-top: 0;
+}
