@@ -1,0 +1,17 @@
+<!--pages/subscribe/2023/gk/gg/index.wxml-->
+<header title="{{title}}" suffix="{{suffix}}" id="header" nav></header>
+
+<block  wx:if="{{!tipsToSubscribeMessaged}}">
+	<image class="header" mode="widthFix" src="{{banner}}"></image>
+	<view class="form">
+		<view class="tips">您订阅的考试公告发布后，中公考试助手将免费通过微信“服务通知”功能为您推送公告提醒。</view>
+		<button class="subscribe" wx:if="{{CRMEFSID.length === 32 && !phone}}" type="primary"  bindtap="SSOCheckManual">请先授权注册</button>
+		<button wx:else type="primary" class="subscribe" bindtap="subscribe">一 键 预 约</button>
+	</view>
+</block>
+ 
+<image wx:else class="header" mode="widthFix" src="https://jl.offcn.com/zg/ty/images/exam-helper-mini-program/subscribe/2023/gk/gg/c29c0df4f141972c65c1ba595f323a2.jpg"></image>
+
+<view class="suffix">{{suffixStr}}</view>
+
+<navigator url="/pages/subscribe/index?{{suffixStr}}" class="unsubscribe" hover-class="unsubscribe-hover">不想继续订阅公告推送？点击退订！</navigator>
