@@ -1,10 +1,13 @@
 {
   "pages": [   
+   
     "pages/appopen/photo-processing/index/index",
     
     "pages/index/index",
 
     "pages/sydw/2022/yb/shaif/index", 
+    "pages/sydw/2022/jls/shaif/index",
+    "pages/sydw/2022/sz/shaif/index",
 
     "pages/ky/2022/lnfs/index",
     "pages/ky/2022/jzyy/index",
