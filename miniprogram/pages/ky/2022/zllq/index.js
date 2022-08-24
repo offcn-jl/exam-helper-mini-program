@@ -103,6 +103,61 @@ Page({
               "link": "https://static.kaoyan365.cn/production/book/doc/1658306658335-94574202-989d-4a6f-826d-af23694c4031.pdf"
             },
             {
+                "type": "体育考研备考锦囊",
+                "name": "体育考研择校手册1.0",
+                "link": "https://static.kaoyan365.cn/production/book/doc/1661325628852-f588422b-3dec-4e4f-b068-67e98a08fbf1.pdf"
+            },
+            {
+                "type": "体育考研备考锦囊",
+                "name": "体育硕士346必背100名词解释",
+                "link": "https://static.kaoyan365.cn/production/book/doc/1661325668187-9a792984-5a51-4881-a74d-2e4b842f7c41.pdf"
+            },
+            {
+                "type": "体育考研备考锦囊",
+                "name": "学校体育《高教版》思维导图",
+                "link": "https://static.kaoyan365.cn/production/book/doc/1661325737503-cb485040-d6a5-4980-918f-cdcf0e3e370d.pdf"
+            },
+            {
+                "type": "体育考研备考锦囊",
+                "name": "运动生理学《高教版》思维导图",
+                "link": "https://static.kaoyan365.cn/production/book/doc/1661325760145-38625437-9e58-4d5b-9c54-c1e250ca14fb.pdf"
+            },
+            {
+                "type": "体育考研备考锦囊",
+                "name": "运动生理学《人体版》思维导图",
+                "link": "https://static.kaoyan365.cn/production/book/doc/1661325803411-584fb566-9dcc-40d7-a874-36e51ee4435e.pdf"
+            },
+            {
+                "type": "体育考研备考锦囊",
+                "name": "运动训练学《人体版》思维导图",
+                "link": "https://static.kaoyan365.cn/production/book/doc/1661325833872-8fe23a40-2e2b-4b6f-9d11-220a69908785.pdf"
+            },
+            {
+                "type": "体育考研备考锦囊",
+                "name": "考研英语全程复习规划",
+                "link": "https://static.kaoyan365.cn/production/book/doc/1661325158712-7875d3fe-49ef-4f0d-9b58-d16683f234c2.pdf"
+            },
+            {
+                "type": "体育考研备考锦囊",
+                "name": "考研英语写作必考话题词集锦",
+                "link": "https://static.kaoyan365.cn/production/book/doc/1661327063839-1e25f0ec-4bb4-4e03-84bf-2e3aa7958d83.pdf"
+            },
+            {
+                "type": "体育考研备考锦囊",
+                "name": "考研英语作文必背万能句",
+                "link": "https://static.kaoyan365.cn/production/book/doc/1661325579280-bc7455b4-0d43-4a64-a946-19bf9a396d70.pdf"
+            },
+            {
+                "type": "体育考研备考锦囊",
+                "name": "中公考研院长笔记（英语）",
+                "link": "https://static.kaoyan365.cn/production/book/doc/1658307931489-28589c54-7d05-49d7-9973-e25017b96341.pdf"
+            },
+            {
+                "type": "体育考研备考锦囊",
+                "name": "中公考研院长笔记（政治）",
+                "link": "https://static.kaoyan365.cn/production/book/doc/1658307972269-d5a51fba-f5a5-4ea7-bf00-e34db9842b68.pdf"
+            },
+            {
               "type": "政治思维导图",
               "name": "哲学逻辑图-唯物史观",
               "link": "https://static.kaoyan365.cn/production/book/doc/1658311472175-68cc126a-d1fa-490c-b8e5-f4b987f3e998.pdf"
