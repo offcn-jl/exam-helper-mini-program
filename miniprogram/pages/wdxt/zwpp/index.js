@@ -100,11 +100,17 @@ Page({
             mask: true
         })
         const query = {};
-        query[this.data.search[0]] = this.data.ageValue;
-        query[this.data.search[1]] = this.data.educationValue;
-        query[this.data.search[2]] = this.data.professionalValue;
+        if (this.data.ageValue !== '全部年龄') {
+            query[this.data.search[0]] = this.data.ageValue;
+        }
+        if (this.data.educationValue !== '全部学历') {
+            query[this.data.search[1]] = this.data.educationValue;
+        }
+        if (this.data.professionalValue !== '全部专业') {
+            query[this.data.search[2]] = this.data.professionalValue;
+        }
         wx.request({
-            url: "https://zg99.offcn.com/index/chaxun/getfzinfo?actid=" + _this.data.actid,
+            url: "https://zg99.offcn.com/index/chaxun/getfylist?actid=" + _this.data.actid,
             data: {
                 ...query,
                 tabnum: 2,
@@ -135,7 +141,7 @@ Page({
                     _this.setData({
                         result: _this.data.result.concat(response.lists), //不替换原数据添加新数据
                         page: (_this.data.result.concat(response.lists).length / 200) + 1, //计算分页页数
-                        count: response.total //总数量录入data
+                        count: response.zcounts //总数量录入data
                     })
                 } catch (err) { //捕获错误并报错
                     getApp().methods.handleError({
@@ -237,9 +243,9 @@ Page({
 
                             search:response.lists[0].search.split(','),
 
-                            ageList: response.lists[0].age.split(','),
-                            educationList:  response.lists[0].education.split(','),
-                            professionalList:  response.lists[0].professional.split(','),
+                            ageList: ['全部年龄',...response.lists[0].age.split(',')],
+                            educationList:  ['全部学历',...response.lists[0].education.split(',')],
+                            professionalList:  ['全部专业',...response.lists[0].professional.split(',')],
 
                             listTitle: response.lists[0].listTitle.split(',').map(item=>{return {name: item.split('|')[0], itemName: item.split('|')[1]}}),
                             listContent: response.lists[0].listContent.split(',').map(item=>{return {name: item.split('|')[0], itemName: item.split('|')[1]}})
