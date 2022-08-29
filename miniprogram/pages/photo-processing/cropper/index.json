@@ -1,9 +1,0 @@
-{
-  "usingComponents": {
-    "header": "/components/header/header",
-    "select-photo": "/components/select-photo/select-photo",
-    "config": "../components/config/config",
-    "configs": "../components/configs/configs",
-    "cropper": "../components/cropper/cropper"
-  }
-}

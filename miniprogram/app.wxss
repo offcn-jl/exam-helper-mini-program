@@ -53,6 +53,3 @@ button.btn:after {
     display: block;
     width: 100vw !important;
 }
-
-/* 新増 底部样式 */
-@import '/components/shareWap/shareWap.wxss'

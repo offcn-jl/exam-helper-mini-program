@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "config": "../components/config/config",
-    "configs": "../components/configs/configs"
-  }
-}

@@ -43,7 +43,7 @@
     "libVersion": "2.23.4",
     "simulatorType": "wechat",
     "simulatorPluginLibVersion": {},
-    "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
+    "cloudfunctionTemplateRoot": "cloudfunctionTemplate/",
     "condition": {
         "search": {
             "list": []
@@ -60,5 +60,15 @@
         "miniprogram": {
             "list": []
         }
+    },
+    "compileType": "miniprogram",
+    "srcMiniprogramRoot": "miniprogram/",
+    "packOptions": {
+        "ignore": [],
+        "include": []
+    },
+    "editorSetting": {
+        "tabIndent": "insertSpaces",
+        "tabSize": 4
     }
 }
