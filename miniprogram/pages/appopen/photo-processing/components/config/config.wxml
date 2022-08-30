@@ -3,9 +3,9 @@
     <view class="right">
         <view class="name">{{config.name}}</view>
         <view class="detail">
-            <text>{{config.millimeterWidth}}*{{config.millimeterHeight}}mm</text>
+            <text>{{config.millimeterWidth}}*{{config.millimeterHeight}}\nmm</text>
             <text class="split"></text>
-            <text>{{config.pixelWidth}}*{{config.pixelHeight}}px</text>
+            <text>{{config.pixelWidth}}*{{config.pixelHeight}}\npx</text>
         </view>
     </view>
 </view>

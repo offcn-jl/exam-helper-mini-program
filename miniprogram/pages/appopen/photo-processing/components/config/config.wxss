@@ -27,6 +27,11 @@
     color: #3C464F;
     font-weight: bold;
     margin-bottom: 4rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 220rpx;
+    margin: 0 auto;
 }
 
 .spec .detail {
@@ -37,10 +42,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    line-height: 24rpx;
 }
 
 .spec .detail .split {
-    height: 24rpx;
+    height: 45rpx;
     border-right: 1px solid #f2f2f5;
     margin: 0 10rpx;
 }

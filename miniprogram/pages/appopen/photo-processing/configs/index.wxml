@@ -1,6 +1,6 @@
 
 <view class="header" style="margin-top: {{statusBarHeight}}px">
-    <navigator hoverClass="none" openType="navigateBack">
+    <navigator hoverClass="none" openType="navigateBack" style="width: 70rpx;text-align: center;">
         <image class="arrow" src="https://www.offcn.com/zg/wltg/2021zpjc/zg_pic12.png"></image>
     </navigator>
     <view class="tit">选规格拍照</view>
