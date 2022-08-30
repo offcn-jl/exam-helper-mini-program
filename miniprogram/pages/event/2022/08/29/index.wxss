@@ -1,0 +1,6 @@
+/* pages/event/2022/08/29/index.wxss */
+
+page {
+    background: url(https://jl.offcn.com/zg/ty/images/exam-helper-mini-program/event/2022/08/29/background.jpg) repeat-y center;
+    background-size: 100% auto;
+}

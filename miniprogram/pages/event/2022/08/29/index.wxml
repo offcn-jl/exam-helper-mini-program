@@ -1,0 +1,11 @@
+<!--pages/event/2022/08/29/index.wxml-->
+<header title="刷题打卡学习包" suffixStr="{{suffixStr}}" id="header" nav></header>
+
+<image class="w100" mode="widthFix" src="https://jl.offcn.com/zg/ty/images/exam-helper-mini-program/event/2022/08/29/1.jpg"></image>
+<image class="w100" style="width: 50vw !important;display: inline-block;margin-top: -10px;" mode="widthFix" src="https://jl.offcn.com/zg/ty/images/exam-helper-mini-program/event/2022/08/29/2.jpg" bindtap="view" data-sid="17c3d279338f112a8a00c2b013bb1a05" data-courseid="21964"></image>
+<image class="w100" style="width: 50vw !important;display: inline-block;margin-top: -10px;" mode="widthFix" src="https://jl.offcn.com/zg/ty/images/exam-helper-mini-program/event/2022/08/29/3.jpg" bindtap="view" data-sid="12d1f368bcab0656a22fbbb7cedd3620" data-courseid="21974"></image>
+<image class="w100" style="width: 50vw !important;display: inline-block;margin-top: -10px;" mode="widthFix" src="https://jl.offcn.com/zg/ty/images/exam-helper-mini-program/event/2022/08/29/4.jpg" bindtap="view" data-sid="b136949a915d4a09fd56f7aec7eff4e8" data-courseid="21973"></image>
+<image class="w100" style="width: 50vw !important;display: inline-block;margin-top: -10px;" mode="widthFix" src="https://jl.offcn.com/zg/ty/images/exam-helper-mini-program/event/2022/08/29/5.jpg" bindtap="view" data-sid="6c09a4b9b98bc862bbc58b93296b1cf5" data-courseid="21972"></image>
+<image class="w100" style="margin-top: -10px;" mode="widthFix" src="https://jl.offcn.com/zg/ty/images/exam-helper-mini-program/event/2022/08/29/6-1.jpg" bindtap="view" data-sid="db0df7d6b86cf809d9893beb7ab3ccf5" data-courseid="21965"></image>
+
+<view class="suffix">{{suffixStr}}</view>
