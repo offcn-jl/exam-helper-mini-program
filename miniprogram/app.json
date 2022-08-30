@@ -1,7 +1,5 @@
 {
   "pages": [   
-
-    "pages/appopen/photo-processing/index/index",
     "pages/index/index",
     
     "pages/jszp/2022/dlfsx/index", 
@@ -108,11 +106,6 @@
     "pages/header/index", 
     "pages/image-cuter/index", 
  
-    "pages/book/new", 
-    "pages/book-sydw1.0/index", 
-    "pages/book/index", 
-    "pages/book/web-view/index", 
- 
     "pages/web-view/index", 
     "pages/ntalk/index", 
     "pages/ad-navigate-19/index", 
@@ -122,6 +115,7 @@
     
     "pages/appopen/simple-help-event/index",
     
+    "pages/appopen/photo-processing/index/index",
     "pages/appopen/photo-processing/configs/index",
     "pages/appopen/photo-processing/detail/index",
     "pages/appopen/photo-processing/detail/camera/index",

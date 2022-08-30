@@ -7,7 +7,7 @@
             <image class="image" src="https://jl.offcn.com/zg/ty/images/exam-helper-mini-program/components/header/back.png"></image>
         </view>
         <text class="text" wx:if="{{canGoBack&&!small}}">|</text>
-        <navigator class="nav" hoverClass="none" openType="reLaunch" url="/pages/index/index{{suffix?'?scene='+suffix:''}}" wx:if="{{!(small&&canGoBack)}}">
+        <navigator class="nav" hoverClass="none" openType="reLaunch" url="/pages/index/index{{suffixStr?'?'+suffixStr:''}}" wx:if="{{!(small&&canGoBack)}}">
             <image class="image" src="https://jl.offcn.com/zg/ty/images/exam-helper-mini-program/components/header/home.png"></image>
         </navigator>
     </view>

@@ -1,6 +1,6 @@
 /* pages/sk/2022/book/index.wxss */
 
-@import '../../../book/new.wxss';
+@import './book-new.wxss';
 
 page {
     background: #c72727;

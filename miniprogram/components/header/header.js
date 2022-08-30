@@ -11,7 +11,7 @@ Component({
         showTitle: { value: true, type: Boolean },
         autoGoBack: { value: true, type: Boolean },
         alwaysShow: { value: false, type: Boolean },
-        suffix: { value: '', type: String },
+        suffixStr: { value: '', type: String },
     },
     data: {
         statusBarHeight: wx.getSystemInfoSync().statusBarHeight,

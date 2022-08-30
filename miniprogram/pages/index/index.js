@@ -5,14 +5,25 @@ Page({
      * 页面的初始数据
      */
     data: {
-        suffix: ''
+        suffix: {}, // 后缀
+        suffixStr: "", // 后缀 字符串
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        wx.switchTab({ url: `/pages/appopen/photo-processing/index/index` })
+        // 获取后缀
+        wx.showLoading({ title: '加载中' });
+        getApp().methods.getSuffix(options).then(res => {
+            // 保存后缀信息
+            this.setData(res);
+            wx.hideLoading(); // 隐藏 loading
+            wx.reLaunch({ url: `/pages/appopen/photo-processing/index/index?${res.suffixStr}` });
+        }).catch(err => {
+            wx.hideLoading(); // 隐藏 loading
+            getApp().methods.handleError({ err: err, title: "出错啦", content: '获取后缀失败', reLaunch: true });
+        });
         return
 
         // 获取后缀
