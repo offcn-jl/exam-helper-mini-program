@@ -12,6 +12,6 @@
         </navigator>
     </view>
     <slot></slot>
-    <text class="title" style="margin-right: {{small?80:0}}rpx;color:#{{small?'3C464F':'000'}}" wx:if="{{showTitle}}">{{title}}</text>
+    <text class="title" style="margin-right: {{small?80:0}}rpx;color:{{small?'#3C464F':'#000'}}" wx:if="{{showTitle}}">{{title}}</text>
 </view>
 <view wx:if="{{alwaysShow}}" class="{{!fixedTop?'fixed':''}}" style="height: calc({{statusBarHeight+44}}px)"></view>
