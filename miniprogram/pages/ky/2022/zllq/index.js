@@ -675,7 +675,7 @@ Page({
             wx.showToast({ title: '请您先点击上方按钮进行注册', icon: "none" });
             return
         }
-        wx.navigateTo({ url: '../../../book/web-view/index?downloadable=false&link=' + this.data.bookList4Show[e.currentTarget.dataset.index].link });
+        wx.navigateTo({ url: `/pages/appopen/web-view/index?src=https://static.kaoyan365.cn/book_wechat/pdf_new/web/viewer.html&locale=zh-CN&downloadable=false&file=${this.data.bookList4Show[e.currentTarget.dataset.index].link}` });
     },
 
     // 点击切换 菜单
