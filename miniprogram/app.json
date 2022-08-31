@@ -107,10 +107,6 @@
     "pages/header/index", 
     "pages/image-cuter/index", 
  
-    "pages/web-view/index", 
-    "pages/ntalk/index", 
-    "pages/ad-navigate-19/index", 
-    
     "pages/appopen/announcement/index",
     "pages/appopen/announcement/simple",
     
