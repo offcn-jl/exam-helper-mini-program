@@ -1,26 +1,6 @@
 //app.js
 App({
     onLaunch: function () {
-        if (!wx.cloud) {
-            console.error('请使用 2.2.3 或以上的基础库以使用云能力')
-        } else {
-            wx.cloud.init({
-                // env 参数说明：
-                //   env 参数决定接下来小程序发起的云开发调用（wx.cloud.xxx）会默认请求到哪个云环境的资源
-                //   此处请填入环境 ID, 环境 ID 可打开云控制台查看
-                //   如不填则使用默认环境（第一个创建的环境）
-                // env: 'my-env-id',
-                env: {
-                    // 默认环境配置，传入字符串形式的环境 ID 可以指定所有服务的默认环境，传入对象可以分别指定各个服务的默认环境
-                    // 为了便于开发和调试, 此处选择了对象形式
-                    // 但是原则上不应该在开发的过程中混用环境
-                    database: this.globalData.configs.cloudEnvironment,
-                    storage: this.globalData.configs.cloudEnvironment,
-                    functions: this.globalData.configs.cloudEnvironment
-                },
-                traceUser: true,
-            })
-        }
         // 获取用户信息
         if (wx.getStorageSync('sso-token')) {
             this.methods.requsetWithCode({
@@ -404,7 +384,6 @@ App({
                                 wx.openSetting({
                                     withSubscriptions: true,
                                     success: res => {
-                                        console.log(res)
                                         if (typeof res.subscriptionsSetting.itemSettings !== "undefined") {
                                             // 有不再提示的记录，再次进行检查
                                             handelSubscribeSettingItems(res.subscriptionsSetting.itemSettings)
@@ -424,77 +403,101 @@ App({
                     // 保存订阅记录
                     wx.showLoading({ title: '订阅中...', mask: true }) // 弹出 Loading
                     // 判断是否存在订阅记录
-                    wx.cloud.database().collection('subscribeExam').get().then(collectionGetRes => {
-                        if (collectionGetRes.errMsg == 'collection.get:ok') {
-                            // 查询成功
-                            if (collectionGetRes.data.length === 0) {
-                                // 没有预约记录, 新建预约记录
-                                wx.cloud.database().collection('subscribeExam').add({
-                                    data: { suffix, subscribe: new Array(subscribe), tmplIds, createdTime: new Date(), updatedTime: new Date() }
-                                }).then(collectionAddRes => {
-                                    if (collectionAddRes.errMsg == 'collection.add:ok') {
-                                        wx.showToast({ title: '订阅成功', icon: 'success' })
-                                        if (typeof callback === "function") {
-                                            callback()
-                                        }
-                                    } else {
-                                        wx.hideLoading() // 隐藏 loading
-                                        getApp().methods.handleError({ err: collectionAddRes, title: "出错啦", content: collectionAddRes.errMsg })
-                                    }
-                                }).catch(err => {
-                                    wx.hideLoading() // 隐藏 loading
-                                    getApp().methods.handleError({ err: err, title: "出错啦", content: "保存订阅记录失败" })
-                                })
-                            } else {
-                                // 存在预约记录, 判断是否需要更新预约记录
-                                if (collectionGetRes.data[0].suffix === suffix && collectionGetRes.data[0].subscribe.sort().toString() === new Array(subscribe).sort().toString() && collectionGetRes.data[0].tmplIds.sort().toString() === tmplIds.sort().toString()) {
-                                    // 预约记录一致, 无需更新
-                                    wx.showToast({ title: '订阅成功', icon: 'success' })
-                                    if (typeof callback === "function") {
-                                        callback()
-                                    }
-                                } else {
-                                    // 预约记录不一致
-                                    // 判断预约记录中是否有目标记录
-                                    if (collectionGetRes.data[0].subscribe.length !== 0) {
-                                        let has = false
-                                        for (let i = 0; i < collectionGetRes.data[0].subscribe.length; i++) {
-                                            if (collectionGetRes.data[0].subscribe[i] === subscribe) {
-                                                has = true
-                                                break
-                                            }
-                                        }
-                                        if (!has) {
-                                            collectionGetRes.data[0].subscribe.push(subscribe)
-                                        }
-                                    } else {
-                                        collectionGetRes.data[0].subscribe.push(subscribe)
-                                    }
-                                    wx.cloud.database().collection('subscribeExam').where({ _id: collectionGetRes.data[0]._id }).update({
-                                        data: { suffix, subscribe: collectionGetRes.data[0].subscribe, tmplIds, updatedTime: new Date() }
-                                    }).then(collectionUpdateRes => {
-                                        if (collectionUpdateRes.errMsg == 'collection.update:ok') {
-                                            wx.showToast({ title: '订阅成功', icon: 'success' })
-                                            if (typeof callback === "function") {
-                                                callback()
-                                            }
-                                        } else {
-                                            wx.hideLoading() // 隐藏 loading
-                                            getApp().methods.handleError({ err: collectionUpdateRes, title: "出错啦", content: collectionUpdateRes.errMsg })
-                                        }
-                                    }).catch(err => {
-                                        wx.hideLoading() // 隐藏 loading
-                                        getApp().methods.handleError({ err: err, title: "出错啦", content: "更新订阅记录失败" })
-                                    })
+                    // 直接尝试注册用户
+                    wx.request({
+                        url: 'https://zg99.offcn.com/index/chaxun/register',
+                        data: {
+                            sstime: new Date().valueOf(),
+                            actid: 50751,
+                            isagree: true,
+                            phone: getApp().globalData.user.info.phone,
+                            openID: getApp().globalData.user.openId,
+                            suffix: typeof suffix === 'object' ? JSON.stringify(suffix) : '{}',
+                            tmplID: typeof tmplIds === 'object' ? JSON.stringify(tmplIds) : '[]',
+                            subscribe: typeof subscribe === 'string' ? JSON.stringify(new Array(subscribe)) : '[]',
+                        },
+                        success: (res) => {
+                            let response = JSON.parse(res.data.substring(1, res.data.length - 1)) // 去头尾, 转为 JSON 对象
+                            if (response.status === 1) {
+                                // 注册成功 不存在订阅记录
+                                wx.showToast({ title: '订阅成功', icon: 'success' });
+                                if (typeof callback === "function") {
+                                    callback();
                                 }
+                            } else {
+                                // 注册失败 已存在订阅记录 查询已保存的订阅记录
+                                wx.request({
+                                    url: 'https://zg99.offcn.com/index/chaxun/getuserlist',
+                                    data: {
+                                        sstime: new Date().valueOf(),
+                                        actid: 50751,
+                                        phone: getApp().globalData.user.info.phone,
+                                        openID: getApp().globalData.user.openId,
+                                    },
+                                    success: (res) => {
+                                        let response = JSON.parse(res.data.substring(1, res.data.length - 1)) // 去头尾, 转为 JSON 对象
+                                        if (response.status !== 1) { // 如果 status 不等于1，弹出错误提示
+                                            // 失败 弹出错误提示
+                                            wx.hideLoading() // 隐藏 loading
+                                            getApp().methods.handleError({ err: response, title: "出错啦", content: response.msg })
+                                        } else {
+                                            // 存在预约记录, 判断是否需要更新预约记录
+                                            if (response.lists[0].suffix === (typeof suffix === 'object' ? JSON.stringify(suffix) : '{}') && response.lists[0].subscribe === (typeof subscribe === 'string' ? JSON.stringify(new Array(subscribe)) : '[]') && response.lists[0].tmplID === (typeof tmplIds === 'object' ? JSON.stringify(tmplIds) : '[]')) {
+                                                // 预约记录一致, 无需更新
+                                                wx.showToast({ title: '订阅成功', icon: 'success' })
+                                                if (typeof callback === "function") {
+                                                    callback()
+                                                }
+                                            } else {
+                                                // 预约记录不一致
+                                                // 判断预约记录中是否有目标记录
+                                                let currentSubscribe = [];
+                                                if (response.lists[0].subscribe !== '[]') {
+                                                    currentSubscribe = JSON.parse(response.lists[0].subscribe);
+                                                    let has = false
+                                                    for (let i = 0; i < currentSubscribe.length; i++) {
+                                                        if (currentSubscribe[i] === subscribe) {
+                                                            has = true
+                                                            break
+                                                        }
+                                                    }
+                                                    if (!has) {
+                                                        currentSubscribe.push(subscribe)
+                                                    }
+                                                } else {
+                                                    currentSubscribe.push(subscribe);
+                                                }
+                                                // 进行订阅记录更新操作
+                                                wx.request({
+                                                    url: 'https://zg99.offcn.com/index/chaxun/updateuser',
+                                                    data: {
+                                                        sstime: new Date().valueOf(),
+                                                        actid: 50751,
+                                                        phone: getApp().globalData.user.info.phone,
+                                                        suffix: typeof suffix === 'object' ? JSON.stringify(suffix) : '{}',
+                                                        tmplID: typeof tmplIds === 'object' ? JSON.stringify(tmplIds) : '[]',
+                                                        subscribe: JSON.stringify(currentSubscribe),
+                                                    },
+                                                    success: (res) => {
+                                                        let response = JSON.parse(res.data.substring(1, res.data.length - 1)) // 去头尾, 转为 JSON 对象
+                                                        if (response.status !== 1) { // 如果 status 不等于1，弹出错误提示
+                                                            // 失败 弹出错误提示
+                                                            wx.hideLoading() // 隐藏 loading
+                                                            getApp().methods.handleError({ err: response, title: "出错啦", content: response.msg })
+                                                        } else {
+                                                            wx.showToast({ title: '订阅成功', icon: 'success' })
+                                                            if (typeof callback === "function") {
+                                                                callback()
+                                                            }
+                                                        }
+                                                    }
+                                                })
+                                            }
+                                        }
+                                    }
+                                })
                             }
-                        } else {
-                            wx.hideLoading() // 隐藏 loading
-                            getApp().methods.handleError({ err: collectionGetRes, title: "出错啦", content: collectionGetRes.errMsg })
                         }
-                    }).catch(err => {
-                        wx.hideLoading() // 隐藏 loading
-                        getApp().methods.handleError({ err: err, title: "出错啦", content: "查询订阅记录失败" })
                     })
                 }
             }
@@ -593,7 +596,6 @@ App({
                                 wx.openSetting({
                                     withSubscriptions: true,
                                     success: res => {
-                                        console.log(res)
                                         if (typeof res.subscriptionsSetting.itemSettings !== "undefined") {
                                             // 有不再提示的记录，再次进行检查
                                             handelSubscribeSettingItems(res.subscriptionsSetting.itemSettings)
@@ -612,55 +614,58 @@ App({
                     wx.requestSubscribeMessage({ tmplIds })
                     // 保存订阅记录
                     wx.showLoading({ title: '订阅中...', mask: true }) // 弹出 Loading
-                    // 判断是否存在订阅记录
-                    wx.cloud.database().collection('subscribeExam').get().then(collectionGetRes => {
-                        if (collectionGetRes.errMsg == 'collection.get:ok') {
-                            // 查询成功
-                            if (collectionGetRes.data.length === 0) {
-                                // 没有预约记录, 新建预约记录
-                                wx.cloud.database().collection('subscribeExam').add({
-                                    data: {
-                                        suffix, subscribe: [
-                                            "国家公务员",
-                                            "吉林公务员",
-                                            "事业单位",
-                                            "医疗招聘",
-                                            "教师招聘",
-                                            "特岗教师",
-                                            "教师资格",
-                                            "银行考试",
-                                            "三支一扶",
-                                            "公选遴选",
-                                            "社会工作",
-                                            "会计取证",
-                                            "军队文职",
-                                            "军人考试",
-                                            "医学考试",
-                                            "农信社",
-                                            "选调生",
-                                            "招警",
-                                            "国企"
-                                        ], tmplIds, createdTime: new Date(), updatedTime: new Date()
-                                    }
-                                }).then(collectionAddRes => {
-                                    if (collectionAddRes.errMsg == 'collection.add:ok') {
-                                        wx.showToast({ title: '订阅成功', icon: 'success' })
-                                        if (typeof callback === "function") {
-                                            callback()
-                                        }
-                                    } else {
-                                        wx.hideLoading() // 隐藏 loading
-                                        getApp().methods.handleError({ err: collectionAddRes, title: "出错啦", content: collectionAddRes.errMsg })
-                                    }
-                                }).catch(err => {
-                                    wx.hideLoading() // 隐藏 loading
-                                    getApp().methods.handleError({ err: err, title: "出错啦", content: "保存订阅记录失败" })
-                                })
+                    // 直接尝试注册用户
+                    wx.request({
+                        url: 'https://zg99.offcn.com/index/chaxun/register',
+                        data: {
+                            sstime: new Date().valueOf(),
+                            actid: 50751,
+                            isagree: true,
+                            phone: getApp().globalData.user.info.phone,
+                            openID: getApp().globalData.user.openId,
+                            suffix: typeof suffix === 'object' ? JSON.stringify(suffix) : '{}',
+                            tmplID: typeof tmplIds === 'object' ? JSON.stringify(tmplIds) : '[]',
+                            subscribe: JSON.stringify([
+                                "国家公务员",
+                                "吉林公务员",
+                                "事业单位",
+                                "医疗招聘",
+                                "教师招聘",
+                                "特岗教师",
+                                "教师资格",
+                                "银行考试",
+                                "三支一扶",
+                                "公选遴选",
+                                "社会工作",
+                                "会计取证",
+                                "军队文职",
+                                "军人考试",
+                                "医学考试",
+                                "农信社",
+                                "选调生",
+                                "招警",
+                                "国企"
+                            ]),
+                        },
+                        success: (res) => {
+                            let response = JSON.parse(res.data.substring(1, res.data.length - 1)) // 去头尾, 转为 JSON 对象
+                            if (response.status === 1) {
+                                // 注册成功 不存在订阅记录
+                                wx.showToast({ title: '订阅成功', icon: 'success' });
+                                if (typeof callback === "function") {
+                                    callback();
+                                }
                             } else {
-                                // 存在预约记录, 直接更新预约记录
-                                wx.cloud.database().collection('subscribeExam').where({ _id: collectionGetRes.data[0]._id }).update({
+                                // 注册失败 已存在订阅记录 直接更新预约记录
+                                wx.request({
+                                    url: 'https://zg99.offcn.com/index/chaxun/updateuser',
                                     data: {
-                                        suffix, subscribe: [
+                                        sstime: new Date().valueOf(),
+                                        actid: 50751,
+                                        phone: getApp().globalData.user.info.phone,
+                                        suffix: typeof suffix === 'object' ? JSON.stringify(suffix) : '{}',
+                                        tmplID: typeof tmplIds === 'object' ? JSON.stringify(tmplIds) : '[]',
+                                        subscribe: JSON.stringify([
                                             "国家公务员",
                                             "吉林公务员",
                                             "事业单位",
@@ -680,30 +685,24 @@ App({
                                             "选调生",
                                             "招警",
                                             "国企"
-                                        ], tmplIds, updatedTime: new Date()
-                                    }
-                                }).then(collectionUpdateRes => {
-                                    if (collectionUpdateRes.errMsg == 'collection.update:ok') {
-                                        wx.showToast({ title: '订阅成功', icon: 'success' })
-                                        if (typeof callback === "function") {
-                                            callback()
+                                        ]),
+                                    },
+                                    success: (res) => {
+                                        let response = JSON.parse(res.data.substring(1, res.data.length - 1)) // 去头尾, 转为 JSON 对象
+                                        if (response.status !== 1) { // 如果 status 不等于1，弹出错误提示
+                                            // 失败 弹出错误提示
+                                            wx.hideLoading() // 隐藏 loading
+                                            getApp().methods.handleError({ err: response, title: "出错啦", content: response.msg })
+                                        } else {
+                                            wx.showToast({ title: '订阅成功', icon: 'success' })
+                                            if (typeof callback === "function") {
+                                                callback()
+                                            }
                                         }
-                                    } else {
-                                        wx.hideLoading() // 隐藏 loading
-                                        getApp().methods.handleError({ err: collectionUpdateRes, title: "出错啦", content: collectionUpdateRes.errMsg })
                                     }
-                                }).catch(err => {
-                                    wx.hideLoading() // 隐藏 loading
-                                    getApp().methods.handleError({ err: err, title: "出错啦", content: "更新订阅记录失败" })
                                 })
                             }
-                        } else {
-                            wx.hideLoading() // 隐藏 loading
-                            getApp().methods.handleError({ err: collectionGetRes, title: "出错啦", content: collectionGetRes.errMsg })
                         }
-                    }).catch(err => {
-                        wx.hideLoading() // 隐藏 loading
-                        getApp().methods.handleError({ err: err, title: "出错啦", content: "查询订阅记录失败" })
                     })
                 }
             }
@@ -803,7 +802,6 @@ App({
                                 wx.openSetting({
                                     withSubscriptions: true,
                                     success: res => {
-                                        console.log(res)
                                         if (typeof res.subscriptionsSetting.itemSettings !== "undefined") {
                                             // 有不再提示的记录，再次进行检查
                                             handelSubscribeSettingItems(res.subscriptionsSetting.itemSettings)
@@ -822,80 +820,104 @@ App({
                     wx.requestSubscribeMessage({ tmplIds })
                     // 保存订阅记录
                     wx.showLoading({ title: '订阅中...', mask: true }) // 弹出 Loading
-                    // 判断是否存在订阅记录
-                    wx.cloud.database().collection('subscribeExam').get().then(collectionGetRes => {
-                        if (collectionGetRes.errMsg == 'collection.get:ok') {
-                            // 查询成功
-                            if (collectionGetRes.data.length === 0) {
-                                // 没有预约记录, 新建预约记录
-                                wx.cloud.database().collection('subscribeExam').add({
-                                    data: { suffix, subscribe, tmplIds, createdTime: new Date(), updatedTime: new Date() }
-                                }).then(collectionAddRes => {
-                                    if (collectionAddRes.errMsg == 'collection.add:ok') {
-                                        wx.showToast({ title: '订阅成功', icon: 'success' })
-                                        if (typeof callback === "function") {
-                                            callback()
-                                        }
-                                    } else {
-                                        wx.hideLoading() // 隐藏 loading
-                                        getApp().methods.handleError({ err: collectionAddRes, title: "出错啦", content: collectionAddRes.errMsg })
-                                    }
-                                }).catch(err => {
-                                    wx.hideLoading() // 隐藏 loading
-                                    getApp().methods.handleError({ err: err, title: "出错啦", content: "保存订阅记录失败" })
-                                })
-                            } else {
-                                // 存在预约记录, 判断是否需要更新预约记录
-                                if (collectionGetRes.data[0].suffix === suffix && collectionGetRes.data[0].subscribe.sort().toString() === new Array(subscribe).sort().toString() && collectionGetRes.data[0].tmplIds.sort().toString() === tmplIds.sort().toString()) {
-                                    // 预约记录一致, 无需更新
-                                    wx.showToast({ title: '订阅成功', icon: 'success' })
-                                    if (typeof callback === "function") {
-                                        callback()
-                                    }
-                                } else {
-                                    // 预约记录不一致
-                                    // 判断预约记录中是否有目标记录
-                                    if (collectionGetRes.data[0].subscribe.length !== 0) {
-                                        subscribe.forEach(item => {
-                                            let has = false
-                                            for (let i = 0; i < collectionGetRes.data[0].subscribe.length; i++) {
-                                                if (collectionGetRes.data[0].subscribe[i] === item) {
-                                                    has = true
-                                                    break
-                                                }
-                                            }
-                                            if (!has) {
-                                                collectionGetRes.data[0].subscribe.push(item)
-                                            }
-                                        })
-                                    } else {
-                                        collectionGetRes.data[0].subscribe.push(subscribe)
-                                    }
-                                    wx.cloud.database().collection('subscribeExam').where({ _id: collectionGetRes.data[0]._id }).update({
-                                        data: { suffix, subscribe: collectionGetRes.data[0].subscribe, tmplIds, updatedTime: new Date() }
-                                    }).then(collectionUpdateRes => {
-                                        if (collectionUpdateRes.errMsg == 'collection.update:ok') {
-                                            wx.showToast({ title: '订阅成功', icon: 'success' })
-                                            if (typeof callback === "function") {
-                                                callback()
-                                            }
-                                        } else {
-                                            wx.hideLoading() // 隐藏 loading
-                                            getApp().methods.handleError({ err: collectionUpdateRes, title: "出错啦", content: collectionUpdateRes.errMsg })
-                                        }
-                                    }).catch(err => {
-                                        wx.hideLoading() // 隐藏 loading
-                                        getApp().methods.handleError({ err: err, title: "出错啦", content: "更新订阅记录失败" })
-                                    })
+                    
+                    // 直接尝试注册用户
+                    wx.request({
+                        url: 'https://zg99.offcn.com/index/chaxun/register',
+                        data: {
+                            sstime: new Date().valueOf(),
+                            actid: 50751,
+                            isagree: true,
+                            phone: getApp().globalData.user.info.phone,
+                            openID: getApp().globalData.user.openId,
+                            suffix: typeof suffix === 'object' ? JSON.stringify(suffix) : '{}',
+                            tmplID: typeof tmplIds === 'object' ? JSON.stringify(tmplIds) : '[]',
+                            subscribe: typeof subscribe === 'string' ? JSON.stringify(subscribe) : '[]',
+                        },
+                        success: (res) => {
+                            let response = JSON.parse(res.data.substring(1, res.data.length - 1)) // 去头尾, 转为 JSON 对象
+                            if (response.status === 1) {
+                                // 注册成功 不存在订阅记录
+                                wx.showToast({ title: '订阅成功', icon: 'success' });
+                                if (typeof callback === "function") {
+                                    callback();
                                 }
+                            } else {
+                                // 注册失败 已存在订阅记录 查询已保存的订阅记录
+                                wx.request({
+                                    url: 'https://zg99.offcn.com/index/chaxun/getuserlist',
+                                    data: {
+                                        sstime: new Date().valueOf(),
+                                        actid: 50751,
+                                        phone: getApp().globalData.user.info.phone,
+                                        openID: getApp().globalData.user.openId,
+                                    },
+                                    success: (res) => {
+                                        let response = JSON.parse(res.data.substring(1, res.data.length - 1)) // 去头尾, 转为 JSON 对象
+                                        if (response.status !== 1) { // 如果 status 不等于1，弹出错误提示
+                                            // 失败 弹出错误提示
+                                            wx.hideLoading() // 隐藏 loading
+                                            getApp().methods.handleError({ err: response, title: "出错啦", content: response.msg })
+                                        } else {
+                                            // 存在预约记录, 判断是否需要更新预约记录
+                                            if (response.lists[0].suffix === (typeof suffix === 'object' ? JSON.stringify(suffix) : '{}') && response.lists[0].subscribe === (typeof subscribe === 'string' ? JSON.stringify(new Array(subscribe)) : '[]') && response.lists[0].tmplID === (typeof tmplIds === 'object' ? JSON.stringify(tmplIds) : '[]')) {
+                                                // 预约记录一致, 无需更新
+                                                wx.showToast({ title: '订阅成功', icon: 'success' })
+                                                if (typeof callback === "function") {
+                                                    callback()
+                                                }
+                                            } else {
+                                                // 预约记录不一致
+                                                // 判断预约记录中是否有目标记录
+                                                let currentSubscribe = [];
+                                                if (response.lists[0].subscribe !== '[]') {
+                                                    currentSubscribe = JSON.parse(response.lists[0].subscribe);
+                                                    subscribe.forEach(item => {
+                                                        let has = false
+                                                        for (let i = 0; i < currentSubscribe.length; i++) {
+                                                            if (currentSubscribe[i] === item) {
+                                                                has = true
+                                                                break
+                                                            }
+                                                        }
+                                                        if (!has) {
+                                                            currentSubscribe.push(item)
+                                                        }
+                                                    })
+                                                } else {
+                                                    currentSubscribe.push(subscribe);
+                                                }
+                                                // 进行订阅记录更新操作
+                                                wx.request({
+                                                    url: 'https://zg99.offcn.com/index/chaxun/updateuser',
+                                                    data: {
+                                                        sstime: new Date().valueOf(),
+                                                        actid: 50751,
+                                                        phone: getApp().globalData.user.info.phone,
+                                                        suffix: typeof suffix === 'object' ? JSON.stringify(suffix) : '{}',
+                                                        tmplID: typeof tmplIds === 'object' ? JSON.stringify(tmplIds) : '[]',
+                                                        subscribe: JSON.stringify(currentSubscribe),
+                                                    },
+                                                    success: (res) => {
+                                                        let response = JSON.parse(res.data.substring(1, res.data.length - 1)) // 去头尾, 转为 JSON 对象
+                                                        if (response.status !== 1) { // 如果 status 不等于1，弹出错误提示
+                                                            // 失败 弹出错误提示
+                                                            wx.hideLoading() // 隐藏 loading
+                                                            getApp().methods.handleError({ err: response, title: "出错啦", content: response.msg })
+                                                        } else {
+                                                            wx.showToast({ title: '订阅成功', icon: 'success' })
+                                                            if (typeof callback === "function") {
+                                                                callback()
+                                                            }
+                                                        }
+                                                    }
+                                                })
+                                            }
+                                        }
+                                    }
+                                })
                             }
-                        } else {
-                            wx.hideLoading() // 隐藏 loading
-                            getApp().methods.handleError({ err: collectionGetRes, title: "出错啦", content: collectionGetRes.errMsg })
                         }
-                    }).catch(err => {
-                        wx.hideLoading() // 隐藏 loading
-                        getApp().methods.handleError({ err: err, title: "出错啦", content: "查询订阅记录失败" })
                     })
                 }
             }

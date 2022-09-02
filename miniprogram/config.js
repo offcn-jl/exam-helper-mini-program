@@ -9,8 +9,6 @@ const environment = wx.getAccountInfoSync().miniProgram.envVersion ? wx.getAccou
 module.exports = {
   // 运行环境
   environment,
-  // 云开发运行环境
-  cloudEnvironment: environment === "release" ? "release-yum30" : "test-unokj",
   // 本小程序的 AppID
   appid: 'wx5e256375813b119f',
   // 本小程序的 原始ID
