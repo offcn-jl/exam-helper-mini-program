@@ -25,6 +25,4 @@ module.exports = {
     gaea: "https://api.offcn.ltd/test",
     base: "https://wt-backend.t.eoffcn.com/apis/wechat/mini-program",
   },
-  // 引入保密配置项
-  ...(environment === "release" ? require("./config.secrets").release : require("./config.secrets").test)
 }
