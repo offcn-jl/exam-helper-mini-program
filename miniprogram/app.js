@@ -82,11 +82,11 @@ App({
         /**
          * requsetWithCode 公共函数 携带用户 code 发起请求
          * 通常用于需要验证用户身份的接口
-         * @param {*} path 请求路径
-         * @param {*} method 请求方法
-         * @param {*} data 请求要提交的数据 按照 method 自动适应
-         * @param {*} queryData 请求 method = post 时, 需额外附加的 query data, 将会自动拼接到 query string 中
-         * @param {*} callback 回调函数
+         * @param {Object} path 请求路径
+         * @param {String} method 请求方法
+         * @param {Object} data 请求要提交的数据 按照 method 自动适应
+         * @param {Object} queryData 请求 method = post 时, 需额外附加的 query data, 将会自动拼接到 query string 中
+         * @param {Function} callback 回调函数
          */
         requsetWithCode: ({ path, method = 'GET', data, queryData, callback }) => {
             // 将 queryData 对象转换为 queryString
@@ -129,7 +129,8 @@ App({
         },
 
         /**
-         * getSuffix 获取后缀信息
+         * getSuffix 公共函数 获取后缀信息
+         * @param {Object} options 页面 onLoad 函数的 options 参数
          */
         async getSuffix(options) {
             // options.misid = 3118 // 测试参数
@@ -201,7 +202,10 @@ App({
             return { suffix, suffixStr };
         },
 
-        // getContactInformation 获取推广信息
+        /**
+         * getContactInformation 获取推广信息
+         * @param {Object} suffixInfo 后缀信息 格式为 { suffix: {}, suffixStr: ''}
+         */
         async getContactInformation(suffixInfo) {
             const requestData = {};
             if (suffixInfo.suffix.owner) {
@@ -248,7 +252,14 @@ App({
             return await sendRequset();
         },
 
-        // push2crm 推送数据到 crm
+        /**
+         * push2crm 推送数据到 crm
+         * @param {Object} param0 参数对象 格式为 { phone: '', crmEventFormSID: '', suffix: {}, remark: '' }
+         * @param0 {String} phone 手机号码
+         * @param0 {String} crmEventFormSID CRM 活动表单 SID
+         * @param0 {Object} suffix 后缀信息
+         * @param0 {String} remark 备注
+         */
         push2crm({ phone, crmEventFormSID, suffix, remark }) {
             if (phone && crmEventFormSID) {
                 // 推送数据
@@ -260,10 +271,11 @@ App({
 
         /**
          * newLoginCheck 公共函数 检查登陆状态
-         * @param {*} crmEventFormSID CRM 活动表单 SID
-         * @param {*} suffix 后缀信息
-         * @param {*} remark 备注
-         * @param {*} callback 回调函数
+         * @param {Object} param0 参数对象 格式为 { crmEventFormSID: '', suffix: {}, remark: '', callback: ()=> {} }
+         * @param0 {String} crmEventFormSID CRM 活动表单 SID
+         * @param0 {String} suffix 后缀信息
+         * @param0 {Object} remark 备注
+         * @param0 {String} callback 回调函数
          */
         newLoginCheck({ crmEventFormSID, suffix, remark, callback }) {
             getApp().methods.requsetWithCode({
@@ -275,11 +287,12 @@ App({
 
         /**
          * newLogin 公共函数 登陆
-         * @param {*} event 按钮点击事件
-         * @param {*} crmEventFormSID CRM 活动表单 SID
-         * @param {*} suffix 后缀信息
-         * @param {*} remark 备注
-         * @param {*} callback 回调函数
+         * @param {Object} param0 参数对象 格式为 { event: {}, crmEventFormSID: '', suffix: {}, remark: '', callback: ()=> {} }
+         * @param0 {Object} event 按钮点击事件
+         * @param0 {String} crmEventFormSID CRM 活动表单 SID
+         * @param0 {Object} suffix 后缀信息
+         * @param0 {String} remark 备注
+         * @param0 {Function} callback 回调函数
          */
         newLogin({ event, crmEventFormSID, suffix, remark, callback }) {
             // 判断是否授权使用手机号
@@ -298,205 +311,10 @@ App({
         },
 
         /**
-         * 注册
-         * 注册信息不会推送到 CRM
-         * 注册成功后会执行回调
-         * @param {*} event 
-         * @param {*} suffix 
-         * @param {*} remark 
-         */
-        registerWithoutPush(event, suffix, remark, callback) {
-            // 判断是否授权使用手机号
-            if (event.detail.errMsg !== 'getPhoneNumber:ok') {
-                getApp().methods.handleError({
-                    err: event.detail.errMsg,
-                    title: "出错啦",
-                    content: "需要您同意授权获取手机号码后才能完成注册～"
-                })
-                return
-            }
-
-            // 弹出 Loading
-            wx.showLoading({ title: '注册中...', mask: true })
-
-            // 提交 cloudID, 换取手机号
-            wx.cloud.callFunction({
-                name: 'register-without-push',
-                data: {
-                    cloudID: wx.cloud.CloudID(event.detail.cloudID)
-                },
-                success: cloudFunctionRes => {
-                    if (cloudFunctionRes.errMsg === "cloud.callFunction:ok") {
-                        if (cloudFunctionRes.result.msg !== "Success") {
-                            wx.hideLoading() // 隐藏 loading
-                            getApp().methods.handleError({ err: cloudFunctionRes.result, title: "出错啦", content: cloudFunctionRes.result.msg })
-                        } else {
-                            // 保存注册记录到数据库
-                            wx.cloud.database().collection('user').add({
-                                data: { phone: cloudFunctionRes.result.phone, createdTime: new Date(), suffix, remark }
-                            }).then(collectionAddRes => {
-                                if (collectionAddRes.errMsg == 'collection.add:ok') {
-                                    wx.hideLoading() // 隐藏 loading
-                                    callback(cloudFunctionRes.result.phone) // 操作成功
-                                } else {
-                                    wx.hideLoading() // 隐藏 loading
-                                    getApp().methods.handleError({
-                                        err: collectionAddRes,
-                                        title: "出错啦",
-                                        content: collectionAddRes.errMsg
-                                    })
-                                }
-                            }).catch(err => {
-                                wx.hideLoading() // 隐藏 loading
-                                getApp().methods.handleError({
-                                    err: err,
-                                    title: "出错啦",
-                                    content: "创建用户失败"
-                                })
-                            })
-                        }
-                    } else {
-                        wx.hideLoading() // 隐藏 loading
-                        getApp().methods.handleError({
-                            err: callFunctionRes.result.error,
-                            title: "出错啦",
-                            content: callFunctionRes.result.error
-                        })
-                    }
-                },
-                fail: err => {
-                    wx.hideLoading() // 隐藏 loading
-                    getApp().methods.handleError({ err: err, title: "出错啦", content: "调用注册云函数出错" })
-                }
-            })
-        },
-        /**
-         * 注册
-         * 注册信息会推送到 CRM
-         * 注册成功后会执行回调
-         * @param {*} event 
-         * @param {*} suffix 
-         * @param {*} CRMEFSID 
-         * @param {*} remark 
-         * @param {*} callback 
-         */
-        register(event, suffix, CRMEFSID, remark, callback) {
-            // 判断是否授权使用手机号
-            if (event.detail.errMsg !== 'getPhoneNumber:ok') {
-                getApp().methods.handleError({
-                    err: event.detail.errMsg,
-                    title: "出错啦",
-                    content: "需要您同意授权获取手机号码后才能完成注册～"
-                })
-                return
-            }
-
-            // 弹出 Loading
-            wx.showLoading({
-                title: '注册中...',
-                mask: true
-            })
-
-            // 提交 cloudID, 换取手机号并推送 CRM
-            wx.cloud.callFunction({
-                name: 'register',
-                data: { cloudID: wx.cloud.CloudID(event.detail.cloudID), environment: getApp().globalData.configs.environment, suffix, CRMEFSID, remark },
-                success: cloudFunctionRes => {
-                    if (cloudFunctionRes.errMsg === "cloud.callFunction:ok") {
-                        if (cloudFunctionRes.result.msg !== "Success") {
-                            wx.hideLoading() // 隐藏 loading
-                            getApp().methods.handleError({ err: cloudFunctionRes.result, title: "出错啦", content: cloudFunctionRes.result.msg })
-                        } else {
-                            // 保存注册记录到数据库
-                            wx.cloud.database().collection('user').add({
-                                data: { phone: cloudFunctionRes.result.phone, createdTime: new Date(), suffix, CRMEFSID, remark }
-                            }).then(collectionAddRes => {
-                                if (collectionAddRes.errMsg == 'collection.add:ok') {
-                                    // 操作成功
-                                    wx.hideLoading() // 隐藏 loading
-                                    callback(cloudFunctionRes.result.phone)
-                                } else {
-                                    wx.hideLoading() // 隐藏 loading
-                                    getApp().methods.handleError({
-                                        err: collectionAddRes, title: "出错啦", content: collectionAddRes.errMsg
-                                    })
-                                }
-                            }).catch(err => {
-                                wx.hideLoading() // 隐藏 loading
-                                getApp().methods.handleError({ err: err, title: "出错啦", content: "创建用户失败" })
-                            })
-                        }
-                    } else {
-                        wx.hideLoading() // 隐藏 loading
-                        getApp().methods.handleError({ err: callFunctionRes.result.error, title: "出错啦", content: callFunctionRes.result.error })
-                    }
-                },
-                fail: err => {
-                    wx.hideLoading() // 隐藏 loading
-                    getApp().methods.handleError({ err: err, title: "出错啦", content: "调用注册云函数出错" })
-                }
-            })
-        },
-        /**
-         * 登陆 查询数据库获取注册状态
-         * 登陆成功后会执行回调
-         * @param {*} callback 
-         */
-        login(CRMEFSID, suffix, remark, callback) {
-            // 查询注册状态
-            // 弹出 Loading
-            wx.showLoading({ title: '登陆中...', mask: true })
-            // 查询注册时间为近30天的数据，仅查询手机号码
-            wx.cloud.database().collection('user').field({ phone: true, CRMEFSID: true }).where({ createdTime: wx.cloud.database().command.gte(new Date((new Date()).getTime() - 30 * 24 * 60 * 60 * 1000)) }).get({
-                success: res => {
-                    // 判断是否查询成功
-                    if (res.errMsg === "collection.get:ok") {
-                        // 判断是否存在数据
-                        if (res.data.length > 0) {
-                            // 存在数据
-                            // 判断是否推送过数据
-                            if (CRMEFSID !== "" && res.data[0].CRMEFSID !== CRMEFSID) {
-                                // 与注册日志中的记录不符，视为未推送, 进行推送操作
-                                wx.request({
-                                    url: 'https://scf.tencent.jilinoffcn.com/release/sso/v2/crm/push', //仅为示例，并非真实的接口地址
-                                    method: "POST",
-                                    data: { CRMSID: CRMEFSID, Suffix: suffix, Phone: res.data[0].phone, Remark: remark },
-                                    success(pushRes) {
-                                        if (pushRes.data.Code !== 0) {
-                                            // 推送失败
-                                            // 将返回的报错输出到错误提示
-                                            getApp().methods.handleError({ err: pushRes, title: "出错啦", content: '[ ' + pushRes.data.Code + '] ' + pushRes.data.Error })
-                                        } else {
-                                            // 推送成功
-                                            // 调用回调函数, 返回已经注册用户的手机号码
-                                            callback(res.data[0].phone)
-                                        }
-                                    },
-                                    fail: err => getApp().methods.handleError({ err, title: "出错啦", content: '推送登陆状态失败' })
-                                })
-                            } else {
-                                // 与注册日志中的记录一致，可以认为已经推送过数据，跳过推送操作
-                                // 调用回调函数, 返回已经注册用户的手机号码
-                                callback(res.data[0].phone)
-                            }
-                        }
-                        wx.hideLoading() // 隐藏 loading
-                    } else {
-                        getApp().methods.handleError({ err: res, title: "出错啦", content: res.errMsg })
-                        wx.hideLoading() // 隐藏 loading
-                    }
-                },
-                fail: err => {
-                    getApp().methods.handleError({ err: err, title: "出错啦", content: '查询注册状态失败' })
-                    wx.hideLoading() // 隐藏 loading
-                }
-            })
-        },
-        /**
          * 订阅单项考试的考试公告
-         * @param {*} suffix 个人后缀
-         * @param {*} subscribe 要订阅的考试项目
-         * @param {*} tmplIds 订阅消息模板 ID
+         * @param {Object} suffix 个人后缀
+         * @param {String} subscribe 要订阅的考试项目
+         * @param {Array} tmplIds 订阅消息模板 ID
          */
         subscribeSingleExam(suffix, subscribe, tmplIds = ["Ff-Mi9uy4hb9YxYiYgAwOSlGEXgqTkkoIi5sUsOtaao"], callback) {
             // 获取用户配置
@@ -681,10 +499,11 @@ App({
                 }
             }
         },
+
         /**
          * 订阅所有考试的考试公告
-         * @param {*} suffix 个人后缀
-         * @param {*} tmplIds 订阅消息模板 ID
+         * @param {Object} suffix 个人后缀
+         * @param {Array} tmplIds 订阅消息模板 ID
          */
         subscribeAllExam(suffix, tmplIds = ["Ff-Mi9uy4hb9YxYiYgAwOSlGEXgqTkkoIi5sUsOtaao"], callback) {
             // 获取用户配置
@@ -889,11 +708,12 @@ App({
                 }
             }
         },
+
         /**
          * 订阅考试公告
-         * @param {*} suffix 个人后缀
-         * @param {*} subscribe 要订阅的考试项目
-         * @param {*} tmplIds 订阅消息模板 ID
+         * @param {Object} suffix 个人后缀
+         * @param {Array} subscribe 要订阅的考试项目
+         * @param {Object} tmplIds 订阅消息模板 ID
          */
         subscribeExam(suffix, subscribe, tmplIds = ["Ff-Mi9uy4hb9YxYiYgAwOSlGEXgqTkkoIi5sUsOtaao"], callback) {
             // 获取用户配置
@@ -1083,9 +903,9 @@ App({
 
         /**
          * 获取腾讯云签名
-         * @param {*} host 服务域名
-         * @param {*} payload 请求内容
-         * @param {*} callback 回调函数
+         * @param {String} host 服务域名
+         * @param {Blob} payload 请求内容
+         * @param {Function} callback 回调函数
          */
         getTencentCloudSign(host, payload, callback) {
             getApp().methods.requsetWithCode({
@@ -1106,10 +926,11 @@ App({
 
         /**
            * SSOCheck 公共函数 SSO 检查登陆状态
-           * @param {*} crmEventFormSID CRM 活动表单 SID
-           * @param {*} suffix 后缀信息
-           * @param {*} remark 备注
-           * @param {*} callback 回调函数
+           * @param {Object} param0 参数对象 格式为 { crmEventFormSID: '', suffix: {}, remark: '', callback: ()=> {} }
+           * @param0 {String} crmEventFormSID CRM 活动表单 SID
+           * @param0 {Object} suffix 后缀信息
+           * @param0 {String} remark 备注
+           * @param0 {Function} callback 回调函数
            */
         SSOCheck({ crmEventFormSID, suffix, remark, callback }) {
             const timer = setInterval(() => {
@@ -1125,10 +946,11 @@ App({
 
         /**
            * loginCheck 公共函数 SSO 检查登陆状态 手动触发
-           * @param {*} crmEventFormSID CRM 活动表单 SID
-           * @param {*} suffix 后缀信息
-           * @param {*} remark 备注
-           * @param {*} callback 回调函数
+           * @param {Object} param0 参数对象 格式为 { crmEventFormSID: '', suffix: {}, remark: '', callback: ()=> {} }
+           * @param0 {String} crmEventFormSID CRM 活动表单 SID
+           * @param0 {Object} suffix 后缀信息
+           * @param0 {String} remark 备注
+           * @param0 {Function} callback 回调函数
            */
         SSOCheckManual({ crmEventFormSID, suffix, remark, callback }) {
             if (!getApp().globalData.user.username) {
