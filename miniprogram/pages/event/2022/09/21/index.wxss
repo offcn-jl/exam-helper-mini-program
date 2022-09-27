@@ -1,0 +1,7 @@
+/* pages/event/2022/09/21/index.wxss */
+
+@import "../../../../wdxt/style.wxss";
+
+.container {
+    margin-top: -890rpx;
+}

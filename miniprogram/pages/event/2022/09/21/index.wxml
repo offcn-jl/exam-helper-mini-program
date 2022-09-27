@@ -1,0 +1,52 @@
+<!--pages/event/2022/09/21/index.wxml-->
+
+<view style="background:#e9f8ff;min-height: 100vh;">
+    <image mode="widthFix" src="https://jl.offcn.com/zg/ty/images/exam-helper-mini-program/event/2022/09/21/index.jpg" class="banner_bk w100"></image>
+    <view class="container">
+        <view class="select_wrap">
+            <view class='offcn_item' wx:if="{{projectList.length > 0}}">
+                <select options='{{projectList}}' icon="icon-zhengzhi-tianchong" text="项目" type="project" bind:m_select_touch="m_select_touch"></select>
+            </view>
+            <view class='offcn_item' wx:if="{{yearList.length > 0}}">
+                <select options='{{yearList}}' icon="icon-rili" text="年份" type="year" bind:m_select_touch="m_select_touch"></select>
+            </view>
+            <view class='offcn_item' wx:if="{{educationList.length > 0}}">
+                <select options='{{educationList}}' icon="icon-xueli" text="学历" type="education" bind:m_select_touch="m_select_touch"></select>
+            </view>
+            <view class='offcn_item' wx:if="{{majorList.length > 0}}">
+                <select-search options='{{majorList}}' icon="icon-zhuanyeziyuanku" text="专业" type="major" bind:m_selectSearch_touch="m_select_touch"></select-search>
+            </view>
+            <view class='offcn_item btn'>
+                <button wx:if="{{!phone}}" class="search_btn" bindtap="SSOCheckManual">点击查询</button>
+                <button wx:else class="search_btn" bindtap="search">点击查询</button>
+            </view>
+        </view>
+
+        <view class="resultWrap">
+            <block wx:for="{{result}}" wx:key="index">
+                <view class="result_item" bindtap="showmore" data-index="{{index}}">
+                    <text class="result_code">{{item.department}}</text>
+                    <view class="result_detail">{{item.position}}</view>
+                    <!-- 可收放数据代码 -->
+                    <view class="item_group">
+                        <view class="item-group-wrap {{showIndex == index ? 'active' : ''}}">
+                            <view class="item_line"><label>年份：</label><text>{{item.year}}</text></view>
+                            <view class="item_line"><label>项目：</label><text>{{item.myProject}}</text></view>
+                            <view class="item_line"><label>部门：</label><text>{{item.department}}</text></view>
+                            <view class="item_line"><label>职位：</label><text>{{item.position}}</text></view>
+                            <view class="item_line"><label>招考人数：</label><text>{{item.num}}</text></view>
+                            <view class="item_line"><label>学历：</label><text>{{item.education}}</text></view>
+                            <view class="item_line"><label>专业：</label><text>{{item.major}}</text></view>
+                        </view>
+                        <!-- 上下显示箭头 -->
+                        <view class="jiantou">
+                            <image src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/zh/yhqz/more.png" class='{{showIndex==index? "" : "active"}}'></image>
+                        </view>
+                    </view>
+                </view>
+            </block>
+            <view wx:if="{{result.length>0&&result.length<count}}" style="color:gray;text-align: center;">下拉页面可刷新数据</view>
+            <view style="color:gray;text-align: center;font-size: 80%;margin-top: 50rpx;">{{suffixStr}}</view>
+        </view>
+    </view>
+</view>
