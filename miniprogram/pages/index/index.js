@@ -19,7 +19,7 @@ Page({
             // 保存后缀信息
             this.setData(res);
             wx.hideLoading(); // 隐藏 loading
-            wx.reLaunch({ url: `/pages/appopen/photo-processing/index/index?${res.suffixStr}` });
+            wx.reLaunch({ url: `/pages/subscribe/2023/gk/gg/index?${res.suffixStr}` });
         }).catch(err => {
             wx.hideLoading(); // 隐藏 loading
             getApp().methods.handleError({ err: err, title: "出错啦", content: '获取后缀失败', reLaunch: true });
