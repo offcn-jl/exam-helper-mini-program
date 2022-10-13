@@ -35,7 +35,7 @@
     </navigator>
 </view>
 
-<view class="statement">为保护您的信息安全，您的所有照片都将保存在本小程序的本地缓存文件系统中。受到本地缓存文件系统的容量限制 ( 总上限为 200 MB ) ，将仅保存您最近保存的部分照片。</view>
+<view class="statement">为保障您的信息安全，您的所有证件照仅保存在本机的缓存中。受到缓存文件系统的容量限制 ( 总上限为 200 MB ) ，将仅保存您最近保存的部分照片。</view>
 
 <!-- 推广后缀 -->
 <view class="suffix">{{suffixStr}}</view>
