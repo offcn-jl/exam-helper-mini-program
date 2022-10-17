@@ -1,5 +1,4 @@
-<navigation id='navigation' title="查询结果" hide-icon="{{true}}"></navigation>
-
+<header id="header" title="查询结果" suffixStr="{{suffixStr}}"></header>
 
 <!-- <image mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper/photo-processing/2021-lnfs-zsb-result.jpg" class="banner_bk"></image> -->
 <image mode="widthFix" src="" class="banner_bk"></image>
@@ -15,7 +14,7 @@
 	<!-- fixme -->
 	<text class="result_nux">共 {{zcounts}} 条结果</text>
 	<!-- fixme -->
-	<navigator url="../index?{{suffixStr}}">
+	<navigator url="../index?{{suffixStr ? suffixStr : ''}}">
 		<button class="change_btn">修改条件</button>
 	</navigator>
 </view>

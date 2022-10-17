@@ -28,10 +28,11 @@ Page({
     showId: 0,
   },
 
-  // 在页面发生滚动时，计算是否需要切换标题栏样式
-  onPageScroll: function (e) {
-    this.selectComponent('#navigation').swtichNavigation(e)
-  },
+  /**
+   * 监听页面滚动
+   * 用于 显示 header / 隐藏 header
+   */
+  onPageScroll: function (e) { this.selectComponent('#header').setData({ scrollTop: e.scrollTop }) },
 
   // 上拉刷新
   onReachBottom() {
@@ -82,9 +83,17 @@ Page({
       title: this.data.title
     })
     // 获取后缀
-    if (typeof options !== "undefined") this.setData({ 
-      suffixStr: 'scode='+options.scode+'&erp='+options.erp+'&erpcity='+options.erpcity+'&misid='+options.misid
-    })
+    getApp().methods.getSuffix(options).then(res => {
+        this.setData(res);
+    }).catch(err => {
+        wx.hideLoading(); // 隐藏 loading
+        getApp().methods.handleError({
+            err: err,
+            title: "出错啦",
+            content: '获取后缀失败',
+            reLaunch: true
+        });
+    });
     // 配置查询条件
     // 职位要求
     if (options.city !== "undefined"){

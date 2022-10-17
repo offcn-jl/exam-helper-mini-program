@@ -92,12 +92,12 @@ Page({
     // wx.navigateTo({ url })   //尝试点击返回可以回到当前页面，但被十层页面栈限制
   },
   async seach_result2() {
-    let url = "result/index?" + this.data.suffixStr
-    url += "&year=" + this.data.yearvalue
+    let url = "result/index?year=" + this.data.yearvalue
     url += "&city=" + this.data.cityvalue
     url += "&xueli=" + this.data.xuelivalue
     url += "&zzmm=" + this.data.zzmmvalue
     url += "&zylb=" + this.data.zylbvalue
+    url += this.data.suffixStr ? `&${this.data.suffixStr}` : ''
     wx.reLaunch({ url })
     // wx.navigateTo({ url })   //尝试点击返回可以回到当前页面，但被十层页面栈限制
   },
