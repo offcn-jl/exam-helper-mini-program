@@ -10,7 +10,7 @@
 	</view>
 </block>
  
-<image wx:else class="header" mode="widthFix" src="https://jl.offcn.com/zg/ty/images/exam-helper-mini-program/subscribe/2023/gk/gg/c29c0df4f141972c65c1ba595f323a2.jpg"></image>
+<image wx:else class="header" mode="widthFix" src="https://jl.offcn.com/zt/ty/2022images/exam-helper-mini/cccjyycg.jpg"></image>
 
 <view class="suffix">{{suffixStr}}</view>
 
