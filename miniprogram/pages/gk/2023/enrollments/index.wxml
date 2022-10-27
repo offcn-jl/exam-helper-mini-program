@@ -1,0 +1,42 @@
+<!--pages/gk/2023/enrollments/index.wxml-->
+
+<image mode="widthFix" src="{{banner_bk}}" class="banner_bk"></image>
+<view class="container">
+	<view class="select_wrap">
+		<view class='offer_item' wx:if="{{gzddList.length === 0}}" style="text-align: center;">
+        加载中，请稍候。</view>
+		<view class='offer_item' wx:if="{{gzddList.length > 0}}">
+			<select-search options='{{gzddList}}' icon="icon-dizhiguanli" text="工作地点" type="gzdd" bind:m_selectSearch_touch="m_select_touch"></select-search>
+		</view>
+        <view class='offer_item' wx:if="{{bumenNameList.length > 0}}">
+			<select-search options='{{bumenNameList}}' icon="icon-home" text="部门名称" type="bumen_name" bind:m_selectSearch_touch="m_select_touch"></select-search>
+		</view>
+		<view class='offer_item' wx:if="{{zhiweiNameList.length > 0}}">
+			<select options='{{zhiweiNameList}}' icon="icon-icon1" text="职位名称" type="zhiwei_name" bind:m_select_touch="m_select_touch"></select>
+		</view>
+		<view class='offer_item btn' wx:if="{{gzddList.length > 0}}">
+			<button wx:if="{{!phone}}" class="search_btn"  bindtap="SSOCheckManual">点击查询</button>
+			<button wx:else class="search_btn" bindtap="search">点击查询</button>
+		</view>
+	</view>
+    <view class="resultWrap"></view>
+
+    <view class="cover" wx:if="{{showPopUp}}"></view>
+    <view class="popup" wx:if="{{showPopUp}}">
+	    <text class="close" bindtap="bindHidePopUpCloseTap">✘</text>
+        <view class="header">查询结果</view>
+        <view class="item"><view class="title">用人司局: </view>{{zhiweiList[zhiweiNameIndex].yrsj}}</view>
+        <view class="item"><view class="title">部门名称: </view>{{zhiweiList[zhiweiNameIndex].bumen_name}}</view>
+        <view class="item"><view class="title">部门代码: </view>{{zhiweiList[zhiweiNameIndex].bumen_code}}</view>
+        <view class="item"><view class="title">招考职位: </view>{{zhiweiList[zhiweiNameIndex].zhiwei_name}}</view>
+        <view class="item"><view class="title">职位代码: </view>{{zhiweiList[zhiweiNameIndex].zhiwei_code}}</view>
+        <view class="item" style="color: red;"><view class="title">招考人数: </view>{{zhiweiList[zhiweiNameIndex].zkrs}}</view>
+        <view class="item" style="color: orange;"><view class="title">待审查人数: </view>{{zhiweiList[zhiweiNameIndex].scrs}}</view>
+        <view class="item" style="color: green;"><view class="title">审查通过人数: </view>{{zhiweiList[zhiweiNameIndex].hgrs}}</view>
+        <view class="item" style="color: dodgerblue;"><view class="title">报名人数: </view>{{zhiweiList[zhiweiNameIndex].bkrs}}</view>
+        <view class="item" style="color: red;"><view class="title">竞争比: </view>{{zhiweiList[zhiweiNameIndex].jzb}}</view>
+    </view>
+</view>
+
+<!-- 后缀 -->
+<view style="color:gray;text-align: center;font-size: 80%;margin-top: 50rpx;">{{suffixStr}}</view>

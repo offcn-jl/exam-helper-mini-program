@@ -12,10 +12,13 @@
     "pages/ky/2022/lnfs/index",
     "pages/ky/2022/jzyy/index",
     "pages/ky/2022/zllq/index",
+
+    "pages/gk/2023/enrollments/index",
     
     "pages/sk/2022/exam/index",
     "pages/sk/2022/ranking-list/index",
     "pages/sk/2022/book/index",
+    "pages/sk/2022/navigation/index",
     
     "pages/tgjs/2022/shaif/index", 
     "pages/tgjs/2022/jccx/index", 
@@ -27,8 +30,6 @@
 
     "pages/zh/2022/szyf/zwpp/index",
     "pages/zh/2022/szyf/lnfs/index",
-    
-    "pages/sk/2022/navigation/index",
 
     "pages/zh/2022/zcyhgwcx/index",
     "pages/zh/2022/rmyhgwcx/index",
