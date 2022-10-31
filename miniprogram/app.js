@@ -453,7 +453,7 @@ App({
                                                 // 判断预约记录中是否有目标记录
                                                 let currentSubscribe = [];
                                                 if (response.lists[0].subscribe !== '[]') {
-                                                    currentSubscribe = JSON.parse(response.lists[0].subscribe);
+                                                    currentSubscribe = JSON.parse(response.lists[0].subscribe.replace(new RegExp( '&quot;' , "g" ), '"'));
                                                     let has = false
                                                     for (let i = 0; i < currentSubscribe.length; i++) {
                                                         if (currentSubscribe[i] === subscribe) {
