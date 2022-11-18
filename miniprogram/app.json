@@ -1,9 +1,9 @@
 {
   "pages": [   
     "pages/index/index",
-    
     "pages/jszp/2022/dlfsx/index", 
 
+    "pages/sydw/2022/bs/shaif/index", 
     "pages/sydw/2022/cc/shaif/index", 
     "pages/sydw/2022/yb/shaif/index", 
     "pages/sydw/2022/jls/shaif/index",
