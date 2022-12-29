@@ -1,7 +1,0 @@
-/* pages/sk-2021/book/index.wxss */
-@import "../sk-2021/scene/index.wxss";
-
-page {
-  background: url("http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/event/2021/03/25/background-1px.jpg") repeat-y;
-  background-size: 750rpx;
-}
