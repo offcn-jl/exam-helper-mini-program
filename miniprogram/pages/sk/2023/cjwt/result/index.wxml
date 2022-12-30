@@ -1,0 +1,41 @@
+<header id="header" title="查询结果" suffixStr="{{suffixStr}}"></header>
+
+<!-- http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/position/2020/jr/header.result.1112.jpg -->
+<image mode="widthFix" src="" class="banner_bk"></image>
+
+<view class="title">查询结果</view>
+
+<view class="my_tip">
+	<text>整合近年考试前后问题汇总，输入关键词，选择相关的问题
+	点击查询，即可得到你想知道的答案，顺利解决备考疑问</text>
+</view>
+
+<view class="result_num">
+	<!-- fixme -->
+	<text class="result_nux">共 {{zcounts}} 条结果</text>
+	<!-- fixme -->
+	<navigator url="../index?{{suffixStr}}">
+		<button class="change_btn">修改问题</button>
+	</navigator>
+</view>
+
+<view class="resultWrap">
+	<block wx:for="{{result}}" wx:key="index">
+		<view class="result_item" bindtap="more" data-index="{{index}}">
+			<text class="result_code">{{item.name}}</text>
+			<view class="result_detail"><label>问题：</label><text>{{item.ques}}</text></view>
+			<!-- <view class="result_detail"><label>考试成绩：</label><text>{{item.kscj}}</text></view> -->
+			<view class="item_group">
+				<!-- 可收放数据代码 -->
+				<view class="item-group-wrap active">
+					<view class="item_line"><label>回答：</label><text>{{item.ans}}</text></view>
+				</view>
+				<!-- 上下显示箭头 -->
+				<!-- <view class="jiantou">
+					<image src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/position/2020/jr/jiantou.png" class='{{showId==index? "" : "active"}}'></image>
+				</view> -->
+			</view>
+			<!-- <button class="add_btn">名次：{{item.placing}}</button> -->
+		</view>
+	</block>
+</view>

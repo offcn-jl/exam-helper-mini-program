@@ -1,0 +1,79 @@
+<header id="header" title="查询结果" suffixStr="{{suffixStr}}"></header>
+
+<!-- <image mode="widthFix" src="http://jl.offcn.com/zg/ty/images/exam-helper/photo-processing/2021-lnfs-zsb-result.jpg" class="banner_bk"></image> -->
+<image mode="widthFix" src="" class="banner_bk"></image>
+
+
+<view class="title">查询结果</view>
+
+<view class="my_tip">
+	<text>非精准比例，尽量根据您选择的专业进行数据查询\n如对查询结果有疑虑，请务必致电咨询招考单位！</text>
+</view>
+
+<view class="result_num">
+	<!-- fixme -->
+	<text class="result_nux">共 {{zcounts}} 条结果</text>
+	<!-- fixme -->
+	<navigator url="../index?{{suffixStr ? suffixStr : ''}}">
+		<button class="change_btn">修改条件</button>
+	</navigator>
+</view>
+
+<view class="resultWrap">
+	<block wx:for="{{result}}" wx:key="index">
+		<view class="result_item">
+			<!-- <button class="add_btn">年份：{{item.nf}}</button> -->
+			<!-- <text class="result_code">{{item.areaname}}</text> -->
+			<view class="result_detail"><label>职位名称:</label><text>{{item.zhiwei_name}}</text></view>
+			<view class="result_detail"><label>所属单位:</label><text>{{item.danwei_name}}</text></view>
+			<!-- <view class="result_detail"><label>所属单位:</label><text>{{item.danwei_name}}</text></view> -->
+
+			<view class="item_group">
+				<!-- 可收放数据代码 -->
+				<view class="item-group-wrap {{showId == index ? 'active' : ''}}">
+					<view class="item-list">
+						<view class="top">单位信息</view>
+						<view class="item_line"><label>部门名称:</label><text>{{item.danwei_name}}</text></view>
+						<view class="item_line"><label>部门代码:</label><text>{{item.danwei_code}}</text></view>
+						<view class="item_line"><label>部门性质:</label><text>{{item.xitong}}</text></view>
+					</view>
+
+					<view class="item-list">
+						<view class="top">职位信息</view>
+						<view class="item_line"><label>职位名称:</label><text>{{item.zhiwei_name}}</text></view>
+						<view class="item_line"><label>职位代码:</label><text>{{item.zhiwei_code}}</text></view>
+						<view class="item_line"><label>招考人数:</label><text>{{item.zkrs}}</text></view>
+						<view class="item_line"><label>招考对象:</label><text>{{item.isyj}}</text></view>
+						<view class="item_line"><label>最低服务年限要求:</label><text>{{item.zdfwnx}}</text></view>
+					</view>
+
+					<view class="item-list">
+						<view class="top">报考条件</view>
+						<view class="item_line"><label>学历要求:</label><text>{{item.xueli}}</text></view>
+						<view class="item_line"><label>学位要求:</label><text>{{item.xwyq}}</text></view>
+						<view class="item_line"><label>是否允许以学位证所列专业报考:</label><text>{{item.sfyxyxwzbk}}</text></view>
+						<view class="item_line"><label>专业要求:</label><text>{{item.zhuanye}}</text></view>
+						<view class="item_line"><label>性别要求:</label><text>{{item.sex}}</text></view>
+						<view class="item_line"><label>政治面貌:</label><text>{{item.zzmm}}</text></view>
+						<view class="item_line"><label>基层工作经历要求:</label><text>{{item.gzjl}}</text></view>
+						<view class="item_line"><label>其他资格条件要求:</label><text>{{item.qtzgtj}}</text></view>
+					</view>
+
+					<view class="item-list">
+						<view class="top">其他信息</view>
+						<view class="item_line"><label>科目类别:</label><text>{{item.kskm}}</text></view>
+						<view class="item_line"><label>体能测试或专业考试要求:</label><text>{{item.isks}}</text></view>
+						<view class="item_line"><label>体检标准:</label><text>{{item.tjbz}}</text></view>
+						<view class="item_line"><label>备注:</label><text>{{item.note}}</text></view>
+						<view class="item_line"><label>咨询电话:</label><text>{{item.phone}}</text></view>
+					</view>
+
+				</view>
+				<!-- 上下显示箭头 -->
+				<view class="jiantou" bindtap="lnfsx" data-id="{{item.id}}"  data-index="{{index}}">
+					<image src="http://jl.offcn.com/zt/ty/2021images/exam-helper/jiantou.png?4" class='{{showId==index? "" : "active"}}'></image>
+				</view>
+			</view>
+		</view>
+	</block>
+</view>

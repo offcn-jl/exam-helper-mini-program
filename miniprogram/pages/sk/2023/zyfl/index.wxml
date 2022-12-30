@@ -1,0 +1,17 @@
+<image mode="widthFix" src="{{banner_bk}}" class="banner_bk"></image>
+
+<view class="container">
+	<view class="select_wrap">
+		<view class='offer_item' wx:if="{{zylbList.length > 0}}">
+			<select-search options='{{zylbList}}' placeholder="搜索专业名称" icon="icon-icon1" text="专业类别" bind:m_selectSearch_touch="m_selectSearch_touch"></select-search>
+		</view>
+		<view class='offer_item btn'>
+			<!-- <button wx:if="{{!phone}}" class="search_btn" open-type="getPhoneNumber" bindgetphonenumber="buttonStart">注册后进行查询</button> -->
+			<button class="search_btn" wx:if="{{CRMEFSID.length === 32 && !phone}}" open-type="getPhoneNumber" bindgetphonenumber="login">注册后进行查询</button>
+			<button wx:else class="search_btn" bindtap="tipsToSubscribeMessage">点击查询</button>
+		</view>
+	</view>
+</view>
+
+<!-- 后缀 -->
+<view class="suffix">{{suffixStr}}</view>

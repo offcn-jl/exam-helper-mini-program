@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "select": "/components/select/select",
+    "select-search": "/components/select/select-search"
+  },
+  "navigationStyle": "custom",
+  "navigationBarTextStyle": "black"
+}
