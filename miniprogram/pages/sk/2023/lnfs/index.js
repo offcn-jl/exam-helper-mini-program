@@ -16,14 +16,14 @@ Page({
     zzmmList1: ['不限','共青团员','中共党员'],   // 政治面貌
     zzmmList: ['不限','中共党员或共青团员+不限','中共党员或共青团员+中共党员+不限'],   // 政治面貌
 
-    cityvalue: '',  // 地市
-    bmxzvalue: '',  // 部门性质
-    bmmcvalue: '',  // 部门名称
-    zwmcvalue: '',  // 职位名称
-    yearvalue: '',  // 年份
-    xuelivalue: '', // 学历
-    zzmmvalue: '',  // 政治面貌
-    zylbvalue: '',  // 专业类别
+    cityValue: '',  // 地市
+    bmxzValue: '',  // 部门性质
+    bmmcValue: '',  // 部门名称
+    zwmcValue: '',  // 职位名称
+    yearValue: '',  // 年份
+    xueliValue: '', // 学历
+    zzmmValue: '',  // 政治面貌
+    zylbValue: '',  // 专业类别
 
     switch:false,  // true 职位要求  false 个人条件
 
@@ -56,17 +56,17 @@ Page({
   // 输入框
   bmmc(e){ // 部门名称
     this.setData({
-      bmmcvalue: e.detail.value
+      bmmcValue: e.detail.value
     })
   },
   zwmc(e){ // 职位名称
     this.setData({
-      zwmcvalue: e.detail.value
+      zwmcValue: e.detail.value
     })
   },
   zylb(e){ // 专业类别
     this.setData({
-      zylbvalue: e.detail.value
+      zylbValue: e.detail.value
     })
   },
   // 切换
@@ -84,20 +84,20 @@ Page({
   // 搜索
   async seach_result1() {
     let url = "result/index?" + this.data.suffixStr
-    url += "&city=" + this.data.cityvalue
-    url += "&bmxz=" + this.data.bmxzvalue
-    url += "&bmmc=" + this.data.bmmcvalue
-    url += "&zwmc=" + this.data.zwmcvalue
+    url += "&city=" + this.data.cityValue
+    url += "&bmxz=" + this.data.bmxzValue
+    url += "&bmmc=" + this.data.bmmcValue
+    url += "&zwmc=" + this.data.zwmcValue
     wx.reLaunch({ url })
     // wx.navigateTo({ url })   //尝试点击返回可以回到当前页面，但被十层页面栈限制
   },
   async seach_result2() {
     let url = "result/index?" + this.data.suffixStr
-    url += "&year=" + this.data.yearvalue
-    url += "&city=" + this.data.cityvalue
-    url += "&xueli=" + this.data.xuelivalue
-    url += "&zzmm=" + this.data.zzmmvalue
-    url += "&zylb=" + this.data.zylbvalue
+    url += "&year=" + this.data.yearValue
+    url += "&city=" + this.data.cityValue
+    url += "&xueli=" + this.data.xueliValue
+    url += "&zzmm=" + this.data.zzmmValue
+    url += "&zylb=" + this.data.zylbValue
     wx.reLaunch({ url })
     // wx.navigateTo({ url })   //尝试点击返回可以回到当前页面，但被十层页面栈限制
   },
