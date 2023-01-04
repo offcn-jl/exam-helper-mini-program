@@ -57,17 +57,17 @@ Page({
   // 输入框
   bmmc(e){ // 部门名称
     this.setData({
-      bmmcvalue: e.detail.value
+      bmmcValue: e.detail.value
     })
   },
   zwmc(e){ // 职位名称
     this.setData({
-      zwmcvalue: e.detail.value
+      zwmcValue: e.detail.value
     })
   },
   zylb(e){ // 专业类别
     this.setData({
-      zylbvalue: e.detail.value
+      zylbValue: e.detail.value
     })
   },
   // 切换
@@ -87,8 +87,8 @@ Page({
     let url = "result/index?" + this.data.suffixStr
     url += "&city=" + this.data.cityValue
     url += "&bmxz=" + this.data.bmxzValue
-    url += "&bmmc=" + this.data.bmmcvalue
-    url += "&zwmc=" + this.data.zwmcvalue
+    url += "&bmmc=" + this.data.bmmcValue
+    url += "&zwmc=" + this.data.zwmcValue
     wx.reLaunch({ url })
     // wx.navigateTo({ url })   //尝试点击返回可以回到当前页面，但被十层页面栈限制
   },
@@ -97,7 +97,7 @@ Page({
     url += "&city=" + this.data.cityValue
     url += "&xueli=" + this.data.xueliValue
     url += "&zzmm=" + this.data.zzmmValue
-    url += "&zylb=" + this.data.zylbvalue
+    url += "&zylb=" + this.data.zylbValue
     url += this.data.suffixStr ? `&${this.data.suffixStr}` : ''
     wx.reLaunch({ url })
     // wx.navigateTo({ url })   //尝试点击返回可以回到当前页面，但被十层页面栈限制
