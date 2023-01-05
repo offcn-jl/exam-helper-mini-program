@@ -152,6 +152,23 @@
     "navigationBarTextStyle": "black",
     "navigationStyle": "custom"
   },
+  "tabBar": {
+      "selectedColor": "#000",
+      "list": [
+          {
+              "iconPath": "images/icons/index.png",
+              "selectedIconPath": "images/icons/index-selected.png",
+              "pagePath": "pages/sk-2022-zwjs/index",
+              "text": "首页"
+            },
+            {
+                "iconPath": "images/icons/user.png",
+                "selectedIconPath": "images/icons/user-selected.png",
+                "pagePath": "pages/appopen/user/my/index",
+                "text": "我"
+            }
+        ]
+  },
   "sitemapLocation": "sitemap.json",
   "requiredBackgroundModes": [
     "audio",

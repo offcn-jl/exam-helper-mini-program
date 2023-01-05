@@ -14,7 +14,7 @@
 </view>
 
 <view class="cotainer">
-    <navigator class="item" url="/pages/photo-processing/album/index{{suffixStr?'?'+suffixStr:''}}">
+    <navigator class="item" url="/pages/appopen/photo-processing/album/index{{suffixStr?'?'+suffixStr:''}}">
         <image class="icon" mode="widthFix" src="https://appopenoss.offcn.com/statics/image/icons/image-333333.png"></image>
         <view class="text">我的证件照</view>
     </navigator>
