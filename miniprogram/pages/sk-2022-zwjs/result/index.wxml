@@ -11,10 +11,8 @@
 </view>
 
 <view class="result_num">
-	<!-- fixme -->
 	<text class="result_nux">共 {{zcounts}} 条结果</text>
-	<!-- fixme -->
-	<navigator url="../index?{{suffixStr ? suffixStr : ''}}">
+	<navigator open-type="switchTab" url="../index?{{suffixStr ? suffixStr : ''}}">
 		<button class="change_btn">修改条件</button>
 	</navigator>
 </view>
