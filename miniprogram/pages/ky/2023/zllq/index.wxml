@@ -1,0 +1,19 @@
+<image mode="widthFix" src="https://jl.offcn.com/zt/ty/images/ky/2023/zllq/index2301121014.jpg" class="banner_bk w100"></image>
+
+<button wx:if="{{!phone}}" class="search_btn" bindtap="SSOCheckManual">点击领取</button>
+
+<view style="margin-bottom: 50rpx;">
+    <scroll-view scroll-x="true" enable-flex="true" class="scroll-container">
+        <view class="scroll-item {{scrollItemActiveIndex == index ? 'active' : ''}}" wx:for="{{bookTypeList}}" wx:key="index" data-index="{{index}}" bindtap="scrollItemOnClick">
+            {{item}}
+        </view>
+    </scroll-view>
+    <view wx:for="{{bookList4Show}}" wx:key="index" data-index="{{index}}" class="book" bindtap="view">
+        <image src="https://jl.offcn.com/zg/ty/images/exam-helper-mini-program/ky/zllq/a.png" mode="widthFix" />
+        <view class="title">{{item.name}}</view>
+        <view class="view">查看</view>
+    </view>
+</view>
+
+<!-- 后缀 -->
+<view class="suffix">{{suffixStr}}</view>
