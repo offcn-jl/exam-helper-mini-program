@@ -191,66 +191,66 @@ Page({
               "name": "综面面试礼仪介绍",
               "link": "https://static.kaoyan365.cn/production/book/doc/1673448363072-71a629d7-32d2-417b-8dc7-552180115bbe.pdf"
             },
-            {
-              "type": "复试简历模板",
-              "name": "复试简历模板1",
-              "link": "https://static.kaoyan365.cn/production/book/doc/1673448879221-f9134317-8d9c-4a38-bbd8-3da1e7156a02.pdf"
-            },
-            {
-              "type": "复试简历模板",
-              "name": "复试简历模板2",
-              "link": "https://static.kaoyan365.cn/production/book/doc/1673448975892-0edded84-856b-42d4-8495-04aefc0257bf.pdf"
-            },
-            {
-              "type": "复试简历模板",
-              "name": "复试简历模板3",
-              "link": "https://static.kaoyan365.cn/production/book/doc/1673449008310-8804576b-f7c6-4e40-b41a-4d5147c639c9.pdf"
-            },
-            {
-              "type": "复试简历模板",
-              "name": "复试简历模板4",
-              "link": "https://static.kaoyan365.cn/production/book/doc/1673449044557-302e296b-2c3b-4289-addd-175ea661535b.pdf"
-            },
-            {
-              "type": "复试简历模板",
-              "name": "复试简历模板5",
-              "link": "https://static.kaoyan365.cn/production/book/doc/1673449076749-2c0a0217-f3af-44b3-a722-b77b7512cf03.pdf"
-            },
-            {
-              "type": "复试简历模板",
-              "name": "复试简历模板6",
-              "link": "https://static.kaoyan365.cn/production/book/doc/1673449177784-dedf8133-184c-49e9-ab9e-a0129caa6ee5.pdf"
-            },
-            {
-              "type": "复试简历模板",
-              "name": "复试简历模板7",
-              "link": "https://static.kaoyan365.cn/production/book/doc/1673449205488-fec931e6-3e65-4d77-b957-7c9d8a7538f9.pdf"
-            },
-            {
-              "type": "复试简历模板",
-              "name": "复试简历模板8",
-              "link": "https://static.kaoyan365.cn/production/book/doc/1673449241977-d7be35a5-0cff-4d1d-b387-097a4d139fd7.pdf"
-            },
-            {
-              "type": "复试简历模板",
-              "name": "复试简历模板9",
-              "link": "https://static.kaoyan365.cn/production/book/doc/1673449274806-fa14c9da-e53c-49b1-be77-4ea65e046bab.pdf"
-            },
-            {
-              "type": "复试简历模板",
-              "name": "研究生复试简历模板-蓝色",
-              "link": "https://static.kaoyan365.cn/production/book/doc/1673449303973-696b99ad-5fb4-4ec2-bd3a-d01a469462a9.pdf"
-            },
-            {
-              "type": "复试调剂模板",
-              "name": "调剂申请书范文1",
-              "link": "https://static.kaoyan365.cn/production/book/doc/1673449429392-7f2602dc-367e-4834-95cb-db1ed9606595.pdf"
-            },
-            {
-              "type": "复试调剂模板",
-              "name": "调剂申请书范文2",
-              "link": "https://static.kaoyan365.cn/production/book/doc/1673449456313-2785bd7f-5ab1-4553-a06b-a70b12715ed9.pdf"
-            },
+            // {
+            //   "type": "复试简历模板",
+            //   "name": "复试简历模板1",
+            //   "link": "https://static.kaoyan365.cn/production/book/doc/1673448879221-f9134317-8d9c-4a38-bbd8-3da1e7156a02.pdf"
+            // },
+            // {
+            //   "type": "复试简历模板",
+            //   "name": "复试简历模板2",
+            //   "link": "https://static.kaoyan365.cn/production/book/doc/1673448975892-0edded84-856b-42d4-8495-04aefc0257bf.pdf"
+            // },
+            // {
+            //   "type": "复试简历模板",
+            //   "name": "复试简历模板3",
+            //   "link": "https://static.kaoyan365.cn/production/book/doc/1673449008310-8804576b-f7c6-4e40-b41a-4d5147c639c9.pdf"
+            // },
+            // {
+            //   "type": "复试简历模板",
+            //   "name": "复试简历模板4",
+            //   "link": "https://static.kaoyan365.cn/production/book/doc/1673449044557-302e296b-2c3b-4289-addd-175ea661535b.pdf"
+            // },
+            // {
+            //   "type": "复试简历模板",
+            //   "name": "复试简历模板5",
+            //   "link": "https://static.kaoyan365.cn/production/book/doc/1673449076749-2c0a0217-f3af-44b3-a722-b77b7512cf03.pdf"
+            // },
+            // {
+            //   "type": "复试简历模板",
+            //   "name": "复试简历模板6",
+            //   "link": "https://static.kaoyan365.cn/production/book/doc/1673449177784-dedf8133-184c-49e9-ab9e-a0129caa6ee5.pdf"
+            // },
+            // {
+            //   "type": "复试简历模板",
+            //   "name": "复试简历模板7",
+            //   "link": "https://static.kaoyan365.cn/production/book/doc/1673449205488-fec931e6-3e65-4d77-b957-7c9d8a7538f9.pdf"
+            // },
+            // {
+            //   "type": "复试简历模板",
+            //   "name": "复试简历模板8",
+            //   "link": "https://static.kaoyan365.cn/production/book/doc/1673449241977-d7be35a5-0cff-4d1d-b387-097a4d139fd7.pdf"
+            // },
+            // {
+            //   "type": "复试简历模板",
+            //   "name": "复试简历模板9",
+            //   "link": "https://static.kaoyan365.cn/production/book/doc/1673449274806-fa14c9da-e53c-49b1-be77-4ea65e046bab.pdf"
+            // },
+            // {
+            //   "type": "复试简历模板",
+            //   "name": "研究生复试简历模板-蓝色",
+            //   "link": "https://static.kaoyan365.cn/production/book/doc/1673449303973-696b99ad-5fb4-4ec2-bd3a-d01a469462a9.pdf"
+            // },
+            // {
+            //   "type": "复试调剂模板",
+            //   "name": "调剂申请书范文1",
+            //   "link": "https://static.kaoyan365.cn/production/book/doc/1673449429392-7f2602dc-367e-4834-95cb-db1ed9606595.pdf"
+            // },
+            // {
+            //   "type": "复试调剂模板",
+            //   "name": "调剂申请书范文2",
+            //   "link": "https://static.kaoyan365.cn/production/book/doc/1673449456313-2785bd7f-5ab1-4553-a06b-a70b12715ed9.pdf"
+            // },
             {
               "type": "专业课复试常见话题",
               "name": "【MPAcc】复试常见话题",

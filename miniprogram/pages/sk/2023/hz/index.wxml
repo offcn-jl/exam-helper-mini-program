@@ -1,0 +1,13 @@
+<!--pages/sk/2023/hz/index.wxml-->
+<text>pages/sk/2023/hz/index.wxml</text>
+
+
+<view style="height: 30vh;">
+    
+</view>
+
+{{countdown.text}}
+{{countdown.countdown.day}}天
+{{countdown.countdown.hour}}时
+{{countdown.countdown.minute}}分
+{{countdown.countdown.second}}秒
