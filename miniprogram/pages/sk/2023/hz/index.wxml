@@ -1,6 +1,6 @@
 <!--pages/sk/2023/hz/index.wxml-->
 <!-- 顶部背景 -->
-<image mode="widthFix" src="{{banner_bk}}" class="banner_bk"></image>
+<image mode="widthFix" src="https://jl.offcn.com/zt/ty/2023images/sk-miniprogram/banner.jpg" class="banner_bk"></image>
 <!-- 头部倒计时 -->
 <view class="sk_count">
 <view class="sk_count_title"> 2023吉林省公务员考试</view>
@@ -58,14 +58,18 @@
         <image mode="widthFix" src="https://jl.offcn.com/zt/ty/2023images/sk-miniprogram/icon2.png" ></image><h2>直播课</h2>
     </view>
     <view class="home_live">
+    <navigator url="/pages/appopen/web-view/index?src=https://i.offcn.com/c/1238290{{suffixStr?'&'+suffixStr:''}}">
       <view class="live_content">
-        <image mode="widthFix" src="https://jl.offcn.com/zt/ty/2023images/sk-miniprogram/livepic1.png" ></image>
-        <view>直播课标题1</view>
+        <image mode="widthFix" src="https://s.eoffcn.com/ds/202301/1e0e0e820eecd8676aaf749d4deda7cf_1672798245000_6971.jpg" ></image>
+        <view>2023吉林省考·我为题狂</view>
       </view>
+    </navigator>
+    <navigator url="/pages/appopen/web-view/index?src=https://i.offcn.com/c/1330014{{suffixStr?'&'+suffixStr:''}}">
       <view class="live_content">
-        <image mode="widthFix" src="https://jl.offcn.com/zt/ty/2023images/sk-miniprogram/livepic1.png" ></image>
-        <view>直播课标题2</view>
+        <image mode="widthFix" src="https://s.eoffcn.com/ds/202301/a8101c884c5c1db8d2bc806c91de5318_1672710741000_4719.jpg" ></image>
+        <view>2023年吉林省考公告解读峰会</view>
       </view>
+    </navigator>
     </view>
 
 </view>
@@ -76,17 +80,31 @@
         <image mode="widthFix" src="https://jl.offcn.com/zt/ty/2023images/sk-miniprogram/icon3.png" ></image><h2>吉林省考考情区</h2>
     </view>
     <view class="home_content">
-    <view class="home_content_item citem1">考试时间</view>
-    <view class="home_content_item citem2">考试科目</view>
-    <view class="home_content_item citem3">报名数据</view>
-    <view class="home_content_item citem4">报名条件</view>
-    <view class="home_content_item citem5">报名流程</view>
-    <view  class="home_content_item citem6">成绩计算</view>
-    <view  class="home_content_item citem7">体检考察</view>
-    <view  class="home_content_item  citem8">公安岗位</view>
-    
+        <navigator url="/pages/appopen/web-view/index?src=https://m.jl.offcn.com/zg/2014sk/m/kssj.html{{suffixStr?'&'+suffixStr:''}}">
+            <view class="home_content_item citem1">考试时间</view>
+        </navigator>
+        <navigator url="/pages/appopen/web-view/index?src=https://m.jl.offcn.com/zg/2014sk/m/ksnr.html{{suffixStr?'&'+suffixStr:''}}">
+            <view class="home_content_item citem2">考试科目</view>
+        </navigator>
+        <navigator url="/pages/appopen/web-view/index?src=https://jl.offcn.com/html/jilingongwuyuan/baokaozhidao/bmrs/{{suffixStr?'&'+suffixStr:''}}">
+            <view class="home_content_item citem3">报名数据</view>
+        </navigator>
+        <navigator url="/pages/appopen/web-view/index?src=https://m.jl.offcn.com/zg/2014sk/m/bktj.html{{suffixStr?'&'+suffixStr:''}}">
+            <view class="home_content_item citem4">报名条件</view>
+        </navigator>
+        <navigator url="/pages/appopen/web-view/index?src=https://m.jl.offcn.com/zg/2014sk/m/{{suffixStr?'&'+suffixStr:''}}">
+            <view class="home_content_item citem5">报名流程</view>
+        </navigator>
+        <navigator url="/pages/appopen/web-view/index?src=https://m.jl.offcn.com/zg/2014sk/m/cjcx.html{{suffixStr?'&'+suffixStr:''}}">
+            <view class="home_content_item citem6">成绩计算</view>
+        </navigator>
+        <navigator url="/pages/appopen/web-view/index?src=https://m.jl.offcn.com/zg/2014sk/m/tjbz.html{{suffixStr?'&'+suffixStr:''}}">
+            <view class="home_content_item citem7">体检考察</view>
+        </navigator>
+        <navigator url="/pages/appopen/web-view/index?src=https://jl.offcn.com/html/zhaojing/zjks/zhaokaoxinxi/ksgg/{{suffixStr?'&'+suffixStr:''}}">
+            <view class="home_content_item citem8">公安岗位</view>
+        </navigator>
     </view>
-
 </view>
 <!-- 地址 -->
 <view class="home_inner">
@@ -96,8 +114,9 @@
     <view class="home_addr">
     <view class="home_addr_content">
     <h2><span></span>长春中公教育</h2>
-    <view>电话：0431-81239600,0431-81239633</view>
     <view>地址：长春市朝阳区辽宁路2338号中公教育大厦</view>
+    <view bindtap="makePhoneCall1">电话1：0431-81239600（点击拨打）</view>
+    <view bindtap="makePhoneCall2">电话2：0431-81239633（点击拨打）</view>
     <view class="home_addr_con">
         <image mode="widthFix" src="https://jl.offcn.com/zt/ty/2023images/sk-miniprogram/icon5.png"   class="icon_pic"></image>
         <text bindtap="makePhoneCall">客服电话</text>
@@ -105,7 +124,7 @@
        <navigator url="/pages/appopen/sobot/auto{{suffixStr?'?'+suffixStr:''}}">在线客服</navigator>
     </view>
     <view class="addr_more">
-        <text>  查看更多学习中心 </text>  <image mode="widthFix" src="https://jl.offcn.com/zt/ty/2023images/sk-miniprogram/icon7.png"  class="icon_pic"></image>
+        <navigator url="/pages/appopen/web-view/index?src=https://m.jl.offcn.com/zg/wap/address.html?id=1"><text>  查看更多学习中心 </text></navigator>  <image mode="widthFix" src="https://jl.offcn.com/zt/ty/2023images/sk-miniprogram/icon7.png"  class="icon_pic"></image>
     </view>
     
     </view>

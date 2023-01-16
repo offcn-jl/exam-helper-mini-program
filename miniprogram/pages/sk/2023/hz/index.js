@@ -5,6 +5,9 @@ Page({
      * 页面的初始数据
      */
     data: {
+        suffix: {}, // 后缀对象
+        suffixStr: "", // 后缀字符串
+
         countdown: {
             text: '',
             targetTime: {
@@ -18,10 +21,37 @@ Page({
         }
     },
 
+    // makePhoneCall 打电话
+    makePhoneCall: function () {
+        wx.makePhoneCall({
+            phoneNumber: this.data.contactInformation.ConsultationPhone
+        })
+    },
+    makePhoneCall1: function () {
+        wx.makePhoneCall({
+            phoneNumber: '0431-81239600'
+        })
+    },
+    makePhoneCall2: function () {
+        wx.makePhoneCall({
+            phoneNumber: '0431-81239633'
+        })
+    },
+
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
+        // 获取后缀信息
+        getApp().methods.getSuffix(options).then(suffixInfo => {
+            this.setData(suffixInfo);
+            // 获取推广信息
+            getApp().methods.getContactInformation(suffixInfo).then(contactInformation => {
+                this.setData({contactInformation});
+            });
+        });
+
+        // 获取倒计时
         wx.request({
             url: 'https://jl.offcn.com/zt/ty/resources/countdown-2023sk.json',
             success: res => {
@@ -38,9 +68,6 @@ Page({
                     const nowTime = new Date();
                     const targetTime = new Date(this.data.countdown.targetTime.year,this.data.countdown.targetTime.month-1,this.data.countdown.targetTime.day,this.data.countdown.targetTime.hour,this.data.countdown.targetTime.minute,this.data.countdown.targetTime.second);
                     const countdownTime = Math.floor((targetTime-nowTime))>=0 ? Math.floor((targetTime-nowTime)):0;
-                    console.log(nowTime)
-                    console.log(targetTime)
-                    console.log(countdownTime)
                     this.setData({
                         "countdown.countdown": {
                             day: double(Math.floor((countdownTime / 1000 / 3600) / 24)),
@@ -52,7 +79,7 @@ Page({
                 }, 1e3);
                 this.setData({ countdownTimer: timer });
             }
-        })
+        });
     },
 
     /**
@@ -100,7 +127,19 @@ Page({
     /**
      * 用户点击右上角分享
      */
-    onShareAppMessage() {
+    onShareAppMessage: function () {
+        return {
+            title: "省考备考管家",
+            imageUrl: "https://jl.offcn.com/zt/ty/2023images/sk-miniprogram/share.jpg",
+        }
+    },
 
+    /**
+     * 用户点击右上角分享 分享到朋友圈
+     */
+    onShareTimeline: function () {
+        return {
+            title: "2023吉林公务员考试备考管家",
+        }
     }
 })

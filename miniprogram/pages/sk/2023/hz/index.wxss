@@ -115,7 +115,7 @@ display: inline-block;
 
 .home_addr_content{
     width: 650rpx;
-    height: 450rpx;
+    height: 505rpx;
     border: 5rpx solid #d5d5d5;
     margin: 0 auto;
     border-radius:20rpx;
