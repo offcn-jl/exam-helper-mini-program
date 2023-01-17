@@ -113,21 +113,28 @@
     </view>
     <view class="home_addr">
     <view class="home_addr_content">
-    <h2><span></span>长春中公教育</h2>
-    <view>地址：长春市朝阳区辽宁路2338号中公教育大厦</view>
-    <view bindtap="makePhoneCall1">电话1：0431-81239600（点击拨打）</view>
-    <view bindtap="makePhoneCall2">电话2：0431-81239633（点击拨打）</view>
+    <view>长春</view>
+    <view>吉林市</view>
+    <view>延边</view>
+    <view>四平</view>
+    <view>通化</view>
+    <view>白城</view>
+    <view>辽源</view>
+    <view>松原</view>
+    <view>白山</view>
+    </view>
+    <view class="addr_more">
+        <navigator url="/pages/appopen/web-view/index?src=https://m.jl.offcn.com/zg/wap/address.html?id=1"><text>  点击查看详细地址 </text></navigator>  <image mode="widthFix" src="https://jl.offcn.com/zt/ty/2023images/sk-miniprogram/icon7.png"  class="icon_pic"></image>
+    </view>
     <view class="home_addr_con">
         <image mode="widthFix" src="https://jl.offcn.com/zt/ty/2023images/sk-miniprogram/icon5.png"   class="icon_pic"></image>
         <text bindtap="makePhoneCall">客服电话</text>
        <image mode="widthFix" src="https://jl.offcn.com/zt/ty/2023images/sk-miniprogram/icon6.png"  class="icon_pic"></image>
        <navigator url="/pages/appopen/sobot/auto{{suffixStr?'?'+suffixStr:''}}">在线客服</navigator>
     </view>
-    <view class="addr_more">
-        <navigator url="/pages/appopen/web-view/index?src=https://m.jl.offcn.com/zg/wap/address.html?id=1"><text>  查看更多学习中心 </text></navigator>  <image mode="widthFix" src="https://jl.offcn.com/zt/ty/2023images/sk-miniprogram/icon7.png"  class="icon_pic"></image>
-    </view>
+   
     
-    </view>
+   
 
     </view>
 </view>

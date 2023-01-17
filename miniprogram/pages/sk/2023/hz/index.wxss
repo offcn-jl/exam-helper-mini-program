@@ -26,41 +26,41 @@ page{
     margin-top: 100rpx;
     display: block;
     margin-bottom: 30rpx;
+    font-weight: bolder;
 }
 .sk_banner_title span{color: #fff;}
 .sk_banner_title_day{ font-size: 80rpx; margin-top: 30rpx;}
 .sk_banner_title_day h2{ background: #fff2d8; border: 2rpx solid #ffeaaa; border-radius: 10rpx; color: #000;padding:10rpx; margin-left: 20rpx;}
-.home_inner{width: 95%; background: #fff; border-radius: 30rpx; margin: 80rpx auto; padding-top: 30rpx; padding-bottom: 20rpx;}
+.home_inner{width: 95%; background: #fff; border-radius: 30rpx; margin: 80rpx auto; padding: 50rpx 0;}
 .home_title{
     width:90%;
-    height:100rpx;
+    height:70rpx;
     margin: 0 auto;
     background: url(https://jl.offcn.com/zt/ty/2023images/sk-miniprogram/home_title.png) no-repeat left bottom;
-    background-size:120%;
+    background-size:90%;
     display: flex;
-    margin-bottom: 30rpx;
+    margin-bottom: 20rpx;
 }
-.home_title image{width:90rpx;display: inline-block;}
+.home_title image{width:65rpx;display: inline-block;}
 .home_title h2{
-font-size: 50rpx;
-font-weight: bold;
-line-height: 100rpx;
+font-size: 40rpx;
+font-weight: bolder;
+line-height: 70rpx;
 display: inline-block;
 }
 .home_tools{
-    width: 700rpx;
-    height: 500rpx;
+    width:650rpx;
+    margin: 0 auto;
     display: flex;
     Justify-content:center;
     flex-wrap:wrap;
     text-align: center;
-    font-size:35rpx;
 }
 
 .tit_pic{
-     width:160rpx;
-     height: 160rpx;
+     width:130rpx;
      display: block;
+     margin:30rpx 10rpx;
     }
 
 .home_live{
@@ -112,44 +112,45 @@ display: inline-block;
 .live_content image{
   width: 300rpx;
 }
+.home_addr{ width: 650rpx; margin: 0 auto;  padding: 20rpx;  border: 5rpx solid #d5d5d5; border-radius:20rpx;
+    margin-bottom: 50rpx;}
+.home_addr_content { display: flex; justify-content: space-between;  flex-wrap:wrap;}    
+.home_addr_content view{
+    width:160rpx;
+    line-height: 50rpx;
+    border-radius: 10rpx;
+    text-align: center;
+    border: 2rpx  solid #d5d5d5 ;
+    margin: 10rpx;
+    display: inline-block;
+}
 
-.home_addr_content{
-    width: 650rpx;
-    height: 505rpx;
-    border: 5rpx solid #d5d5d5;
-    margin: 0 auto;
-    border-radius:20rpx;
-    padding: 20rpx;
-    font-size: 32rpx;
-    margin-bottom: 50rpx;
-}
-.home_addr_content h2{
-    width: 100%;
-    display: block;
-    font-weight: bold;
-    font-size: 50rpx;
-    line-height: 70rpx;
-    margin-bottom: 20rpx;
-}
-.home_addr_con{display: flex; height: 100rpx; line-height: 100rpx; font-size: 40rpx; justify-content: space-evenly;Align-items:base-line; margin-top: 20rpx;}
+.home_addr_con{display: flex;  justify-content: space-between;Align-items:base-line;  width:400rpx; margin: 0 auto;}
+
 .home_addr_con image{display: inline-block;}
 .home_addr_con text{
     display: inline-block;
+    line-height: 60rpx;
 }
-.home_addr_content h2 span{width: 20rpx; height: 70rpx;background-color: #de0011; float: left; margin-right: 10rpx; margin-left: -23rpx;}
+.home_addr_con navigator{
+
+    line-height: 60rpx;
+}
+
+
 .icon_pic{
-    width: 100rpx;
-    height: 100rpx;
+    width: 70rpx;
+    height: 70rpx;
     display: inline-block;
 }    
 
 .addr_more{
-    font-size: 40rpx;
-    width:450rpx ;
-    height: 100rpx;
-    margin: 0 auto;
+    width:300rpx ;
+    line-height:60rpx;
+    margin: 20rpx auto;
     display: flex;
-    line-height: 80rpx;
+    justify-content: space-between;Align-items:base-line;
+
 }
 .addr_more image{
     display: inline-block;
