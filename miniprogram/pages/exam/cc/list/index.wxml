@@ -1,6 +1,71 @@
 <!--列表页-->
-<view class="tit">历史成绩</view>
-<view class="list">
-    
+<!-- banner背景图 -->
+<image src="http://jl.offcn.com/zt/ty/2023images/paperbanner.jpg" mode="widthFix" class="banner"></image>
+<!-- 标题 -->
+<view class="tit"  style="padding-top:{{statusBarHeight}}px">
+
+<span>历史成绩</span>
 </view>
+<!-- 答题历史卡片 -->
+<view class="list">
+<!-- 每次答题记录 -->
+    <view class="achievement">
+        <view class="answerdate item">
+            <span>2023-2-9</span>
+            <view> 18:34:00</view>
+        </view>
+        <view class="line"></view>
+        <view class="answertime item">
+            <span>00:45</span>
+            <view>答题用时</view>
+        </view>
+
+        <view class="line"></view>
+        <view class="answeraccuracy item">
+            <span>88%</span>
+            <view>正确率</view>
+        </view>
+    </view>
+   
+<!-- 每次答题记录 -->
+<view class="achievement">
+        <view class="answerdate item">
+            <span>2023-2-9</span>
+            <view> 18:34:00</view>
+        </view>
+        <view class="line"></view>
+        <view class="answertime item">
+            <span>00:45</span>
+            <view>答题用时</view>
+        </view>
+
+        <view class="line"></view>
+        <view class="answeraccuracy item">
+            <span>88%</span>
+            <view>正确率</view>
+        </view>
+    </view>
+
+    <!-- 每次答题记录 -->
+    <view class="achievement">
+        <view class="answerdate item">
+            <span>2023-2-9</span>
+            <view> 18:34:00</view>
+        </view>
+        <view class="line"></view>
+        <view class="answertime item">
+            <span>00:45</span>
+            <view>答题用时</view>
+        </view>
+
+        <view class="line"></view>
+        <view class="answeraccuracy item">
+            <span>88%</span>
+            <view>正确率</view>
+        </view>
+     </view>
+
+</view>
+
+
 

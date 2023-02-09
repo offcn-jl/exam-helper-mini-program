@@ -1,8 +1,42 @@
 /* pages/exam/cc/list/index.wxss */
 page{
-    background-color: #f8f8fa;
+    background-color: #fdecec;
+    position: relative
 }
+.banner{ width: 100vw; position: fixed;}
+.tit{
+     width: 100vw;
+     margin: 0 auto;
+     text-align: center;
+     position: absolute;
+    }
+.tit span{margin-top:10vh; display: block; font-weight: bold; font-size:88rpx;  color: #fff; text-align: left;padding-left: 5vw; }
+
 .list{
-background-color: #fff;
-border-top-left-radius: 100rpx;
+    position: absolute;
+    width: 96vw;
+    left: 2vw;
+    z-index: 10;
+    top:32vh;
+    }
+.achievement{
+ display: flex;
+ justify-content:space-between;
+ align-items: center;
+ height: 15vh;
+ box-shadow: 0rpx 1rpx 10rpx 2rpx rgba(246, 72, 81, 0.1);
+ margin-bottom: 1vh;
+ background-color: #fff;
+ border-radius:20rpx;
+ padding:20rpx;
+ text-align: center;
 }
+
+.item{width: 30vw;}
+.answerdate{
+    border-radius:10rpx;
+}
+
+.line{width: 0.2vw; height: 5vh; background: #fddadc;}
+.answeraccuracy span{font-size: 50rpx; font-weight: bold; color: #f54750;}
+.answertime span{ color: #f54750;font-size: 50rpx;}
