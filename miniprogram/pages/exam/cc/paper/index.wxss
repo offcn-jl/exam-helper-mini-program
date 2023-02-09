@@ -1,0 +1,129 @@
+/* pages/exam/cc/paper/index.wxss */
+@import "iconfont.wxss";
+page{
+    background-color: #f8f8fa;
+}
+.floatnav{
+    width: 100vw;
+    height: 10vh;
+    align-items: center;
+    display: flex;
+    justify-content:flex-start;
+    position:fixed;
+    top:0;
+    left: 0;
+    background-color: #fff;
+}
+.Answertime{ width: 40vw; margin-left:5vw;}
+.Answertime span{font-size:40rpx;}
+.Answeringorder span{font-weight: 600;font-size:40rpx;}
+.Question{
+    width: 90vw;
+    margin: 0 auto;
+    padding-top: 10vh;
+    line-height: 70rpx;
+    padding-bottom: constant(safe-area-inset-bottom);
+	padding-bottom: env(safe-area-inset-bottom);
+    
+}
+.Questiontype{
+    width: 20vw;
+    height:4vh;
+    background-color: #bdc4d1;
+    text-align: center;
+    line-height:4vh;
+    color: #fff;
+    border-radius:5rpx;
+    margin-bottom:20rpx;
+}
+.questioncontent{font-weight:600;}
+.option view{ margin-top: 50rpx; display: flex; justify-content: flex-start; align-items: center;}
+.option span{
+ width: 60rpx;
+ height:60rpx;
+ text-align: center;
+ line-height: 60rpx;
+ display: inline-block;
+ border-radius: 50rpx;
+ border: 1rpx solid #bdc4d1;
+ margin-right:20rpx;
+
+
+}
+.option .onR {
+    color:#67d383 ;
+    font-size:90rpx;
+    border: none;
+    margin-right:40rpx;
+    margin-left: -10rpx;
+}
+
+.option .onW {
+    color:#e10912 ;
+    font-size:90rpx;
+    border: none;
+    margin-right:40rpx;
+    margin-left: -10rpx;
+}
+.box{  
+    width:90vw;
+    margin: 0 auto;
+    padding:20rpx;
+    margin-top: 30rpx;
+    background: #fff;
+}
+.answer{
+    font-weight: 600; 
+    border-radius:5rpx;
+}
+.R{color: #67d383;}
+.W{color: red;}
+.analysis{
+    width: 85vw;
+    background:#f8f8fa;
+    margin: 0 auto;
+    display:flex;
+    padding: 20rpx;
+    border-radius:5rpx;
+    justify-content: space-between;
+    font-weight: 400;
+    color: #9a9a9a;
+    text-align: center;
+}
+.line{
+    height: 5vh;
+    border-right: 1px solid #e5e5e5;
+    margin-top: 2vh;
+}
+
+.card{ width: 31%;  font-size: 20rpx;}
+.card span{ font-size: 40rpx; font-weight: 600; color: #373737;}
+.Accuracy span{ color: #71c994;}
+.Accuracy {color: #71c994;}
+
+.tit{font-weight: 600; display: flex;align-items:center; border-bottom: 1px solid #e5e5e5;}
+.tit span{width:5rpx;height:30rpx; background: #cf5e57; display: inline-block; margin-right: 10rpx; }
+.points{ background: #d42d24; color: #fff;display: inline-block; border-radius:50rpx;padding: 2rpx 30rpx; margin:20rpx;}
+.source{margin-bottom:5vh;}
+.bootnav{
+    width: 100vw;
+    height: 8vh;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    position:fixed;
+    bottom:0;
+    left: 0;
+    background-color: #fff;
+    border-top: 1px solid #e5e5e5;
+    box-shadow: 0rpx 1rpx 20rpx 2rpx rgba(1, 1, 1, 0.1);
+    padding-bottom: constant(safe-area-inset-bottom);
+    padding-bottom: env(safe-area-inset-bottom);
+    font-size: 30rpx;
+}
+
+.hidden{
+    height: 8vh;
+    padding-bottom: constant(safe-area-inset-bottom);
+    padding-bottom: env(safe-area-inset-bottom);
+}

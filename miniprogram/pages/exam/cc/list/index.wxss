@@ -1,0 +1,8 @@
+/* pages/exam/cc/list/index.wxss */
+page{
+    background-color: #f8f8fa;
+}
+.list{
+background-color: #fff;
+border-top-left-radius: 100rpx;
+}
