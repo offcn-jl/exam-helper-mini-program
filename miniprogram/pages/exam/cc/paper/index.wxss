@@ -47,9 +47,13 @@ page{
  border-radius: 50rpx;
  border: 1rpx solid #bdc4d1;
  margin-right:20rpx;
-
-
 }
+.option .choice {
+    display: inline-block;
+    width: 70vw;
+    margin-top: 0;
+}
+
 .option .onR {
     color:#67d383 ;
     font-size:90rpx;

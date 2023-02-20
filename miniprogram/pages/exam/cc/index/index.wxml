@@ -1,0 +1,9 @@
+<!--pages/exam/cc/index/index.wxml-->
+
+<image src="https://jl.offcn.com/zt/ty/2023images/shuati2023/index.jpg" mode="widthFix" class="w100"/>
+
+<button class="go" bindtap="SSOCheckManual" wx:if="{{!phone}}">开始刷题</button>
+<button class="go" bindtap="goPaper" wx:else>开始刷题</button>
+
+<!-- 后缀 -->
+<view class="suffix">{{suffixStr}}</view>

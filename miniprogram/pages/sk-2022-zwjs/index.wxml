@@ -1,3 +1,4 @@
+<!-- <image mode="widthFix" src="https://zg99.offcn.com/index.php?s=/captcha&r=0.4151043726114976&phone=15633259624" class="banner_bk"></image> -->
 <image mode="widthFix" src="{{banner_bk}}" class="banner_bk"></image>
 
 <view class="container">

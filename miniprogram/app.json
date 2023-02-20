@@ -4,6 +4,7 @@
 
     "pages/jszp/2022/dlfsx/index", 
 
+    "pages/sydw/2023/subscribe/index",
     "pages/sydw/2022/bs/shaif/index", 
     "pages/sydw/2022/cc/shaif/index", 
     "pages/sydw/2022/yb/shaif/index", 
@@ -114,6 +115,7 @@
     "pages/subscribe-2022-dy/index", 
     "pages/subscribe-2022-skcj/index", 
 
+    "pages/exam/cc/index/index",  
     "pages/exam/cc/paper/index",  
     "pages/exam/cc/list/index", 
 

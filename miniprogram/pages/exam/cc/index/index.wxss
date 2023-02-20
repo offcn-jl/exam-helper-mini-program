@@ -1,0 +1,9 @@
+/* pages/exam/cc/index/index.wxss */
+
+.go {
+    margin-top: -400rpx;
+}
+
+.suffix {
+    margin-top: 180rpx;
+}

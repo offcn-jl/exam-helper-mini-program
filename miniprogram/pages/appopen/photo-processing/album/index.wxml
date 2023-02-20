@@ -30,7 +30,7 @@
 <view class="empty" wx:if="{{!photos.length}}">
     <image src="https://jl.offcn.com/zg/ty/images/exam-helper-mini-program/public/empty-album.png"></image>
     <view>暂无照片，快去拍张证件照吧</view>
-    <navigator open-type="switchTab" url="/pages/photo-processing/index/index" class="btn btn-blue">
+    <navigator open-type="reLaunch" url="/pages/appopen/photo-processing/index/index" class="btn btn-blue">
         去拍照
     </navigator>
 </view>

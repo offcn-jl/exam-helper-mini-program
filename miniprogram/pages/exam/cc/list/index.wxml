@@ -1,71 +1,57 @@
 <!--列表页-->
 <!-- banner背景图 -->
 <image src="http://jl.offcn.com/zt/ty/2023images/paperbanner.jpg" mode="widthFix" class="banner"></image>
-<!-- 标题 -->
-<view class="tit"  style="padding-top:{{statusBarHeight}}px">
 
-<span>历史成绩</span>
+<!-- 标题 -->
+<view class="tit" style="padding-top:{{statusBarHeight}}px">
+    <span>历史成绩</span>
 </view>
+
 <!-- 答题历史卡片 -->
 <view class="list">
-<!-- 每次答题记录 -->
-    <view class="achievement">
-        <view class="answerdate item">
-            <span>2023-2-9</span>
-            <view> 18:34:00</view>
-        </view>
-        <view class="line"></view>
-        <view class="answertime item">
-            <span>00:45</span>
-            <view>答题用时</view>
-        </view>
-
-        <view class="line"></view>
-        <view class="answeraccuracy item">
-            <span>88%</span>
-            <view>正确率</view>
-        </view>
-    </view>
-   
-<!-- 每次答题记录 -->
-<view class="achievement">
-        <view class="answerdate item">
-            <span>2023-2-9</span>
-            <view> 18:34:00</view>
-        </view>
-        <view class="line"></view>
-        <view class="answertime item">
-            <span>00:45</span>
-            <view>答题用时</view>
-        </view>
-
-        <view class="line"></view>
-        <view class="answeraccuracy item">
-            <span>88%</span>
-            <view>正确率</view>
-        </view>
-    </view>
-
     <!-- 每次答题记录 -->
-    <view class="achievement">
+    <view class="achievement" wx:for="{{list}}" wx:key="index">
         <view class="answerdate item">
-            <span>2023-2-9</span>
-            <view> 18:34:00</view>
+            <span>{{item.cDate}}</span>
+            <view>{{item.cTime}}</view>
         </view>
         <view class="line"></view>
         <view class="answertime item">
-            <span>00:45</span>
+            <span>{{time.get(item.useTime)}}</span>
             <view>答题用时</view>
         </view>
 
         <view class="line"></view>
         <view class="answeraccuracy item">
-            <span>88%</span>
+            <span>{{percent.get(item.doRightCount/item.doCount)}}</span>
             <view>正确率</view>
         </view>
-     </view>
-
+    </view>
 </view>
 
+<!-- 后缀 -->
+<view class="suffix">{{suffixStr}}</view>
 
+<wxs module="time">
+    module.exports.get = function (t) {
+        var minute = '00';
+        var second = '00';
+        if (t / 60 >= 10) {
+            minute = (t / 60).toFixed(0);
+        } else if (t / 60 >= 1) {
+            minute = '0' + (t / 60).toFixed(0);
+        }
+        if (t % 60 >= 10) {
+            second = (t % 60).toFixed(0);
+        } else if (t % 60 >= 1) {
+            second = '0' + (t % 60).toFixed(0);
+        }
+        return minute + ':' + second;
+    }
+</wxs>
 
+<wxs module="percent">
+    module.exports.get = function (t) {
+        return (t * 100).toFixed(0) + '%';
+    }
+</wxs>

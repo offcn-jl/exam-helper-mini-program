@@ -4,10 +4,9 @@
 <view class="floatnav" style="padding-top:{{statusBarHeight}}px">
    <view class="Answertime">
     <span class=" iconfont icon-shijian"></span>
-    00:30
+    {{time.get(useTime)}}
     </view>
-    <view class="Answeringorder"><span>1</span>/10</view>
-
+    <view class="Answeringorder"><span>{{currentIndex+1}}</span>/10</view>
 </view>
 
 <!-- 题目部分 -->
@@ -15,82 +14,98 @@
     <!-- 题型 -->
     <view class="Questiontype">单选题</view>
     <!-- 题目主题 -->
-    <view class="questioncontent">
-    人工智能听起来很遥远，其实已经————到我们的日常工作和生活中了。人工智能的应用，让生活更便捷、更有乐趣，节约时间、解放体力，甚至未来机器将类进行一些基础性的劳作，这个场景令人懂憬。
-    填入画横线部分最恰当的一项是:
-    </view> 
+    <text class="questioncontent" decode>{{list[currentIndex].stem}}</text>
     <!-- 选项 -->
     <view class="option">
-    <view class="optionA"><span class="iconfont icon-dui onR"></span>渗透 替代</view>
-    <view class="optionB"><span class="iconfont icon-cuo onW"></span>融入 协助</view>
-    <view class="optionC"><span>C</span>深入 取代</view>
-    <view class="optionD"><span>D</span>运用 辅助</view>
+
+    <view wx:for="{{list[currentIndex].choices}}" wx:key="id" bindtap="choice" data-index="{{index}}"><span class="iconfont {{seeExplanation ? (index == rightIndex ? 'icon-dui onR' : (index == answerIndex ? 'icon-cuo onW' : '')) : ''}}">{{seeExplanation && (index == answerIndex || index == rightIndex) ? '' : choicesTextList[index]}}</span><view class="choice">{{item.choice}}</view></view>
+
     </view>
+
+<view wx:if="{{seeExplanation}}">
+    
+
     <!-- 答案 -->
     <view class="answer box">
-    正确答案是<span class="R">A</span>,您的答案是<span class="W">B</span>
+    正确答案是 <span class="R">{{choicesTextList[rightIndex]}}</span> , 您的答案是 <span class="{{answerIndex == rightIndex ? 'R' : 'W'}}">{{answerIndex > -1 ? choicesTextList[answerIndex] : '未作答'}}</span>
     <!-- 答案卡片 -->
     <view class="analysis">
         <view class="card card1">
-        <view><span>23</span>秒</view>
+        <view><span>{{useTime1}}</span>秒</view>
         <text>个人答题时间</text>
         </view>
         <view class="line"></view>
         <view class="card card2">
-            <view class="Accuracy"><span>2</span>%</view>
+            <view class="Accuracy"><span>{{list[currentIndex].accuracy}}</span>%</view>
             <text>全站正确率</text> 
         </view>
         <view class="line"></view>
         <view class="card card3">
-           <view><span> A</span></view>
+           <view><span> {{choicesTextList[easyWrongIndex]}}</span></view>
            <text> 易错项</text>
         </view>
     </view>
     </view>
     <!-- 思路点拨 -->
-    <view class="Ideas box">
+    <view class="Ideas box" wx:if="{{list[currentIndex].analysis}}">
     <view class="tit">
         <span></span>
         <text>思路点拨</text>
     </view>
-    第一步，快速阅读文段，明确空缺处词语含义。第二步，分析选项。第一空较难入手排除，可先看第二空，空缺处前的“甚至”提示所填词语应与前文构成递进关系，排除语义程度较轻的B、D。再看第一空，与“听起来很遥远”相对应“渗透”更恰当，确定答案。
+    <text decode>{{list[currentIndex].analysis}}</text>
     </view>
     <!-- 解析 -->
-    <view class="analy box">
+    <view class="analy box" wx:if="{{list[currentIndex].explanation}}">
     <view class="tit">
         <span></span>
         <text>解析</text>
     </view>
-    第二空，由“甚至”可知，此处所填词语应与前文构成递进关系。结合前文的“节约时间、解放体力”可知，“协助”“辅助都侧重从旁帮助，填入程度较轻，与句意不符，排除B、D。第一空，对应“听起来很遥远”，含有潜移默化、不易被察觉意思的“渗透”填入更恰当，“深入”填入语义程度过重，排除C。故本题选A。
+    <text decode>{{list[currentIndex].explanation}}</text>
     </view>
      <!-- 知识点 -->
-    <view class="Knowledgepoints box">
+    <!--<view class="Knowledgepoints box">
         <view class="tit">
             <span></span>
             <text>知识点</text>
         </view>
-
-        <view class="points">言语理解与表达 (言语运用)</view>
-        <view class="points">语义轻重 ></view>
-        <view class="points">递进关系  ></view>
-        <view class="points">含义侧重   ></view>
-   
-    </view>
+        <view class="points" wx:for="{{list[currentIndex].knowledgeList}}" wx:key="index" data-path="{{item.knowledge_node_path}}" bindtap="knowledge">{{item.knowledge_leaf_node_name}} ></view>
+    </view>-->
     <!-- 来源 -->
-    <view class="source box">
+    <!--<view class="source box">
         <view class="tit">
             <span></span>
             <text>来源</text>
         </view>
-         <text>2017年上半年事业单位统考A类试卷第28题</text> 
-         <text>2017年上半年事业单位统考B类试卷第37题</text> 
-         <text>2017年上半年事业单位统考C类试卷第27题</text> 
-         <text>2017年上半年事业单位统考E类试2017年上半年事业单位统考C类试卷第27题</text> 
-    </view>
+         <view wx:for="{{list[currentIndex].question_source}}" wx:key="index">{{item}}</view> 
+    </view>-->
 </view>
+</view>
+
+<!-- 后缀 -->
+<view class="suffix">{{suffixStr}}</view>
+
 <view class="hidden">
     
 </view>
 
 <!-- 底部导航 浮动-->
-<view class="bootnav iconfont icon-biji"> 重练本题</view>
+<view class="bootnav iconfont icon-biji" bindtap="redo" wx:if="{{seeExplanation}}"> 重练本题 <text style="font-size: 80%;text-indent: 10rpx;color: gray;">( 正确作答后自动切换下一题 )</text></view>
+<view class="bootnav iconfont icon-shoucang" bindtap="seeExplanation" wx:else> 看解析</view>
+
+<wxs module="time">
+module.exports.get = function (t) {
+    var minute = '00';
+    var second = '00';
+    if (t/60 >= 10) {
+        minute = (t/60).toFixed(0);
+    } else if (t/60 >= 1) {
+        minute = '0' + (t/60).toFixed(0);
+    }
+    if (t%60 >= 10) {
+        second = (t%60).toFixed(0);
+    } else if (t%60 >= 1) {
+        second = '0' + (t%60).toFixed(0);
+    }
+    return minute + ':' + second;
+}
+</wxs>
