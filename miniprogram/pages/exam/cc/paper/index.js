@@ -9,8 +9,8 @@ Page({
      * 页面的初始数据
      */
     data: {
-        CRMEFSID: "e0f0e4d88d97dfe879206aa84487cbf6", // CRM 活动表单 ID
-        CRMRemark: "刷题 HD202302130055", // CRM 注释
+        CRMEFSID: "b9d7cb2873cf9b88dc872722204d7845", // CRM 活动表单 ID
+        CRMRemark: "刷题", // CRM 注释
 
         suffix: {}, // 推广后缀 对象
         suffixStr: '', // 推广后缀 字符串
