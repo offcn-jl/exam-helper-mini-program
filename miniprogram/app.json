@@ -1,5 +1,6 @@
 {
   "pages": [   
+
     "pages/index/index",
 
     "pages/jszp/2022/dlfsx/index", 
@@ -19,6 +20,7 @@
 
     "pages/gk/2023/enrollments/index",
     
+    "pages/sk/2023/subscribe-2023-skcj/index",
     "pages/sk/2023/cjwt/index",
     "pages/sk/2023/cjwt/result/index",
     "pages/sk/2023/lnfs/index",
@@ -27,6 +29,7 @@
     "pages/sk/2023/zwjs/result/index",
     "pages/sk/2023/zyfl/index",
     "pages/sk/2023/zyfl/result/index",
+    
 
     "pages/sk/2022/exam/index",
     "pages/sk/2022/ranking-list/index",
@@ -85,7 +88,7 @@
     "pages/sk-2022-zwjs-lj/result/index", 
     "pages/sk-2022-lnfs/index", 
     "pages/sk-2022-lnfs/result/index", 
-    "pages/sk/2023/subscribe-2023-skcj/index", 
+
 
  
     "pages/match/2022/tgjs/lnfs/index", 
