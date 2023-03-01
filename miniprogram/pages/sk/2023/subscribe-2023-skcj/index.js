@@ -126,34 +126,6 @@ Page({
                 reLaunch: true
             });
         });
-
-        // 获取后缀
-        const suffixInfo = await getApp().methods.getSuffix(options); // 获取后缀信息
-        this.setData(suffixInfo); // 保存后缀信息
-        // 判断是否是单页模式
-        if (wx.getLaunchOptionsSync().scene !== 1154 && this.data.CRMEFSID.length === 32) {
-            // 获取登陆状态
-            getApp().methods.newLoginCheck({
-                crmEventFormSID: this.data.CRMEFSID,
-                suffix: {
-                    suffix: this.data.suffix,
-                    suffixStr: this.data.suffixStr
-                },
-                remark: this.data.CRMRemark,
-                callback: ({
-                    phone,
-                    openid
-                }) => {
-                    this.setData({
-                        phone,
-                        openid
-                    });
-                }
-            });
-
-
-        }
-
     },
 
     /**
