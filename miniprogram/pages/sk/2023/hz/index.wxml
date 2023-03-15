@@ -3,14 +3,19 @@
 <image mode="widthFix" src="https://jl.offcn.com/zt/ty/2023images/sk-miniprogram/banner.jpg" class="banner_bk"></image>
 <!-- 头部倒计时 -->
 <view class="sk_count">
-<view class="sk_count_title"> 2023吉林省公务员考试</view>
-<view class="sk_banner_title">
- <span>距离</span>{{countdown.text}}
- <view class="sk_banner_title_day">
- 还有<h2>{{countdown.countdown.day}}</h2>
- 天</view>
- 
- </view>
+    <view class="sk_count_title"> 吉林中公教育</view>
+    <view class="sk_banner_title">
+        <span>吉林中公教育</span>
+      
+        <!-- {{countdown.text}} -->
+        <view class="sk_banner_title_day">
+            <h2>考试资讯</h2>
+            <!-- <h2>
+           {{countdown.countdown.day}} 
+            </h2>-->
+        </view>
+
+    </view>
 
 
 
@@ -19,57 +24,66 @@
 <!-- 工具区 -->
 <view class="home_inner">
     <view class="home_title">
-        <image mode="widthFix" src="https://jl.offcn.com/zt/ty/2023images/sk-miniprogram/icon1.png" ></image>
-    <h2>工具区</h2>
+        <image mode="widthFix" src="https://jl.offcn.com/zt/ty/2023images/sk-miniprogram/icon1.png"></image>
+        <h2>工具区</h2>
     </view>
     <view class="home_tools">
-       
-    <navigator url="/pages/subscribe/2023/sk/gg/index{{suffixStr?'?'+suffixStr:''}}">
-     <image mode="widthFix" src="https://jl.offcn.com/zt/ty/2023images/sk-miniprogram/pic1.png" class="tit_pic"></image>
-    公告预约
-    </navigator>
-    <navigator url="/pages/sk/2023/zwjs/index{{suffixStr?'?'+suffixStr:''}}">
-        <image mode="widthFix" src="https://jl.offcn.com/zt/ty/2023images/sk-miniprogram/pic2.png" class="tit_pic"></image>
-    职位匹配</navigator>
-    <navigator url="/pages/appopen/web-view/index?src=https://jl.offcn.com/html/2023/01/222164.html{{suffixStr?'&'+suffixStr:''}}">
-        <image mode="widthFix" src="https://jl.offcn.com/zt/ty/2023images/sk-miniprogram/pic3.png" class="tit_pic"></image>
-    公告原文</navigator>
-    <navigator url="/pages/sk/2023/lnfs/index{{suffixStr?'?'+suffixStr:''}}">
-        <image mode="widthFix" src="https://jl.offcn.com/zt/ty/2023images/sk-miniprogram/pic4.png" class="tit_pic"></image>
-    进面分数</navigator>
-    <navigator url="/pages/appopen/web-view/index?src=https://jl.offcn.com/zw/zhuanye{{suffixStr?'&'+suffixStr:''}}">
-        <image mode="widthFix" src="https://jl.offcn.com/zt/ty/2023images/sk-miniprogram/pic5.png" class="tit_pic"></image>
-    专业目录</navigator>
-    <navigator url="/pages/sk/2023/cjwt/index{{suffixStr?'?'+suffixStr:''}}">
-        <image mode="widthFix" src="https://jl.offcn.com/zt/ty/2023images/sk-miniprogram/pic6.png" class="tit_pic"></image>
-    常见问题</navigator>
-    <navigator url="/pages/appopen/web-view/index?src=https://jl.offcn.com/zg/skgwyfdkc/{{suffixStr?'&'+suffixStr:''}}">
-        <image mode="widthFix" src="https://jl.offcn.com/zt/ty/2023images/sk-miniprogram/pic7.png" class="tit_pic"></image>
-    笔试课程</navigator>
-    <navigator url="/pages/appopen/sobot/auto{{suffixStr?'?'+suffixStr:''}}">
-        <image mode="widthFix" src="https://jl.offcn.com/zt/ty/2023images/sk-miniprogram/pic8.png" class="tit_pic"></image>
-    立即咨询</navigator>
+
+        <navigator url="/pages/appopen/web-view/index?src=https://jl.offcn.com/html/2023/01/222252.html{{suffixStr?'&'+suffixStr:''}}">
+            <image mode="widthFix" src="https://jl.offcn.com/zt/ty/2023images/sk-miniprogram/pic1.png" class="tit_pic"></image>
+            职位表
+        </navigator>
+        <navigator url="/pages/appopen/web-view/index?src=https://jl.offcn.com/html/2021/02/173799.html{{suffixStr?'&'+suffixStr:''}}">
+            <image mode="widthFix" src="https://jl.offcn.com/zt/ty/2023images/sk-miniprogram/pic2.png" class="tit_pic"></image>
+            考试大纲
+        </navigator>
+        <navigator url="/pages/appopen/web-view/index?src=https://jl.offcn.com/html/2023/01/222164.html{{suffixStr?'&'+suffixStr:''}}">
+            <image mode="widthFix" src="https://jl.offcn.com/zt/ty/2023images/sk-miniprogram/pic3.png" class="tit_pic"></image>
+            公告原文
+        </navigator>
+        <navigator url="/pages/appopen/web-view/index?src=https://jl.offcn.com/html/jilingongwuyuan/zhaokaoxinxi/fsx/{{suffixStr?'&'+suffixStr:''}}">
+            <image mode="widthFix" src="https://jl.offcn.com/zt/ty/2023images/sk-miniprogram/pic4.png" class="tit_pic"></image>
+            分数线
+        </navigator>
+        <navigator url="/pages/appopen/web-view/index?src=https://jl.offcn.com/zw/zhuanye{{suffixStr?'&'+suffixStr:''}}">
+            <image mode="widthFix" src="https://jl.offcn.com/zt/ty/2023images/sk-miniprogram/pic5.png" class="tit_pic"></image>
+            专业目录
+        </navigator>
+        <!-- <navigator url="/pages/sk/2023/cjwt/index{{suffixStr?'?'+suffixStr:''}}"> -->
+         <navigator url="/pages/appopen/web-view/index?src=https://jl.offcn.com/html/2022/07/211705.html{{suffixStr?'&'+suffixStr:''}}">
+            <image mode="widthFix" src="https://jl.offcn.com/zt/ty/2023images/sk-miniprogram/pic6.png" class="tit_pic"></image>
+            资格复审
+        </navigator>
+        <navigator url="/pages/appopen/web-view/index?src=https://jl.offcn.com/zg/skgwyfdkc/{{suffixStr?'&'+suffixStr:''}}">
+            <image mode="widthFix" src="https://jl.offcn.com/zt/ty/2023images/sk-miniprogram/pic7.png" class="tit_pic"></image>
+            笔试课程
+        </navigator>
+        <navigator url="/pages/appopen/sobot/auto{{suffixStr?'?'+suffixStr:''}}">
+            <image mode="widthFix" src="https://jl.offcn.com/zt/ty/2023images/sk-miniprogram/pic8.png" class="tit_pic"></image>
+            立即咨询
+        </navigator>
     </view>
 </view>
 
 <!-- 直播课 -->
 <view class="home_inner">
     <view class="home_title">
-        <image mode="widthFix" src="https://jl.offcn.com/zt/ty/2023images/sk-miniprogram/icon2.png" ></image><h2>直播课</h2>
+        <image mode="widthFix" src="https://jl.offcn.com/zt/ty/2023images/sk-miniprogram/icon2.png"></image>
+        <h2>直播课</h2>
     </view>
     <view class="home_live">
-    <navigator url="/pages/appopen/web-view/index?src=https://i.offcn.com/c/1238290{{suffixStr?'&'+suffixStr:''}}">
-      <view class="live_content">
-        <image mode="widthFix" src="https://s.eoffcn.com/ds/202301/1e0e0e820eecd8676aaf749d4deda7cf_1672798245000_6971.jpg" ></image>
-        <view>2023吉林省考·我为题狂</view>
-      </view>
-    </navigator>
-    <navigator url="/pages/appopen/web-view/index?src=https://i.offcn.com/c/1330014{{suffixStr?'&'+suffixStr:''}}">
-      <view class="live_content">
-        <image mode="widthFix" src="https://s.eoffcn.com/ds/202301/a8101c884c5c1db8d2bc806c91de5318_1672710741000_4719.jpg" ></image>
-        <view>2023年吉林省考公告解读峰会</view>
-      </view>
-    </navigator>
+        <navigator url="/pages/appopen/web-view/index?src=https://i.offcn.com/c/1238290{{suffixStr?'&'+suffixStr:''}}">
+            <view class="live_content">
+                <image mode="widthFix" src="https://s.eoffcn.com/ds/202301/1e0e0e820eecd8676aaf749d4deda7cf_1672798245000_6971.jpg"></image>
+                <view>2023吉林省考·我为题狂</view>
+            </view>
+        </navigator>
+        <navigator url="/pages/appopen/web-view/index?src=https://i.offcn.com/c/1330014{{suffixStr?'&'+suffixStr:''}}">
+            <view class="live_content">
+                <image mode="widthFix" src="https://s.eoffcn.com/ds/202301/a8101c884c5c1db8d2bc806c91de5318_1672710741000_4719.jpg"></image>
+                <view>2023年吉林省考公告解读峰会</view>
+            </view>
+        </navigator>
     </view>
 
 </view>
@@ -77,7 +91,8 @@
 <!-- 考区 -->
 <view class="home_inner">
     <view class="home_title">
-        <image mode="widthFix" src="https://jl.offcn.com/zt/ty/2023images/sk-miniprogram/icon3.png" ></image><h2>吉林省考考情区</h2>
+        <image mode="widthFix" src="https://jl.offcn.com/zt/ty/2023images/sk-miniprogram/icon3.png"></image>
+        <h2>吉林省考考情区</h2>
     </view>
     <view class="home_content">
         <navigator url="/pages/appopen/web-view/index?src=https://m.jl.offcn.com/zg/2014sk/m/kssj.html{{suffixStr?'&'+suffixStr:''}}">
@@ -109,32 +124,34 @@
 <!-- 地址 -->
 <view class="home_inner">
     <view class="home_title">
-        <image mode="widthFix" src="https://jl.offcn.com/zt/ty/2023images/sk-miniprogram/icon4.png" ></image><h2>身边的中公教育</h2>
+        <image mode="widthFix" src="https://jl.offcn.com/zt/ty/2023images/sk-miniprogram/icon4.png"></image>
+        <h2>身边的中公教育</h2>
     </view>
     <view class="home_addr">
-    <view class="home_addr_content">
-    <view>长春</view>
-    <view>吉林市</view>
-    <view>延边</view>
-    <view>四平</view>
-    <view>通化</view>
-    <view>白城</view>
-    <view>辽源</view>
-    <view>松原</view>
-    <view>白山</view>
-    </view>
-    <view class="addr_more">
-        <navigator url="/pages/appopen/web-view/index?src=https://m.jl.offcn.com/zg/wap/address.html?id=1"><text>  点击查看详细地址 </text></navigator>  <image mode="widthFix" src="https://jl.offcn.com/zt/ty/2023images/sk-miniprogram/icon7.png"  class="icon_pic"></image>
-    </view>
-    <view class="home_addr_con">
-        <image mode="widthFix" src="https://jl.offcn.com/zt/ty/2023images/sk-miniprogram/icon5.png"   class="icon_pic"></image>
-        <text bindtap="makePhoneCall">客服电话</text>
-       <image mode="widthFix" src="https://jl.offcn.com/zt/ty/2023images/sk-miniprogram/icon6.png"  class="icon_pic"></image>
-       <navigator url="/pages/appopen/sobot/auto{{suffixStr?'?'+suffixStr:''}}">在线客服</navigator>
-    </view>
-   
-    
-   
+        <view class="home_addr_content">
+            <view>长春</view>
+            <view>吉林市</view>
+            <view>延边</view>
+            <view>四平</view>
+            <view>通化</view>
+            <view>白城</view>
+            <view>辽源</view>
+            <view>松原</view>
+            <view>白山</view>
+        </view>
+        <view class="addr_more">
+            <navigator url="/pages/appopen/web-view/index?src=https://m.jl.offcn.com/zg/wap/address.html?id=1"><text> 点击查看详细地址 </text></navigator>
+            <image mode="widthFix" src="https://jl.offcn.com/zt/ty/2023images/sk-miniprogram/icon7.png" class="icon_pic"></image>
+        </view>
+        <view class="home_addr_con">
+            <image mode="widthFix" src="https://jl.offcn.com/zt/ty/2023images/sk-miniprogram/icon5.png" class="icon_pic"></image>
+            <text bindtap="makePhoneCall">客服电话</text>
+            <image mode="widthFix" src="https://jl.offcn.com/zt/ty/2023images/sk-miniprogram/icon6.png" class="icon_pic"></image>
+            <navigator url="/pages/appopen/sobot/auto{{suffixStr?'?'+suffixStr:''}}">在线客服</navigator>
+        </view>
+
+
+
 
     </view>
 </view>

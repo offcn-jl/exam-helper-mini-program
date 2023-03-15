@@ -145,7 +145,7 @@ display: inline-block;
 }    
 
 .addr_more{
-    width:300rpx ;
+    width:350rpx ;
     line-height:60rpx;
     margin: 20rpx auto;
     display: flex;
