@@ -38,7 +38,7 @@
 					<view class="item_line"><label>招聘单位：</label><text>{{item.item03}}</text></view>
 					<view class="item_line"><label>招聘岗位：</label><text>{{item.item04}}</text></view>
 					<view class="item_line"><label>招聘人数：</label><text>{{item.item05}}</text></view>
-					<view class="item_line"><label>成绩：</label><text>{{item.item07}}</text></view>
+					<view class="item_line"><label>笔试成绩：</label><text>{{item.item07}}</text></view>
 					<view class="item_line"><label>最低学历：</label><text>{{item.item08}}</text></view>
                     <view class="item_line"><label>招聘岗位资格条件：</label><text>{{item.item06}}</text></view>
 					
