@@ -1,6 +1,7 @@
 //app.js
 App({
     onLaunch: function () {
+        wx.cloud.init()
         // 获取用户信息
         if (wx.getStorageSync('sso-token')) {
             this.methods.requsetWithCode({
