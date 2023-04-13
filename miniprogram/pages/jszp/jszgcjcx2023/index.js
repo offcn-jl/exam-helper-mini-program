@@ -7,7 +7,7 @@ Page({
     data: {
         title:"2023上半年吉林省教师资格-成绩预约查询",// 标题
         banner_bk:"http://jl.offcn.com/zt/ty/2023images/exam-helper-mini/jszgcjcx.jpg",// 背景图片
-        imageUrl:"",// 分享时显示的图片
+        imageUrl:"http://jl.offcn.com/zt/ty/2023images/exam-helper-mini/jszgcjcx-share.jpg",// 分享时显示的图片
         CRMEFSID: "14caa782dca7f73863b55af9d67e910c", // CRM 活动表单 ID
         CRMEventID: "HD202304100168", // CRM 注释  2023上半年吉林省教师资格-成绩预约查询
         CRMRemark: "2023上半年吉林省教师资格-成绩预约查询",
