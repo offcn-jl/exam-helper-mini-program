@@ -1,0 +1,14 @@
+
+
+page{background: #0b2f8d;}
+.search_btn_jl {
+    width:55vw;
+    background-color: #7c101f;
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: -300rpx;
+    line-height:50px;
+    border-radius: 10px;
+}

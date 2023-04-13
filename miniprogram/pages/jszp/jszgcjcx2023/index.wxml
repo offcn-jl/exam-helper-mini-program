@@ -1,0 +1,22 @@
+
+<!-- 背景 -->
+<image mode="widthFix" src="{{banner_bk}}" class="banner_bk w100"></image>
+
+
+
+   
+    <view class="content">
+     <button wx:if="{{!phone}}" class="search_btn_jl" bindtap="SSOCheckManual">点击查询</button>
+      <!-- 中国教师资格网站 -->
+     
+        <navigator  wx:else class="search_btn_jl" target="miniProgram" open-type='navigate' app-id='wxa56afc785454c86b'
+         path='packageResultQuery/pages/ntce_dc/NTCE_Result_DC_Portal'>点击查询</navigator>
+   
+       
+    </view>
+
+
+
+<!-- 后缀 -->
+<view class="suffix">{{suffixStr}}</view>
+
