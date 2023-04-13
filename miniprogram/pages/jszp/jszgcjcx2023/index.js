@@ -58,11 +58,12 @@ Page({
                     remark: this.data.CRMRemark,
                     callback: ({ phone, openid }) => {
                         this.setData({ phone, openid });
-                        // 隐藏 loading
-                        wx.hideLoading();
+                      
                     },
                 });
             }
+              // 隐藏 loading
+              wx.hideLoading();
         }).catch(err => {
             // 隐藏 loading
             wx.hideLoading();
