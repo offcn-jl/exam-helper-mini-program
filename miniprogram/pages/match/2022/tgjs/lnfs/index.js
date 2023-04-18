@@ -1,10 +1,10 @@
 Page({
   data: {
-    title:"吉林特岗历年分数检索系统",// 标题
-    banner_bk:"https://jl.offcn.com/zg/ty/images/exam-helper-mini-program/match/2022/tgjs/lnfs/background1.jpg",// 背景图片
-    imageUrl:"https://jl.offcn.com/zg/ty/images/exam-helper-mini-program/match/2022/tgjs/lnfs/share.jpg",// 分享时显示的图片
-    CRMEFSID: "e8994d78505b504910a4851b038ea124", // CRM 活动表单 ID
-    CRMRemark: "HD202203220333/110316", // CRM 注释  小程序-吉林特岗历年上岗分数线 HD202203220333 120435
+    title:"吉林省特岗教师历年上岗分数线查询系统",// 标题
+    banner_bk:"https://jl.offcn.com/zt/ty/2023images/exam-helper-mini/tgjssgfs.jpg",// 背景图片
+    imageUrl:"https://jl.offcn.com/zt/ty/2023images/exam-helper-mini/tgjssgfs-share.jpg",// 分享时显示的图片
+    CRMEFSID: "2684ce43b7a16b303f5697df31328829", // CRM 活动表单 ID
+    CRMRemark: "HD202304180161/155068", // CRM 注释  小程序-2023年吉林省特岗教师历年上岗分数线查询系统
     actid:"47284", //zg99id
 
     yearList: [],  //年份
@@ -109,7 +109,26 @@ Page({
         break
     }
   },
-
+   // 手动检查 SSO 登录状态
+   SSOCheckManual: function () {
+    getApp().methods.SSOCheckManual({
+        crmEventFormSID: this.data.CRMEFSID,
+        suffix: {
+            suffix: this.data.suffix,
+            suffixStr: this.data.suffixStr
+        },
+        remark: this.data.CRMRemark,
+        callback: ({
+            phone,
+            openid
+        }) => {
+            this.setData({
+                phone,
+                openid
+            });
+        }
+    });
+},
   // 搜索
   async seach_result() {
     let url = "result/index?" + this.data.suffixStr
@@ -120,37 +139,9 @@ Page({
     wx.navigateTo({ url })
   },
 
-  // 登陆
-  login: function (event) {
-    getApp().methods.newLogin({event, crmEventFormSID: this.data.CRMEFSID, suffix: { suffix: this.data.suffix, suffixStr: this.data.suffixStr }, remark: this.data.CRMRemark, callback: ({ phone, openid }) => {
-      this.setData({ phone, openid });
-        wx.showModal({ title: '提示', content: '注册成功，请您点击“点击登陆”按钮进行登陆～', showCancel: false, confirmText: "我知道啦" });
-    }});
-  },
 
-  // 提示订阅消息推送
-  tipsToSubscribeMessage() {
-    let _this = this
-    if (!_this.data.tipsToSubscribeMessaged) {
-      _this.setData({ tipsToSubscribeMessaged: true })
-      wx.showModal({
-        title: '提示',
-        content: '您是否需要订阅“事业单位”考试公告？订阅成功后您可以在公告发布时免费获得推送提示～',
-        confirmText: "免费订阅",
-        success(res) {
-          if (res.confirm) {
-            getApp().methods.subscribeSingleExam(_this.data.suffix, "事业单位", undefined, () => {
-              _this.seach_result() // 订阅成功后执行查询
-            })
-          } else if (res.cancel) {
-            _this.seach_result() // 执行查询
-          }
-        }
-      })
-    } else {
-      _this.seach_result() // 执行查询
-    }
-  },
+
+
 
   /**
 	 * 生命周期函数--监听页面加载

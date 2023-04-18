@@ -68,7 +68,7 @@ page {
 }
 
 .result_num {
-  width: 702rpx;
+  width:600rpx;
   margin: 0 auto;
   display: flex;
   display: -webkit-flex;
@@ -78,15 +78,15 @@ page {
 }
 
 .result_nux {
+  width: 300px;
   font-size: 34rpx;
   font-weight: bold;
   color: #f5eeb8;
-  padding-left: 90rpx;
   display: inline-block;
 }
 
 .result_num navigator{
-  margin-right:100rpx;
+ float: left;
 }
 .change_btn {
   font-size: 34rpx;
@@ -322,7 +322,7 @@ page {
 
 .result_code {
   display: block;
-  font-size: 40rpx;
+  font-size: 35rpx;
   font-weight: bold;
   color: #3b444e;
   line-height: 100rpx;
