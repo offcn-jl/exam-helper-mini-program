@@ -1,0 +1,13 @@
+/* pages/sydw/syxcjwt/index.wxss */
+
+@import '../../wdxt/style.wxss';
+
+
+.result_detail{
+    text-align: left;
+}
+
+
+.item_group .item_line text{
+    text-indent: 2.5rem;
+}
