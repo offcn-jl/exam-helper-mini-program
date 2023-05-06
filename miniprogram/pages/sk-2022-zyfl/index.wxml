@@ -7,7 +7,7 @@
 		</view>
 		<view class='offer_item btn'>
 			<!-- <button wx:if="{{!phone}}" class="search_btn" open-type="getPhoneNumber" bindgetphonenumber="buttonStart">注册后进行查询</button> -->
-			<button class="search_btn" wx:if="{{CRMEFSID.length === 32 && !phone}}" open-type="getPhoneNumber" bindgetphonenumber="login">注册后进行查询</button>
+			<button class="search_btn" wx:if="{{CRMEFSID.length === 32 && !phone}}" open-type="getPhoneNumber" bindgetphonenumber="login">注册后可查询</button>
 			<button wx:else class="search_btn" bindtap="tipsToSubscribeMessage">点击查询</button>
 		</view>
 	</view>

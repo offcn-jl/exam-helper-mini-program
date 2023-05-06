@@ -3,8 +3,8 @@ Page({
     title:"2022省考职位检索查询",// 标题
     banner_bk:"http://jl.offcn.com/zt/ty/2021images/exam-helper/2022sk/sk-2022-zwjs-index.jpg",// 背景图片
     imageUrl:"http://jl.offcn.com/zt/ty/2021images/exam-helper/2022sk/sk-2022-zwjs-share.jpg",// 分享时显示的图片
-    CRMEFSID: "56a0de1b86f6a7f301d0c62f7f1597f1", // CRM 活动表单 ID
-    CRMEventID: "HD202110251261", // CRM 注释  小程序-2022省考五大系统汇总
+    CRMEFSID: "215e9b25ffa6601afddd157702e60e58", // CRM 活动表单 ID
+    CRMEventID: "HD202305060220", // CRM 注释  小程序-2022省考五大系统汇总（2023年5月6日改新表单）
 
     // 职位要求
     cityList: ["省直","长春","吉林市","延边","四平","通化","白城","辽源","松原","白山"], // 地市

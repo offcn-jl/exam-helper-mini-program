@@ -3,9 +3,9 @@ Page({
     title:"专业分类-2022吉林省公务员考试专业分类查询系统",// 标题
     banner_bk:"http://jl.offcn.com/zt/ty/2021images/exam-helper/2022sk/sk-2022-zyfl-index.jpg",// 背景图片
     imageUrl:"http://jl.offcn.com/zt/ty/2021images/exam-helper/2022sk/sk-2022-zyfl-share.jpg",// 分享时显示的图片
-    CRMEFSID: "56a0de1b86f6a7f301d0c62f7f1597f1", // CRM 活动表单 ID
-    CRMEventID: "HD202110251261", // CRM 注释  小程序-2022省考五大系统汇总
-    actid:"41667", //zg99id  小程序-2022专业分类查询系统	
+    CRMEFSID: "215e9b25ffa6601afddd157702e60e58", // CRM 活动表单 ID
+    CRMEventID: "HD202305060220", // CRM 注释  小程序-2022省考五大系统汇总
+    actid:"41667", //zg99id  小程序-2022专业分类查询系统	（2023年5月6日改新表单）
 
     zylbList: [],//专业类别
     zylbValue: '', //专业类别
