@@ -103,7 +103,7 @@
     margin-right: 10rpx;
     /* 文本两端对齐 */
     text-align-last: justify;
-    width: 200rpx;
+    width: 300rpx;
 }
 
 .jiantou {

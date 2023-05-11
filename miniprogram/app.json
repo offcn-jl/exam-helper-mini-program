@@ -6,7 +6,6 @@
     "pages/jszp/jszgcjcx2023/index", 
     "pages/jszp/2022/dlfsx/index", 
 
-    "pages/sydw/sydwjmfs/index",
     "pages/sydw/lnbmrs-cc/index",
     "pages/sydw/2023/subscribe/index",
     "pages/sydw/2022/bs/shaif/index", 
@@ -39,6 +38,7 @@
     "pages/sk/2022/book/index",
     "pages/sk/2022/navigation/index",
 
+    "pages/tgjs/zxxml/index", 
     "pages/tgjs/cjwtsyx/index", 
     "pages/tgjs/2022/shaif/index", 
     "pages/tgjs/2022/jccx/index", 

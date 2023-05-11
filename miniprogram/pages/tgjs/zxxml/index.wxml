@@ -5,17 +5,14 @@
 <view class="container">
     <view class="select_wrap">
 		<view class='offcn_item' wx:if="{{dqList.length > 0}}">
-			<select options='{{dqList}}' icon="icon-rili" text="所属地区" type="dq" bind:m_select_touch="m_select_touch"></select>
+			<select options='{{dqList}}' icon="icon-rili" text="地市" type="dq" bind:m_select_touch="m_select_touch"></select>
 		</view>
 
 		<view class='offcn_item' wx:if="{{dwList.length > 0}}">
-			<select-search options='{{dwList}}' icon="icon-icon1" text="单位" type="dw" bind:m_selectSearch_touch="m_select_touch"></select-search>
+			<select-search options='{{dwList}}' icon="icon-icon1" text="学校所在地" type="dw" bind:m_selectSearch_touch="m_select_touch"></select-search>
 		</view>
 		
-		<view class='offcn_item' wx:if="{{gwList.length > 0}}">
-			<select-search options='{{gwList}}' icon="icon-home" text="岗位" type="gw" bind:m_selectSearch_touch="m_select_touch"></select-search>
-		</view>
-		
+
 	
 		<view class='offcn_item btn'>
 		
@@ -29,19 +26,14 @@
 		<view class="result_item" bindtap="showmore"   data-index="{{index}}">
 	
 			<text class="result_code">{{item.item03}}</text>
-			<view class="result_detail"><label>笔试成绩:</label><text>{{item.item07}}</text></view>
+		
 			<!-- 可收放数据代码 -->
 			<view class="item_group">
 				<view class="item-group-wrap {{showIndex == index ? 'active' : ''}}">
-				    <view class="item_line"><label>所属地区：</label><text>{{item.item01}}</text>
-					<view class="item_line"><label>单位名称：</label><text>{{item.item02}}</text></view>
-					<view class="item_line"><label>岗位名称：</label><text>{{item.item03}}</text></view>
-					<view class="item_line"><label>主管部门：</label><text>{{item.item04}}</text></view>
-					<view class="item_line"><label>岗位代码：</label><text>{{item.item05}}</text></view>
-					<view class="item_line"><label>招考人数：</label><text>{{item.item06}}</text></view>
-					<view class="item_line"><label>笔试成绩：</label><text>{{item.item07}}</text></view>
-                    <view class="item_line"><label>面试成绩：</label><text>{{item.item08}}</text></view> 
-                    <view class="item_line"><label>总成绩：</label><text>{{item.item09}}</text></view> 
+				    <view class="item_line"><label>地市：</label><text>{{item.item01}}</text>
+					<view class="item_line"><label>学校所在地：</label><text>{{item.item02}}</text></view>
+					<view class="item_line"><label>学校名称：</label><text>{{item.item03}}</text></view>
+
 					
 			    </view>
 				</view>
