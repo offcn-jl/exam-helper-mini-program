@@ -3,8 +3,8 @@ Page({
     title:"吉林特岗历年职位检索系统",// 标题
     banner_bk:"http://news01.offcn.com/jl/2021/1220/20211220014332912.jpg",// 背景图片
     imageUrl:"http://news01.offcn.com/jl/2021/1220/20211220014331327.jpg",// 分享时显示的图片
-    CRMEFSID: "827482130ba3f6d973c98a2e8ca38e03", // CRM 活动表单 ID
-    CRMEventID: "HD202112160810", // CRM 注释  小程序-吉林特岗历年职位检索系统/110316
+    CRMEFSID: "83004843abb8cd62e8e25d33381aa7eb", // CRM 活动表单 ID
+    CRMEventID: "HD202305110332", // CRM 注释  小程序-吉林特岗历年职位检索系统/156361
     actid:"45167", //zg99id  小程序-2022吉林省公务员考试常见问题查询
 
     yearList: [],  //年份
