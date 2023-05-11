@@ -34,7 +34,6 @@
 					<view class="item_line"><label>学校所在地：</label><text>{{item.item02}}</text></view>
 					<view class="item_line"><label>学校名称：</label><text>{{item.item03}}</text></view>
 
-					
 			    </view>
 				</view>
                  <!-- 上下显示箭头 -->

@@ -20,8 +20,7 @@ Page({
         dwList: [],
         dwValue: '',
 
-        gwList: [],
-        gwValue: '',
+
 
         suffix: {}, // 后缀
         suffixStr: "", // 后缀 字符串
@@ -41,8 +40,6 @@ Page({
                 _this.setData({
                     dqValue: _this.data.dqList[e.detail.index],
                     dwList: [],
-                    gwList: [],
-
                 })
 
                 // zg99二级联动
@@ -84,50 +81,8 @@ Page({
                 break
             case "dw": //单位
                 _this.setData({
-                    dwValue: e.detail.text,
-                    gwList: [],      
+                    dwValue: e.detail.text,    
                 })
-                // zg99四级联动
-                wx.request({
-                    url: "https://zg99.offcn.com/index/chaxun/getlevel?actid=" + _this.data.actid, //路径
-                    data: {
-                        level: '3',
-                        grfiled: 'item02',
-                        grtext: e.detail.text,
-                        onefiled:'item01',
-                        onetext:this.data.dqValue,
-                       
-                        sstime: new Date().valueOf()
-                    }, //四级联动，上级联动字段名，上级联动参数值
-                    success(res) {
-                        let response = JSON.parse(res.data.substring(1, res.data.length - 1)); //去头尾（）,转为json对象
-                        // console.log(response);
-                        // 现将之前地市选项中报考职位内容清空
-                        const List = []
-                        // 将数据添加到已清空地市
-                        for (var i = 0; i < response.lists.length; i++) {
-                            List.push(response.lists[i].item03)
-                        }
-                        _this.setData({
-                            gwList: List
-                        })
-                    },
-                    fail: err => { //获取失败后提示
-                        wx.hideLoading() // 隐藏 loading
-                        getApp().methods.handleError({
-                            err: err,
-                            title: "出错啦",
-                            content: '查询失败',
-                            reLaunch: true
-                        })
-                    }
-                })
-                break
-            case "gw": //岗位
-                _this.setData({
-                    gwValue:e.detail.text
-                })
-
         }
         this.setData({
             result: [],
@@ -160,10 +115,13 @@ Page({
     search() {
         let _this = this //作用域 
         if(!_this.data.dqValue){
-            wx.showToast({title: '请选择地区',icon: 'error'})
+            wx.showToast({title: '请选择地市',icon: 'error'})
             return
         }
-      
+        if(!_this.data.dwValue){
+            wx.showToast({title: '请选择学校所在地',icon: 'error'})
+            return
+        }
         wx.showLoading({
             title: '查询中...',
             mask: true
@@ -173,7 +131,6 @@ Page({
             data: {
                 item01: this.data.dqValue,
                 item02: this.data.dwValue,
-                item03: this.data.gwValue,
                 tabnum: 2,
                 limits: 200,
                 page: this.data.page,
@@ -205,7 +162,7 @@ Page({
                         list.lists.forEach(valueList=>{
                             let same = false;
                             result.forEach(valueResult=>{
-                                if (valueList.item07 == valueResult.item07) {
+                                if (valueList.item03 == valueResult.item03) {
                                     same = true;
                                 }
                             });
