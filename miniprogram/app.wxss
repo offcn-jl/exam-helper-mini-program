@@ -1,5 +1,5 @@
 /**app.wxss**/
-
+@import './fonts/iconfont.wxss';
 /* 推广后缀 */
 .suffix {
     width: 95vw;

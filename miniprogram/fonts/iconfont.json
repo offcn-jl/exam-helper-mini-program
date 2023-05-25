@@ -1,0 +1,93 @@
+{
+  "id": "3212109",
+  "name": "ranking-list-2022-sk",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "5387859",
+      "name": "按钮_关闭_o",
+      "font_class": "anniu_guanbi_o",
+      "unicode": "eb75",
+      "unicode_decimal": 60277
+    },
+    {
+      "icon_id": "553322",
+      "name": "所属职位",
+      "font_class": "suoshuzhiwei",
+      "unicode": "e622",
+      "unicode_decimal": 58914
+    },
+    {
+      "icon_id": "1836617",
+      "name": "收藏职位",
+      "font_class": "shoucangzhiwei",
+      "unicode": "e611",
+      "unicode_decimal": 58897
+    },
+    {
+      "icon_id": "2811144",
+      "name": "地址管理",
+      "font_class": "dizhiguanli",
+      "unicode": "e63f",
+      "unicode_decimal": 58943
+    },
+    {
+      "icon_id": "4488835",
+      "name": "专业名称",
+      "font_class": "zhuanyemingcheng",
+      "unicode": "e627",
+      "unicode_decimal": 58919
+    },
+    {
+      "icon_id": "4488847",
+      "name": "感兴趣职位",
+      "font_class": "ganxingquzhiwei",
+      "unicode": "e62c",
+      "unicode_decimal": 58924
+    },
+    {
+      "icon_id": "4670128",
+      "name": "认识专业",
+      "font_class": "renshizhuanye",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    },
+    {
+      "icon_id": "6360457",
+      "name": "专业资源库",
+      "font_class": "zhuanyeziyuanku",
+      "unicode": "e64f",
+      "unicode_decimal": 58959
+    },
+    {
+      "icon_id": "7287159",
+      "name": "联网单位",
+      "font_class": "lianwangdanwei",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "11882428",
+      "name": "部门管理",
+      "font_class": "bumenguanli",
+      "unicode": "e62a",
+      "unicode_decimal": 58922
+    },
+    {
+      "icon_id": "12097394",
+      "name": "单位",
+      "font_class": "danwei",
+      "unicode": "e649",
+      "unicode_decimal": 58953
+    },
+    {
+      "icon_id": "25450744",
+      "name": "部门报到",
+      "font_class": "bumenbaodao",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    }
+  ]
+}

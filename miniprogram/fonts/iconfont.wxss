@@ -1,0 +1,64 @@
+/* 在线链接服务仅供平台体验和调试使用，平台不承诺服务的稳定性，企业客户需下载字体包自行发布使用并做好备份。 */
+@font-face {
+    font-family: 'iconfont';  /* Project id 3212109 */
+    src: url('//at.alicdn.com/t/font_3212109_kmh63y2h8o.woff2?t=1646279681201') format('woff2'),
+         url('//at.alicdn.com/t/font_3212109_kmh63y2h8o.woff?t=1646279681201') format('woff'),
+         url('//at.alicdn.com/t/font_3212109_kmh63y2h8o.ttf?t=1646279681201') format('truetype');
+  }
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-anniu_guanbi_o:before {
+  content: "\eb75";
+}
+
+.icon-suoshuzhiwei:before {
+  content: "\e622";
+}
+
+.icon-shoucangzhiwei:before {
+  content: "\e611";
+}
+
+.icon-dizhiguanli:before {
+  content: "\e63f";
+}
+
+.icon-zhuanyemingcheng:before {
+  content: "\e627";
+}
+
+.icon-ganxingquzhiwei:before {
+  content: "\e62c";
+}
+
+.icon-renshizhuanye:before {
+  content: "\e605";
+}
+
+.icon-zhuanyeziyuanku:before {
+  content: "\e64f";
+}
+
+.icon-lianwangdanwei:before {
+  content: "\e603";
+}
+
+.icon-bumenguanli:before {
+  content: "\e62a";
+}
+
+.icon-danwei:before {
+  content: "\e649";
+}
+
+.icon-bumenbaodao:before {
+  content: "\e602";
+}
+
