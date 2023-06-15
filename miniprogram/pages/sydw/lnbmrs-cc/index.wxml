@@ -27,7 +27,7 @@
 		<view class="result_item" bindtap="showmore"   data-index="{{index}}">
 	
 			<text class="result_code">{{item.item02}}</text>
-			<view class="result_detail"><label>已提交材料人数:</label><text>{{item.item06}}</text></view>
+			<view class="result_detail"><label>报名人数:</label><text>{{item.item06}}</text></view>
 			<!-- 可收放数据代码 -->
 			<view class="item_group">
 				<view class="item-group-wrap {{showIndex == index ? 'active' : ''}}">
