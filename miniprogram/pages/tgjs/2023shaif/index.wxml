@@ -1,0 +1,54 @@
+
+
+<image mode="widthFix" src="{{banner_bk}}" class="banner_bk"></image>
+<view class="container">
+	<view class="select_wrap">
+		<view class='offer_item' wx:if="{{cityList.length > 0}}">
+			<select options='{{cityList}}' icon="icon-dizhi" text="地市" type="city" bind:m_select_touch="m_select_touch"></select>
+		</view>
+		<view class='offer_item' wx:if="{{countyList.length > 0}}">
+			<select options='{{countyList}}' icon="icon-home" text="县区" type="county" bind:m_select_touch="m_select_touch"></select>
+		</view>
+        <view class='offer_item' wx:if="{{jihuaList.length > 0}}">
+			<select options='{{jihuaList}}' icon="icon-home" text="计划" type="jihua" bind:m_select_touch="m_select_touch"></select>
+		</view>
+		<view class='offer_item' wx:if="{{subjectList.length > 0}}">
+			<select options='{{subjectList}}' icon="icon-xueli" text="学段" type="subject" bind:m_select_touch="m_select_touch"></select>
+		</view>
+		<view class='offer_item' wx:if="{{postList.length > 0}}">
+			<select options='{{postList}}' icon="icon-icon1" text="学科" type="post" bind:m_select_touch="m_select_touch"></select>
+		</view>
+		<view class="offer_item last {{active ? 'on' : ''}}">
+			<input options='{{gradeList}}' placeholder="请输入笔试成绩" type="digit" bindinput='getInputValue'/>
+			<text class="iconfont icon-rili icon_title"></text>
+		</view>
+		<view class='offer_item btn'>
+			<button   wx:if="{{!phone}}" class="search_btn"  bindtap="SSOCheckManual">点击晒分</button>
+			<button wx:else class="search_btn" bindtap="search">点击晒分</button>
+		</view>
+	</view>
+    <view class="resultWrap">
+	<block wx:for="{{result}}" wx:key="index"> 
+		<view class="result_item" bindtap="showmore"   data-index="{{index}}" style="{{userspm==item.paihang?'border: 1px solid #d32423;':''}}">
+	
+			<view class="result_code"><label>{{userspm==item.paihang?'我的':''}}排名:</label>{{item.paihang}}</view>
+			<view class="result_detail"><label>分数:</label><text>{{item.fenshu}}</text></view>
+			<!-- 可收放数据代码 -->
+			<view class="item_group">
+				<view class="item-group-wrap active">
+				<view class="item_line"><label>与上一名分差：</label><text>{{item.cha_fenshu}}</text>
+				
+
+			    </view>
+				</view>
+        
+			</view>
+		</view>
+   </block> 
+    <view wx:if="{{result.length>0&&result.length<count}}" style="color:gray;text-align: center;">下拉页面可刷新数据</view>
+  
+    </view>
+</view>
+
+<!-- 后缀 -->
+<view style="color:gray;text-align: center;font-size: 80%;margin-top: 50rpx;">{{suffixStr}}</view>

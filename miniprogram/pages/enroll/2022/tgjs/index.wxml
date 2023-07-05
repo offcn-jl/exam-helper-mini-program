@@ -5,6 +5,7 @@
         <view class='offer_item' wx:if="{{cityList.length > 0}}">
             <select options='{{cityList}}' icon="icon-dizhi" text="地市" type="city" bind:m_select_touch="m_select_touch"></select>
         </view>
+        
         <view class='offer_item' wx:if="{{countyList.length > 0}}">
             <select options='{{countyList}}' icon="icon-home" text="县（市、区）" type="county" bind:m_select_touch="m_select_touch"></select>
         </view>
@@ -14,6 +15,7 @@
         <view class='offer_item btn'>
             <button wx:if="{{!phone}}" class="search_btn" bindtap="SSOCheckManual">点击查询</button>
             <button wx:else class="search_btn" bindtap="search">点击查询</button>
+            
         </view>
     </view>
 </view>
