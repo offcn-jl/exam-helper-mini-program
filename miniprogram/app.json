@@ -51,6 +51,7 @@
 
     "pages/wdxt/lnfs2/index", 
     "pages/wdxt/zwpp2/index",   
+    "pages/wdxt/zwpp-sz/index",   
     "pages/wdxt/zwpp/index",    
     "pages/wdxt/syxcjwt/index",
     "pages/wdxt/lnfs/index", 
@@ -116,6 +117,7 @@
     "pages/position-2022yhqz/result/index", 
  
     "pages/subscribe/2023/sk/gg/index", 
+    "pages/subscribe/2023/2023szyf/index",
     "pages/subscribe/2023/sydw/cc/index",
     "pages/subscribe/2023/sydw/yb/index",
     "pages/subscribe/2023/gk/gg/index", 
