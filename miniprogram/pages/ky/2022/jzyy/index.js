@@ -13,8 +13,8 @@ Page({
         suffix: {}, // 后缀
         suffixStr: "", // 后缀 字符串
 
-        CRMEFSID: "ed5d0d8808b2fa05e7a45ffce768fe84", // CRM 活动表单 ID
-
+        CRMEFSID: "ed5d0d8808b2fa05e7a45ffce768fe84", // CRM 活动表单 ID 
+        
         phone: "", // 用户手机号码
         openid: "", //openid
     },
