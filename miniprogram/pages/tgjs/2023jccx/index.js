@@ -5,11 +5,11 @@ Page({
      * 页面的初始数据
      */
     data: {
-        title: "2022年吉林特岗教师面试教材版本查询", // 标题
-        imageUrl: "https://jl.offcn.com/zt/ty/2023images/exam-helper-mini/2023tgjsjccx.jpg", // 背景图片
-        shareImages: "https://jl.offcn.com/zt/ty/2023images/exam-helper-mini/2023tgjsjccx-share.jpg", // 分享时显示的图片
-        CRMEFSID: "f1703999407e9e75a5400c10e85506d5", // CRM 活动表单 ID 159629
-        CRMRemark: "活动编码:HD202307040169，2023年吉林特岗教师面试教材版本查询", // CRM 注释  2022年吉林特岗教师面试教材版本查询
+        title: "2023年吉林特岗教师-面试形式及教材版本查询", // 标题
+        imageUrl: "https://jl.offcn.com/zt/ty/2023images/exam-helper-mini/2023tgjsjccx2.jpg", // 背景图片
+        shareImages: "https://jl.offcn.com/zt/ty/2023images/exam-helper-mini/2023tgjsjccx2-share.jpg", // 分享时显示的图片
+        CRMEFSID: "2d8c8a5afccc596f2faa089bef089757", // CRM 活动表单 ID 159629
+        CRMRemark: "活动编码:HD202307240104，2023年吉林特岗教师面试教材版本查询", // CRM 注释  2022年吉林特岗教师面试教材版本查询
         actid: "53318", //zg99id 
         backgroundColor: "#000a45",
 
