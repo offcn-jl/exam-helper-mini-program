@@ -214,5 +214,6 @@
     }
   },
   "embeddedAppIdList": ["wxbb649293a97fa28a"],
-  "lazyCodeLoading": "requiredComponents"
+  "lazyCodeLoading": "requiredComponents",
+  "__usePrivacyCheck__": true 
 }

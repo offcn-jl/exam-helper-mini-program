@@ -9,7 +9,6 @@ Page({
         suffixStr: '', // 推广后缀字符串
 
         page: 1, // 当前页面
-
         agreeAgreementPrivacy: false, // 同意隐私协议
         agreementPrivacyHtmlSnip: "", // 隐私协议内容
         agreementPrivacyVersion: "", // 隐私协议版本
@@ -236,6 +235,16 @@ Page({
             }
         });
     },
+
+
+    handleAgreePrivacyAuthorization() {
+        // 用户同意隐私协议事件回调
+        // 用户点击了同意，之后所有已声明过的隐私接口和组件都可以调用了
+        // wx.getUserProfile()
+        // wx.chooseMedia()
+        // wx.getClipboardData()
+        // wx.startRecord()
+      },
 
     // 微信授权快速注册
     registerByWechatAuth: function (event) {
