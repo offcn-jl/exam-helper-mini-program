@@ -1,5 +1,5 @@
 
-<block  wx:if="{{!tipsToSubscribeMessaged}}">
+<block  wx:if="{{!signed}}">
 	<image class="header" mode="widthFix" src="{{banner}}"></image>
 	<view class="form">
 
@@ -7,7 +7,8 @@
 	</view>
 </block>
  
-<image wx:else class="header" mode="widthFix" src="https://jl.offcn.com/zt/ty/2023images/exam-helper-mini/2023jlscjyy2.jpg"></image>
+<image wx:else class="header" mode="widthFix" src="https://jl.offcn.com/zt/ty/2023images/exam-helper-mini/qdbj-sucess.jpg"></image>
+
 
 <view class="houzhui">{{ds}}-{{namecode}}</view>
 

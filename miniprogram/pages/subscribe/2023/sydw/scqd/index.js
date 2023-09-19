@@ -5,13 +5,14 @@ Page({
      * 页面的初始数据
      */
     data: {
-        title:"市场活动现场签到",
+        title:"现场签到",
         banner: 'https://jl.offcn.com/zt/ty/2023images/exam-helper-mini/qdbj.jpg', // 背景
         imageUrl: 'https://jl.offcn.com/zt/ty/2023images/exam-helper-mini/qdbj-share.jpg', // 分享图
 
         actid: "53932", //zg99id
         ds:"",
         namecode:"",
+        signed: false
     },
 
     /**
@@ -45,6 +46,7 @@ Page({
     },
 
     submit: function () {
+        const _this=this
         wx.request({
             url: "https://zg99.offcn.com/index/biaodan/writelogs",
             data: {
@@ -66,6 +68,7 @@ Page({
                             wx.showToast({
                                 title: "您已成功签到",
                             })
+                            _this.setData({signed: true });
                             return
                         }
                         wx.showToast({
@@ -74,10 +77,10 @@ Page({
                         })
                         return
                     }
+                    _this.setData({signed: true });
                     wx.showToast({
                         title: "签到成功",
                     })
-                 
                 } catch (err) { //捕获错误并报错
                     getApp().methods.handleError({
                         err,

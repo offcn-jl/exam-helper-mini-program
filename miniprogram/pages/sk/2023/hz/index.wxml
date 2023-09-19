@@ -9,7 +9,8 @@
       
         <!-- {{countdown.text}} -->
         <view class="sk_banner_title_day">
-            <h2>考试资讯</h2>
+        <view style="height: 200rpx;"></view>
+            <!-- <h2>考试活动</h2> -->
             <!-- <h2>
            {{countdown.countdown.day}} 
             </h2>-->
