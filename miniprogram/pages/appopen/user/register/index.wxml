@@ -5,10 +5,10 @@
 <image class="logo" src="https://appopenoss.offcn.com/statics/image/logo-horizontal-red-black.png" mode="widthFix"></image>
 
 <view class="agreement-privacy-view" wx:if="{{page===1}}">
-    <view class="index-tips">请完成注册以使用完整服务</view>
+    <view class="index-tips">请完成登录以使用完整服务</view>
 
-    <button type="primary" wx:if="{{!agreeAgreementPrivacy}}" bindtap="tipReadAgreementPrivacy" >同意隐私协议并授权</button>
-    <button type="primary" wx:else open-type="getPhoneNumber|agreePrivacyAuthorization" bindgetphonenumber="registerByWechatAuth">同意隐私协议并授权</button>
+    <button type="primary" wx:if="{{!agreeAgreementPrivacy}}" bindtap="tipReadAgreementPrivacy" >使用微信绑定号码快速登录</button>
+    <button type="primary" wx:else open-type="getPhoneNumber" bindgetphonenumber="registerByWechatAuth">使用微信绑定号码快速登录</button>
 
     <view class="agreement-privacy">
         <label class="lable" bindtap="tapAgreementPrivacy">
