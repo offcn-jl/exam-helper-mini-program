@@ -10,6 +10,7 @@
     "pages/sydw/2023/cc/shaif/index", 
     "pages/subscribe/2023/sydw/mhk/index",
     "pages/subscribe/2023/sydw/ccjszp/index",
+    "pages/subscribe/2023/sydw/scqd/index",
     "pages/subscribe/2023/sydw/jls/index",
     "pages/subscribe/2023/sydw/bs/index",
     "pages/sydw/lnbmrs-cc/index",
@@ -214,6 +215,5 @@
     }
   },
   "embeddedAppIdList": ["wxbb649293a97fa28a"],
-  "lazyCodeLoading": "requiredComponents",
-  "__usePrivacyCheck__": true 
+  "lazyCodeLoading": "requiredComponents"
 }

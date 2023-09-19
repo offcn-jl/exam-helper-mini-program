@@ -1,0 +1,13 @@
+
+<block  wx:if="{{!tipsToSubscribeMessaged}}">
+	<image class="header" mode="widthFix" src="{{banner}}"></image>
+	<view class="form">
+
+		<button class="subscribe" type="primary"  bindtap="SSOCheckManual">点击签到</button>
+	</view>
+</block>
+ 
+<image wx:else class="header" mode="widthFix" src="https://jl.offcn.com/zt/ty/2023images/exam-helper-mini/2023jlscjyy2.jpg"></image>
+
+<view class="houzhui">{{ds}}-{{namecode}}</view>
+
