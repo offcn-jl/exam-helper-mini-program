@@ -67,7 +67,7 @@
 </view>
 
 <!-- 直播课 -->
-<view class="home_inner">
+<!-- <view class="home_inner">
     <view class="home_title">
         <image mode="widthFix" src="https://jl.offcn.com/zt/ty/2023images/sk-miniprogram/icon2.png"></image>
         <h2>直播课</h2>
@@ -87,7 +87,7 @@
         </navigator>
     </view>
 
-</view>
+</view> -->
 
 <!-- 考区 -->
 <view class="home_inner">
