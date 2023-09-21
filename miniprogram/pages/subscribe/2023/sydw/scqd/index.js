@@ -1,5 +1,5 @@
 // pages/subscribe/2023/gk/gg/index.js
-
+var util = require('../../../../../utils/utils');
 Page({
     /**
      * 页面的初始数据
@@ -9,9 +9,11 @@ Page({
         banner: 'https://jl.offcn.com/zt/ty/2023images/exam-helper-mini/qdbj.jpg', // 背景
         imageUrl: 'https://jl.offcn.com/zt/ty/2023images/exam-helper-mini/qdbj-share.jpg', // 分享图
 
-        actid: "53932", //zg99id
+        actid: "53942", //zg99id
         ds:"",
         namecode:"",
+        day:"",
+        hour:"",
         signed: false
     },
 
@@ -57,7 +59,10 @@ Page({
                 namecode:this.data.namecode,
                 shouji1: getApp().globalData.user.username.substring(0,7),
                 shouji2: getApp().globalData.user.username.substring(7),
+                day:util.formatTime(new Date()),
+                hour: new Date().getHours(),
                 sstime: new Date().valueOf()
+
             },
             success(res) {
                 //console.log(registerRes);
@@ -106,7 +111,11 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        this.setData({ds: options.ds ,namecode:options.namecode})
+        
+        this.setData({
+            ds: options.ds ,
+            namecode:options.namecode,
+        })
     },
 
     /**
