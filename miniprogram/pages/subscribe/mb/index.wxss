@@ -1,0 +1,41 @@
+/* pages/subscribe/2023/gk/gg/index.wxss */
+
+.header {
+    width: 100vw;
+    display: block;
+  }
+  .tit{width: 400rpx; margin: 0 auto; float: fixed; color: #fff;}
+  .form {
+    position: absolute;
+    top: 1090rpx;
+    width: 100vw;
+    padding: 30rpx 2vw;
+  } 
+  
+  .tips {
+    color: #fff;
+    width: 94vw;
+    text-indent: 2rem;
+  }
+  
+  .register-tips {
+    color: white;
+    text-align: center;
+  }
+  
+  .subscribe {
+    width: 90vw !important;
+    margin-top: 2vh;
+  }
+  
+  .unsubscribe {
+    color: rgb(173, 173, 173);
+    text-align: center;
+    font-size: 1rem;
+    line-height: 2rem;
+    /* margin-bottom: 150rpx; */
+  }
+  
+  .unsubscribe-hover {
+    color:skyblue;
+  }
