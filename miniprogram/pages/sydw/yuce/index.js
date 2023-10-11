@@ -157,10 +157,7 @@ Page({
             return
         }
         const _this = this;
-        wx.showLoading({
-            title: '加载中'
-        });
-
+   
 
         
             this.setData({
