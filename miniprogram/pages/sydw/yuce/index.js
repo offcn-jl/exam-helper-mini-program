@@ -8,7 +8,7 @@ Page({
         title:"2024国考活动",
         imageUrl: "https://jl.offcn.com/zt/ty/2023images/exam-helper-mini/2024gkycrs.jpg", // 背景图片
         successimageUrl:"https://jl.offcn.com/zt/ty/2023images/exam-helper-mini/success-gk.jpg",
-        shareImages: "https://jl.offcn.com/zt/ty/2023images/exam-helper-mini/2023thmhlnfs-share.jpg", // 分享时显示的图片
+        shareImages: "https://jl.offcn.com/zt/ty/2023images/exam-helper-mini/2024gkycrs-share.jpg", // 分享时显示的图片
         CRMEFSID: "2b057f22a081112e3c931e753ed1f14f ", // CRM 活动表单 ID
         actid: "54022", //zg99id
         gradeValue: 0, // 成绩
