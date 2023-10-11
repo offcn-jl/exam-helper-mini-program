@@ -1,0 +1,22 @@
+/* pages/sydw/2022/yb/shaif/index.wxss */
+@import "../../tgjs/2022/shaif/index.wxss";
+
+
+
+page{
+    background:#710000 ;
+}
+.banner_bk {
+
+    width: 100vw;
+    display: block;
+    margin: 0;
+    position: relative;
+}
+.select_wrap{
+    position: absolute;
+    left: 60rpx;
+    top:1100rpx
+}
+.bj1{  z-index: 8;}
+.bj2{  z-index: 10;}

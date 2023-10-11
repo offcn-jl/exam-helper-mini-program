@@ -1,0 +1,24 @@
+
+    
+    <block wx:if="{{!signed}}">
+        <image  mode="widthFix" src="{{imageUrl}}"  class="banner_bk "></image>
+        <view class="select_wrap">
+
+            <view class="offer_item last {{active ? 'on' : ''}}">
+                <input placeholder="请输入预测的招考人数" type="digit" bindinput='getInputValue' />
+                <text class="iconfont icon-rili icon_title"></text>
+            </view>
+
+            <view class='offer_item btn'>
+                <button wx:if="{{!phone}}" class="search_btn" bindtap="SSOCheckManual">点击提交</button>
+                <button wx:else class="search_btn" bindtap="search">点击提交</button>
+            </view>
+        </view>
+
+    </block>
+
+  
+    <image  wx:else mode="widthFix" src="{{successimageUrl}}"   class="banner_bk "></image>
+
+<!-- 后缀 -->
+<view style="color:gray;text-align: center;font-size: 80%;margin-top: 50rpx;">{{suffixStr}}</view>
