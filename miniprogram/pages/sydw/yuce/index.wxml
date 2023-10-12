@@ -21,4 +21,4 @@
     <image  wx:else mode="widthFix" src="{{successimageUrl}}"   class="banner_bk "></image>
 
 <!-- 后缀 -->
-<view style="color:gray;text-align: center;font-size: 80%;margin-top: 50rpx;">{{suffixStr}}</view>
+<view>{{suffixStr}}</view>

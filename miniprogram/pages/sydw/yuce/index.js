@@ -6,10 +6,10 @@ Page({
      */
     data: {
         title:"2024国考活动",
-        imageUrl: "https://jl.offcn.com/zt/ty/2023images/exam-helper-mini/2024gkycrs.jpg", // 背景图片
-        successimageUrl:"https://jl.offcn.com/zt/ty/2023images/exam-helper-mini/success-gk.jpg",
-        shareImages: "https://jl.offcn.com/zt/ty/2023images/exam-helper-mini/2024gkycrs-share.jpg", // 分享时显示的图片
-        CRMEFSID: "2b057f22a081112e3c931e753ed1f14f ", // CRM 活动表单 ID
+        imageUrl: "", // 背景图片
+        successimageUrl:"",
+        shareImages: "", // 分享时显示的图片
+        CRMEFSID: "", // CRM 活动表单 ID
         actid: "54022", //zg99id
         gradeValue: 0, // 成绩
 
@@ -55,7 +55,7 @@ Page({
                 suffix: this.data.suffix,
                 suffixStr: this.data.suffixStr
             },
-            remark: this.data.CRMRemark,
+           
             callback: ({
                 phone,
                 openid
@@ -72,7 +72,6 @@ Page({
     //查询
     search() {
         let _this = this //作用域 
-
         if (!_this.data.gradeValue) {
             wx.showToast({
                 title: '请输入数字',
@@ -82,18 +81,16 @@ Page({
         }
        
         wx.request({
-            url: "https://zg99.offcn.com/index/biaodan/writelogs",
+            url: "https://zg99.offcn.com/index/chaxun/writelogs",
             data: {
                 actid: this.data.actid,
                 isagree: true,
                 phone: getApp().globalData.user.username,
-
                 fenshu: this.data.gradeValue,
                 sstime: new Date().valueOf()
-
             },
             success(res) {
-                //console.log(registerRes);
+        
                 try {
                     let registerRes = JSON.parse(res.data.substring(1, res.data.length - 1)) //去头尾（）,转为json对象
                     if (registerRes.status !== 1) { //如果status不等于1，弹出错误提示
@@ -131,7 +128,7 @@ Page({
                     content: '提交失败',
                     reLaunch: true
                 })
-            }
+            },
         })
      
     },
@@ -156,20 +153,82 @@ Page({
             });
             return
         }
+
         const _this = this;
-   
 
-        
-            this.setData({
-                actid: options.actid,
-                CRMEFSID: this.data.CRMEFSID,
-                imageUrl: this.data.imageUrl,
-                shareImages: this.data.shareImages,
-    
-            })
-        
+        // 获取后缀信息
+        getApp().methods.getSuffix(options).then(res => {
+            this.setData(res);
+            // 获取活动配置
+            wx.request({
+                url: "https://zg99.offcn.com/index/chaxun/getfylist",
+                data: {
+                    actid: _this.data.actid,
+                    tabnum: "1",
+                    sstime: new Date().valueOf()
+                },
+                success(res) {
+                    try {
+                        let response = JSON.parse(res.data.substring(1, res.data.length - 1)); //去头尾（）,转为json对象
+                        if (response.status !== 1) {
+                            // 如果status不等于1，弹出错误提示
+                            getApp().methods.handleError({
+                                err: null,
+                                title: "出错啦",
+                                content: response.msg,
+                                reLaunch: true
+                            });
+                            return
+                        }
+                        if (response.lists.length <= 0) {
+                            // 如果内容长度小于等于0，弹出无数据提示
+                            getApp().methods.handleError({
+                                err: null,
+                                title: "出错啦",
+                                content: '没有查询到活动配置',
+                                reLaunch: true
+                            });
+                            return
+                        }
+                        // 保存活动配置
+                        _this.setData({
+                            CRMEFSID: response.lists[0].CRMEFSID,
+                            imageUrl: response.lists[0].imageUrl,
+                            shareImages: response.lists[0].shareImages,
+                            successimageUrl:response.lists[0].successimageUrl,
+                        
+                        })
+                 
+                    } catch (err) { //捕获错误并报错
+                        wx.hideLoading(); // 隐藏 loading
+                        getApp().methods.handleError({
+                            err,
+                            title: "出错啦",
+                            content: '查询失败',
+                            reLaunch: true
+                        });
+                    }
+                },
+                fail: err => { //获取失败后提示
+                    wx.hideLoading(); // 隐藏 loading
+                    getApp().methods.handleError({
+                        err: err,
+                        title: "出错啦",
+                        content: '查询失败',
+                        reLaunch: true
+                    });
+                }
+            });
+        }).catch(err => {
+            wx.hideLoading(); // 隐藏 loading
+            getApp().methods.handleError({
+                err: err,
+                title: "出错啦",
+                content: '获取后缀失败',
+                reLaunch: true
+            });
+        });
     },
-
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
