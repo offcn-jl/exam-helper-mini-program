@@ -27,24 +27,17 @@
 		<view class="result_item" bindtap="showmore"   data-index="{{index}}">
 	
 			<text class="result_code">{{item.item03}}</text>
-			<view class="result_detail"><label>报名成功人数:</label><text>{{item.item06}}</text></view>
-			<!-- 可收放数据代码 -->
-			<view class="item_group">
-				<view class="item-group-wrap {{showIndex == index ? 'active' : ''}}">
-				    <view class="item_line"><label>地    区：</label><text>{{item.item01}}</text>
-					<view class="item_line"><label>部门名称：</label><text>{{item.item02}}</text></view>
-					<view class="item_line"><label>职位名称：</label><text>{{item.item03}}</text></view>
-					<view class="item_line"><label>招考人数：</label><text>{{item.item04}}</text></view>
-					<view class="item_line"><label>信息审核通过</label><text>{{item.item05}}</text></view>
-					<view class="item_line"><label>报名成功人数：</label><text>{{item.item06}}</text></view>
-				
-					
-			    </view>
-				</view>
-                 <!-- 上下显示箭头 -->
-               <view class="jiantou">
+            <view class="result_detail"><label>待审查人数</label><text>{{item.item05}}</text></view>
+			<view class="result_detail"><label>审查通过人数:</label><text>{{item.item06}}</text></view>
+			<view class="item_line"><label>地    区：</label><text>{{item.item01}}</text>
+			<view class="item_line"><label>部门名称：</label><text>{{item.item02}}</text></view>
+		    <view class="item_line"><label>职位名称：</label><text>{{item.item03}}</text></view>
+			<view class="item_line"><label>招考人数：</label><text>{{item.item04}}</text></view>
+
+
+               <!-- <view class="jiantou">
 				<image src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/zh/yhqz/more.png" class='{{showIndex==index? "" : "active"}}'></image>
-			   </view>
+			   </view> -->
 			</view>
 		</view>
    </block> 
