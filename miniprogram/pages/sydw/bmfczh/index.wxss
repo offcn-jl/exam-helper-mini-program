@@ -1,0 +1,90 @@
+/* pages/sydw/syxcjwt/index.wxss */
+
+
+@import"../../wdxt/style.wxss";
+
+
+.select_wrap {
+    position: absolute;
+    top: 800rpx;
+    left:50rpx;
+    width:650rpx;
+    background: #e6bd74;
+    overflow: hidden;
+    padding: 50rpx;
+}
+
+.select_wrap span{ font-size: 36rpx; line-height: 70rpx; font-weight: bold;padding-left:5rpx;}
+.offcn_item {
+    width: 550rpx;
+    height: 90rpx;
+    margin: 0 auto 40rpx;
+
+}
+.inputnr{
+
+    margin: 0 auto;
+    line-height:60rpx;
+    background-color: aliceblue;
+    margin-bottom: 50rpx;
+    font-size: 0.26rex;
+    padding:20rpx;
+    border-radius: 5rpx;
+}
+
+.search_btn {
+    background-color: #7c101f;
+    color: #fff;
+}
+
+
+.suffix{margin-top: -100rpx; color:#666;}
+
+.item_group {
+    width: 100%;
+    padding-top: 20rpx;
+}
+
+.item-group-wrap {
+    max-height: 0;
+    transition: all 1s;
+    overflow: hidden;
+}
+
+.item-group-wrap.active {
+    max-height: 3000rpx;
+    transition: all 1s;
+    overflow: hidden;
+}
+
+.item_group .item_line {
+    justify-content: flex-start;
+    margin-bottom: 14rpx;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-size: 36rpx;
+    line-height: 60rpx;
+}
+
+.item_group .item_line label {
+    color: #969799;
+    display: inline-block;
+    margin-right: 10rpx;
+    /* 文本两端对齐 */
+    text-align-last: justify;
+    width: 200rpx;
+}
+
+
+
+
+.item_group .item_line text {
+    color: #46504f;
+    display: inline-block;
+}
+
+
+
+.item_group .item_line text{
+    text-indent: 2.5rem;
+}

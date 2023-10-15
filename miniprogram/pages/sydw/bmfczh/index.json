@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "select-search": "/components/select/select-search"
+  }
+}

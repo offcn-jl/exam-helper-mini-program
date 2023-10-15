@@ -1,0 +1,23 @@
+<!--pages/sydw/syxcjwt/index.wxml-->
+<view style=" background:{{backgroundColor}};min-height: 100vh;">
+    <image mode="widthFix" src="{{imageUrl}}" class="banner_bk w100"></image>
+    <view class="select_wrap">
+     <view  > 
+     <span>笔试分差：</span>  
+     <input class="inputnr" placeholder="请输入您与对手的分差" type="digit" bindinput='getInputValue' />
+     </view>
+     <view wx:if="{{zhuifen}}" > 
+      <span>面试需追分：</span>  
+      <input class="inputnr" placeholder="{{zhuifen}}" type="digit" value="{{zhuifen}}"  	disabled/>
+     </view>
+        
+        <view class='offcn_item btn' >
+            <button wx:if="{{!phone}}" class="search_btn" bindtap="SSOCheckManual">登录后查询</button>
+            <button wx:else class="search_btn" bindtap="search">点击查询</button>
+        </view>
+    </view>
+
+
+    <!-- 后缀 -->
+    <view class="suffix">{{suffixStr}}</view>
+</view>
