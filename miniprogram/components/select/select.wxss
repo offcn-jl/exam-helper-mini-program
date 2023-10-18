@@ -20,7 +20,7 @@
 }
 
 .icon_title {
-  display: inblock;
+  display: inline-block;
   font-size:45rpx;
   padding-left: 20rpx;
   color: #999;

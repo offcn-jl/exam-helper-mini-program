@@ -27,7 +27,7 @@
   padding: 0 20rpx 0 30rpx;
 }
 
-.search_wrap input {
+.search_wrap_ipnut{
   display: inline-block;
   width: 500rpx;
   line-height: 80rpx;

@@ -10,7 +10,7 @@
       <image src='images/ss-colose.png'  class='select_close' bindtap='hideDetail'></image>
       <view class="search_wrap">
          <text class="iconfont icon-search" ></text>
-         <input type="text" bindinput='searchList' placeholder="{{placeholder}}"></input>
+         <input class="search_wrap_ipnut" type="text" bindinput='searchList' placeholder="{{placeholder}}"></input>
       </view> 
       <scroll-view scroll-y="true"  class="my_scroll">
         <view wx:for="{{currentOptions}}" data-index="{{index}}" wx:key='index' class="select_item" bindtap='setText'>{{item}}</view>

@@ -27,7 +27,7 @@
     line-height:60rpx;
     background-color: aliceblue;
     margin-bottom: 50rpx;
-    font-size: 0.26rex;
+    font-size: 28rpx;
     padding:20rpx;
     border-radius: 5rpx;
 }
