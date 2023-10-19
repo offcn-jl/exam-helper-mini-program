@@ -5,7 +5,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-        title:"2024国考活动",
+        title:"",
         imageUrl: "", // 背景图片
         successimageUrl:"",
         shareImages: "", // 分享时显示的图片
@@ -192,11 +192,13 @@ Page({
                         }
                         // 保存活动配置
                         _this.setData({
+                          
                             actid: options.actid,
                             CRMEFSID: response.lists[0].CRMEFSID,
                             imageUrl: response.lists[0].imageUrl,
                             shareImages: response.lists[0].shareImages,
                             successimageUrl:response.lists[0].successimageUrl,
+                            title:response.lists[0].title
                         
                         })
                  
