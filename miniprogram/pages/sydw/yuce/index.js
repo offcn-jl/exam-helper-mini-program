@@ -10,7 +10,7 @@ Page({
         successimageUrl:"",
         shareImages: "", // 分享时显示的图片
         CRMEFSID: "", // CRM 活动表单 ID
-        actid: "54022", //zg99id
+        actid: "", //zg99id
         gradeValue: 0, // 成绩
 
         suffix: {}, // 后缀
@@ -163,7 +163,7 @@ Page({
             wx.request({
                 url: "https://zg99.offcn.com/index/chaxun/getfylist",
                 data: {
-                    actid: _this.data.actid,
+                    actid:options.actid,
                     tabnum: "1",
                     sstime: new Date().valueOf()
                 },
@@ -192,6 +192,7 @@ Page({
                         }
                         // 保存活动配置
                         _this.setData({
+                            actid: options.actid,
                             CRMEFSID: response.lists[0].CRMEFSID,
                             imageUrl: response.lists[0].imageUrl,
                             shareImages: response.lists[0].shareImages,
