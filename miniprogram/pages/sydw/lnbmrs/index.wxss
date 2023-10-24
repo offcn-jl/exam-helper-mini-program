@@ -89,7 +89,7 @@
     overflow: hidden;
 }
 
-.item_group .item_line {
+.item_line {
     justify-content: flex-start;
     margin-bottom: 14rpx;
     flex-direction: row;
@@ -98,8 +98,8 @@
     line-height: 60rpx;
 }
 
-.item_group .item_line label {
-    color: #969799;
+.item_line label {
+    color: #c30014;
     display: inline-block;
     margin-right: 10rpx;
     /* 文本两端对齐 */

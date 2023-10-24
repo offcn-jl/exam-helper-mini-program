@@ -12,13 +12,16 @@ Page({
         CRMRemark: "", // CRM 注释  长春事业单位报名人数
         actid: "", //zg99id  
         backgroundColor: "",
-        version: "",
 
         dwList: [],
         dwValue: '',
 
         gwList: [],
         gwValue: '',
+
+        // 列表展示配置
+        listTitle: [], // 标题
+        listContent: [], // 内容
 
         suffix: {}, // 后缀
         suffixStr: "", // 后缀 字符串
@@ -55,7 +58,7 @@ Page({
                         // 现将之前内容清空
                         const gwList = []
 
-               
+
                         // 将数据添加到已清空的列表中
                         for (var i = 0; i < response.lists.length; i++) {
 
@@ -78,10 +81,10 @@ Page({
                     }
                 })
                 break
-         
+
             case "gw": //岗位
                 _this.setData({
-                    gwValue:e.detail.text
+                    gwValue: e.detail.text
                 })
 
         }
@@ -115,11 +118,14 @@ Page({
     //查询
     search() {
         let _this = this //作用域 
-        if(!_this.data.dwValue){
-            wx.showToast({title: '请输入单位名称',icon: 'error'})
+        if (!_this.data.dwValue) {
+            wx.showToast({
+                title: '请输入单位名称',
+                icon: 'error'
+            })
             return
         }
-      
+
         wx.showLoading({
             title: '查询中...',
             mask: true
@@ -157,9 +163,9 @@ Page({
 
                     const result = [];
                     if (list.lists) {
-                        list.lists.forEach(valueList=>{
+                        list.lists.forEach(valueList => {
                             let same = false;
-                            result.forEach(valueResult=>{
+                            result.forEach(valueResult => {
                                 if (valueList.item07 == valueResult.item07) {
                                     same = true;
                                 }
@@ -169,7 +175,7 @@ Page({
                             }
                         })
                     }
-                    result.forEach(valueResult=>{
+                    result.forEach(valueResult => {
                         if (valueResult.item07 == 0) {
                             valueResult.item07 = '暂无';
                         }
@@ -211,15 +217,7 @@ Page({
      */
     onLoad: function (options) {
         //console.log(options);
-        if (!options.version) {
-            getApp().methods.handleError({
-                err: null,
-                title: "出错啦",
-                content: '缺少版本号',
-                reLaunch: true
-            });
-            return
-        }
+       
         if (!options.actid) {
             getApp().methods.handleError({
                 err: null,
@@ -241,7 +239,6 @@ Page({
                 url: "https://zg99.offcn.com/index/chaxun/getfylist",
                 data: {
                     actid: options.actid,
-                    version: options.version,
                     tabnum: "100",
                     sstime: new Date().valueOf()
                 },
@@ -270,14 +267,15 @@ Page({
                         }
                         // 保存活动配置
                         _this.setData({
-                            version: options.version,
                             actid: options.actid,
                             CRMEFSID: response.lists[0].CRMEFSID,
                             imageUrl: response.lists[0].imageUrl,
                             title: response.lists[0].title,
                             shareImages: response.lists[0].shareImages,
                             backgroundColor: response.lists[0].backgroundColor,
-                            CRMRemark: `报名人数，${response.lists[0].title}，${options.version}`
+                            CRMRemark: `报名人数，${response.lists[0].title}`,
+                            listTitle: response.lists[0].listTitle.split(',').map(item=>{return {name: item.split('|')[0], itemName: item.split('|')[1]}}),
+                            listContent: response.lists[0].listContent.split(',').map(item=>{return {name: item.split('|')[0], itemName: item.split('|')[1]}})
                         })
                         // 获取一级联动数据
                         wx.request({

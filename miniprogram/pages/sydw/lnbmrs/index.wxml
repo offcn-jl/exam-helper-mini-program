@@ -1,0 +1,47 @@
+<!--pages/wdxt/lnfs-cc/index.wxml-->
+
+<view style=" background:{{backgroundColor}};min-height: 100vh;">
+    <image mode="widthFix" src="{{imageUrl}}" class="banner_bk w100"></image>
+    <view class="container">
+        <view class="select_wrap">
+
+
+            <view class='offcn_item' wx:if="{{dwList.length > 0}}">
+                <select-search options='{{dwList}}' icon="icon-icon1" text="单位" type="dw" bind:m_selectSearch_touch="m_select_touch"></select-search>
+            </view>
+
+            <view class='offcn_item' wx:if="{{gwList.length > 0}}">
+                <select-search options='{{gwList}}' icon="icon-home" text="岗位" type="gw" bind:m_selectSearch_touch="m_select_touch"></select-search>
+            </view>
+
+
+            <view class='offcn_item btn'>
+
+                <button wx:if="{{!phone}}" class="search_btn" bindtap="SSOCheckManual">点击查询</button>
+                <button wx:else class="search_btn" bindtap="search">点击查询</button>
+            </view>
+        </view>
+
+        <view class="resultWrap">
+            <block wx:for="{{result}}" wx:key="index">
+                <view class="result_item" bindtap="showmore" data-index="{{index}}">
+                    <view class="result_detail">{{item[listTitle[0].itemName]}}</view>
+              
+                     
+                    <view class="item_line" wx:for="{{listContent}}" wx:for-item="item1">
+                    <label>{{item1.name}}：</label>
+                    <text>{{item[item1.itemName]}}</text>
+                    </view>
+                    
+            
+                </view>
+            
+            </block>
+
+
+            <view wx:if="{{result.length>0&&result.length<count}}" style="color:gray;text-align: center;">下拉页面可刷新数据</view>
+            <view style="color:gray;text-align: center;font-size: 80%;margin-top: 50rpx;">{{suffixStr}}</view>
+        </view>
+
+    </view>
+</view>
