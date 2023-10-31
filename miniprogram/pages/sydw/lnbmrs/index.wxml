@@ -14,6 +14,9 @@
                 <select-search options='{{gwList}}' icon="icon-home" text="岗位" type="gw" bind:m_selectSearch_touch="m_select_touch"></select-search>
             </view>
 
+            <view class='offcn_item' wx:if="{{gwdmList.length > 0}}">
+                <select-search options='{{gwsmList}}' icon="icon-home" text="岗位代码" type="gwdm" bind:m_selectSearch_touch="m_select_touch"></select-search>
+            </view>
 
             <view class='offcn_item btn'>
 

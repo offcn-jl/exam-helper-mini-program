@@ -49,7 +49,7 @@ Page({
                     url: "https://zg99.offcn.com/index/chaxun/getlevel?actid=" + _this.data.actid, //路径
                     data: {
                         level: '2',
-                        grfiled: 'item02',
+                        grfiled: 'item01',
                         grtext: e.detail.text,
                         sstime: new Date().valueOf()
                     }, //二级联动，上级联动字段名，上级联动参数值
@@ -62,7 +62,7 @@ Page({
                         // 将数据添加到已清空的列表中
                         for (var i = 0; i < response.lists.length; i++) {
 
-                            gwList.push(response.lists[i].item03)
+                            gwList.push(response.lists[i].item02)
                         }
                         _this.setData({
                             gwList
@@ -133,8 +133,8 @@ Page({
         wx.request({
             url: "https://zg99.offcn.com/index/chaxun/getfzinfo?actid=" + _this.data.actid,
             data: {
-                item02: this.data.dwValue,
-                item03: this.data.gwValue,
+                item01: this.data.dwValue,
+                item02: this.data.gwValue,
                 tabnum: 2,
                 limits: 200,
                 page: this.data.page,
@@ -166,7 +166,7 @@ Page({
                         list.lists.forEach(valueList => {
                             let same = false;
                             result.forEach(valueResult => {
-                                if (valueList.item07 == valueResult.item07) {
+                                if (valueList.item03 == valueResult.item03) {
                                     same = true;
                                 }
                             });
@@ -310,7 +310,7 @@ Page({
                                     // 录入问题，不用提前清空，因为只进行一次获取
                                     const dwList = [];
                                     for (var i = 0; i < list.lists.length; i++) {
-                                        dwList.push(list.lists[i].item02)
+                                        dwList.push(list.lists[i].item01)
 
                                     }
                                     _this.setData({
