@@ -1,12 +1,12 @@
 Page({
   data: {
-    title:"2023吉林省公务员考试专业分类查询系统",// 标题
+    title:"2024吉林省公务员考试专业分类查询系统",// 标题
     banner_bk:"https://jl.offcn.com/zt/ty/images/sk/2023/zyfl/index.jpg",// 背景图片
     imageUrl:"https://jl.offcn.com/zt/ty/images/sk/2023/zyfl/share.jpg",// 分享时显示的图片
-    CRMEFSID: "f170a936bb5d641430b081727d760bb3", // CRM 活动表单 ID
-    CRMRemark: "2023省考专业分类", // CRM 注释
+    CRMEFSID: "e3a375a1b98ac87f80f96df2a536be85", // CRM 活动表单 ID
+    CRMRemark: "2024省考专业分类", // CRM 注释
 
-    actid:"41667", //zg99id  小程序-2022专业分类查询系统	
+    actid:"41667", //zg99id  小程序-专业分类查询系统	
 
     zylbList: [],//专业类别
     zylbValue: '', //专业类别
