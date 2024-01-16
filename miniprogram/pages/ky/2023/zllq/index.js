@@ -13,77 +13,77 @@ Page({
             },
             {
               "type": "考研复试英语资料汇总",
-              "name": "2023-考研30所院校口语真题集锦",
+              "name": "2024-考研30所院校口语真题集锦",
               "link": "https://static.kaoyan365.cn/production/book/doc/1673446016302-038c98ea-e49c-42df-81de-97e831ddfdab.pdf"
             },
             {
               "type": "考研复试英语资料汇总",
-              "name": "2023-考研复试英语口试要求",
+              "name": "2024-考研复试英语口试要求",
               "link": "https://static.kaoyan365.cn/production/book/doc/1673446113999-868937e4-ae88-48eb-833c-b98d329fde9d.pdf"
             },
             {
               "type": "考研复试英语资料汇总",
-              "name": "2023-考研复试英语口语面试经典60问",
+              "name": "2024-考研复试英语口语面试经典60问",
               "link": "https://static.kaoyan365.cn/production/book/doc/1673446257827-02646484-0b9d-40b9-8365-f5f32955182c.pdf"
             },
             {
               "type": "考研复试英语资料汇总",
-              "name": "2023-考研复试英语口语模板",
+              "name": "2024-考研复试英语口语模板",
               "link": "https://static.kaoyan365.cn/production/book/doc/1673446342802-e55f3d93-629c-4481-866d-b09069a2442d.pdf"
             },
             {
               "type": "考研复试英语资料汇总",
-              "name": "2023-考研复试英语礼貌用语",
+              "name": "2024-考研复试英语礼貌用语",
               "link": "https://static.kaoyan365.cn/production/book/doc/1673446490211-80a06936-435a-4aaa-9f8c-3e2986b64ef0.pdf"
             },
             {
               "type": "考研复试英语资料汇总",
-              "name": "2023-考研复试英语自我介绍范文10篇",
+              "name": "2024-考研复试英语自我介绍范文10篇",
               "link": "https://static.kaoyan365.cn/production/book/doc/1673446572470-28595e25-7dfc-4ece-ac5b-bf8b160f9844.pdf"
             },
             {
               "type": "考研复试英语资料汇总",
-              "name": "2023-英语口语常见问题及答案100句",
+              "name": "2024-英语口语常见问题及答案100句",
               "link": "https://static.kaoyan365.cn/production/book/doc/1673446636912-d0e685ae-c8ed-4887-991d-ab0573e44a0d.pdf"
             },
             {
               "type": "考研复试英语资料汇总",
-              "name": "2023-英语口语-考目标院校的原因",
+              "name": "2024-英语口语-考目标院校的原因",
               "link": "https://static.kaoyan365.cn/production/book/doc/1673446670452-b49b0eb8-081b-421b-a603-f4765e2efec8.pdf"
             },
             {
               "type": "考研复试英语资料汇总",
-              "name": "2023-英语口语-热点话题类面试题型",
+              "name": "2024-英语口语-热点话题类面试题型",
               "link": "https://static.kaoyan365.cn/production/book/doc/1673446713234-f6481b77-e320-4f4d-8088-d59acda456a5.pdf"
             },
             {
               "type": "考研复试英语资料汇总",
-              "name": "2023-英语自我介绍范文20篇",
+              "name": "2024-英语自我介绍范文20篇",
               "link": "https://static.kaoyan365.cn/production/book/doc/1673446752344-10a5eb4e-e0dc-4f70-a5b8-ac97cf62e9a7.pdf"
             },
             {
               "type": "综面考题",
-              "name": "2023考研7种方法帮你克服考研复试面试",
+              "name": "2024考研7种方法帮你克服考研复试面试",
               "link": "https://static.kaoyan365.cn/production/book/doc/1673446825996-ea0c8b6e-707b-4c72-a19d-4c6e70ca4287.pdf"
             },
             {
               "type": "综面考题",
-              "name": "2023考研复试的开放性问题如何应对？",
+              "name": "2024考研复试的开放性问题如何应对？",
               "link": "https://static.kaoyan365.cn/production/book/doc/1673446870097-c4f75390-6416-4a1e-80c1-6630887eac54.pdf"
             },
             {
               "type": "综面考题",
-              "name": "2023考研复试面试陷阱，你能避开几个？",
+              "name": "2024考研复试面试陷阱，你能避开几个？",
               "link": "https://static.kaoyan365.cn/production/book/doc/1673446961428-413ae888-96c3-4685-9764-8647c63970ab.pdf"
             },
             {
               "type": "综面考题",
-              "name": "2023考研复试如何联系导师",
+              "name": "2024考研复试如何联系导师",
               "link": "https://static.kaoyan365.cn/production/book/doc/1673447009365-9aab9e09-8723-4476-9a7c-4363e8d61955.pdf"
             },
             {
               "type": "综面考题",
-              "name": "2023考研专业课复试笔试会考什么？",
+              "name": "2024考研专业课复试笔试会考什么？",
               "link": "https://static.kaoyan365.cn/production/book/doc/1673447094351-18a1f865-b3a0-48d9-8cb0-481306cb1f3c.pdf"
             },
             {
