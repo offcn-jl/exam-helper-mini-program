@@ -6,6 +6,7 @@
 page{
     background:#000 ;
 }
+.dingw{position: absolute; bottom: 5%;}
 .banner_bk {
 
     width: 100vw;

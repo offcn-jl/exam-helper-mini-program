@@ -21,4 +21,4 @@
     <image  wx:else mode="widthFix" src="{{successimageUrl}}"   class="banner_bk "></image>
 
 <!-- 后缀 -->
-<view>{{suffixStr}}</view>
+<view class="dingw">{{suffixStr}}</view>
