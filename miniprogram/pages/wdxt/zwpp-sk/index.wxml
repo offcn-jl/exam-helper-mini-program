@@ -1,0 +1,50 @@
+<!--pages/wdxt/lnfs-cc/index.wxml-->
+
+<view style=" background:{{backgroundColor}};min-height: 100vh;">
+    <view class="tit">{{title}}</view>
+    <image mode="widthFix" src="{{imageUrl}}" class="banner_bk w100"></image>
+    <view class="container">
+        <view class="select_wrap">
+            <view class='offcn_item' wx:if="{{ageList.length > 0}}">
+                <select options='{{ageList}}' icon="icon-lianwangdanwei" text="政治面貌" type="age" bind:m_select_touch="m_select_touch"></select>
+            </view>
+
+            <view class='offcn_item' wx:if="{{educationList.length > 0}}">
+                <select options='{{educationList}}' icon="icon-danwei" text="学历" type="education" bind:m_select_touch="m_select_touch"></select>
+
+            </view>
+
+            <view class='offcn_item' wx:if="{{professionalList.length > 0}}">
+                <select-search options='{{professionalList}}' icon="icon-renshizhuanye" text="专业" type="professional" bind:m_selectSearch_touch="m_select_touch"></select-search>
+            </view>
+
+
+            <view class='offcn_item btn'>
+                <button wx:if="{{!phone}}" class="search_btn" bindtap="SSOCheckManual">点击查询</button>
+                <button wx:else class="search_btn" bindtap="search">点击查询</button>
+            </view>
+        </view>
+
+        <view class="resultWrap">
+            <block wx:for="{{result}}" wx:key="index">
+                <view class="result_item" bindtap="showmore" data-index="{{index}}">
+                    <text class="result_code">{{item[listTitle[0].itemName]}}</text>
+                    <view class="result_detail">{{item[listTitle[1].itemName]}}</view>
+                    <!-- 可收放数据代码 -->
+                    <view class="item_group">
+                        <view class="item-group-wrap {{showIndex == index ? 'active' : ''}}">
+                            <view class="item_line" wx:for="{{listContent}}" wx:for-item="item1"><label>{{item1.name}}：</label><text>{{item[item1.itemName]}}</text></view>
+                        </view>
+                        <!-- 上下显示箭头 -->
+                        <view class="jiantou">
+                            <image src="http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/zh/yhqz/more.png" class='{{showIndex==index? "" : "active"}}'></image>
+                        </view>
+                    </view>
+                </view>
+            </block>
+            <view wx:if="{{result.length>0&&result.length<count}}" style="color:gray;text-align: center;">下拉页面可刷新数据</view>
+            <view style="color:gray;text-align: center;font-size: 80%;margin-top: 50rpx;">{{suffixStr}}</view>
+        </view>
+
+    </view>
+</view>
