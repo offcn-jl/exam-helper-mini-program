@@ -1,10 +1,10 @@
 Page({
   data: {
     title:"吉林省特岗教师历年上岗分数线查询系统",// 标题
-    banner_bk:"https://jl.offcn.com/zt/ty/2023images/exam-helper-mini/tgjssgfs.jpg",// 背景图片
-    imageUrl:"https://jl.offcn.com/zt/ty/2023images/exam-helper-mini/tgjssgfs-share.jpg",// 分享时显示的图片
-    CRMEFSID: "fd46141a22275e6c8f0fc32d3ca1b750", // CRM 活动表单 ID
-    CRMRemark: "HD202304180161/155068", // CRM 注释  小程序-2023年吉林省特岗教师历年上岗分数线查询系统
+    banner_bk:"https://jl.offcn.com/zt/ty/2023images/exam-helper-mini/2024tgjsfsx.jpg",// 背景图片
+    imageUrl:"https://jl.offcn.com/zt/ty/2023images/exam-helper-mini/2024tgjsfsx-share.jpg",// 分享时显示的图片
+    CRMEFSID: "e654013a798db2876d173cb36ddbe1aa", // CRM 活动表单 ID
+    CRMRemark: "HD202403070165", // CRM 注释  小程序-2023年吉林省特岗教师历年上岗分数线查询系统
     actid:"47284", //zg99id
 
     yearList: [],  //年份
