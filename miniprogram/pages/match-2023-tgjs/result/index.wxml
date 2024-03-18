@@ -1,0 +1,41 @@
+<navigation id='navigation' title="查询结果" hide-icon="{{true}}"></navigation>
+
+<!-- http://jl.offcn.com/zg/ty/images/exam-helper-mini-program/position/2020/jr/header.result.1112.jpg -->
+<image mode="widthFix" src="" class="banner_bk"></image>
+
+<view class="title">查询结果</view>
+
+<view class="my_tip">
+	<text>非精准匹配，尽量覆盖您可能可报的职位\n如对能否报名有疑虑，请务必致电咨询招考单位！</text>
+</view>
+
+<view class="result_num">
+	<!-- fixme -->
+	<text class="result_nux">共 {{zcounts}} 条结果</text>
+	<!-- fixme -->
+	<navigator url="../index?{{suffixStr}}">
+		<button class="change_btn">修改条件</button>
+	</navigator>
+</view>
+
+<view class="resultWrap">
+	<block wx:for="{{result}}" wx:key="index">
+		<view class="result_item" bindtap="more" data-index="{{index}}">
+			<text class="result_code">{{item.city}}-{{item.county}}-{{item.stage}}-{{item.subject}}</text>
+			<view class="result_detail"><label>人数：</label><text>{{item.people?item.people:"-"}}</text></view>
+			<view class="item_group">
+				<!-- 可收放数据代码 -->
+				<view class="item-group-wrap {{showId == index ? 'active' : ''}}">
+					<view class="item_line"><label>计划：</label><text>{{item.plan?item.plan:'-'}}</text></view>
+					<view class="item_line"><label>可申报专业：</label><text>{{item.major?item.major:'-'}}</text></view>
+					<view class="item_line"><label>备注：</label><text>{{item.remarks?item.remarks:'-'}}</text></view>
+				</view>
+				<!-- 上下显示箭头 -->
+				<view class="jiantou">
+					<image src="http://jl.offcn.com/zt/ty/2021images/exam-helper/jiantou.png" class='{{showId==index? "" : "active"}}'></image>
+				</view>
+			</view>
+			<button class="add_btn">{{item.year}}</button>
+		</view>
+	</block>
+</view>
