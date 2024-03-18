@@ -3,9 +3,9 @@ const app = getApp()
 Page({
   data: {
     title:"吉林特岗历年职位检索系统",// 标题  
-    imageUrl:"http://news01.offcn.com/jl/2021/1220/20211220014331327.jpg",// 分享时显示的图片
-    superiorLink:"/pages/match-2022-tgjs/index", //上级链接
-    actid:"45167", //zg99id  和前面的不是一个zg99id了
+    imageUrl:"https://jl.offcn.com/zt/ty/2023images/exam-helper-mini/2023tgjs-share.jpg",// 分享时显示的图片
+    superiorLink:"/pages/match-2023-tgjs/index", //上级链接
+    actid:"54727", //zg99id  和前面的不是一个zg99id了
 
     suffixStr: "", // 后缀
     showId: 0, // 当前显示的元素的 ID
