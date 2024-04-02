@@ -21,7 +21,7 @@
     "pages/sydw/2023/subscribe/index",
 
     "pages/sydw/shaifmb/index",
-    
+    "pages/sydw/shaifmb-sk/index",
     "pages/sydw/yuce/index",
     "pages/sydw/2022/bs/shaif/index", 
     "pages/sydw/2022/cc/shaif/index", 
@@ -223,7 +223,7 @@
   "style": "v2",
   "plugins": {
     "contactPlugin": {
-      "version": "1.4.5",
+      "version": "1.4.7",
       "provider": "wx104a1a20c3f81ec2"
     }
   },
