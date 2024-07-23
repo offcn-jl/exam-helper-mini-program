@@ -4,7 +4,12 @@
     <image mode="widthFix" src="{{imageUrl}}" class="banner_bk w100"></image>
     <view class="container">
         <view class="select_wrap">
-
+            <view class='offcn_item' wx:if="{{yearList.length > 0}}">
+                <select-search options='{{yearList}}' icon="icon-icon1" text="年份" type="year" bind:m_selectSearch_touch="m_select_touch"></select-search>
+            </view>
+            <view class='offcn_item' wx:if="{{dsList.length > 0}}">
+                <select-search options='{{dsList}}' icon="icon-icon1" text="地市" type="ds" bind:m_selectSearch_touch="m_select_touch"></select-search>
+            </view>
             <view class='offcn_item' wx:if="{{dwList.length > 0}}">
                 <select-search options='{{dwList}}' icon="icon-icon1" text="学段" type="dw" bind:m_selectSearch_touch="m_select_touch"></select-search>
             </view>

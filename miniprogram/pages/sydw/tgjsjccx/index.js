@@ -13,6 +13,12 @@ Page({
         actid: "", //zg99id  
         backgroundColor: "",
 
+        yearList: [],
+        yearValue: '',
+
+        dsList: [],
+        dsValue: '',
+
         dwList: [],
         dwValue: '',
 
@@ -37,6 +43,97 @@ Page({
     m_select_touch(e) {
         var _this = this
         switch (e.detail.type) {
+            case "year": //年份
+            _this.setData({
+                yearValue: e.detail.text,
+                dsList: [],
+
+            })
+
+            // zg99二级联动
+            wx.request({
+                url: "https://zg99.offcn.com/index/chaxun/getlevel?actid=" + _this.data.actid, //路径
+                data: {
+                    level: '2',
+                    grfiled: 'item01',
+                    grtext: e.detail.text,
+                    sstime: new Date().valueOf()
+                }, //二级联动，上级联动字段名，上级联动参数值
+                success(res) {
+                    let response = JSON.parse(res.data.substring(1, res.data.length - 1)); //去头尾（）,转为json对象
+                    // 现将之前内容清空
+                    const List = []
+
+
+                    // 将数据添加到已清空的列表中
+                    for (var i = 0; i < response.lists.length; i++) {
+
+                        List.push(response.lists[i].item02)
+                    }
+                    _this.setData({
+                        dsList:List 
+                    })
+
+
+                },
+                fail: err => { //获取失败后提示
+                    wx.hideLoading() // 隐藏 loading
+                    getApp().methods.handleError({
+                        err: err,
+                        title: "出错啦",
+                        content: '查询失败',
+                        reLaunch: true
+                    })
+                }
+            })
+            break
+
+            case "ds": //地市
+            _this.setData({
+                dsValue: e.detail.text,
+                dwList: [],
+
+            })
+
+            // zg99二级联动
+            wx.request({
+                url: "https://zg99.offcn.com/index/chaxun/getlevel?actid=" + _this.data.actid, //路径
+                data: {
+                    level: '3',
+                    grfiled: 'item02',
+                    grtext: e.detail.text,
+                    sstime: new Date().valueOf()
+                }, //二级联动，上级联动字段名，上级联动参数值
+                success(res) {
+                    let response = JSON.parse(res.data.substring(1, res.data.length - 1)); //去头尾（）,转为json对象
+                    // 现将之前内容清空
+                    const List = []
+
+
+                    // 将数据添加到已清空的列表中
+                    for (var i = 0; i < response.lists.length; i++) {
+
+                        List.push(response.lists[i].item03)
+                    }
+                    _this.setData({
+                        dwList:List 
+                    })
+
+
+                },
+                fail: err => { //获取失败后提示
+                    wx.hideLoading() // 隐藏 loading
+                    getApp().methods.handleError({
+                        err: err,
+                        title: "出错啦",
+                        content: '查询失败',
+                        reLaunch: true
+                    })
+                }
+            })
+            break
+
+
             case "dw": //单位
                 _this.setData({
                     dwValue: e.detail.text,
@@ -48,24 +145,24 @@ Page({
                 wx.request({
                     url: "https://zg99.offcn.com/index/chaxun/getlevel?actid=" + _this.data.actid, //路径
                     data: {
-                        level: '2',
-                        grfiled: 'item01',
+                        level: '4',
+                        grfiled: 'item03',
                         grtext: e.detail.text,
                         sstime: new Date().valueOf()
                     }, //二级联动，上级联动字段名，上级联动参数值
                     success(res) {
                         let response = JSON.parse(res.data.substring(1, res.data.length - 1)); //去头尾（）,转为json对象
                         // 现将之前内容清空
-                        const gwList = []
+                        const List = []
 
 
                         // 将数据添加到已清空的列表中
                         for (var i = 0; i < response.lists.length; i++) {
 
-                            gwList.push(response.lists[i].item02)
+                            List.push(response.lists[i].item04)
                         }
                         _this.setData({
-                            gwList
+                            gwList:List 
                         })
 
 
@@ -118,9 +215,24 @@ Page({
     //查询
     search() {
         let _this = this //作用域 
+        if (!_this.data.yearValue) {
+            wx.showToast({
+                title: '请输入年份',
+                icon: 'error'
+            })
+            return
+        }
+
+        if (!_this.data.dsValue) {
+            wx.showToast({
+                title: '请输入地市',
+                icon: 'error'
+            })
+            return
+        }
         if (!_this.data.dwValue) {
             wx.showToast({
-                title: '请输入单位名称',
+                title: '请输入单位',
                 icon: 'error'
             })
             return
@@ -133,8 +245,11 @@ Page({
         wx.request({
             url: "https://zg99.offcn.com/index/chaxun/getfzinfo?actid=" + _this.data.actid,
             data: {
-                item01: this.data.dwValue,
-                item02: this.data.gwValue,
+                item01: this.data.yearValue,
+                item02: this.data.dsValue,
+                item03: this.data.dwValue,
+                item04: this.data.gwValue,
+
                 tabnum: 2,
                 limits: 200,
                 page: this.data.page,
@@ -308,13 +423,13 @@ Page({
                                         return
                                     }
                                     // 录入问题，不用提前清空，因为只进行一次获取
-                                    const dwList = [];
+                                    const yearList = [];
                                     for (var i = 0; i < list.lists.length; i++) {
-                                        dwList.push(list.lists[i].item01)
+                                        yearList.push(list.lists[i].item01)
 
                                     }
                                     _this.setData({
-                                        dwList
+                                        yearList
                                     })
                                     // 判断是否是单页模式
                                     if (wx.getLaunchOptionsSync().scene !== 1154) {
@@ -429,7 +544,7 @@ Page({
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function () {
-        if (this.data.dwValue !== "" && this.data.gwValue !== "" && this.data.result.length < this.data.count) {
+        if (this.data.yearValue!== "" && this.data.dsValue!== "" && this.data.dsValue !== "" && this.data.gwValue !== "" && this.data.result.length < this.data.count) {
             this.search();
         }
     },
