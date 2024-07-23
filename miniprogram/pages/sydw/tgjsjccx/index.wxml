@@ -15,7 +15,7 @@
             </view>
 
             <view class='offcn_item' wx:if="{{gwList.length > 0}}">
-                <select-search options='{{gwList}}' icon="icon-home" text="岗位" type="gw" bind:m_selectSearch_touch="m_select_touch"></select-search>
+                <select-search options='{{gwList}}' icon="icon-home" text="学科" type="gw" bind:m_selectSearch_touch="m_select_touch"></select-search>
             </view>
 
        

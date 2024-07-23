@@ -232,7 +232,7 @@ Page({
         }
         if (!_this.data.dwValue) {
             wx.showToast({
-                title: '请输入单位',
+                title: '请输入学段',
                 icon: 'error'
             })
             return
